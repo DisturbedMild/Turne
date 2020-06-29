@@ -1,0 +1,487 @@
+{% macro dropdown(mobile) %}
+    <div class="b-dropdown--filter module b-dropdown m-dropdown jsDropDownOptions" style="display: none;">
+        <div class="b-dropdown--filter-step step-country">
+            <div class="m-dropdown__header step-country">
+                <button class="m-dropdown__back back-icon jsMultiSelectDone"></button>
+                <span class="m-dropdown__title">Куда</span>
+            </div>
+            <div class="m-dropdown__header step-resort" style="display: none">
+                <button class="m-dropdown__back back-icon js-prev-search"></button>
+                <span class="m-dropdown__title">Курорты</span>
+            </div>
+            {% if mobile %}
+                <div class="filter-search step-country">
+                    <svg class="filter-search__icon" width="20" height="20">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#search"></use>
+                    </svg>
+                    <input type="text"
+                           placeholder="Поиск: страна, курорт или отель"
+                           class="input-placeholder-inherit form-control autoHide ui-autocomplete-input"
+                           autocomplete="off">
+                </div>
+            {% endif %}
+
+            <div class="step-country b-dropdown--filter__header">
+                <div class="b-dropdown--filter__title">
+                    Выбрано
+                </div>
+                <div class="display-table reset-list">
+                    <div class="m-left"><span class="filter-tag" cid="11" rid="0" hid="0" data-country-name="Египет">Египет&nbsp;<svg
+                                    class="n-svg-icon" width="24" height="24">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#arrow-close"></use>
+                            </svg>
+                        </span>
+                    </div>
+                    {#<div class="m-right"><span style="white-space: nowrap;"><input type="button" class="btn btn-gray"
+                                                                                   value="Очистить"><input type="button"
+                                                                                                           class="btn btn-gray m-ttu"
+                                                                                                           value="Выбрать"></span>
+                    </div>#}
+                </div>
+            </div>
+            <div class="section-list">
+                <div class="left-list display-table-cell step-country" style="">
+                    <ul>
+                        <li><span class="m-caption">Популярные</span>
+                            <ul>
+                                <li class="jsDropDownItem dd-item active">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Египет</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Турция</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Кипр</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">ОАЭ</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Италия</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Греция</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Испания</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Китай</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Шри-Ланка</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Таиланд (Тайланд)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><span class="m-caption">Остальные</span>
+                            <ul>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Австрия</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Азербайджан</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Албания</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Андорра</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Антигуа</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Аргентина</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Армения</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Аруба</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Багамские острова</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Барбадос</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Беларусь</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Бельгия</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Болгария</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Бразилия</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Великобритания</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Венгрия</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Вьетнам</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Германия</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="m-bottom-gr"></div>
+                </div>
+                <div class="right-list display-table-cell step-resort" style="">
+                    <ul>
+                        <li cid="11"><span class="m-caption">Курорты</span>
+                            <ul>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox" checked>
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Все курорты</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Мерса-Матрух</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Макади Бей</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Марса-Алам</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Сафага</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Сома Бей</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Хургада</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Эль Гуна</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Эль-Кусейр</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Дахаб</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Нувейба</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Таба</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Шарм-эль-Шейх</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="center-list display-table-cell m-nus" style="display: none">
+                    <ul id="ui-id-1" tabindex="0"
+                        class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front SearchDropDownList"
+                        style="width: 480px; top: -43px; left: 2px; display: none;">
+
+
+                        <li class="m-caption ui-menu-item">Страны</li>
+                        <li class="jsDropDownItem dd-item active ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner"><b>Еги</b>пет</span>
+                            </label>
+                        </li>
+                        <li class="m-caption ui-menu-item">Курорты</li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Александрия, <b>Еги</b>пет</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Дахаб, <b>Еги</b>пет</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Каир, <b>Еги</b>пет</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Макади Бей, <b>Еги</b>пет</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Марса-Алам, <b>Еги</b>пет</span>
+                            </label>
+                        </li>
+                        <li class="m-caption ui-menu-item">Отели</li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner"><b>Hot</b>el Edelweiss 3* , Аннаберг, Австрия</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Johannesbad <b>Hot</b>el St. Georg 4* , Аннаберг, Австрия</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Jufa <b>Hot</b>el Annaberg Bergerlebnis-Resort 3* , Аннаберг, Австрия</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Starlight Suiten <b>Hot</b>el Renngasse 4* , Аннаберг, Австрия</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Therme Laa - <b>Hot</b>el &amp; Spa (Laa An Der Thaya) 4* , Аннаберг, Австрия</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Tipotsch <b>Hot</b>el (Stumm) 3* , Аннаберг, Австрия</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Baerenhof <b>Hot</b>el 3* , Бад Гастайн, Австрия</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Bristol <b>Hot</b>el 3* , Бад Гастайн, Австрия</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Cesta Grand <b>Hot</b>el (Bad Gastein) 4* , Бад Гастайн, Австрия</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Eden Rock <b>Hot</b>el Bad Gastein 3* , Бад Гастайн, Австрия</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {#<footer>
+                <div class="display-table-cell">
+                    <button class="btn btn-brand btn-brand--orange">Выбрать</button>
+                </div>
+            </footer>#}
+            <div class="town-bottom town-bottom-controls step-resort jsControlPanel">
+                <button class="btn btn-brand btn-brand--orange jsMultiSelectDone">ПРИМЕНИТЬ</button>
+            </div>
+        </div>
+    </div>
+{% endmacro %}

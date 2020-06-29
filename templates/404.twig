@@ -1,0 +1,55 @@
+{% extends "layouts/default.twig" %}
+{% set mobile = "" %}
+{% if mobile %}
+    {% set toggleMobileText = "Полная версия" %}
+    {% set toggleMobileLink = "index.html" %}
+    {% set hotDetailLink = "hot-details-mobile.html" %}
+    {% set excursionDetailLink = "excursion-details-mobile.html" %}
+{% else %}
+    {% set toggleMobileText = "Мобильная версия" %}
+    {% set toggleMobileLink = "home-mobile.html" %}
+    {% set hotDetailLink = "hot-details.html" %}
+    {% set excursionDetailLink = "excursion-details.html" %}
+{% endif %}
+
+{% block searchStyle %}
+
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="css/error.css">
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="b-404 error-page">
+            <div class="error-page__center">
+                <div class="b-code404">404</div>
+                <div>
+                    Cтраница не найдена
+                </div>
+                <div>
+                    Вы можете перейти на <a href="https://www.turne.com.ua">главную</a>
+                </div>
+            </div>
+            <div class="form-section">
+                <div class="form-section__image">
+                    <img src="Images/subscribe-2.png" alt="">
+                </div>
+                <div class="form-section__content">
+                    <div class="form-section__header">
+                        Узнавайте о горящих турах первыми!
+                    </div>
+                    <div class="form-section__text">
+                        Подпишитесь на рассылку. Путешествуйте с Турне.
+                    </div>
+                    {% include "./hot-tours-modules/subscribe-hot-tour-page.twig" %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

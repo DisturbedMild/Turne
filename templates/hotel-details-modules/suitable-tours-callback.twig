@@ -1,0 +1,44 @@
+<section class="suitable-tour suitable-tour-section js-fixed-mobile-order-offset-bottom">
+    {#<div class="container">#}
+    <div class="suitable-tour__content">
+        <div class="suitable-tour__heading">Остались вопросы по туру?</div>
+        <div>Отправьте запрос и менеджер туркомпании поможет вам.</div>
+    </div>
+    <form class="form-callback form-callback--small">
+        <div class="row">
+            {#<div class="form-group col-12 col-md col-xl">
+                <label class="form-callback__label">Отправить запрос в</label>
+                {% set textDropdown = "Киев" %}
+                {% set iconName = "place" %}
+                {% set customDropdownClass = "" %}
+                {% from "../components/custom-dropdown/form-city-dropdown.twig" import dropdown %}
+                {% include "../components/custom-dropdown/custom-dropdown.twig" %}
+                <span class="validation field-validation-valid"><span>Выберите город</span></span>
+            </div>#}
+            <div class="form-group col-12 col-md col-xl">
+
+                    <svg class="form-callback__icon" width="24" height="24">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#user"></use>
+                    </svg>
+
+                <input class="form-callback__input form-control input-placeholder autoHide" type="text"
+                       placeholder="Имя">
+                <span class="validation field-validation-valid"><span class="">Введите имя</span></span>
+            </div>
+            <div class="form-group col-12 col-md col-xl">
+                <svg class="form-callback__icon" width="24" height="24">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                </svg>
+
+                <input class="form-callback__input form-control input-placeholder autoHide" type="tel"
+                       placeholder="Телефон">
+                <span class="validation field-validation-valid"><span class="">Введите номер телефона</span></span>
+            </div>
+            <div class="form-group col-12 col-md col-xl">
+                <input class="btn btn-brand btn-brand--orange callback-btn" type="submit" value="ОТПРАВИТЬ">
+            </div>
+        </div>
+    </form>
+    {#</div>#}
+</section>

@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600,700|Open+Sans:400,600,700&display=swap&subset=cyrillic"
+          rel="stylesheet">
+    <link href="css/bootstrap/bootstrap.css?v=113" rel="stylesheet"/>
+    <link href="css/bootstrap/bootstrap-grid.css?v=113" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.9.2.custom.min.css">
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="css/bundle/global.css?v=113">
+
+        <link href="css/bundle/searchStyle.css?v=113" rel="stylesheet"/>
+
+        <link href="css/search-tours-page.css" rel="stylesheet">
+    <link href="css/tour-country.css" rel="stylesheet">
+    <link href="css/pagination.css" rel="stylesheet">
+
+    <link href="css/dropzone.css" rel="stylesheet">
+
+    <link href="css/reviews-hotels.css" rel="stylesheet">
+
+    <link href="css/bundle/oldGlobal.css?v=113" rel="stylesheet"/>
+
+
+</head>
+<body class="">
+<div class="wrap-content">
+    <div class="header">
+    <div class="header__content">
+                    <div class="header-top">
+    <div class="header-top__content container">
+
+        <div class="header-top__left">
+            <div class="html-block">
+                Подбор тура: <a href="tel:+380678294052">(067) 829-40-52</a>, <a href="tel:+380952357060">(095)
+                    235-70-60</a>, Реклама: <a href="tel:+380955453888">(095) 545-38-88</a>
+            </div>
+            <div class="header-top__callback-wrap">
+                <a href="#" class="header-top__callback jsCallBackShow">
+                    <svg class="svg-icon phone-icon" width="24" height="24">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/communication-icons.svg#phone"></use>
+                    </svg> Перезвоните мне</a>
+                <div class="b-dropdown b-dropdown-callback jsCallBackForm" style="display: none;">
+                    <form action="/common/phonecallbackformsubmit" data-ajax="true" data-ajax-begin="oForms.FormOnBegin"
+                          data-ajax-complete="oForms.FormOnComplete" data-ajax-success="oForms.PhoneCallbackFormOnSuccess"
+                          id="form1" method="post" novalidate="novalidate"><span class="b-dropdown-callback__heading">Введите свой номер телефона:</span>
+
+                        <div class="form-group"><input class="form-control jsMaskedInputPhone" data-val="true"
+                                                       data-val-regex="Неверный формат"
+                                                       data-val-regex-pattern="^\+38\(\d{3}\)\s{1}\d{3}-\d{2}-\d{2}$"
+                                                       data-val-required="Неверный формат" id="Phone" maxlength="100"
+                                                       name="Phone" placeholder="+38(XXX) XXX-XX-XX" type="tel"> <span
+                                    class="field-validation-valid validation" data-valmsg-for="Phone"
+                                    data-valmsg-replace="true"></span></div>
+                        <input id="Url" name="Url" type="hidden" value="%2f">
+                        <input type="submit" id="btnSend"
+                                                                                     name="btnSend"
+                                                                                     class="btn btn-brand btn-brand--orange"
+                                                                                     value="Перезвоните мне"></form>
+                </div>
+            </div>
+        </div>
+
+        <a class="header__sign-in" href="#signInModal" data-toggle="modal">
+            Войти
+        </a>
+    </div>
+</div>                <div class="container">
+            <div class="row no-gutters header__bottom navbar  navbar-expand ">
+                                                    
+                <a class="header__col header__col--left" href="index.html">
+                    <img class="header__logo animate" src="Images/logo.png" alt="">
+                </a>
+                <div class="html-block">
+                    <a class="media header__phone" href="tel:+380678294052">
+                        <svg class="svg-icon phone-icon" width="24" height="24">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                        </svg>
+                        <span>(067) 829-40-52</span>
+                    </a>
+                </div>
+                <div>
+                    
+                    <div class="hamburger hamburger--squeeze js-hamburger" data-toggle="collapse"
+                         data-target="#navbarsExample01">
+                        <div class="hamburger-box">
+                            <div class="hamburger-inner"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__col header__col--right navbar-collapse collapse" id="navbarsExample01">
+                    <nav class=" header__navbar">
+                        <ul class="nav navbar-nav">
+                                                                                        
+                            <li><a href="hot-tours-page.html">Горящие туры</a></li>
+                                                                                                                    <li class="active"><a href="search-tours.html">Поиск туров</a></li>
+                                                                                                                    <li><a href="tours-bus.html">Экскурсионные туры</a></li>
+                                                                                                                    <li class="nav-link-dropdown">
+                                <a class="jsEmptyLink" href="#">Страны
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+                                    </svg>
+                                </a>
+                                    <div class="b-dropdown header__child-menu jsHeaderMenu" style="display: none">
+    <ul>
+        <li><a href="tour-country-page.html"><span>Египет</span>от 15 367 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Турция</span>от 12 294 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Кипр</span>от 22 362 грн</a></li>
+        <li><a href="tour-country-page.html"><span>ОАЭ</span>от 15 367 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Италия</span>от 23 913 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Греция</span>от 15 785 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Испания</span>от 16 530 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Китай</span>от 25 379 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Шри-Ланка</span>от 32 918 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Таиланд (Тайланд)</span>от 38 177 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Французская Полинезия</span>от 38 177 грн</a></li>
+    </ul>
+    <span class="child-menu-link"><a href="tourne-countries-page.html">Все страны</a></span>
+</div>                            </li>
+                            <li><a href="hotels.html">Отели</a></li>
+                            <li><a href="where-buy.html">Где купить</a></li>
+                            <li><a href="reviews-hotels-page.html">Отзывы об отелях</a></li>
+                        </ul>
+                        <ul class="header-menu-contacts">
+                            <li>Контакты:</li>
+                            <li><a class="media" href="tel:+380678294052">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#kyivstar"></use>
+                                    </svg>
+                                    <span>(067) 829-40-52</span>
+                                </a></li>
+                            <li><a class="media" href="tel:+380952357060">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#vodafone"></use>
+                                    </svg>
+                                    <span>(095) 235-70-60</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="header-menu-contacts__callback media" href="#callbackModal" data-toggle="modal">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                                    </svg>
+                                    <span>Перезвонить мне</span>
+                                </a>
+                            </li>
+                        </ul>
+                        
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="main-content">
+            <div class="screen screen-search">
+    <img class="screen__bg objectFitCover lazyload"
+         data-src="Images/Review_BG-P.jpg" alt="">
+    <div class="screen-search__content container">
+    <nav aria-label="breadcrumb nav-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Главная Турне</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Отзывы об отелях</li>
+      </ol>
+    </nav>
+        <div class="screen-search__row">
+            <h1 class="screen-search__heading">
+                Отзывы об отелях
+            </h1>
+        </div>
+        
+<form action="reviews-hotels.html" method="get" class="full-search-wrap">
+    <div class="full-search clearfix">
+        <div class="row col-pd-10 full-search__row">
+            <div class="col-12 col-lg-7 col-xl-7">
+                                                                                                                                    <div class="full-search__title">Найдите отзывы об отеле</div>
+                                    <div class="custom-dropdown js-search-control custom-dropdown--no-border">
+    <div class="custom-dropdown__control">
+
+            <svg class="custom-dropdown__icon" width="24" height="24">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="Images/icons-search.svg#place"></use>
+            </svg>
+
+        <div class="custom-dropdown__text">
+            <div class="ellipsis-text">Введите название отеля, страны или курорта</div>
+        </div>
+        <div class="custom-dropdown__search" style="display: none">
+                        <svg class="custom-dropdown__icon custom-dropdown__icon--search" width="20" height="20">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="Images/icons-search.svg#search"></use>
+            </svg>
+                        <input class="ui-autocomplete-input" type="text" placeholder="Страна, курорт, отель">
+        </div>
+    </div>
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front"
+        style="width: 289px;top: 95px;left: 0px;display: none;">
+        <li class="m-caption">Страны</li>
+        <li data-value="Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-4" class="ui-menu-item-wrapper"
+                 tabindex="-1"><b>Еги</b>пет
+            </div>
+        </li>
+        <li class="m-caption">Курорты</li>
+        <li data-value="Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-5" class="ui-menu-item-wrapper" tabindex="-1">Дахаб,
+                <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Каир, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-6" class="ui-menu-item-wrapper" tabindex="-1">Каир,
+                <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Макади Бей, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-7" class="ui-menu-item-wrapper"
+                 tabindex="-1">Макади Бей, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Марса-Алам, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-8" class="ui-menu-item-wrapper"
+                 tabindex="-1">Марса-Алам, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Мерса-Матрух, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-9" class="ui-menu-item-wrapper"
+                 tabindex="-1">Мерса-Матрух, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Наама Бей, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-10" class="ui-menu-item-wrapper"
+                 tabindex="-1">Наама Бей, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Нувейба, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-11" class="ui-menu-item-wrapper"
+                 tabindex="-1">Нувейба, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Сафага, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-12" class="ui-menu-item-wrapper" tabindex="-1">Сафага,
+                <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Сома Бей, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-13" class="ui-menu-item-wrapper"
+                 tabindex="-1">Сома Бей, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Таба, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-14" class="ui-menu-item-wrapper" tabindex="-1">Таба,
+                <b>Еги</b>пет
+            </div>
+        </li>
+        <li class="m-caption">Отели</li>
+        <li data-value="Ecotel Dahab Resort 5*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-15" class="ui-menu-item-wrapper" tabindex="-1">Ecotel Dahab Resort 5*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Happy Life Village 4*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-16" class="ui-menu-item-wrapper" tabindex="-1">Happy Life Village 4*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Hilton Dahab 5*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-17" class="ui-menu-item-wrapper"
+                 tabindex="-1">Hilton Dahab 5*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Le Meridien Dahab Resort 5*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-18" class="ui-menu-item-wrapper" tabindex="-1">Le Meridien Dahab Resort 5*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Miami Beach Hotel 3*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-19" class="ui-menu-item-wrapper" tabindex="-1">Miami Beach Hotel 3*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Sea Sun 4*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-20" class="ui-menu-item-wrapper" tabindex="-1">Sea Sun 4*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Swiss Inn Golden Beach 4*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-21" class="ui-menu-item-wrapper" tabindex="-1">Swiss Inn Golden Beach 4*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Tropitel Oasis Dahab 4*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-22" class="ui-menu-item-wrapper" tabindex="-1">Tropitel Oasis Dahab 4*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Barcelo Cairo Pyramids 4*, Каир, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-23" class="ui-menu-item-wrapper" tabindex="-1">Barcelo Cairo Pyramids 4*, Каир, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Fairmont Heliopolis &amp; Towers Cairo 5*, Каир, Египет" class="ui-menu-item"
+            role="presentation">
+            <div id="ui-id-24" class="ui-menu-item-wrapper" tabindex="-1">Fairmont Heliopolis &amp; Towers Cairo 5*,
+                Каир,
+                <b>Еги</b>пет
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+                            </div>
+            <div class="col-12 col-lg-2 col-xl-2">
+                <button class="btn btn-brand btn-brand--orange full-search__btn">найти отзывы</button>
+            </div>
+            <div class="col-12 col-lg-3 col-xl-3 full-search-add-review">
+                <div class="full-search__title">Оставьте свой отзыв</div>
+                <a href="#modal-reviews" class="btn btn-brand" data-toggle="modal">Добавить отзыв</a>
+            </div>
+        </div>
+    </div>
+</form>    </div>
+</div>    <div style="width: 0; height: 0;">
+        <svg>
+            <symbol id="progressbar" viewbox="0 0 58 58">
+                <circle cx="29" cy="29" r="29"/>
+                <path fill="none" stroke-dasharray="140" stroke="#dfe3eb" stroke-width="4" d="M29,6.778c12.273,0,22.222,9.949,22.222,22.222 S41.273,51.222,29,51.222S6.778,41.273,6.778,29S16.727,6.778,29,6.778"/>
+                <path fill="none" stroke="#387c89" stroke-width="4" d="M29,6.778c12.273,0,22.222,9.949,22.222,22.222 S41.273,51.222,29,51.222S6.778,41.273,6.778,29S16.727,6.778,29,6.778"/>
+            </symbol>
+        </svg>
+    </div>
+    <div class="container">
+        <div class="row layout-box layout-box--reverse">
+            <div class="col-12 col-xl-9">
+                
+                    
+                    <div class="sort-dropdown">
+                                                                                                                        <div class="sort-dropdown__title">Сортировать</div>
+                        
+    <div class="custom-dropdown ">
+        <div class="custom-dropdown__control" >
+                        <svg class="custom-dropdown__icon" width="24" height="24" >
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#sort-filter"></use>
+            </svg>
+                        <div class="custom-dropdown__text">
+                <div class="ellipsis-text">По рейтингу</div>
+            </div>
+            <div class="custom-dropdown__expanded arrow-icon"></div>
+        </div>
+        	<div class="b-dropdown_simple-b b-dropdown m-dropdown no-user-select jsDropDownOptions" style="display: none;">
+		<div class="m-dropdown__header">
+			<button class="m-dropdown__back back-icon jsMultiSelectDone"></button>
+			<span class="m-dropdown__title">Сортировать</span>
+		</div>
+		<ul class="li-town">
+			<li class="jsDropDownItem dd-item">
+				По рейтингу
+			</li>
+			<li class="jsDropDownItem dd-item">
+            	По дате
+			</li>
+		</ul>
+		<div class="town-bottom town-bottom-controls jsControlPanel">
+			<button class="btn btn-brand btn-brand--orange jsMultiSelectDone">ПРИМЕНИТЬ</button>
+		</div>
+	</div>
+
+    </div>
+                    </div>
+                
+                <div class="search-tour">
+                    <div class="row">
+    <div class="col-12 col-md-6 col-lg-12 col-xl-12 search-tour-col">
+        <div class="search-card">
+            <a href="#" class="search-card__image responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.poehalisnami.ua/static/hotels/turciya/bodrum/h3030/small/booking3030_1.jpg">
+                <div class="lds-spinner"></div>
+            </a>
+            <div class="search-card__inner">
+                <div class="search-card__body">
+                    <div class="search-card__content">
+                        <a href="" class="search-card__heading">
+                            Green Beach Resort <span>5 <svg class="svg-icon svg-icon--rating" width="10"
+                                                            height="10">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#rating"></use>
+                            </svg></span>
+                        </a>
+                        <div class="search-card__fromTo">
+                            Египет, Шарм-эль-Шейх
+                        </div>
+
+                        <a href="#" class="search-card-hotel-review__rating">
+                            <div class="search-card-hotel-review__score">
+                                <svg class="radial-progress-bar" width="58" height="58" viewbox="0 0 58 58"
+                                     style="stroke-dasharray: 109.2, 140">
+                                    <use href="#progressbar"></use>
+                                    <text text-anchor="middle" x="50%" y="34" fill="#0D0F0F">3.9/5</text>
+                                </svg>
+                                <span>27 отзывов</span>
+                            </div>
+                            <ul class="search-card-hotel-review__facilities">
+                                <li><span>Расположение</span> <i>5</i></li>
+                                <li><span>Питание</span><i>4</i></li>
+                                <li><span>Развлечение</span><i>3</i></li>
+                                <li><span>Обслуживание</span><i>4</i></li>
+                                <li><span>Номера</span><i>4</i></li>
+                            </ul>
+                        </a>
+
+                        <div class="search-card-hotel-review">
+                            <div class="search-card-hotel-review__info">
+                                <strong>Последний отзыв:</strong> <span class="search-card-hotel-review__author">Жанна, 31 октября 2019</span>
+                            </div>
+
+                            Хороший пляж, вид на море, уборка. Но плохие завтраки, однотипные
+
+                        </div>
+                    </div>
+                    <a class="search-card__all-reviews" href="#">Все отзывы</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-12 col-xl-12 search-tour-col">
+        <div class="search-card">
+            <a href="#" class="search-card__image responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.poehalisnami.ua/static/hotels/turciya/kemer/h131592/small/booking131592_1.jpg">
+                <div class="lds-spinner"></div>
+            </a>
+            <div class="search-card__inner">
+                <div class="search-card__body">
+                    <div class="search-card__content">
+                        <a href="" class="search-card__heading">
+                            Kimeros Park Holiday Village <span>5 <svg class="svg-icon svg-icon--rating" width="10"
+                                                                      height="10">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#rating"></use>
+                            </svg></span>
+                        </a>
+                        <div class="search-card__fromTo">
+                            Египет, Шарм-эль-Шейх
+                        </div>
+
+                        <a href="#" class="search-card-hotel-review__rating">
+                            <div class="search-card-hotel-review__score">
+                                <svg class="radial-progress-bar" width="58" height="58" viewbox="0 0 58 58"
+                                     style="stroke-dasharray: 109.2, 140">
+                                    <use href="#progressbar"></use>
+                                    <text text-anchor="middle" x="50%" y="34" fill="#0D0F0F">3.9/5</text>
+                                </svg>
+                                <span>27 отзывов</span>
+                            </div>
+                            <ul class="search-card-hotel-review__facilities">
+                                <li><span>Расположение</span> <i>5</i></li>
+                                <li><span>Питание</span><i>4</i></li>
+                                <li><span>Развлечение</span><i>3</i></li>
+                            </ul>
+                        </a>
+
+                        <div class="search-card-hotel-review">
+                            <div class="search-card-hotel-review__info">
+                                <strong>Последний отзыв:</strong>
+                                <span class="search-card-hotel-review__author">Анна, 18 октября 2019</span>
+                            </div>
+
+                            Отдых получился отличный, прежде всего благодаря агентству Поехали с нами. Всегда
+                            внимательны, вежливы, профессиональны. Отель удобно расположен, пляж большой, лежаков
+                            хватало… <a href="#">Читать далее</a>
+
+                        </div>
+                    </div>
+                    <a class="search-card__all-reviews" href="#">Все отзывы</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-12 col-xl-12 search-tour-col">
+        <div class="search-card">
+            <a href="#" class="search-card__image responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.poehalisnami.ua/static/hotels/turciya/kemer/h1759/small/booking1759_12.jpg">
+                <div class="lds-spinner"></div>
+            </a>
+            <div class="search-card__inner">
+                <div class="search-card__body">
+                    <div class="search-card__content">
+                        <a href="" class="search-card__heading">
+                            Kemer Dream <span>4 <svg class="svg-icon svg-icon--rating" width="10"
+                                                     height="10">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#rating"></use>
+                            </svg></span>
+                        </a>
+                        <div class="search-card__fromTo">
+                            Египет, Шарм-эль-Шейх
+                        </div>
+
+                        <a href="#" class="search-card-hotel-review__rating">
+                            <div class="search-card-hotel-review__score">
+                                <svg class="radial-progress-bar" width="58" height="58" viewbox="0 0 58 58"
+                                     style="stroke-dasharray: 109.2, 140">
+                                    <use href="#progressbar"></use>
+                                    <text text-anchor="middle" x="50%" y="34" fill="#0D0F0F">3.9/5</text>
+                                </svg>
+                                <span>27 отзывов</span>
+                            </div>
+                            <ul class="search-card-hotel-review__facilities">
+                                <li><span>Расположение</span> <i>5</i></li>
+                                <li><span>Питание</span><i>4</i></li>
+                                <li><span>Развлечение</span><i>3</i></li>
+                                <li><span>Обслуживание</span><i>4</i></li>
+                                <li><span>Номера</span><i>4</i></li>
+                            </ul>
+                        </a>
+
+                        <div class="search-card-hotel-review">
+                            <div class="search-card-hotel-review__info">
+                                <strong>Последний отзыв:</strong>
+                                <span class="search-card-hotel-review__author">Олег , 13 ноября 2019</span>
+                            </div>
+                            Лучший отель из четырехзвездочных. Отдыхаю в нем уже 4 год.
+                        </div>
+                    </div>
+                    <a class="search-card__all-reviews" href="#">Все отзывы</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-12 col-xl-12 search-tour-col">
+        <div class="search-card">
+            <a href="#" class="search-card__image responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.poehalisnami.ua/static/hotels/turciya/kemer/h136482/small/booking136482_1.jpg">
+                <div class="lds-spinner"></div>
+            </a>
+            <div class="search-card__inner">
+                <div class="search-card__body">
+                    <div class="search-card__content">
+                        <a href="" class="search-card__heading">
+                            Alva Donna World Palace <span>5 <svg class="svg-icon svg-icon--rating" width="10"
+                                                                 height="10">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#rating"></use>
+                            </svg></span>
+                        </a>
+                        <div class="search-card__fromTo">
+                            Египет, Шарм-эль-Шейх
+                        </div>
+
+                        <a href="#" class="search-card-hotel-review__rating">
+                            <div class="search-card-hotel-review__score">
+                                <svg class="radial-progress-bar" width="58" height="58" viewbox="0 0 58 58"
+                                     style="stroke-dasharray: 109.2, 140">
+                                    <use href="#progressbar"></use>
+                                    <text text-anchor="middle" x="50%" y="34" fill="#0D0F0F">3.9/5</text>
+                                </svg>
+                                <span>27 отзывов</span>
+                            </div>
+                            <ul class="search-card-hotel-review__facilities">
+                                <li><span>Расположение</span> <i>5</i></li>
+                                <li><span>Питание</span><i>4</i></li>
+                                <li><span>Развлечение</span><i>3</i></li>
+                                <li><span>Обслуживание</span><i>4</i></li>
+                                <li><span>Номера</span><i>4</i></li>
+                            </ul>
+                        </a>
+
+                        <div class="search-card-hotel-review">
+                            <div class="search-card-hotel-review__info">
+                                <strong>Последний отзыв:</strong> <span class="search-card-hotel-review__author">Жанна, 31 октября 2019</span>
+                            </div>
+
+                            Отель расположен в районе Набк Бей. Был открыт в 2007 году. Общая площадь территории
+                            составляет
+                            200 000 м2. При въезде в гостиницу есть казино VEGAS. Отель прекрасно подойдет для семейного
+                            или
+                            индивидуального отдыха… <a href="#">Читать далее</a>
+
+                        </div>
+                    </div>
+                    <a class="search-card__all-reviews" href="#">Все отзывы</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-12 col-xl-12 search-tour-col">
+        <div class="search-card">
+            <a href="#" class="search-card__image responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.poehalisnami.ua/static/hotels/turciya/marmaris/h5561/small/hi5561_1237310.jpg">
+                <div class="lds-spinner"></div>
+            </a>
+            <div class="search-card__inner">
+                <div class="search-card__body">
+                    <div class="search-card__content">
+                        <a href="" class="search-card__heading">
+                            Club Hotel Pineta <span>5 <svg class="svg-icon svg-icon--rating" width="10"
+                                                           height="10">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#rating"></use>
+                            </svg></span>
+                        </a>
+                        <div class="search-card__fromTo">
+                            Египет, Шарм-эль-Шейх
+                        </div>
+
+                        <a href="#" class="search-card-hotel-review__rating">
+                            <div class="search-card-hotel-review__score">
+                                <svg class="radial-progress-bar" width="58" height="58" viewbox="0 0 58 58"
+                                     style="stroke-dasharray: 109.2, 140">
+                                    <use href="#progressbar"></use>
+                                    <text text-anchor="middle" x="50%" y="34" fill="#0D0F0F">3.9/5</text>
+                                </svg>
+                                <span>27 отзывов</span>
+                            </div>
+                            <ul class="search-card-hotel-review__facilities">
+                                <li><span>Расположение</span> <i>5</i></li>
+                                <li><span>Питание</span><i>4</i></li>
+                                <li><span>Развлечение</span><i>3</i></li>
+                                <li><span>Обслуживание</span><i>4</i></li>
+                                <li><span>Номера</span><i>4</i></li>
+                            </ul>
+                        </a>
+
+                        <div class="search-card-hotel-review">
+                            <div class="search-card-hotel-review__info">
+                                <strong>Последний отзыв:</strong> <span class="search-card-hotel-review__author">Жанна, 31 октября 2019</span>
+                            </div>
+
+                            Отель расположен в районе Набк Бей. Был открыт в 2007 году. Общая площадь территории
+                            составляет
+                            200 000 м2. При въезде в гостиницу есть казино VEGAS. Отель прекрасно подойдет для семейного
+                            или
+                            индивидуального отдыха… <a href="#">Читать далее</a>
+
+                        </div>
+                    </div>
+                    <a class="search-card__all-reviews" href="#">Все отзывы</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-12 col-xl-12 search-tour-col">
+        <div class="search-card">
+            <a href="#" class="search-card__image responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.poehalisnami.ua/static/hotels/turciya/marmaris/h14784/small/booking14784_33.jpg">
+                <div class="lds-spinner"></div>
+            </a>
+            <div class="search-card__inner">
+                <div class="search-card__body">
+                    <div class="search-card__content">
+                        <a href="" class="search-card__heading">
+                            Ideal Prime Beach Hotel <span>5 <svg class="svg-icon svg-icon--rating" width="10"
+                                                                 height="10">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#rating"></use>
+                            </svg></span>
+                        </a>
+                        <div class="search-card__fromTo">
+                            Египет, Шарм-эль-Шейх
+                        </div>
+
+                        <a href="#" class="search-card-hotel-review__rating">
+                            <div class="search-card-hotel-review__score">
+                                <svg class="radial-progress-bar" width="58" height="58" viewbox="0 0 58 58"
+                                     style="stroke-dasharray: 109.2, 140">
+                                    <use href="#progressbar"></use>
+                                    <text text-anchor="middle" x="50%" y="34" fill="#0D0F0F">3.9/5</text>
+                                </svg>
+                                <span>27 отзывов</span>
+                            </div>
+                            <ul class="search-card-hotel-review__facilities">
+                                <li><span>Расположение</span> <i>5</i></li>
+                                <li><span>Питание</span><i>4</i></li>
+                                <li><span>Развлечение</span><i>3</i></li>
+                                <li><span>Обслуживание</span><i>4</i></li>
+                                <li><span>Номера</span><i>4</i></li>
+                            </ul>
+                        </a>
+
+                        <div class="search-card-hotel-review">
+                            <div class="search-card-hotel-review__info">
+                                <strong>Последний отзыв:</strong> <span class="search-card-hotel-review__author">Жанна, 31 октября 2019</span>
+                            </div>
+
+                            Отель расположен в районе Набк Бей. Был открыт в 2007 году. Общая площадь территории
+                            составляет
+                            200 000 м2. При въезде в гостиницу есть казино VEGAS. Отель прекрасно подойдет для семейного
+                            или
+                            индивидуального отдыха… <a href="#">Читать далее</a>
+
+                        </div>
+                    </div>
+                    <a class="search-card__all-reviews" href="#">Все отзывы</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>                    <nav>
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link arrow-link arrow-prev" href="#" aria-label="Previous">
+                <svg class="svg-icon " width="16" height="16" fill="#387c89">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+                </svg>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item active" aria-current="page">
+            <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">4</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">5</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">6</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">7</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">8</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">9</a>
+        </li>
+        <li class="page-item">
+            <a class=" arrow-next arrow-link page-link" href="#" aria-label="Next">
+                <svg class="svg-icon " width="16" height="16" fill="#387c89">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+                </svg>
+            </a>
+        </li>
+    </ul>
+</nav>                </div>
+            </div>
+            <div class="col-12 col-xl-3 layout-box__sidebar">
+                <div class="sidebar-box sidebar-box--two-col">
+    <div class="sidebar-box__heading">
+        Отзывы по курортам Египта
+    </div>
+    <div class="sidebar-box__content">
+
+        <div class="sidebar-box__item">
+            <a href="#" class="sidebar-box__link">
+                <div class="sidebar-box__text">
+                    Шарм-эль-Шейх
+                    <span class="sidebar-box__price">
+							96 отзывов
+						</span>
+                </div>
+
+            </a>
+        </div>
+        <div class="sidebar-box__item">
+            <a href="#" class="sidebar-box__link">
+                <div class="sidebar-box__text">
+                    Белек
+                    <span class="sidebar-box__price">
+							120 отзывов
+						</span>
+                </div>
+            </a>
+        </div>
+        <div class="sidebar-box__item">
+            <a href="#" class="sidebar-box__link">
+                <div class="sidebar-box__text">
+                    Хургада
+                    <span class="sidebar-box__price">
+							60 отзывов
+						</span>
+                </div>
+            </a>
+        </div>
+        <div class="sidebar-box__item">
+            <a href="#" class="sidebar-box__link">
+                <div class="sidebar-box__text">
+                    Сахл Хашиш
+                    <span class="sidebar-box__price">
+							96 отзывов
+						</span>
+                </div>
+            </a>
+        </div>
+        <div class="sidebar-box__item">
+            <a href="#" class="sidebar-box__link">
+                <div class="sidebar-box__text">
+                    Дахаб
+                    <span class="sidebar-box__price">
+							96 отзывов
+						</span>
+                </div>
+            </a>
+        </div>
+        <div class="sidebar-box__item">
+            <a href="#" class="sidebar-box__link">
+                <div class="sidebar-box__text">
+                    Макади Бэй
+                    <span class="sidebar-box__price">
+							96 отзывов
+						</span>
+                </div>
+            </a>
+        </div>
+        <div class="sidebar-box__item">
+            <a href="#" class="sidebar-box__link">
+                <div class="sidebar-box__text">
+                    Марса Алам
+                    <span class="sidebar-box__price">
+						60 отзывов
+					</span>
+                </div>
+            </a>
+        </div>
+        <div class="sidebar-box__item">
+            <a href="#" class="sidebar-box__link">
+                <div class="sidebar-box__text">
+                    Нувейба
+                    <span class="sidebar-box__price">
+							96 отзывов
+						</span>
+                </div>
+            </a>
+        </div>
+        <div class="sidebar-box__item">
+            <a href="#" class="sidebar-box__link">
+                <div class="sidebar-box__text">
+                    Сафага
+                    <span class="sidebar-box__price">
+							96 отзывов
+						</span>
+                </div>
+            </a>
+        </div>
+        <div class="sidebar-box__item">
+            <a href="#" class="sidebar-box__link">
+                <div class="sidebar-box__text">
+                    Сома Бэй
+                    <span class="sidebar-box__price">
+							96 отзывов
+						</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>                <div class="sidebar-box sidebar-box--two-col">
+    <div class="sidebar-box__heading">
+        Рейтинг отелей Египта
+    </div>
+    <div class="sidebar-box__content">
+
+        <div class="sidebar-box__item">
+            <a href="#" class="sidebar-box__link">
+                <div class="sidebar-box__text">
+                    Aa Amwaj Oyoun Hotel & Resort, 4*
+                    <span class="sidebar-box__rating">
+							5.0
+						</span>
+                </div>
+
+            </a>
+        </div>
+        <div class="sidebar-box__item">
+            <a href="#" class="sidebar-box__link">
+                <div class="sidebar-box__text">
+                    Meryan Hotel 5*
+                    <span class="sidebar-box__rating">
+							5.0
+						</span>
+                </div>
+
+            </a>
+        </div>
+        <div class="sidebar-box__item">
+            <a href="#" class="sidebar-box__link">
+                <div class="sidebar-box__text">
+                    Sherwood Breezes Resort 5*
+                    <span class="sidebar-box__rating">
+							4.9
+						</span>
+                </div>
+
+            </a>
+        </div>
+        <div class="sidebar-box__item">
+            <a href="#" class="sidebar-box__link">
+                <div class="sidebar-box__text">
+                    Cornelia Diamond Golf Resort & SPA, 5*
+                    <span class="sidebar-box__rating">
+							4.9
+						</span>
+                </div>
+
+            </a>
+        </div>
+        <div class="sidebar-box__item">
+            <a href="#" class="sidebar-box__link">
+                <div class="sidebar-box__text">
+                    Sunrise Marina Port Ghalib 5*
+                    <span class="sidebar-box__rating">
+							4.7
+						</span>
+                </div>
+
+            </a>
+        </div>
+    </div>
+</div>            </div>
+        </div>
+    </div>
+    <section class="page-article grey-background-f6f">
+        <div class="container text-collapse-wrap">
+            <div class="articles-wrap text-collapse text-collapse--shadow">
+                <h2 dir="ltr">
+                    <span>Путевки на отдых: правила выбора</span>
+                </h2>
+                <p>
+					<span>
+						На нашем сайте представлены лучшие гостиницы и отели мира. У нас вы найдете всю необходимую информацию, как о дорогих пятизвездочных отелях, так и о бюджетных гостиницах. Все отели представлены на сайте с детальным описанием, которое включает фотографии отелей, гостиничных номеров, перечень предоставляемых услуг, а также, количество номеров, классификацию отеля и стоимость проживания. Мы искренне надеемся, что наш каталог отелей поможет вам найти самую достоверную и полную информацию об интересующих вас отелях, актуальных турах и отзывах о гостиницах. Не забудьте оставить свои отзывы об отелях!
+					</span>
+                </p>
+            </div>
+        </div>
+    </section>
+    </div>
+        <div class="footer-wrap">
+    <div class="footer container">
+        <div class="row col-pd-10">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Турне в соц сетях</div>
+                <div class="footer__social">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M3.516 24h7.828v-8.531H8.53v-2.813h2.813V9.141a3.52 3.52 0 0 1 3.515-3.516h3.516v2.813h-2.813c-.775 0-1.406.63-1.406 1.406v2.812h4.092l-.469 2.813h-3.623V24h6.328A3.52 3.52 0 0 0 24 20.484V3.516A3.52 3.52 0 0 0 20.484 0H3.516A3.52 3.52 0 0 0 0 3.516v16.968A3.52 3.52 0 0 0 3.516 24zM1.406 3.516c0-1.163.947-2.11 2.11-2.11h16.968c1.163 0 2.11.947 2.11 2.11v16.968c0 1.163-.947 2.11-2.11 2.11h-4.922v-5.719h3.409l.937-5.625h-4.346V9.844h4.22V4.219h-4.923A4.927 4.927 0 0 0 9.938 9.14v2.109H7.124v5.625h2.813v5.719H3.516a2.112 2.112 0 0 1-2.11-2.11V3.516z"/>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M6.497 0h11.006a6.504 6.504 0 0 1 6.493 6.264l.004.233v11.007a6.504 6.504 0 0 1-6.264 6.492l-.232.004H6.497a6.504 6.504 0 0 1-6.493-6.264L0 17.504V6.497A6.504 6.504 0 0 1 6.264.004L6.497 0h11.006zm11.007 1.407H6.497A5.096 5.096 0 0 0 1.41 6.282l-.004.215v11.007a5.096 5.096 0 0 0 4.875 5.085l.215.004h11.006a5.096 5.096 0 0 0 5.086-4.875l.004-.214V6.497a5.095 5.095 0 0 0-5.09-5.09zM12 5.437A6.57 6.57 0 0 1 18.562 12 6.57 6.57 0 0 1 12 18.562 6.57 6.57 0 0 1 5.438 12 6.57 6.57 0 0 1 12 5.438zm0 1.408A5.161 5.161 0 0 0 6.845 12 5.161 5.161 0 0 0 12 17.155 5.161 5.161 0 0 0 17.155 12 5.161 5.161 0 0 0 12 6.845zm6.72-3.738c1.069 0 1.939.87 1.939 1.94a1.94 1.94 0 0 1-1.94 1.938c-1.07 0-1.939-.87-1.939-1.939s.87-1.939 1.94-1.939zm0 1.407a.533.533 0 1 0 0 1.065.533.533 0 0 0 0-1.065z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="footer__heading">Контакты</div>
+                <div class="footer__contacts">
+                    <a href="tel:+380678294052">(067) 829-40-52</a><br>
+                    <a href="tel:+380952357060">(095) 235-70-60</a><br>
+                    <a href="#callbackModal" class="footer__callback" data-toggle="modal">
+                        Перезвоните мне
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Ваш отдых</div>
+                <ul>
+                    <li><a href="/">Горящие туры</a></li>
+                    <li><a href="/">Туры</a></li>
+                    <li><a href="/">Туры на майские</a></li>
+                    <li><a href="/">Экскурсионные туры</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Куда поехать</div>
+                <ul>
+                    <li><a href="/">Страны</a></li>
+                    <li><a href="/">Отели</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Туристам</div>
+                <ul>
+                    <li><a href="where-buy.html">Где купить</a></li>
+                    <li><a href="/">Статьи</a></li>
+                                                                                    <li><a href="reviews-hotels-page.html">Отзывы об отелях</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Партнерам</div>
+                <ul>
+                    <li><a href="/">Для турфирм</a></li>
+                    <li><a href="/">Правовая информация</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Turne.com.ua</div>
+                <div class="footer__text">Copyright © 2019 "X-tend". <br>
+                    Все права защищены.
+                </div>
+                <ul>
+                    <li><a href="/">О проекте</a></li>
+                    <li><a href="reviews-hotels-mobile.html">Мобильная версия</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div></div>
+<!-- Modal -->
+<div class="modal sign-in-modal" id="signInModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Форма входа</div>
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/" class="v-form sign-in-form">
+                    <div class="form-group">
+                        <input class="form-control input-placeholder autoHide" type="email" placeholder="E-mail">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control input-placeholder autoHide" type="password" placeholder="Пароль">
+                    </div>
+
+                    <input class="btn btn-brand btn-brand--orange" type="submit" value="Войти">
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="https://www.turne.com.ua/registration">Зарегистрироваться</a>
+                <a href="/passrecovery">Забыли пароль</a>
+            </div>
+        </div>
+    </div>
+</div><!-- Modal -->
+<div class="modal callback-modal" id="callbackModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Обратный звонок
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                    <div class="b-dropdown-callback" style="display: block !important;">
+                        <form action="/common/phonecallbackformsubmit" data-ajax="true" data-ajax-begin="oForms.FormOnBegin"
+                              data-ajax-complete="oForms.FormOnComplete" data-ajax-success="oForms.PhoneCallbackFormOnSuccess"
+                              id="form1" method="post" novalidate="novalidate"><span class="b-dropdown-callback__heading">Введите свой номер телефона:</span>
+
+                            <div class="form-group"><input class="form-control jsMaskedInputPhone" data-val="true"
+                                                           data-val-regex="Неверный формат"
+                                                           data-val-regex-pattern="^\+38\(\d{3}\)\s{1}\d{3}-\d{2}-\d{2}$"
+                                                           data-val-required="Неверный формат" id="Phone" maxlength="100"
+                                                           name="Phone" placeholder="+38(XXX) XXX-XX-XX" type="tel"> <span
+                                        class="field-validation-valid validation" data-valmsg-for="Phone"
+                                        data-valmsg-replace="true"></span></div>
+                            <input id="Url" name="Url" type="hidden" value="%2f">
+                            <input type="submit" id="btnSend"
+                                   name="btnSend"
+                                   class="btn btn-brand btn-brand--orange"
+                                   value="Перезвоните мне"></form>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>    <div class="modal modal-mob modal-component tour-detail__modal-reviews" id="modal-reviews" tabindex="-1" role="dialog"
+     aria-labelledby="modal-reviews">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-mob__back back-icon" data-dismiss="modal"></button>
+                <div class="modal-title">Оставить отзыв об отеле
+                </div>
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!--<div class="clearfix">-->
+                    <div class="b-add-review jsParentPosition">
+                        <label class="title" for="search">Выберите отель*</label>
+                        <div class="ui-front b-add-review__autocomplite js-autocomplite">
+                            <div class="b-dropdown-search">
+                                <svg class="b-dropdown-search__icon" width="20" height="20">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#search"></use>
+                                </svg>
+                                <input class="form-control input-placeholder-inherit autoHide ui-autocomplete-input"
+                                       placeholder="Введите название отеля">
+                            </div>
+                                                            <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front"
+        style="width: 289px;top: 95px;left: 0px;display: none;">
+        <li data-value="Ecotel Dahab Resort 5*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-15" class="ui-menu-item-wrapper" tabindex="-1">Ecotel Dahab Resort 5*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Happy Life Village 4*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-16" class="ui-menu-item-wrapper" tabindex="-1">Happy Life Village 4*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Hilton Dahab 5*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-17" class="ui-menu-item-wrapper"
+                 tabindex="-1">Hilton Dahab 5*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Le Meridien Dahab Resort 5*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-18" class="ui-menu-item-wrapper" tabindex="-1">Le Meridien Dahab Resort 5*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Miami Beach Hotel 3*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-19" class="ui-menu-item-wrapper" tabindex="-1">Miami Beach Hotel 3*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Sea Sun 4*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-20" class="ui-menu-item-wrapper" tabindex="-1">Sea Sun 4*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Swiss Inn Golden Beach 4*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-21" class="ui-menu-item-wrapper" tabindex="-1">Swiss Inn Golden Beach 4*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Tropitel Oasis Dahab 4*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-22" class="ui-menu-item-wrapper" tabindex="-1">Tropitel Oasis Dahab 4*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Barcelo Cairo Pyramids 4*, Каир, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-23" class="ui-menu-item-wrapper" tabindex="-1">Barcelo Cairo Pyramids 4*, Каир, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Fairmont Heliopolis &amp; Towers Cairo 5*, Каир, Египет" class="ui-menu-item"
+            role="presentation">
+            <div id="ui-id-24" class="ui-menu-item-wrapper" tabindex="-1">Fairmont Heliopolis &amp; Towers Cairo 5*,
+                Каир,
+                <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Ecotel Dahab Resort 5*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-15" class="ui-menu-item-wrapper" tabindex="-1">Ecotel Dahab Resort 5*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Happy Life Village 4*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-16" class="ui-menu-item-wrapper" tabindex="-1">Happy Life Village 4*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Hilton Dahab 5*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-17" class="ui-menu-item-wrapper"
+                 tabindex="-1">Hilton Dahab 5*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Le Meridien Dahab Resort 5*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-18" class="ui-menu-item-wrapper" tabindex="-1">Le Meridien Dahab Resort 5*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Miami Beach Hotel 3*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-19" class="ui-menu-item-wrapper" tabindex="-1">Miami Beach Hotel 3*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Sea Sun 4*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-20" class="ui-menu-item-wrapper" tabindex="-1">Sea Sun 4*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Swiss Inn Golden Beach 4*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-21" class="ui-menu-item-wrapper" tabindex="-1">Swiss Inn Golden Beach 4*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Tropitel Oasis Dahab 4*, Дахаб, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-22" class="ui-menu-item-wrapper" tabindex="-1">Tropitel Oasis Dahab 4*, Дахаб, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Barcelo Cairo Pyramids 4*, Каир, Египет" class="ui-menu-item" role="presentation">
+            <div id="ui-id-23" class="ui-menu-item-wrapper" tabindex="-1">Barcelo Cairo Pyramids 4*, Каир, <b>Еги</b>пет
+            </div>
+        </li>
+        <li data-value="Fairmont Heliopolis &amp; Towers Cairo 5*, Каир, Египет" class="ui-menu-item"
+            role="presentation">
+            <div id="ui-id-24" class="ui-menu-item-wrapper" tabindex="-1">Fairmont Heliopolis &amp; Towers Cairo 5*,
+                Каир,
+                <b>Еги</b>пет
+            </div>
+        </li>
+    </ul>
+
+                        </div>
+                        <div class="row b-add-review__row">
+
+                            <div class="col-12 input-wrap">
+                                <label>
+                                    Ваш отзыв<span class="required">*</span></label>
+
+                                <textarea rows="2" cols="20" class="form-control jsFixScrollMobile">
+</textarea>
+                                <span class="validation" style="display:none">Обязательное поле</span>
+                            </div>
+                        </div>
+                        <div class="title">Оценка отелю Amwaj Blue Beach Resort &amp; Spa Abu Soma</div>
+                        <div class="b-add-review__rating b-add-review__row jsMarksHolder">
+                            <div class="b-select-rating">
+                                <div>
+                                    Расположение:
+                                </div>
+                                <div class="b-rank-regular-tetragon">
+                                    <div>1</div>
+                                    <div>2</div>
+                                    <div>3</div>
+                                    <div>4</div>
+                                    <div>5</div>
+                                </div>
+                                <!--<div class="b-sel-r-result">&nbsp;</div>-->
+                                <input type="hidden"/>
+                            </div>
+                            <div class="b-select-rating">
+                                <div>
+                                    Питание:
+                                </div>
+                                <div class="b-rank-regular-tetragon">
+                                    <div>1</div>
+                                    <div>2</div>
+                                    <div>3</div>
+                                    <div>4</div>
+                                    <div>5</div>
+                                </div>
+                                <!--<div class="b-sel-r-result">&nbsp;</div>-->
+                                <input type="hidden"/>
+                            </div>
+                            <div class="b-select-rating">
+                                <div>
+                                    Развлечения:
+                                </div>
+                                <div class="b-rank-regular-tetragon">
+                                    <div>1</div>
+                                    <div>2</div>
+                                    <div>3</div>
+                                    <div>4</div>
+                                    <div>5</div>
+                                </div>
+                                <!--<div class="b-sel-r-result">&nbsp;</div>-->
+                                <input type="hidden"/>
+                            </div>
+                            <div class="b-select-rating">
+                                <div>
+                                    Обслуживание:
+                                </div>
+                                <div class="b-rank-regular-tetragon">
+                                    <div>1</div>
+                                    <div>2</div>
+                                    <div>3</div>
+                                    <div>4</div>
+                                    <div>5</div>
+                                </div>
+                                <!--<div class="b-sel-r-result">&nbsp;</div>-->
+                                <input type="hidden"/>
+                            </div>
+                            <div class="b-select-rating">
+                                <div>
+                                    Номера:
+                                </div>
+                                <div class="b-rank-regular-tetragon">
+                                    <div>1</div>
+                                    <div>2</div>
+                                    <div>3</div>
+                                    <div>4</div>
+                                    <div>5</div>
+                                </div>
+                                <!--<div class="b-sel-r-result">&nbsp;</div>-->
+                                <input type="hidden"/>
+                            </div>
+                            <div>
+                                <span class="validation" style="display:none">Проставьте оценки</span></div>
+                        </div>
+                        <div class="row b-add-review__row justify-content-between">
+                            <div class="input-wrap col-12 col-sm-6 col-xl-6">
+                                <label>
+                                    Ваше имя<span class="required">*</span></label>
+                                <div>
+                                    <input type="text" maxlength="100" class="form-control input-text"/>
+                                </div>
+                                <span class="validation" style="display:none">Обязательное поле</span>
+                            </div>
+                            <div class="input-wrap col-12 col-sm-6 col-xl-6">
+                                <label>
+                                    E-mail<span class="required">*</span></label>
+                                <div>
+                                    <input type="email" maxlength="100" class="form-control input-text"/>
+                                </div>
+                                <span class="validation" style="display:none">Обязательное поле</span>
+                                <span class="validation" style="display:none">Неверный формат Email</span>
+                            </div>
+                            <div class="b-add-review__alert col-12">
+                                Внимание! Поля отмеченные <span class="required">*</span> обязательны к заполнению
+                            </div>
+                        </div>
+                        <div class="custom-dropzone-wrap file-upload">
+    <div class="file-upload__heading media">
+        <svg class="file-upload__icon" width="32" height="32">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/file-icons.svg#photo-upload"></use>
+        </svg>
+        Добавьте фото
+    </div>
+    <div class="custom-dropzone js-custom-dropzone">
+        <div class="dz-message">
+           <div class="dz-message-desktop">
+               Просто перетащите сюда фотографии <br>
+               или <span>выберите файлы</span>
+           </div>
+            <div class="dz-message-mobile">
+                Выбрать файлы
+            </div>
+        </div>
+        <div class="custom-dropzone-preview custom-dropzone-preview--desktop custom-dropzone-preview-container js-dz-preview-desktop">
+
+        </div>
+    </div>
+    <div class="custom-dropzone-preview custom-dropzone-preview--mobile custom-dropzone-preview-container js-dz-preview-mobile">
+
+    </div>
+    <div class="custom-dropzone__count js-dz-count">
+        Еще можно загрузить 10 фотографий
+    </div>
+    <div class="file-upload-format">
+
+            Загружайте файлы формата
+            JPG, GIF, PNG размером до 5Мб
+
+    </div>
+</div>
+
+<div class="video-uploader file-upload">
+    <div class="file-upload__heading media">
+        <svg class="file-upload__icon" width="32" height="32">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/file-icons.svg#video-upload"></use>
+        </svg>
+        Добавьте видео
+    </div>
+    <div class="form-inline">
+        <div class="form-group">
+            <input type="text" class="form-control autoHide" placeholder="Введите ссылку на YouTube видео">
+            <span class="validation field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-brand btn-brand--orange js-add-video">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#FFF" fill-rule="evenodd"
+                          d="M12 4a1 1 0 0 1 1 1v5.999L19 11a1 1 0 0 1 0 2h-6v6a1 1 0 0 1-2 0v-6H5a1 1 0 0 1 0-2h6V5a1 1 0 0 1 1-1z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="video-uploader__text">Вы можете загрузить до 10 видео</div>
+    <div class="video-uploader__preview-content js-video-uploader-preview">
+
+    </div>
+</div>                        <div class="modal-mob__btn">
+                            <input type="submit" value="Разместить отзыв"
+                                   onclick="return HotelCommentFormSend(&#39;comment&#39;);WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$ctl00$ctl00$ctl00$ctl00$center$center$center$innerFull$innerFull$innerFull$HCF$Save&quot;, &quot;&quot;, true, &quot;comment&quot;, &quot;&quot;, false, false))"
+                                   class="btn btn-brand btn-brand--orange btn-send"/>
+                            <input type="hidden" key="preSendComment"/>
+                        </div>
+                    </div>
+                    <div class="jstThankYouDialog" style="display: none;">
+                        <!--<div class="b-opacity-layout"></div>-->
+                        <div class="b-alert">Спасибо за Ваш отзыв. Благодаря ему другие туристы смогут сделать
+                            правильный выбор.<br/>
+                            <input class="btnOk btn btn-brand btn-brand--orange" type="button" value="Закрыть"
+                                   data-dismiss="modal"/>
+                        </div>
+                    </div>
+                <!--<div style="clear: both"></div>-->
+            <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // $('.jsFixScrollMobile').focus(function(){
+    //     window.scrollTo({
+    //         top: $('.jsParentPosition').position().top
+    //     });
+    // });
+
+    // var sumedges = $(window).width() + $(window).height();
+    // $(window).resize(function(){
+    //     if($(window).width() + $(window).height() < sumedges) {
+    //         $("body").addClass("keyboard-out");
+    //         $('input').focus(function(){
+    //             var calcOffsetTop = function(){
+    //                 if ($(this).offset().top > 70) {
+    //                     console.log('больше 70');
+    //                     return $(this).offset().top
+    //                 } else {
+    //                     console.log('возрващает 0');
+    //                     return 0;
+    //                 }
+    //             };
+    //             $('.modal.show').scrollTop(calcOffsetTop);
+    //             console.log($(this).offset().top);
+    //         });
+    //     } else {
+    //         $("body").removeClass("keyboard-out");
+    //     }
+    // });
+
+</script><script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.js" type="text/javascript"></script>
+<script src="js/datepicker.js" type="text/javascript"></script>
+<script src="js/svg4everybody.min.js" type="text/javascript"></script>
+<script src="js/ofi.min.js" type="text/javascript"></script>
+<script src="js/scripts.js" type="text/javascript"></script>
+<script src="js/scripts-desktop.js" type="text/javascript"></script>
+<script src="js/lazysizes.min.js" async=""></script>
+
+    <script src="js/dropzone.min.js" type="text/javascript"></script>
+    <script src="js/file-upload.js" type="text/javascript"></script>
+    <script src="js/reviews-hotels-page.js"></script>
+</body>
+</html>

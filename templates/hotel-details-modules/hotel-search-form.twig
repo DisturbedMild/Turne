@@ -1,0 +1,58 @@
+
+<form action="/tour" method="post" class="full-search-wrap">
+    {#{% if mobile %}#}
+        {#<div class="collapse-search-wrap {{ smallScrollVisibleClass }}">#}
+            {#<div class="collapse-search js-collapse-search-fixed">#}
+                {#<div class="collapse-search__control">#}
+                    {#<div class="collapse-search__text"><span>Египет</span>, <span>10.08 – 17.08, 7-9 ночей</span>, <span>2 взрослых</span></div>#}
+                    {#<div class="arrow-icon"></div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#{% endif %}#}
+    <div class="full-search clearfix js-scroll-scope{{ searchStickyClass }}">
+        <div class="row col-pd-10 full-search__row">
+            <div class="col-12 col-xl full-search__item">
+                {% set dataDatepicker = 'data-toggle="datepicker"'%}
+                {% set fullSearchTitle = "Дата выезда" %}
+                {% set iconName = "date" %}
+                {% set textDropdown = "10.08 – 17.08, 7–9 ночей" %}
+                {% from "../components/custom-dropdown/datepicker-dropdown.twig" import dropdown %}
+
+                <div class="full-search__title">{{ fullSearchTitle }}</div>
+                {% include "../components/custom-dropdown/custom-dropdown.twig" %}
+            </div>
+            <div class="col-12 col-xl full-search__item">
+                {% set fullSearchTitle = "Вылет из" %}
+                {% set iconName = "place" %}
+                {% set textDropdown = "Киев" %}
+                {% from "../components/custom-dropdown/dropdown-departure.twig" import dropdown %}
+
+                <div class="full-search__title">{{ fullSearchTitle }}</div>
+                {% include "../components/custom-dropdown/custom-dropdown.twig" %}
+            </div>
+            <div class="col-12 col-xl full-search__item">
+                {% set fullSearchTitle = "Кто поедет" %}
+                {% set iconName = "user" %}
+                {% set textDropdown = "2 взрослых" %}
+                {% from "../components/custom-dropdown/people-dropdown.twig" import dropdown %}
+
+                <div class="full-search__title">{{ fullSearchTitle }}</div>
+                {% include "../components/custom-dropdown/custom-dropdown.twig" %}
+            </div>
+            <div class="col-12 col-xl full-search__item">
+                {% set fullSearchTitle = "Тип питания" %}
+                {% set iconName = "food" %}
+                {% set textDropdown = "AI (все включено)" %}
+                {% set viewBox = 'viewBox="0 0 16 24"' %}
+                {% from "../components/custom-dropdown/food-dropdown.twig" import dropdown %}
+
+                <div class="full-search__title">{{ fullSearchTitle }}</div>
+                {% include "../components/custom-dropdown/custom-dropdown.twig" %}
+            </div>
+            <div class="col-12 col-xl full-search__item">
+                <button class="btn btn-brand btn-brand--orange full-search__btn">Искать</button>
+            </div>
+        </div>
+    </div>
+</form>

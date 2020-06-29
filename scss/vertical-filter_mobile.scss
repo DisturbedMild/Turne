@@ -1,0 +1,119 @@
+@import "mixin";
+@import "variable";
+
+@media (max-width: 1199px) {
+  .vertical-filter {
+    display: none;
+    padding: 0 0 105px 0 !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    min-height: 100%;
+    overflow: hidden;
+    z-index: 1005;
+    &.open {
+      display: block;
+    }
+    &__header {
+      display: flex;
+    }
+    &__container {
+      overflow-y: auto;
+      max-height: 100%;
+    }
+    &__title {
+      padding-left: 20px;
+    }
+    &__content {
+      padding: 0 20px 0 20px;
+      margin-top: 10px;
+      .brand-checkbox:first-child {
+        padding-top: 0;
+        margin-top: 5px;
+      }
+    }
+    &__scroll {
+      position: relative;
+      margin-left: -20px;
+      margin-right: -20px;
+      padding: 10px 20px 0 20px;
+    }
+    .li-town {
+      max-height: 200px;
+    }
+    &__buttons {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 12px;
+      display: flex !important;
+      flex-direction: row-reverse;
+      z-index: 50;
+      background-color: #f6fafe;
+      box-shadow: -1px 0 4px 0 #d8d8d8;
+    }
+    &__reset {
+      font-weight: 600;
+      margin: 0;
+      border: none;
+      font-size: 12px !important;
+    }
+    .popover-filter {
+      display: none !important;
+    }
+  }
+  .filters-btn {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    border: solid 1px rgba(75, 86, 105, 0.2);
+    padding: 8px;
+    margin: 15px 0;
+    background: #fff;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.71;
+    outline: none !important;
+    &__choice-text {
+      color: #999999;
+      margin-left: auto;
+      &.select-filter {
+        color: $orange;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .vertical-filter {
+    .town-bottom {
+      margin-top: 20px;
+    }
+    &__scroll::-webkit-scrollbar {
+      width: 10px;
+    }
+    &__scroll::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background: #DCDCDC;
+      border: 1px solid #ccc;
+    }
+
+    &__scroll::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: linear-gradient(to left, #fff, #e4e4e4);
+      border: 1px solid #aaa;
+    }
+    &__scroll::-webkit-scrollbar-thumb:hover {
+      background: #fff;
+    }
+
+    &__scroll::-webkit-scrollbar-thumb:active {
+      background: linear-gradient(to left, #fff, #f4f4f4);
+    }
+  }
+}

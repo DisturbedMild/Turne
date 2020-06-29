@@ -1,0 +1,35 @@
+.screen-search__content {
+  margin-top: 0;
+}
+
+.screen-search {
+  margin-bottom: 40px;
+}
+
+.b-dropdown--filter .left-list {
+  width: 100%;
+}
+
+.countries-section {
+  margin: 20px auto;
+}
+
+.countries-section__col {
+  margin-bottom: 20px;
+}
+
+.countries-card__content {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.countries-card__price {
+  color: #ff8508;
+}
+
+.tour-card__thumbnail {
+  height: 140px;
+}
+
+/*# sourceMappingURL=map/countries-page.css.map */

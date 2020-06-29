@@ -1,0 +1,209 @@
+.full-search .custom-dropdown__control {
+  padding-right: 15px;
+}
+
+@media (min-width: 992px) {
+  .full-search__row {
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  .full-search .custom-dropdown {
+    margin-bottom: 0;
+  }
+  .full-search__title {
+    display: block;
+  }
+}
+
+@media (max-width: 1199px) {
+  .full-search-add-review .btn {
+    margin-top: 0;
+    font-size: 14px;
+    line-height: 26px;
+  }
+  .search-tour {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .full-search-add-review {
+    padding-left: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+  .full-search-add-review:before {
+    left: 15%;
+    top: 0;
+    height: 1px;
+    width: 70%;
+  }
+}
+
+@media (max-width: 991px) {
+  .search-card__body {
+    padding-right: 8px;
+  }
+}
+
+@media (max-width: 991px) {
+  .search-card-hotel-review__rating {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    border-left: 0;
+    width: 100%;
+    padding: 0;
+  }
+  .search-card-hotel-review__score {
+    -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+            flex-shrink: 0;
+  }
+  .search-card-hotel-review__score .radial-progress-bar {
+    width: 58px;
+    height: 58px;
+  }
+  .search-card-hotel-review__facilities {
+    margin: 4px 0 0 20px;
+  }
+  .search-card-hotel-review__facilities li {
+    position: relative;
+  }
+  .search-card-hotel-review__facilities li:after {
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    display: block;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dotted #ccc;
+    z-index: 0;
+  }
+  .search-card-hotel-review__facilities li span {
+    padding-right: 5px;
+    background: #fff;
+    z-index: 1;
+  }
+  .search-card-hotel-review__facilities li i {
+    background: #fff;
+    z-index: 1;
+    -webkit-border-radius: 2px;
+            border-radius: 2px;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .search-card-hotel-review__facilities {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 414px) {
+  .inline-sorting__heading {
+    width: 100%;
+  }
+}
+
+.b-dropdown-autocomplite {
+  position: relative;
+  height: -webkit-calc(100% - 62px);
+  height: calc(100% - 62px);
+}
+
+.b-dropdown-autocomplite .ui-autocomplete {
+  top: 100% !important;
+  width: 100% !important;
+  margin-top: 3px;
+  max-height: -webkit-calc(100% - 53px);
+  max-height: calc(100% - 53px);
+  position: static !important;
+}
+
+.b-dropdown-autocomplite .ui-autocomplete.ui-widget {
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background: #ffffff;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.tour-detail__modal-reviews .modal-dialog {
+  width: auto;
+  max-width: 100%;
+  min-width: auto;
+  margin: 0;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+}
+
+.tour-detail__modal-reviews .modal-body {
+  margin-top: 0;
+}
+
+.tour-detail__modal-reviews .input-wrap {
+  width: 100%;
+  height: 100% !important;
+}
+
+@media (max-width: 576px) {
+  .tour-detail__modal-reviews .input-wrap + .input-wrap {
+    margin-top: 10px;
+  }
+}
+
+.tour-detail__modal-reviews .input-wrap textarea {
+  min-height: 112px;
+  height: auto;
+}
+
+.tour-detail__modal-reviews .input-wrap .input-text {
+  width: 100% !important;
+}
+
+.tour-detail__modal-reviews .b-select-rating {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 0px;
+}
+
+.tour-detail__modal-reviews .b-select-rating div:first-child {
+  font-weight: bold;
+}
+
+@media (max-width: 425px) {
+  .tour-detail__modal-reviews .b-select-rating {
+    width: 100%;
+    padding-bottom: 10px;
+    border: 1px solid #eee;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 635px) {
+  .tour-detail__modal-reviews .b-select-rating {
+    width: 50%;
+  }
+}
+
+.tour-detail__modal-reviews .btn-send {
+  max-width: 100%;
+}
+
+/*# sourceMappingURL=map/reviews-hotels_mobile.css.map */

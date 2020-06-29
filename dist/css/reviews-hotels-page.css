@@ -1,0 +1,40 @@
+.tour-card__small-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #387c89 !important;
+}
+
+.tour-card .hotels-content__heading {
+  display: block;
+  color: #4b5669;
+}
+
+.tour-card .hotels-content__price {
+  color: #4b5669;
+}
+
+.hotels-reviews-section .heading {
+  margin-top: 2.5rem;
+}
+
+.hotels-reviews-section:first-child .heading {
+  margin-top: 1.25rem;
+}
+
+.search-card-slider {
+  margin: -10px;
+}
+
+.search-card-slider .search-card__image {
+  max-width: 281px;
+}
+
+.search-card-slider .slick-carousel-item {
+  padding: 10px;
+}
+
+.search-card-slider:not(.slick-initialized) .slick-carousel-item {
+  min-width: 100% !important;
+}
+
+/*# sourceMappingURL=map/reviews-hotels-page.css.map */

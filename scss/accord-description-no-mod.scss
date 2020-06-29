@@ -1,0 +1,151 @@
+// @import "modal-video";
+@import "mixin";
+@import "variable";
+
+.accord-description {
+  line-height: 20px;
+  padding-left: 66px;
+  //> * {
+  //  margin-left: 66px;
+  //}
+  img {
+    height: auto;
+    width: auto;
+    max-height: 120px;
+  }
+  h3 {
+    display: inline;
+    font-size: 14px;
+  }
+  table {
+    margin-bottom: 15px;
+  }
+  table {
+    td {
+      padding: 0;
+      vertical-align: top;
+      img {
+        //-o-object-fit: cover;
+        //object-fit: cover;
+        border-radius: 2px;
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+        margin-top: 15px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  > div > div {
+    display: inline-block;
+    width: auto;
+    img:not(.youtube-modal-ex) {
+      max-width: 100%;
+      float: left;
+      border-radius: 2px;
+      box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+      margin-top: 15px;
+      margin-right: 10px;
+      margin-bottom: 15px;
+    }
+  }
+
+  //TODO-my: иконки по стилям
+  h2 {
+    position: relative;
+    //margin-left: -66px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.42;
+    color: $blue;
+    padding-bottom: 17px;
+    padding-left: 0;
+    padding-top: 25px;
+    //margin-left: 0 !important;
+    margin: 0;
+    &:first-child {
+      margin-top: 0;
+    }
+    + p {
+      padding-left: 30px;
+      border-left: 4px #d8d8d8 dotted;
+    }
+  }
+}
+
+//.accord-heading {
+//  position: relative;
+//  //margin-left: -66px;
+//  font-size: 24px;
+//  font-weight: 600;
+//  line-height: 1.42;
+//  color: #0056ad;
+//  padding-bottom: 10px;
+//  padding-left: 0px;
+//  margin-top: 25px;
+//  margin-left: 0 !important;
+//  &:first-child {
+//    margin-top: 0;
+//  }
+//  &__icon {
+//    position: absolute;
+//    display: inline-block;
+//    max-width: 57px;
+//    border-radius: 8px;
+//    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+//    font-size: 26px;
+//    font-weight: bold;
+//    border: 2px solid #0056ad;
+//    padding: 15px 10px;
+//    text-align: center;
+//    left: -66px;
+//
+//    span {
+//      display: block;
+//      font-size: 12px;
+//      text-transform: uppercase;
+//    }
+//  }
+//  + p {
+//    padding-left: 30px;
+//    border-left: 4px #d8d8d8 dotted;
+//  }
+//
+//}
+
+//.accord-heading {
+//  &:nth-child(1)::before {
+//    content: "1 день";
+//    display: block;
+//    max-width: 63px;
+//    text-align: center;
+//    border-radius: 8px;
+//    -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+//    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+//    font-size: 17px;
+//    font-weight: bold;
+//    border: 2px solid #0056ad;
+//    padding: 15px 10px;
+//    float: left;
+//    margin-right: 10px;
+//  }
+//}
+
+.heading-icon {
+  float: left;
+  max-width: 57px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+  font-size: 17px;
+  font-weight: bold;
+  border: 2px solid $blue;
+  padding: 15px 0;
+  margin-top: 9px;
+  margin-left: -66px;
+  text-align: center;
+  left: 0;
+  color: #424242;
+}
+
+.youtube-modal-ex {
+  margin: 15px 0;
+}

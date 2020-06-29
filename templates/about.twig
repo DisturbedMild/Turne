@@ -1,0 +1,71 @@
+{% extends "layouts/default.twig" %}
+{% set mobile = "" %}
+{% if mobile %}
+	{% set toggleMobileText = "Полная версия" %}
+	{% set toggleMobileLink = "about.html" %}
+{% else %}
+	{% set toggleMobileText = "Мобильная версия" %}
+	{% set toggleMobileLink = "about_mobile.html" %}
+{% endif %}
+
+{% block searchStyle %}
+	<link href="css/bundle/searchStyle.css?v=113" rel="stylesheet"/>
+{% endblock %}
+{% block head %}
+	<link href="css/about.css?v=113" rel="stylesheet"/>
+{% endblock %}
+
+{% block scripts %}{% endblock %}
+
+{% block content %}
+	<div class="container static-page">
+		{% include "./about-modules/breadcrumbs.twig" %}
+		<h2 class="heading">О www.TURNE.com.ua</h2>
+		<div class="row about-section">
+			<div class="col-xl-9">
+				<div class="about-section__content-title">
+					Уважаемый посетитель!
+				</div>
+				<div>
+					Приветствуем Вас на www.turne.com.ua – крупнейшем туристическом портале Украины. Основная
+																				                            цель www.turne.com.ua – предоставить актуальную информацию о турах, горячих направлениях,
+																				                            отелях, курортах и странах. Сделать поиск и выбор тура простым и доступным.
+					<br><br>
+
+					<strong>На www.turne.com.ua Вы сможете:</strong>
+					<br>
+					– выбрать и заказать по электронной почте понравившийся Вам тур;<br>
+					– найти описание отелей, а также последние отзывы;<br>
+					– найти описание стран и курортов;<br>
+					– прочитать интересные актуальные новости и статьи туристического мира.
+					<br><br>
+
+					Желаем Вам приятного отдыха и хороших впечатлений!
+					<br>
+					С Уважением, команда www.TURNE.com.ua
+				</div>
+                {% include "./about-modules/form-callback.twig" %}
+			</div>
+			<div class="col-xl-3">
+				<div class="contacts-card">
+					<div class="contacts-card__title">
+						Cвязаться с нами
+					</div>
+					<div class="contacts-card__text">
+						Тел/факс: <a href="tel:+380443934397">(044) 393-43-97</a>
+						<br>
+						E-mail: <a href="mailto:info@turne.com.ua">info@turne.com.ua</a>
+					</div>
+					<div class="contacts-card__title">
+						Наш адрес
+					</div>
+					<div class="contacts-card__text">
+						04050, Украина, г. Киев,
+						<br>
+						ул. Старокиевская, 10Г.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

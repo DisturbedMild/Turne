@@ -1,0 +1,103 @@
+@import 'mixin';
+@import 'variable';
+
+.heading {
+  margin-bottom: 20px;
+}
+
+.services-page {
+  &__item {
+    margin-bottom: 20px;
+  }
+  &__title {
+    font-weight: 600;
+    font-family: $font-mont;
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  &__text-content {
+    margin-bottom: 20px;
+    strong {
+      color: #333333;
+    }
+  }
+  &__item-gallery {
+    margin-left: -10px;
+    margin-right: -10px;
+    display: flex;
+    flex-wrap: wrap;
+    a {
+      display: block;
+      width: 100%;
+      flex: 0 0 25%;
+      max-width: 25%;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    img {
+      max-width:100%;
+      margin-bottom: 20px;
+    }
+  }
+  &__table {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+
+.stacktable { 
+  width: 100%; 
+  tr {
+    height: 40px;
+    th {
+      box-shadow: inset 1px -1px 0px 0px #efefef, inset -1px  1px 0 0 #efefef;
+       background-color: #fbfbfb;
+    }
+    th + th {
+      box-shadow: inset 0px -1px 0px 0px #efefef, inset -1px  1px 0 0 #efefef;
+    }
+    td {
+      box-shadow: inset 1px -1px 0px 0px #efefef, inset -1px  0px 0 0 #efefef;
+    }
+  }
+  tr td + td {
+    box-shadow: inset 0px -1px 0px 0px #efefef, inset -1px  0px 0 0 #efefef;
+  }
+}
+
+.st-head-row.st-head-row-main { 
+  font-size: 1rem;
+  padding-top: 0; 
+  height: 40px; 
+  background-color: #fbfbfb; 
+  box-shadow: inset 1px -1px 0px 0px #efefef, inset -1px  1px 0 0 #efefef;
+}
+.st-head-row.st-head-row-main + .st-head-row.st-head-row-main {
+  font-size: 1rem;
+  padding-top: 0;
+  height: 40px; 
+  background-color: #fbfbfb; 
+  box-shadow: inset 0px -1px 0px 0px #efefef, inset -1px  1px 0 0 #efefef;
+}
+.st-key { 
+  width: 49%; 
+  text-align: center; 
+  padding-right: 1%; 
+}
+.st-val { 
+  width: 49%; 
+  padding-left: 1%; 
+}
+
+ //RESPONSIVE EXAMPLE
+
+.stacktable.large-only { display: table; }
+.stacktable.small-only { display: none; }
+
+@media (max-width: 800px) {
+  .stacktable.large-only { display: none; }
+  .stacktable.small-only { display: table; }
+}

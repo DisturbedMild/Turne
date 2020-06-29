@@ -1,0 +1,40 @@
+@import "mixin";
+@import "variable";
+
+.sidebar-box {
+  @media (max-width: 1199px) {
+    &__content {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &__item {
+      flex-grow: 1;
+      margin: 4px;
+    }
+  }
+  @media (max-width: 424px) {
+    &__item {
+      width: 100%;
+    }
+  }
+  &-season {
+    @media (max-width: 1199px) {
+      &__item {
+        padding-left: 4px;
+        padding-right: 4px;
+        margin-bottom: 8px;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 1199px)  {
+      &__item {
+        max-width: 25%;
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .layout-box__sidebar > .sidebar-box:first-child {
+    border-top-color: transparent;
+  }
+}

@@ -1,0 +1,80 @@
+{% if mobile %}
+    {% set MenuLink = "-mobile" %}
+{% else %}
+    {% set MenuLink = "" %}
+{% endif %}
+<div class="footer-wrap">
+    <div class="footer container">
+        <div class="row col-pd-10">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Турне в соц сетях</div>
+                <div class="footer__social">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M3.516 24h7.828v-8.531H8.53v-2.813h2.813V9.141a3.52 3.52 0 0 1 3.515-3.516h3.516v2.813h-2.813c-.775 0-1.406.63-1.406 1.406v2.812h4.092l-.469 2.813h-3.623V24h6.328A3.52 3.52 0 0 0 24 20.484V3.516A3.52 3.52 0 0 0 20.484 0H3.516A3.52 3.52 0 0 0 0 3.516v16.968A3.52 3.52 0 0 0 3.516 24zM1.406 3.516c0-1.163.947-2.11 2.11-2.11h16.968c1.163 0 2.11.947 2.11 2.11v16.968c0 1.163-.947 2.11-2.11 2.11h-4.922v-5.719h3.409l.937-5.625h-4.346V9.844h4.22V4.219h-4.923A4.927 4.927 0 0 0 9.938 9.14v2.109H7.124v5.625h2.813v5.719H3.516a2.112 2.112 0 0 1-2.11-2.11V3.516z"/>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M6.497 0h11.006a6.504 6.504 0 0 1 6.493 6.264l.004.233v11.007a6.504 6.504 0 0 1-6.264 6.492l-.232.004H6.497a6.504 6.504 0 0 1-6.493-6.264L0 17.504V6.497A6.504 6.504 0 0 1 6.264.004L6.497 0h11.006zm11.007 1.407H6.497A5.096 5.096 0 0 0 1.41 6.282l-.004.215v11.007a5.096 5.096 0 0 0 4.875 5.085l.215.004h11.006a5.096 5.096 0 0 0 5.086-4.875l.004-.214V6.497a5.095 5.095 0 0 0-5.09-5.09zM12 5.437A6.57 6.57 0 0 1 18.562 12 6.57 6.57 0 0 1 12 18.562 6.57 6.57 0 0 1 5.438 12 6.57 6.57 0 0 1 12 5.438zm0 1.408A5.161 5.161 0 0 0 6.845 12 5.161 5.161 0 0 0 12 17.155 5.161 5.161 0 0 0 17.155 12 5.161 5.161 0 0 0 12 6.845zm6.72-3.738c1.069 0 1.939.87 1.939 1.94a1.94 1.94 0 0 1-1.94 1.938c-1.07 0-1.939-.87-1.939-1.939s.87-1.939 1.94-1.939zm0 1.407a.533.533 0 1 0 0 1.065.533.533 0 0 0 0-1.065z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="footer__heading">Контакты</div>
+                <div class="footer__contacts">
+                    <a href="tel:+380678294052">(067) 829-40-52</a><br>
+                    <a href="tel:+380952357060">(095) 235-70-60</a><br>
+                    <a href="#callbackModal" class="footer__callback" data-toggle="modal">
+                        Перезвоните мне
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Ваш отдых</div>
+                <ul>
+                    <li><a href="/">Горящие туры</a></li>
+                    <li><a href="/">Туры</a></li>
+                    <li><a href="/">Туры на майские</a></li>
+                    <li><a href="/">Экскурсионные туры</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Куда поехать</div>
+                <ul>
+                    <li><a href="/">Страны</a></li>
+                    <li><a href="/">Отели</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Туристам</div>
+                <ul>
+                    <li><a href="where-buy{{ MenuLink }}.html">Где купить</a></li>
+                    <li><a href="/">Статьи</a></li>
+                    {% if mobile %}
+                        {% set MenuLink = "-mobile" %}
+                    {% else %}
+                        {% set MenuLink = "" %}
+                    {% endif %}
+                    <li><a href="reviews-hotels-page{{ MenuLink }}.html">Отзывы об отелях</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Партнерам</div>
+                <ul>
+                    <li><a href="/">Для турфирм</a></li>
+                    <li><a href="/">Правовая информация</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Turne.com.ua</div>
+                <div class="footer__text">Copyright © 2019 "X-tend". <br>
+                    Все права защищены.
+                </div>
+                <ul>
+                    <li><a href="/">О проекте</a></li>
+                    <li><a href="{{ toggleMobileLink }}">{{ toggleMobileText }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

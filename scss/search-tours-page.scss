@@ -1,0 +1,41 @@
+@import "mixin";
+@import "variable";
+@import "search-tours-card.scss";
+
+.screen-search {
+  margin-bottom: rem(20px);
+  padding-bottom: rem(25px);
+}
+
+//.screen-search__content { //???
+//  margin-top: 10px;
+//}
+
+.search-tour {
+  margin-bottom: rem(40px);
+  &-col {
+    margin-bottom: rem(20px);
+    .search-card {
+      height: 100%;
+    }
+  }
+}
+
+.search-container {
+  margin-bottom: rem(40px);
+}
+
+.form-callback--order {
+  .form-callback__col {
+    max-width: 308px;
+  }
+}
+
+.page-article {
+  margin-top: rem(40px);
+  background-color: #f6f6f7;
+}
+
+.null-result__form .form-group {
+  max-width: 50% !important;
+}

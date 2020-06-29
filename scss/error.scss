@@ -1,0 +1,22 @@
+@import "mixin";
+@import "variable";
+html {
+  height: 100%;
+}
+.error-page {
+  margin: rem(20px 0);
+  &__center {
+    text-align: center;
+    font-size: 16px;
+  }
+  .form-section {
+    max-width: 880px;
+    margin: rem(20px auto);
+  }
+}
+.b-404 {
+  margin: 0 auto;
+}
+.b-code404 {
+  font-size: rem(150px);
+}

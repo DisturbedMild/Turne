@@ -1,0 +1,162 @@
+{% extends "layouts/default-mobile.twig" %}
+{% set mobile = 'mobile' %}
+{% if mobile %}
+    {% set toggleMobileText = "Полная версия" %}
+    {% set toggleMobileLink = "hotels.html" %}
+    {% set hotDetailLink = "hot-details-mobile.html" %}
+    {% set excursionDetailLink = "excursion-details-mobile.html" %}
+{% else %}
+    {% set toggleMobileText = "Мобильная версия" %}
+    {% set toggleMobileLink = "hotels-mobile.html" %}
+    {% set hotDetailLink = "hot-details.html" %}
+    {% set excursionDetailLink = "excursion-details.html" %}
+{% endif %}
+
+{% block searchStyle %}
+    <link href="css/bundle/searchStyleMobile.css?v=113" rel="stylesheet"/>
+{% endblock %}
+{% block head %}
+    <link href="css/vertical-filter_mobile.css?v=112" rel="stylesheet">
+    <link rel="stylesheet" href="css/search-tours-page.css">
+    <link rel="stylesheet" href="css/search-tours-page_mobile.css">
+    <link href="css/tour-country.css?v=113" rel="stylesheet">
+    <link rel="stylesheet" href="css/tour-country_mobile.css">
+    <link href="css/hotels.css?v=113" rel="stylesheet">
+    <link href="css/hotels_mobile.css?v=113" rel="stylesheet">
+{% endblock %}
+
+{% block scripts %}
+    <script src="js/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+    {% include "./hotels-modules/screen-box-home.twig" %}
+    <div style="width: 0; height: 0;">
+        <svg>
+            <symbol id="progressbar" viewbox="0 0 58 58">
+                <circle cx="29" cy="29" r="29"/>
+                <path fill="none" stroke-dasharray="140" stroke="#dfe3eb" stroke-width="4" d="M29,6.778c12.273,0,22.222,9.949,22.222,22.222
+							S41.273,51.222,29,51.222S6.778,41.273,6.778,29S16.727,6.778,29,6.778"/>
+                <path fill="none" stroke="#387c89" stroke-width="4" d="M29,6.778c12.273,0,22.222,9.949,22.222,22.222
+						S41.273,51.222,29,51.222S6.778,41.273,6.778,29S16.727,6.778,29,6.778"/>
+            </symbol>
+        </svg>
+    </div>
+    <section class="container popular-hotels">
+        <h1 class="heading">
+            Популярные отели
+        </h1>
+        <div class="popular-hotels__wrapper">
+            <div class="row layout-box layout-box--reverse">
+                <div class="col-12 col-xl-9">
+                    <div class="search-tour">
+                        {% include "./hotels-modules/search-card.twig" %}
+                    </div>
+                </div>
+                <div class="col-12 col-xl-3 layout-box__sidebar">
+                    <div class="sidebar-box sidebar-box--two-col">
+                        <div class="sidebar-box__heading">
+                            Отели популярных стран
+                        </div>
+                        <div class="sidebar-box__content">
+
+                            <div class="sidebar-box__item">
+                                <a href="#" class="sidebar-box__link">
+                                    <span class="sidebar-icon sprite-flag sprite-flag--egipet"></span>
+                                    <div class="sidebar-box__text">
+                                        Египет
+                                        <span class="sidebar-box__price">
+							от 15 688 грн
+						</span>
+                                    </div>
+
+                                </a>
+                            </div>
+                            <div class="sidebar-box__item">
+                                <a href="#" class="sidebar-box__link">
+                                    <span class="sidebar-icon sprite-flag sprite-flag--tunis"></span>
+                                    <div class="sidebar-box__text">
+                                        Тунис
+                                        <span class="sidebar-box__price">
+							от 15 688 грн
+						</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sidebar-box__item">
+                                <a href="#" class="sidebar-box__link">
+                                    <span class="sidebar-icon sprite-flag sprite-flag--greciya"></span>
+                                    <div class="sidebar-box__text">
+                                        Греция
+                                        <span class="sidebar-box__price">
+							от 15 688 грн
+						</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sidebar-box__item">
+                                <a href="#" class="sidebar-box__link">
+                                    <span class="sidebar-icon sprite-flag sprite-flag--kipr"></span>
+                                    <div class="sidebar-box__text">
+                                        Кипр
+                                        <span class="sidebar-box__price">
+							от 15 688 грн
+						</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sidebar-box__item">
+                                <a href="#" class="sidebar-box__link">
+                                    <span class="sidebar-icon sprite-flag sprite-flag--tailand"></span>
+                                    <div class="sidebar-box__text">
+                                        Таиланд (Тайланд)
+                                        <span class="sidebar-box__price">
+							от 15 688 грн
+						</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sidebar-box__item">
+                                <a href="#" class="sidebar-box__link">
+                                    <span class="sidebar-icon sprite-flag sprite-flag--bolgariya"></span>
+                                    <div class="sidebar-box__text">
+                                        Болгария
+                                        <span class="sidebar-box__price">
+							от 15 688 грн
+						</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sidebar-box__item">
+                                <a href="#" class="sidebar-box__link">
+                                    <span class="sidebar-icon sprite-flag sprite-flag--khorvatiya"></span>
+                                    <div class="sidebar-box__text">
+                                        Хорватия
+                                        <span class="sidebar-box__price">
+						от 15 688 грн
+					</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page-article grey-background-f6f">
+        <div class="container text-collapse-wrap">
+            <div class="articles-wrap text-collapse text-collapse--shadow">
+				<h2 dir="ltr">
+					<span>Путевки на отдых: правила выбора</span>
+				</h2>
+				<p>
+					<span>
+						На нашем сайте представлены лучшие гостиницы и отели мира. У нас вы найдете всю необходимую информацию, как о дорогих пятизвездочных отелях, так и о бюджетных гостиницах. Все отели представлены на сайте с детальным описанием, которое включает фотографии отелей, гостиничных номеров, перечень предоставляемых услуг, а также, количество номеров, классификацию отеля и стоимость проживания. Мы искренне надеемся, что наш каталог отелей поможет вам найти самую достоверную и полную информацию об интересующих вас отелях, актуальных турах и отзывах о гостиницах. Не забудьте оставить свои отзывы об отелях!
+					</span>
+				</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

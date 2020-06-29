@@ -1,0 +1,60 @@
+<form action="/" class="form-callback form-callback--order {{ formCallbackClass }}">
+    <div class="row">
+        {#<div class="col-12 col-lg-12 col-xl form-group form-callback__col">#}
+            {#<label class="form-callback__label">Отправить запрос в</label>#}
+            {#{% set textDropdown = "Киев" %}#}
+            {#{% set iconName = "place" %}#}
+            {#{% set customDropdownClass = "custom-dropdown--no-border" %}#}
+            {#{% from "../custom-dropdown/form-city-dropdown.twig" import dropdown %}#}
+            {#{% include "../custom-dropdown/custom-dropdown.twig" %}#}
+            {#<span class="validation field-validation-valid"><span>Выберите город</span></span>#}
+        {#</div>#}
+        <div class="col-12 col-lg-12 col-xl form-group form-callback__col">
+            {% set textDropdown = "Выберите страну" %}
+            {% set iconName = "airplane" %}
+            {% set customDropdownClass = "custom-dropdown--no-border" %}
+            {% from "../custom-dropdown/country-dropdown.twig" import dropdown %}
+            {% include "../custom-dropdown/custom-dropdown.twig" %}
+            <span class="validation field-validation-valid"><span>Выберите страну</span></span>
+        </div>
+        <div class="col-12 col-lg-12 col-xl form-group form-callback__col">
+            {% if mobile %}
+                <svg class="form-callback__icon" width="24" height="24">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#user"></use>
+                </svg>
+            {% endif %}
+            <input class="form-callback__input form-control input-placeholder autoHide" type="text" placeholder="Имя">
+            <span class="validation field-validation-valid"><span class="">Введите имя</span></span>
+        </div>
+        <div class="col-12 col-lg-12 col-xl form-group form-callback__col">
+            {% if mobile %}
+                <svg class="form-callback__icon" width="24" height="24">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                </svg>
+            {% endif %}
+            <input class="form-callback__input form-control input-placeholder autoHide" type="tel"
+                   placeholder="Телефон">
+            <span class="validation field-validation-valid"><span class="">Введите номер телефона</span></span>
+        </div>
+        {#<div class="col-12 col-lg-12 col-xl form-group form-callback__col">
+            {% if mobile %}
+                <svg class="form-callback__icon" width="24" height="24">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#email"></use>
+                </svg>
+            {% endif %}
+            <input class="form-callback__input form-control input-placeholder autoHide" type="email" placeholder="Email">
+        </div>#}
+        <div class="col-12 col-lg-12 col-xl form-group form-callback__col form-callback__col--btn">
+            <input class="btn btn-brand {{ formCallbackBtnClass }}" type="submit" value="Отправить">
+        </div>
+        {#<div class="col-12 col-lg-12 form-group">
+            <label class="brand-checkbox brand-checkbox--orange">
+                <input type="checkbox" checked>
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+                    Получать горящие туры по почте
+                </span>
+            </label>
+        </div>#}
+    </div>
+</form>

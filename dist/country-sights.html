@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600,700|Open+Sans:400,600,700&display=swap&subset=cyrillic"
+          rel="stylesheet">
+    <link href="css/bootstrap/bootstrap.css?v=113" rel="stylesheet"/>
+    <link href="css/bootstrap/bootstrap-grid.css?v=113" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.9.2.custom.min.css">
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="css/bundle/global.css?v=113">
+
+    
+    <link href="css/bundle/searchStyle.css?v=113" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slider.css">
+
+    
+    <link href="css/tour-country.css?v=113" rel="stylesheet">
+    <link rel="stylesheet" href="css/countries-info.css">
+
+    <link href="css/bundle/oldGlobal.css?v=113" rel="stylesheet"/>
+
+
+</head>
+<body class="">
+<div class="wrap-content">
+    <div class="header">
+    <div class="header__content">
+                    <div class="header-top">
+    <div class="header-top__content container">
+
+        <div class="header-top__left">
+            <div class="html-block">
+                Подбор тура: <a href="tel:+380678294052">(067) 829-40-52</a>, <a href="tel:+380952357060">(095)
+                    235-70-60</a>, Реклама: <a href="tel:+380955453888">(095) 545-38-88</a>
+            </div>
+            <div class="header-top__callback-wrap">
+                <a href="#" class="header-top__callback jsCallBackShow">
+                    <svg class="svg-icon phone-icon" width="24" height="24">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/communication-icons.svg#phone"></use>
+                    </svg> Перезвоните мне</a>
+                <div class="b-dropdown b-dropdown-callback jsCallBackForm" style="display: none;">
+                    <form action="/common/phonecallbackformsubmit" data-ajax="true" data-ajax-begin="oForms.FormOnBegin"
+                          data-ajax-complete="oForms.FormOnComplete" data-ajax-success="oForms.PhoneCallbackFormOnSuccess"
+                          id="form1" method="post" novalidate="novalidate"><span class="b-dropdown-callback__heading">Введите свой номер телефона:</span>
+
+                        <div class="form-group"><input class="form-control jsMaskedInputPhone" data-val="true"
+                                                       data-val-regex="Неверный формат"
+                                                       data-val-regex-pattern="^\+38\(\d{3}\)\s{1}\d{3}-\d{2}-\d{2}$"
+                                                       data-val-required="Неверный формат" id="Phone" maxlength="100"
+                                                       name="Phone" placeholder="+38(XXX) XXX-XX-XX" type="tel"> <span
+                                    class="field-validation-valid validation" data-valmsg-for="Phone"
+                                    data-valmsg-replace="true"></span></div>
+                        <input id="Url" name="Url" type="hidden" value="%2f">
+                        <input type="submit" id="btnSend"
+                                                                                     name="btnSend"
+                                                                                     class="btn btn-brand btn-brand--orange"
+                                                                                     value="Перезвоните мне"></form>
+                </div>
+            </div>
+        </div>
+
+        <a class="header__sign-in" href="#signInModal" data-toggle="modal">
+            Войти
+        </a>
+    </div>
+</div>                <div class="container">
+            <div class="row no-gutters header__bottom navbar  navbar-expand ">
+                                                    
+                <a class="header__col header__col--left" href="index.html">
+                    <img class="header__logo animate" src="Images/logo.png" alt="">
+                </a>
+                <div class="html-block">
+                    <a class="media header__phone" href="tel:+380678294052">
+                        <svg class="svg-icon phone-icon" width="24" height="24">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                        </svg>
+                        <span>(067) 829-40-52</span>
+                    </a>
+                </div>
+                <div>
+                    
+                    <div class="hamburger hamburger--squeeze js-hamburger" data-toggle="collapse"
+                         data-target="#navbarsExample01">
+                        <div class="hamburger-box">
+                            <div class="hamburger-inner"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__col header__col--right navbar-collapse collapse" id="navbarsExample01">
+                    <nav class=" header__navbar">
+                        <ul class="nav navbar-nav">
+                                                                                        
+                            <li><a href="hot-tours-page.html">Горящие туры</a></li>
+                                                                                                                    <li class="active"><a href="search-tours.html">Поиск туров</a></li>
+                                                                                                                    <li><a href="tours-bus.html">Экскурсионные туры</a></li>
+                                                                                                                    <li class="nav-link-dropdown">
+                                <a class="jsEmptyLink" href="#">Страны
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+                                    </svg>
+                                </a>
+                                    <div class="b-dropdown header__child-menu jsHeaderMenu" style="display: none">
+    <ul>
+        <li><a href="tour-country-page.html"><span>Египет</span>от 15 367 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Турция</span>от 12 294 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Кипр</span>от 22 362 грн</a></li>
+        <li><a href="tour-country-page.html"><span>ОАЭ</span>от 15 367 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Италия</span>от 23 913 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Греция</span>от 15 785 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Испания</span>от 16 530 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Китай</span>от 25 379 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Шри-Ланка</span>от 32 918 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Таиланд (Тайланд)</span>от 38 177 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Французская Полинезия</span>от 38 177 грн</a></li>
+    </ul>
+    <span class="child-menu-link"><a href="tourne-countries-page.html">Все страны</a></span>
+</div>                            </li>
+                            <li><a href="hotels.html">Отели</a></li>
+                            <li><a href="where-buy.html">Где купить</a></li>
+                            <li><a href="reviews-hotels-page.html">Отзывы об отелях</a></li>
+                        </ul>
+                        <ul class="header-menu-contacts">
+                            <li>Контакты:</li>
+                            <li><a class="media" href="tel:+380678294052">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#kyivstar"></use>
+                                    </svg>
+                                    <span>(067) 829-40-52</span>
+                                </a></li>
+                            <li><a class="media" href="tel:+380952357060">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#vodafone"></use>
+                                    </svg>
+                                    <span>(095) 235-70-60</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="header-menu-contacts__callback media" href="#callbackModal" data-toggle="modal">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                                    </svg>
+                                    <span>Перезвонить мне</span>
+                                </a>
+                            </li>
+                        </ul>
+                        
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="main-content">
+        
+    <div class="container layout-mg">
+        <nav class="nav-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Главная ТУРНЕ</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Страны</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Египет</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Достопримечательности Египта</li>
+            </ol>
+        </nav>
+        <h1 class="heading">Достопримечательности Египта</h1>
+        <div class="row layout-box layout-box--reverse">
+            <div class="col-12 col-xl-9">
+                <div class="countries-detail">
+                    <img src="Images/Egypt.jpg" alt="#">
+                    <div class="countries-detail__description"><br>
+                        <p>Вся территория страны изобилует бесценным наследием Древнего Египта. Пирамиды <span>–</span>визитная
+                            карточка Египта, их здесь больше сотни, самых разнообразных форм и размеров. Эти "чудеса
+                            света" во времена фараонов представляли собой целые комплексы гигантских храмовых
+                            сооружений, пышно украшенных статуями, обелисками, сфинксами, барельефами и настенными
+                            росписями. &nbsp; <br><br><strong>Ансамбль великих пирамид Гизы,</strong> состоящий из трех
+                            самых высоких в Египте пирамид. Наиболее значительная и известная из них <span>–</span>
+                            Пирамида Хеопса (ее строительство закончено около 2590 г. до н.э.). Вторая по величине
+                            пирамида <span>–</span> Хефрена, построенная на 40 лет позже первой. Внешне кажется, что она
+                            даже больше, чем пирамида Хеопса, но на самом деле она немного меньше. Завершает ансамбль
+                            пирамида Микерина. Рядом с ними расположен комплекс из нескольких маленьких пирамид, где
+                            погребены жены фараонов, а также гробницы жрецов и крупных чиновников. &nbsp; Большой Сфинкс
+                            , вырубленный, как и большинство колоссальных статуй Гизы, из цельной скалы. Считается, что
+                            сфинкс был построен во время строительства пирамиды Хефрена, а его лицо (почти уничтоженное
+                            мамлюками и ядрами наполеоновских артиллеристов) носит черты именно этого фараона, брата и
+                            наследника Хеопса. Каждый вечер у подножия пирамид проходит красочное светомузыкальное
+                            представление "Звук и свет". &nbsp; <br><br><strong>Саккара</strong> – некрополь Мемфиса,
+                            первой столицы Египта. Здесь находятся десятки сравнительно небольших гробниц, пирамид и
+                            храмов. Знаменитым это место сделала уникальная <strong>ступенчатая пирамида
+                                Джосера</strong>, самая древняя из египетских пирамид. К сожалению, от самого Мемфиса,
+                            процветавшего три тысячелетия, практически ничего не осталось. Но заехать сюда все же стоит.
+                            Хотя бы для того, чтобы посмотреть 20-метровую статую Рамзеса II в специально для нее
+                            построенном павильоне, или увидеть местного сфинкса, кажущегося крохотным по сравнению с
+                            колоссом Гизы, или чтобы просто побывать в том месте, откуда началась эта великая
+                            цивилизация. &nbsp; <br><br><strong>Каир</strong> – самый большой город африканского
+                            континента, город "тысячи минаретов", "Ворота Востока". В разные периоды своей истории город
+                            носил два громких имени: Эль-Кахира (Победитель) и Умм-эд-Дунджа (Мать мира). Среди древних
+                            египтян даже ходили легенды о том, будто именно здесь произошла битва между братьями-богами
+                            Хором и Сетом. Современный Каир <span>–</span> это "город, который никогда не спит", один из
+                            самых дружелюбных, безопасных и спокойных городов Африки. Кроме того, это город сотен и
+                            сотен архитектурных памятников, музеев и иных достопримечательностей: здесь находятся
+                            знаменитая Цитадель Салладина, район "старый Каир", ажурные минареты мечеть Мохаммеда Али
+                            или мечети Султана Калауна, гигантский акведук от Нила к Цитадели, башня Бейт-аль-Сеннар и
+                            здание старейшего арабского университета Аль-Азар, уникальный Египетский музей, близлежащие
+                            храмы Луксора и Карнака. &nbsp; <br><br><strong>Египетский музей</strong> (нередко
+                            называемый попросту Каирским музеем) <span>–</span> главное мировое хранилище египетских
+                            древностей, вероятно, единственное в мире художественно-историческое собрание, где даже
+                            самые молодые экспонаты насчитывают около 2 тысяч лет. &nbsp; <br><br>Ювелирная и <strong>папирусная
+                                фабрики</strong>, <strong>Музей парфюмерии</strong> с миллионом чарующих запахов, а
+                            также <strong>Алебастровая мечеть</strong>, куда открыт доступ даже для не-мусульман –
+                            отличные объекты для экскурсий. &nbsp; <br><br><strong>Ремесленный базар
+                                Хан-эль-Халили</strong> – самый большой базар на Востоке, площадью 5 км<sup>2</sup>.
+                            Купить здесь можно практически все, даже невольниц, но самое главное – здесь можно с головой
+                            погрузиться в восточную экзотику с ее невообразимой кутерьмой и многообразием. &nbsp;
+                            <br><br><strong>Храмы в Абу-Симбеле.</strong> Рамсес II приказал соорудить здесь большой
+                            храм в ознаменование его победы над хеттами. Были изготовлены четыре огромные статуи, в
+                            которых воспроизведен он сам, с улыбкой смотрящий в пустыню. Каждый из колоссов высотой
+                            около 20 метров окружен многочисленными меньшими фигурами, изображающими членов его большой
+                            семьи и детей, которых у него было более 200. &nbsp; <br><br><strong>Луксор</strong> –
+                            небольшой город на правом берегу Нила. Когда-то на его месте находилась знаменитая столица
+                            Древнего Египта, которую египтяне называли Уасет, греки – Фивы, а арабы <span>–</span>аль-Уксур
+                            (дворцы). В мире нет другого города, где было бы сосредоточено такое огромное количество
+                            древних памятников – почти треть всех исторических реликвий, всемирный центр археологии.
+                            Древние постройки на правом берегу Нила называются "Городом живых", здесь проживало его
+                            население, а на левом – "Городом мертвых", здесь находились царская резиденция и огромный
+                            некрополь, погребальные храмы и гробницы, расположенные в амфитеатре скал, над которыми
+                            возвышается Дехенет – "Западная вершина" (сейчас эль-Курн). &nbsp; <br><br><strong>Асуанская
+                                плотина (Садд эль-Али)</strong>. Это уникальное гигантское сооружение высотой 111
+                            метров, длиной 3,8 км и шириной 1 км часто называют "пирамидой ХХ века". Плотина создала
+                            гигантское водохранилище, одно из самых больших искусственных озер мира &nbsp; Фаросский
+                            (Александрийский) маяк , свет которого был виден на расстоянии до 30 миль от берега – одно
+                            из семи чудес света античного мира. Был разрушен в XIV веке сильным землетрясением. В том
+                            самом месте, где он когда-то возвышался, в XV веке султан Ашраф построил мощную крепость с
+                            круглыми башнями и выходящими на море бойницами. <span>–</span> форт Кайт-Бей. &nbsp;
+                            <br><br><strong>Древние катакомбы Ком аш-Шавкафа (I-II века н.э.)</strong> расположены в три
+                            этажа (два нижних залиты водой), крупнейшее подземное захоронение в Египте, в планировке
+                            которого прослеживаются элементы египетского, греческого и римского
+                            стилей.&nbsp;<br><br><strong>Долина мумий</strong> – некрополь, найденный в 1997 году
+                            случайно в оазисе Бахария в египетской Западной пустыне. Здесь находится 11 хорошо
+                            сохранившихся мумий, возраст которых насчитывает около 1800 лет.&nbsp;
+                            &nbsp;<br><br><strong>Гора Синайская</strong> (Гора Закона, Габаль-Муса или гора Моисея)
+                            высотой 2285 метров. На вершине горы, согласно преданию, господь вручил Моисею каменные
+                            скрижали веры со знаменитыми десятью заповедями. На вершину ведут две тропинки: одна
+                            короткая, но крутая, другая более пологая, но и более длинная. Неподалеку от вершины, где
+                            стоит часовня монастыря Св. Екатерины, они соединяются – здесь начинается вырубленная
+                            монахами в скале лестница из 3400 ступеней, которую приходится преодолевать паломникам
+                            (можно это сделать и верхом на верблюде, но это предприятие не для слабонервных). Каждую
+                            ночь десятки паломников из разных стран мира поднимаются от монастыря на гору Моисея, чтобы
+                            встретить рассвет.</p></div>
+                </div>
+            </div>
+            <div class="col-12 col-xl-3 layout-box__sidebar">
+                <div class="sidebar-box">
+                    <div class="sidebar-box__heading">
+                        Полезная информация
+                    </div>
+                    <div class="sidebar-box__content">
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#plane"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Туры в Египет
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#hotels"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Отели Египта
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#visa"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Виза в Египет
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#dost"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Достопримечательности Египта
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#weather"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Погода в Египте
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#currency"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Валюта Египта
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#suggestion"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Советы туристам
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#food"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Кухня Египта
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#embrassy"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Посольства Египта
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#culture"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Культурные особенности Египта
+								</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+        <div class="footer-wrap">
+    <div class="footer container">
+        <div class="row col-pd-10">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Турне в соц сетях</div>
+                <div class="footer__social">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M3.516 24h7.828v-8.531H8.53v-2.813h2.813V9.141a3.52 3.52 0 0 1 3.515-3.516h3.516v2.813h-2.813c-.775 0-1.406.63-1.406 1.406v2.812h4.092l-.469 2.813h-3.623V24h6.328A3.52 3.52 0 0 0 24 20.484V3.516A3.52 3.52 0 0 0 20.484 0H3.516A3.52 3.52 0 0 0 0 3.516v16.968A3.52 3.52 0 0 0 3.516 24zM1.406 3.516c0-1.163.947-2.11 2.11-2.11h16.968c1.163 0 2.11.947 2.11 2.11v16.968c0 1.163-.947 2.11-2.11 2.11h-4.922v-5.719h3.409l.937-5.625h-4.346V9.844h4.22V4.219h-4.923A4.927 4.927 0 0 0 9.938 9.14v2.109H7.124v5.625h2.813v5.719H3.516a2.112 2.112 0 0 1-2.11-2.11V3.516z"/>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M6.497 0h11.006a6.504 6.504 0 0 1 6.493 6.264l.004.233v11.007a6.504 6.504 0 0 1-6.264 6.492l-.232.004H6.497a6.504 6.504 0 0 1-6.493-6.264L0 17.504V6.497A6.504 6.504 0 0 1 6.264.004L6.497 0h11.006zm11.007 1.407H6.497A5.096 5.096 0 0 0 1.41 6.282l-.004.215v11.007a5.096 5.096 0 0 0 4.875 5.085l.215.004h11.006a5.096 5.096 0 0 0 5.086-4.875l.004-.214V6.497a5.095 5.095 0 0 0-5.09-5.09zM12 5.437A6.57 6.57 0 0 1 18.562 12 6.57 6.57 0 0 1 12 18.562 6.57 6.57 0 0 1 5.438 12 6.57 6.57 0 0 1 12 5.438zm0 1.408A5.161 5.161 0 0 0 6.845 12 5.161 5.161 0 0 0 12 17.155 5.161 5.161 0 0 0 17.155 12 5.161 5.161 0 0 0 12 6.845zm6.72-3.738c1.069 0 1.939.87 1.939 1.94a1.94 1.94 0 0 1-1.94 1.938c-1.07 0-1.939-.87-1.939-1.939s.87-1.939 1.94-1.939zm0 1.407a.533.533 0 1 0 0 1.065.533.533 0 0 0 0-1.065z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="footer__heading">Контакты</div>
+                <div class="footer__contacts">
+                    <a href="tel:+380678294052">(067) 829-40-52</a><br>
+                    <a href="tel:+380952357060">(095) 235-70-60</a><br>
+                    <a href="#callbackModal" class="footer__callback" data-toggle="modal">
+                        Перезвоните мне
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Ваш отдых</div>
+                <ul>
+                    <li><a href="/">Горящие туры</a></li>
+                    <li><a href="/">Туры</a></li>
+                    <li><a href="/">Туры на майские</a></li>
+                    <li><a href="/">Экскурсионные туры</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Куда поехать</div>
+                <ul>
+                    <li><a href="/">Страны</a></li>
+                    <li><a href="/">Отели</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Туристам</div>
+                <ul>
+                    <li><a href="where-buy.html">Где купить</a></li>
+                    <li><a href="/">Статьи</a></li>
+                                                                                    <li><a href="reviews-hotels-page.html">Отзывы об отелях</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Партнерам</div>
+                <ul>
+                    <li><a href="/">Для турфирм</a></li>
+                    <li><a href="/">Правовая информация</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Turne.com.ua</div>
+                <div class="footer__text">Copyright © 2019 "X-tend". <br>
+                    Все права защищены.
+                </div>
+                <ul>
+                    <li><a href="/">О проекте</a></li>
+                    <li><a href="home-mobile.html">Мобильная версия</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div></div>
+<!-- Modal -->
+<div class="modal sign-in-modal" id="signInModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Форма входа</div>
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/" class="v-form sign-in-form">
+                    <div class="form-group">
+                        <input class="form-control input-placeholder autoHide" type="email" placeholder="E-mail">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control input-placeholder autoHide" type="password" placeholder="Пароль">
+                    </div>
+
+                    <input class="btn btn-brand btn-brand--orange" type="submit" value="Войти">
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="https://www.turne.com.ua/registration">Зарегистрироваться</a>
+                <a href="/passrecovery">Забыли пароль</a>
+            </div>
+        </div>
+    </div>
+</div><!-- Modal -->
+<div class="modal callback-modal" id="callbackModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Обратный звонок
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                    <div class="b-dropdown-callback" style="display: block !important;">
+                        <form action="/common/phonecallbackformsubmit" data-ajax="true" data-ajax-begin="oForms.FormOnBegin"
+                              data-ajax-complete="oForms.FormOnComplete" data-ajax-success="oForms.PhoneCallbackFormOnSuccess"
+                              id="form1" method="post" novalidate="novalidate"><span class="b-dropdown-callback__heading">Введите свой номер телефона:</span>
+
+                            <div class="form-group"><input class="form-control jsMaskedInputPhone" data-val="true"
+                                                           data-val-regex="Неверный формат"
+                                                           data-val-regex-pattern="^\+38\(\d{3}\)\s{1}\d{3}-\d{2}-\d{2}$"
+                                                           data-val-required="Неверный формат" id="Phone" maxlength="100"
+                                                           name="Phone" placeholder="+38(XXX) XXX-XX-XX" type="tel"> <span
+                                        class="field-validation-valid validation" data-valmsg-for="Phone"
+                                        data-valmsg-replace="true"></span></div>
+                            <input id="Url" name="Url" type="hidden" value="%2f">
+                            <input type="submit" id="btnSend"
+                                   name="btnSend"
+                                   class="btn btn-brand btn-brand--orange"
+                                   value="Перезвоните мне"></form>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div><script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.js" type="text/javascript"></script>
+<script src="js/datepicker.js" type="text/javascript"></script>
+<script src="js/svg4everybody.min.js" type="text/javascript"></script>
+<script src="js/ofi.min.js" type="text/javascript"></script>
+<script src="js/scripts.js" type="text/javascript"></script>
+<script src="js/scripts-desktop.js" type="text/javascript"></script>
+<script src="js/lazysizes.min.js" async=""></script>
+
+
+    <script src="js/slick/slick.min.js" type="text/javascript"></script>
+    <script src="js/home-page.js" type="text/javascript"></script>
+</body>
+</html>

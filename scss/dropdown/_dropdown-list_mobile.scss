@@ -1,0 +1,122 @@
+@import "../mixin";
+@import "../variable";
+
+.m-filter-open, .m-dropdown-open, .modal-open, .navbar-open {
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.m-dropdown .town-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 12px;
+  background-color: #f6fafe;
+  .btn {
+    width: 100%;
+  }
+}
+
+.m-dropdown, .vertical-filter {
+  &__header {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    min-height: 46px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    background: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+    transform: translateZ(0);
+    z-index: 100;
+    //.close {
+    //  display: block !important;
+    //  color: #f26326;
+    //  font-size: 26px;
+    //  //padding: 1rem;
+    //  padding: 4px 12px;
+    //  margin: -1rem -1rem -1rem auto;
+    //}
+  }
+  &__back {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    border: none;
+  }
+}
+
+.m-dropdown {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  min-height: 100%;
+  width: 100% !important;
+  border: none;
+  border-radius: 0;
+  font-size: 14px;
+  overflow-y: auto;
+  box-shadow: none;
+  z-index: 1005;
+  .li-town {
+    max-height: none;
+    margin: 10px 0;
+  }
+  .town-bottom {
+    display: flex;
+  }
+  .ui-autocomplete {
+    box-shadow: none;
+  }
+}
+
+.b-dropdown {
+  &-search {
+    display: block;
+    position: relative;
+    padding: 8px 20px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    .form-control {
+      padding-left: 34px;
+      position: relative;
+      z-index: 1;
+      background: transparent;
+      -webkit-border-radius: 18px;
+      border-radius: 18px;
+      border: solid 1px #cbd2de;
+      line-height: 1.8;
+      color: #333333;
+      font-size: 13px;
+    }
+  }
+}
+
+.ui-autocomplete {
+  max-height: none;
+}
+
+.m-dropdown.b-dropdown_complex-b {
+  .li-town {
+    padding-bottom: 45px;
+  }
+}
+
+.peopleQuantity {
+  max-width: 300px;
+  margin: 0 auto;
+  .b-dropdown_simple-b .li-town {
+    max-height: 145px;
+  }
+}

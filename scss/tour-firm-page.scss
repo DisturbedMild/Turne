@@ -1,0 +1,115 @@
+@import "mixin";
+@import "variable";
+
+.agency {
+  &-section {
+    margin-bottom: 40px;
+  }
+  &-wrapper {
+    position: relative;
+    min-height: 420px;
+  }
+  &__map {
+    position: absolute;
+    top: 0;
+    max-width: 1180px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: #ddd;
+  }
+  &-card {
+    position: relative;
+    z-index: 2;
+    margin-left: auto;
+    width: 380px;
+    top: 10px;
+    right: 10px;
+    background-color: #fff;
+    &__logo {
+      box-shadow: inset 0 -1px 0 0 #efefef;
+      padding-bottom: 10px;
+      text-align: center;
+      img {
+        max-height: 130px;
+        width: auto;
+        margin-top: 10px;
+      }
+    }
+    &__body {
+      padding: 10px 28px 10px 28px;
+      font-size: 13px;
+      line-height: 20px;
+    }
+    &__street {
+      margin-bottom: 8px;
+    }
+    &__phone {
+      margin-bottom: 8px;
+      display:flex;
+      svg {
+        margin-right: 12px;
+      }
+    }
+    &__viber {
+      margin-bottom: 8px;
+    }
+    &__email {
+      margin-bottom: 8px;
+      color: $orange;
+    }
+    &__web {
+      display: block;
+      margin-bottom: 8px;
+    }
+    &__icon {
+      fill: $blue;
+      margin-right: 8px;
+    }
+  }
+}
+.form-callback--small .form-callback__col {
+  max-width: initial;
+}
+.form-callback .custom-dropdown__control {
+  min-height: 40px;
+  line-height: 25px;
+}
+.form-callback .btn {
+  line-height: 25px;
+}
+.search-tour-col {
+  margin-bottom: 40px;
+}
+
+.city-from {
+  &__row {
+    margin-left: -5px;
+    margin-right: -5px;
+    div {
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-bottom: 10px;
+    }
+  }
+  &__item {
+    color: #4b5669;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #efefef;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
+    outline: none;
+    &:hover {
+      color: #4b5669;
+      text-decoration: none;
+    }
+  }
+}
+
+.section-hot-tours {
+  margin-top: 0px;
+}
+.form-section__header {
+  margin-bottom: 20px;
+  line-height: 22px;
+}

@@ -1,0 +1,419 @@
+{% extends "layouts/default.twig" %}
+{% set mobile = "" %}
+{% if mobile %}
+	{% set toggleMobileText = "Полная версия" %}
+	{% set toggleMobileLink = "articles-page.html" %}
+	{%  set hotDetailLink = "hot-details-mobile.html" %}
+{% else %}
+	{% set toggleMobileText = "Мобильная версия" %}
+	{% set toggleMobileLink = "articles_mobile.html" %}
+	{%  set hotDetailLink = "hot-details.html" %}
+{% endif %}
+
+{% block searchStyle %}
+	<link href="css/bundle/searchStyle.css?v=113" rel="stylesheet"/>
+{% endblock %}
+{% block head %}
+	<link href="css/tour-country.css?v=113" rel="stylesheet"/>
+	<link href="css/articles-page.css?v=113" rel="stylesheet"/>
+{% endblock %}
+
+{% block scripts %}{% endblock %}
+
+{% block content %}
+	<div class="container">
+	{% include "./articles-modules/breadcrumbs.twig" %}
+		<div class="articles-section">
+			<h2 class="heading">
+				Статьи
+			</h2>
+			<div class='row layout-box'>
+				<div class="col-12 col-xl-3 layout-box__sidebar">
+					<div class="sidebar-box sidebar-box--two-col">
+						<div class="sidebar-box__heading">
+							Рубрики
+						</div>
+						<div class="sidebar-box__content">
+							<div class="sidebar-box__item">
+								<a href="#" class="sidebar-box__link">
+									<div class="sidebar-box__text">
+										Дайвинг
+									</div>
+								</a>
+							</div>
+							<div class="sidebar-box__item">
+								<a href="#" class="sidebar-box__link">
+									<div class="sidebar-box__text">
+										Куда поехать
+									</div>
+								</a>
+							</div>
+							<div class="sidebar-box__item">
+								<a href="#" class="sidebar-box__link">
+									<div class="sidebar-box__text">
+										Национальная кухня
+									</div>
+								</a>
+							</div>
+							<div class="sidebar-box__item">
+								<a href="#" class="sidebar-box__link">
+									<div class="sidebar-box__text">
+										События
+									</div>
+								</a>
+							</div>
+							<div class="sidebar-box__item">
+								<a href="#" class="sidebar-box__link">
+									<div class="sidebar-box__text">
+										Советы туристам
+									</div>
+								</a>
+							</div>
+							<div class="sidebar-box__item">
+								<a href="#" class="sidebar-box__link">
+									<div class="sidebar-box__text">
+										Про Турне
+									</div>
+								</a>
+							</div>
+							<div class="sidebar-box__item">
+								<a href="#" class="sidebar-box__link">
+									<div class="sidebar-box__text">
+										Интересные места
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="sidebar-box sidebar-box--two-col">
+						<div class="sidebar-box__heading">
+							Статьи о странах
+						</div>
+						<div class="sidebar-box__content">
+							<div class="sidebar-box__item">
+								<a href="#" class="sidebar-box__link">
+									<span class="sidebar-icon sprite-flag sprite-flag--turciya"></span>
+									<div class="sidebar-box__text">
+										Турция
+									</div>
+
+								</a>
+							</div>
+							<div class="sidebar-box__item">
+								<a href="#" class="sidebar-box__link">
+									<span class="sidebar-icon sprite-flag sprite-flag--kipr"></span>
+									<div class="sidebar-box__text">
+										Кипр
+									</div>
+								</a>
+							</div>
+							<div class="sidebar-box__item">
+								<a href="#" class="sidebar-box__link">
+									<span class="sidebar-icon sprite-flag sprite-flag--oae"></span>
+									<div class="sidebar-box__text">
+										ОАЕ
+									</div>
+								</a>
+							</div>
+							<div class="sidebar-box__item">
+								<a href="#" class="sidebar-box__link">
+									<span class="sidebar-icon sprite-flag sprite-flag--italiya"></span>
+									<div class="sidebar-box__text">
+										Италия
+									</div>
+								</a>
+							</div>
+							<div class="sidebar-box__item">
+								<a href="#" class="sidebar-box__link">
+									<span class="sidebar-icon sprite-flag sprite-flag--greciya"></span>
+									<div class="sidebar-box__text">
+										Греция
+									</div>
+								</a>
+							</div>
+							<div class="sidebar-box__item">
+								<a href="#" class="sidebar-box__link">
+									<span class="sidebar-icon sprite-flag sprite-flag--ispaniya"></span>
+									<div class="sidebar-box__text">
+										Испания
+									</div>
+								</a>
+							</div>
+							<div class="sidebar-box__item">
+								<a href="#" class="sidebar-box__link">
+									<span class="sidebar-icon sprite-flag sprite-flag--kitay"></span>
+									<div class="sidebar-box__text">
+										Китай
+									</div>
+								</a>
+							</div>
+							<div class="sidebar-box__item">
+								<a href="#" class="sidebar-box__link">
+									<span class="sidebar-icon sprite-flag sprite-flag--shri-lanka"></span>
+									<div class="sidebar-box__text">
+										Шри-Ланка
+									</div>
+								</a>
+							</div>
+							<div class="sidebar-box__item">
+								<a href="#" class="sidebar-box__link">
+									<span class="sidebar-icon sprite-flag sprite-flag--tailand"></span>
+									<div class="sidebar-box__text">
+										Таиланд (Тайланд)
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-xl-9">
+					<div class="row  articles-section__row col-pd-20">
+						<div class="col-12 col-md-6 col-lg-6 col-xl-6 card-item">
+							<a href='#' class="article-card">
+								<img src="https://img.poehalisnami.ua/contentdata/blog/f8f68cf4-5fae-4a05-83dd-c7ab0055b2bd/oom3v05a.ttn.jpg" alt="">
+							<div class="article-card__text-content">
+								<div class="article-card__date">
+									23.01.2020
+								</div>
+								<div class="article-card__title">
+									Под Киевом презентуют уникальную коллекцию
+								</div>
+								<div class="article-card__text">
+									Под Киевом презентуют уникальную коллекцию 25 и 26 января в Древнем Киеве
+																 		Княжества Киевская Русь («Парк Киевская Русь») пройдет знакомство с лошадьми
+																		редких древних пород, собранных со всего мира.
+								</div>
+							</div>
+							</a>
+						</div>
+						<div class="col-12 col-md-6 col-lg-6 col-xl-6 card-item">
+							<a href='#' class="article-card">
+								<img src="https://img.poehalisnami.ua/contentdata/blog/a38e5130-b21d-42e8-b9af-c3a3c8ab724f/p5lqc3ks.zkc.jpg" alt="">
+							
+							<div class="article-card__text-content">
+								<div class="article-card__date">
+									23.01.2020
+								</div>
+								<div class="article-card__title">
+									Под Киевом презентуют уникальную коллекцию
+								</div>
+								<div class="article-card__text">
+									Под Киевом презентуют уникальную коллекцию 25 и 26 января в Древнем Киеве
+																 		Княжества Киевская Русь («Парк Киевская Русь») пройдет знакомство с лошадьми
+																		редких древних пород, собранных со всего мира.
+								</div>
+							</div>
+							</a>
+						</div>
+						<div class="col-12 col-md-6 col-lg-6 col-xl-6 card-item">
+							<a href='#' class="article-card">
+								<img src="https://img.poehalisnami.ua/contentdata/blog/4c14ab89-3349-44a0-878b-ec75f88e7b0d/bxd4q1ts.huk.jpg" alt="">
+							
+							<div class="article-card__text-content">
+								<div class="article-card__date">
+									23.01.2020
+								</div>
+								<div class="article-card__title">
+									Под Киевом презентуют уникальную коллекцию
+								</div>
+								<div class="article-card__text">
+									Под Киевом презентуют уникальную коллекцию 25 и 26 января в Древнем Киеве
+																 		Княжества Киевская Русь («Парк Киевская Русь») пройдет знакомство с лошадьми
+																		редких древних пород, собранных со всего мира.
+								</div>
+							</div>
+							</a>
+						</div>
+						<div class="col-12 col-md-6 col-lg-6 col-xl-6 card-item">
+							<a href='#' class="article-card">
+								<img src="https://img.poehalisnami.ua/contentdata/blog/0e3d8c33-ca64-4b7f-8de7-453294521df0/zm2shyc0.e32.jpg" alt="">
+							
+							<div class="article-card__text-content">
+								<div class="article-card__date">
+									23.01.2020
+								</div>
+								<div class="article-card__title">
+									Под Киевом презентуют уникальную коллекцию
+								</div>
+								<div class="article-card__text">
+									Под Киевом презентуют уникальную коллекцию 25 и 26 января в Древнем Киеве
+																 		Княжества Киевская Русь («Парк Киевская Русь») пройдет знакомство с лошадьми
+																		редких древних пород, собранных со всего мира.
+								</div>
+							</div>
+							</a>
+						</div>
+					<div class="col-12 col-xl-12 card-item">
+					<div class="form-section">
+						<div class="form-section__image">
+							<img src="Images/subscribe-2.png" alt="">
+						</div>
+						<div class="form-section__content">
+							<div class="form-section__header">
+								Узнавайте о турах первыми!
+							</div>
+							<div class="form-section__text">
+								Подпишитесь на рассылку. Путешествуйте с Турне.
+							</div>
+							{% include "./hot-tours-modules/subscribe-hot-tour-page.twig" %}
+						</div>
+					</div>
+					</div>
+						<div class="col-12 col-md-6 col-lg-6 col-xl-6 card-item">
+							<a href='#' class="article-card">
+								<img src="https://img.poehalisnami.ua/contentdata/blog/cfcb1388-5cf4-4cb3-979d-d028dd41efd3/0flkrzvn.zw5.jpg" alt="">
+							
+							<div class="article-card__text-content">
+								<div class="article-card__date">
+									23.01.2020
+								</div>
+								<div class="article-card__title">
+									Под Киевом презентуют уникальную коллекцию
+								</div>
+								<div class="article-card__text">
+									Под Киевом презентуют уникальную коллекцию 25 и 26 января в Древнем Киеве
+																 		Княжества Киевская Русь («Парк Киевская Русь») пройдет знакомство с лошадьми
+																		редких древних пород, собранных со всего мира.
+								</div>
+							</div>
+							</a>
+						</div>
+						<div class="col-12 col-md-6 col-lg-6 col-xl-6 card-item">
+							<a href='#' class="article-card">
+								<img src="https://img.poehalisnami.ua/contentdata/blog/6dcd2283-98cb-4447-a1f8-738b66e19384/flnnqcd1.0da.jpg" alt="">
+							
+							<div class="article-card__text-content">
+								<div class="article-card__date">
+									23.01.2020
+								</div>
+								<div class="article-card__title">
+									Под Киевом презентуют уникальную коллекцию
+								</div>
+								<div class="article-card__text">
+									Под Киевом презентуют уникальную коллекцию 25 и 26 января в Древнем Киеве
+																 		Княжества Киевская Русь («Парк Киевская Русь») пройдет знакомство с лошадьми
+																		редких древних пород, собранных со всего мира.
+								</div>
+							</div>
+							</a>
+						</div>
+						<div class="col-12 col-md-6 col-lg-6 col-xl-6 card-item">
+							<a href='#' class="article-card">
+								<img src="https://img.poehalisnami.ua/contentdata/blog/a908b30a-b841-461d-aaed-880812ced7a4/twawgxln.uuy.jpg" alt="">
+							
+							<div class="article-card__text-content">
+								<div class="article-card__date">
+									23.01.2020
+								</div>
+								<div class="article-card__title">
+									Под Киевом презентуют уникальную коллекцию
+								</div>
+								<div class="article-card__text">
+									Под Киевом презентуют уникальную коллекцию 25 и 26 января в Древнем Киеве
+																 		Княжества Киевская Русь («Парк Киевская Русь») пройдет знакомство с лошадьми
+																		редких древних пород, собранных со всего мира.
+								</div>
+							</div>
+							</a>
+						</div>
+						<div class="col-12 col-md-6 col-lg-6 col-xl-6 card-item">
+							<a href='#' class="article-card">
+								<img src="https://img.poehalisnami.ua/contentdata/blog/8108a97f-d68c-484f-a099-2d62b52fa871/bqco2vks.byk.jpg" alt="">
+							
+							<div class="article-card__text-content">
+								<div class="article-card__date">
+									23.01.2020
+								</div>
+								<div class="article-card__title">
+									Под Киевом презентуют уникальную коллекцию
+								</div>
+								<div class="article-card__text">
+									Под Киевом презентуют уникальную коллекцию 25 и 26 января в Древнем Киеве
+																		Княжествзнакомство с лошадьми
+																		редких древних пород, собранных со всего мира.
+								</div>
+							</div>
+							</a>
+						</div>
+					</div>
+					<nav>
+						<ul class="pagination">
+							<li class="page-item">
+								<a class="page-link arrow-link arrow-prev" href="#" aria-label="Previous">
+									<svg class="svg-icon " width="16" height="16" fill="#387c89">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+									</svg>
+								</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">1</a>
+							</li>
+							<li class="page-item active" aria-current="page">
+								<a class="page-link" href="#">2</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">3</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">4</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">5</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">6</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">7</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">8</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">9</a>
+							</li>
+							<li class="page-item">
+								<a class=" arrow-next arrow-link page-link" href="#" aria-label="Next">
+									<svg class="svg-icon " width="16" height="16" fill="#387c89">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+									</svg>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="form-section best-tours">
+						<div class="form-section__image">
+							<img src="Images/best-tours.png" alt="">
+						</div>
+						<div class="form-section__content">
+							<div class="form-section__text-content">
+								<div class="form-section__header">
+									Интересуетесь отдыхом?
+								</div>
+								<div class="form-section__text">
+									Подборка лучших горящих туров для вас!
+								</div>
+							</div>
+							<a href="#" class="col-12 col-md-4 col-xl-3 form-section__btn">
+								<input type="submit" class="btn btn-brand btn-brand--cloudBurst best-tours__link" value="Смотреть">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<section class="page-article grey-background-f6f">
+		<div class="container text-collapse-wrap">
+			<div class="articles-wrap text-collapse text-collapse--shadow">
+				<h2>Каталог турфирм на портале www.TURNE.com.ua</h2>
+				На нашем сайте представлены лучшие гостиницы и отели мира. У нас вы найдете всю необходимую информацию, как о
+																				дорогих пятизвездочных отелях, так и о бюджетных гостиницах. Все отели представлены на сайте с детальным
+																				описанием, которое включает фотографии отелей, гостиничных номеров, перечень предоставляемых услуг, а также,
+																				количество номеров, классификацию отеля и стоимость проживания. Мы искренне надеемся, что наш каталог отелей
+																				поможет вам найти самую достоверную и полную информацию об интересующих вас отелях, актуальных турах и отзывах о
+																				гостиницах. Не забудьте оставить свои отзывы об отелях!
+			</div>
+		</div>
+	</section>
+{% endblock %}

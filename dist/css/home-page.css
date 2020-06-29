@@ -1,0 +1,268 @@
+.screen-search {
+  padding-bottom: 3.75rem;
+  margin-bottom: 0;
+}
+
+.screen-search__content {
+  position: relative;
+  padding-top: 1px;
+  margin-top: 62px;
+}
+
+.section-hot-tours {
+  padding-top: 25px;
+  padding-bottom: 40px;
+}
+
+.section-hot-tours .btn--show-all {
+  margin: 10px auto 0 auto;
+  max-width: 180px;
+  display: block;
+}
+
+.form-callback__col {
+  max-width: 334px;
+}
+
+.form-callback__col--btn {
+  max-width: 200px;
+}
+
+.form-callback .custom-dropdown__control {
+  min-height: 48px;
+  line-height: 32px;
+  font-size: 16px;
+}
+
+.form-callback .btn {
+  font-size: 16px;
+  line-height: 34px;
+}
+
+.section-popular-destinations {
+  padding-top: 40px;
+}
+
+.section-hotels {
+  padding: 14px 0 40px;
+}
+
+.image-box__col {
+  margin-bottom: 26px;
+}
+
+.section-callback {
+  padding: 32px 0 30px 0;
+}
+
+.section-callback__content {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+}
+
+.section-callback__heading {
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.29;
+}
+
+.form-callback--transparent .form-callback__input {
+  border-color: transparent;
+  background-clip: border-box;
+  height: 48px;
+}
+
+.form-callback--center {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.form-callback--center .btn {
+  width: 100%;
+}
+
+/* our-advantages */
+.section-our-advantages {
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.our-advantages__item {
+  height: 200px;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  -webkit-box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding-top: 28px;
+  background-color: #fff;
+}
+
+.our-advantages__item-circle {
+  max-width: 100px;
+  width: 100%;
+  height: 100px;
+  border: 1px solid #387c89;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  margin: 0 auto;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.our-advantages__item-circle svg {
+  fill: #387c89;
+  position: absolute;
+  -webkit-transform: translate(50%, 50%);
+      -ms-transform: translate(50%, 50%);
+          transform: translate(50%, 50%);
+}
+
+.our-advantages__item-text {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  max-width: 248px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.section-reviews {
+  padding: 60px 0 40px;
+}
+
+.reviews {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.reviews__item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.reviews-card {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  border: solid 1px rgba(75, 86, 105, 0.2);
+  padding: 12px 12px 12px 12px;
+  background: #fff;
+  text-decoration: none;
+  color: #4b5669;
+  outline: none;
+}
+
+.reviews-card:hover {
+  text-decoration: none;
+  color: #4b5669;
+}
+
+.reviews-card__content {
+  height: 100%;
+  overflow: hidden;
+}
+
+.reviews-card__name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.reviews-card__info {
+  line-height: 17px;
+  color: #4b5669;
+  opacity: 0.7;
+}
+
+.reviews-card__text {
+  margin-top: 14px;
+  height: 100px;
+  overflow: hidden;
+  line-height: 20px;
+}
+
+.reviews-card__link-all {
+  font-weight: 600;
+  color: #f19f39;
+  cursor: pointer;
+}
+
+.reviews-card__link-all:hover {
+  color: #DD5411;
+  text-decoration: underline;
+}
+
+.section-news {
+  margin-bottom: 20px;
+}
+
+.news-card {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+  text-decoration: none !important;
+  background-color: #ffffff;
+}
+
+.news-card__thumbnail {
+  display: block;
+  width: 100%;
+  height: 216px;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+}
+
+.news-card__thumbnail img {
+  height: 100%;
+  width: 100%;
+}
+
+.news-card__caption {
+  padding-top: 12px;
+}
+
+.news-card__heading {
+  color: #4b5669;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.news-card__text {
+  line-height: 1.54;
+  margin-top: 4px;
+  color: #4b5669;
+}
+
+/*# sourceMappingURL=map/home-page.css.map */

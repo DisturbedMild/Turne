@@ -1,0 +1,104 @@
+{% extends "layouts/default-mobile.twig" %}
+{% set mobile = 'mobile' %}
+{% if mobile %}
+	{% set toggleMobileText = "Полная версия" %}
+	{% set toggleMobileLink = "tours-bus.html" %}
+	{%  set hotDetailLink = "hot-details-mobile.html" %}
+	{%  set excursionDetailLink = "excursion-details-mobile.html" %}
+{% else %}
+	{% set toggleMobileText = "Мобильная версия" %}
+	{% set toggleMobileLink = "tours-bus_mobile.html" %}
+	{%  set hotDetailLink = "hot-details.html" %}
+	{%  set excursionDetailLink = "excursion-details.html" %}
+{% endif %}
+
+{% block searchStyle %}
+	<link href="css/bundle/searchStyleMobile.css?v=113" rel="stylesheet"/>
+	<link rel="stylesheet" href="css/slick.css">
+	<link rel="stylesheet" href="css/slider.css">
+{% endblock %}
+{% block head %}
+	<link href="css/tour-country.css?v=113" rel="stylesheet">
+	<link href="css/tours-bus-search.css?v=113" rel="stylesheet">
+	<link href="css/tours-bus-search_mobile.css?v=113" rel="stylesheet">
+{% endblock %}
+
+{% block scripts %}
+	<script src="js/slick/slick.min.js" type="text/javascript"></script>
+	<script src="js/home-page_mobile.js" type="text/javascript"></script>
+	<script src="js/search-page.js" type="text/javascript"></script>
+	<script>
+		$(document).ready(function () {
+
+var textCollapse = $('.text-collapse');
+if (textCollapse.outerHeight() >= 140) {
+textCollapse.on('click', function () {
+$(this).toggleClass('expanded');
+});
+textCollapse.addClass('text-collapse-load');
+} else {
+textCollapse.removeClass('text-collapse--shadow');
+} textCollapse.find('.btn-admin-edit').on('click', function (e) {
+e.stopPropagation();
+})
+});
+	</script>
+{% endblock %}
+
+{% block content %}
+	{% include "./tours-bus-modules/screen-box-tour.twig" %}
+	<div class="section-tours container">
+		<h2 class="heading">Горящие туры</h2>
+		{% include "./tours-bus-modules/tourne-search-recommended-card.twig" %}
+	</div>
+	<section class="section-hot-tours">
+		<div class="container">
+			<h2 class="heading">Автобусные туры по Европе</h2>
+			{% include "./tours-bus-modules/hot-tours.twig" %}
+		</div>
+	</section>
+	<section class="section-popular-destinations">
+		<div class="container">
+			<h2 class="heading">Популярные страны</h2>
+			{% include "./tours-bus-modules/popular-destinations.twig" %}
+		</div>
+	</section>
+	<section class="section-popular-destinations">
+		<div class="container">
+			<h2 class="heading">Популярные города</h2>
+			{% include "./tours-bus-modules/popular-town.twig" %}
+		</div>
+	</section>
+	<section class="section-tours-from">
+		<div class="container">
+			<h2 class="heading">Города выезда</h2>
+			{% include "./tours-bus-modules/tours-from.twig" %}
+		</div>
+	</section>
+
+
+	<section class="page-article grey-background-f6f">
+		<div class="container text-collapse-wrap">
+			<div class="articles-wrap text-collapse text-collapse--shadow">
+				<h2>Как выбрать экскурсионный тур?</h2>
+				<p>Каким будет отдых, зависит от самого туриста, который отправляется купить путевку в турагентство. Правильно заданные вопросы и четкая определенность в желаниях увеличивают шансы подобрать идеальный вариант конкретно для вас. 
+																																												До того, как ехать в офис турфирмы, подумайте, что вам нужно от поездки – теплое море и белый песок, побольше музеев и красивой архитектуры, прогулки по романтическим местам, или множество возможностей для расслабляющего отдыха в СПА-центрах.
+				</p>
+				<p>Как и виды отдыха, туристические туры тоже бывают разнонаправленными:
+				</p>
+
+				<p>
+					Пляжные. Предполагают максимально комфортабельные условия для времяпровождения на побережье. В такие путевки включено проживание в отелях с высокоразвитой инфраструктурой (водный спорт, СПА-процедуры, бассейн, аквапарк, коктейли на пляже, анимация, дискотека).<br>
+					Экскурсионные и автобусные. Купить тур такого типа будет отличным решением, если вы желаете осмотреть за одну поездку сразу несколько городов или стран. В стоимость предложений входит также экскурсионная программа.<br>
+					Романтические. Позволяют отдохнуть влюбленным в соответствующей атмосфере (необычные рестораны, уединенные гостиницы, организация свадебных церемоний).
+																																												Событийные. Привязаны к праздничным датам на курортах, нацелены познакомить туристов с культурой страны через традиционные гуляния и карнавалы.<br>
+					Туристические путевки выходного дня. Предоставляют шанс отдохнуть насыщенно туристам, которые не имеют возможности отправиться в отпуск более чем на 3-4 дня.
+																																												Оздоровительные. Путешествие в места, где можно поправить общее состояние здоровья или пройти расслабляющие процедуры.<br></p>
+				<p>
+					Далее сформируйте отпускной бюджет, от которого нужно отталкиваться при покупке путевки. В стоимость туров обычно включены: авиаперелет (проезд на автобусе) и трансфер от места прибытия, питание и проживание, страховка и виза (в случае, если она нужна). Последние также могут оказаться и отдельной статьей расхода. Не в каждом отеле представлено питание в формате All inclusive, которое может оказаться в некоторых случаях даже неуместным. Лучшие туры для «пляжных» туристов, конечно, с системой питания Все включено или трехразовым питанием (пансион FB). Только завтраки (BB) и завтрак с ужином или обедом (полупансион HB) подойдут людям, которые проводят отпуск практически вне отеля.
+				</p>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

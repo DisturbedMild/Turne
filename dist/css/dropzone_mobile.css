@@ -1,0 +1,38 @@
+.dz-message-desktop {
+  display: none !important;
+}
+
+.dz-message-mobile {
+  display: block !important;
+}
+
+.custom-dropzone {
+  height: auto;
+  min-height: auto;
+  padding: 0;
+  background: #ffffff;
+  border: 1px solid #f26437;
+}
+
+.custom-dropzone .dz-message {
+  margin: 5px auto;
+  color: #424242;
+  font-weight: 600;
+}
+
+.custom-dropzone-preview--desktop {
+  display: none !important;
+}
+
+.custom-dropzone-preview--mobile {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.custom-dropzone-preview--mobile {
+  padding-top: 12px;
+}
+
+/*# sourceMappingURL=map/dropzone_mobile.css.map */

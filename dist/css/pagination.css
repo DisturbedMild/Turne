@@ -1,0 +1,86 @@
+.pagination {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pagination .page-item a {
+  color: #4b5669;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  border: none;
+}
+
+.pagination .page-item + .page-item {
+  margin-left: 0.625rem;
+}
+
+.pagination .page-item:first-child .page-link,
+.pagination .page-item:last-child .page-link {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #fff;
+  color: #ff8508;
+}
+
+.pagination .page-link {
+  padding: 0.2rem 0.25rem;
+  margin-left: 0px;
+}
+
+.pagination .page-link:hover {
+  background-color: #fff;
+  color: #ff8508;
+}
+
+.pagination .page-item .arrow-link {
+  width: 24px;
+  height: 24px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  padding: 0px;
+}
+
+.pagination .page-item .arrow-link:hover {
+  background-color: #4b5669;
+}
+
+.pagination .arrow-link {
+  background: #4b5669;
+}
+
+.pagination .arrow-link svg {
+  fill: #fff;
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.pagination .arrow-prev {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+  margin-right: 8px;
+}
+
+.pagination .arrow-next {
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  margin-left: 8px;
+}
+
+.pagination .arrow.page-link {
+  background-color: #4b5669;
+}
+
+/*# sourceMappingURL=map/pagination.css.map */

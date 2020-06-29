@@ -1,0 +1,176 @@
+{% extends "layouts/default-mobile.twig" %}
+{% set mobile = 'mobile' %}
+{% if mobile %}
+	{% set toggleMobileText = "Полная версия" %}
+	{% set toggleMobileLink = "index.html" %}
+	{%  set hotDetailLink = "hot-details-mobile.html" %}
+	{%  set excursionDetailLink = "excursion-details-mobile.html" %}
+{% else %}
+	{% set toggleMobileText = "Мобильная версия" %}
+	{% set toggleMobileLink = "home-mobile.html" %}
+	{%  set hotDetailLink = "hot-details.html" %}
+	{%  set excursionDetailLink = "excursion-details.html" %}
+{% endif %}
+
+{% block searchStyle %}
+	<link href="css/bundle/searchStyleMobile.css?v=113" rel="stylesheet"/>
+	<link rel="stylesheet" href="css/slick.css">
+	<link rel="stylesheet" href="css/slider.css">
+{% endblock %}
+{% block head %}
+	<link href="css/bundle/homePageMobile.css?v=113" rel="stylesheet">
+	<link href="css/booking-page.css?v=113" rel="stylesheet"/>
+	<link href="css/booking-page_mobile.css?v=113" rel="stylesheet"/>
+{% endblock %}
+
+{% block scripts %}
+
+
+	<script src="js/home-page_mobile.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<nav class="nav-breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="#">Главная ТУРНЕ</a>
+				</li>
+				<li class="breadcrumb-item">
+					<a href="#">Поиск туров</a>
+				</li>
+				<li class="breadcrumb-item">
+					<a href="#">Туры в Египет</a>
+				</li>
+				<li class="breadcrumb-item">
+					<a href="#">Туры в Шарм-эль-Шейх</a>
+				</li>
+				<li class="breadcrumb-item active" aria-current="page">Туры в отель</li>
+			</ol>
+		</nav>
+		<header class="hotel-header__title">
+			<h1 class="heading">
+				Бронирование
+			</h1>
+		</header>
+		<div class="hotel-booking">
+			<div class="hotel-booking__header-info">
+				<div class="hotel-booking__resort-img">
+					<img src="./Images/tour-img.png" alt="#">
+				</div>
+				<div class="hotel-booking__content">
+					<div class="hotel-booking__text-heading">
+						Sharm Inn Amarein, 4
+					</div>
+					<div class="hotel-booking__place">
+						Египет, Шарм-эль-Шейх
+					</div>
+					<div class="hotel-booking__facilities-wrapper">
+						<div class="hotel-booking__included">
+							Информация о туре
+						</div>
+						<ul class="hotel-booking__facilities">
+							<li class="media">
+								<svg class="svg-icon " width="16" height="16" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#date2"></use>
+								</svg>
+								Вылет 21.10, 7 ночей
+							</li>
+							<li class="media">
+								<svg class="svg-icon " width="16" height="16" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#user"></use>
+								</svg>
+								1 взрослый
+							</li>
+							<li class="media">
+								<svg class="svg-icon " width="16" height="16" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#rooms"></use>
+								</svg>
+								GSL Standard Room
+							</li>
+							<li class="media">
+								<svg class="svg-icon " width="16" height="16" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#food"></use>
+								</svg>
+								AI (все включенно)
+							</li>
+						</ul>
+						<div class="hotel-booking__included">
+							Включенно
+							<br>
+							<span>Страховка, перелет, групповой трансфер</span>
+						</div>
+					</div>
+					<div class="hotel-booking__contacts-info">
+						<div class="hotel-booking__call-content">
+							Тур предоставляет
+							<div>
+								<img src="./Images/bitmap.png" alt="">
+							</div>
+							<div class="hotel-booking__call-svg">
+								Контакты
+								<a href="tel:+380671900330" class="hotel-booking__contacts">
+									<svg class="svg-icon " width="24" height="24" fill="#387c89">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone2"></use>
+									</svg>
+									(067) 333-98-31
+								</a>
+							</div>
+
+						</div>
+					</div>
+					<div class="hotel-booking__price">
+						<div class="hotel-booking__payment">
+							Предоплата
+							<br>
+							<span class="hotel-booking__prepayment">
+								2 153 грн. (30%)
+							</span>
+						</div>
+						<div class="hotel-booking__payment">
+							Цена
+							<br>
+							<span class="hotel-booking__tourPrice">
+								7 174 грн. (277$)
+							</span>
+						</div>
+						<button class="hotel-booking__info-btn btn ">Правила бронирования</button>
+					</div>
+				</div>
+			</div>
+			<div class="booking-personalInfo">
+				<div class="hotel-booking__breadcrumbs">
+					<div class="hotel-booking__breadcrumb-item">
+						<div class="hotel-booking__item-num">
+							1
+						</div>
+					</div>
+					<div class="hotel-booking__breadcrumb-item">
+
+						<div class="hotel-booking__item-num">
+							2
+						</div>
+					</div>
+					<div class="hotel-booking__breadcrumb-item">
+						<div class="hotel-booking__item-num">
+							3
+						</div>
+					</div>
+				</div>
+				{% include "./booking-page-modules/hotel-booking-contacts.twig"%}
+				{% include "./booking-page-modules/hotel-booking-passport.twig"%}
+				{% include "./booking-page-modules/hotel-booking-payment.twig"%}
+			</div>
+			<div class="hotel-booking__thanks">
+				<div class="hotel-booking__thanks-heading">
+					Поздравляем! Номер заказа 3647
+				</div>
+				<div class="hotel-booking__thanks-description">Тур забронирован. В ближайшее время с вами<br>
+					свяжется наш менеджер для уточнения деталей.<br>Спасибо.
+				</div>
+				<a href="#">Вернуться на главную страницу</a>
+			</div>
+
+		</div>
+
+	{% endblock %}

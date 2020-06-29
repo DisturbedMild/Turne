@@ -1,0 +1,117 @@
+@import "mixin";
+@import "variable";
+
+.modal {
+  &-dialog {
+    max-width: 400px;
+    width: 100%;
+  }
+  &-body {
+    padding-top: 0;
+  }
+  &-header {
+    border-bottom: none;
+    padding: 0px;
+    margin-bottom: 0px;
+  }
+  &--send-btn {
+    width: 100%;
+    font-weight: 600;
+  }
+}
+
+.application-modal {
+  &__content-window {
+    max-width: 360px;
+    width: 100%;
+  }
+  &__heading {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: $font-mont;
+    color: $blue;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  &__label {
+    text-align: left;
+  }
+  .custom-dropdown {
+    height: 40px;
+    &__control {
+      padding: 8px 20px; 
+      border: 1px solid #ced4da;
+    }
+    &__icon {
+      display: none;
+    }
+  }
+  &__input {
+    margin-bottom: 20px;
+  }
+  .form-callback__input {
+    height: 40px;
+  }
+  .brand-checkbox {
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .modal {
+    &-body {
+      padding: 0px;
+      margin-top: 60px;
+    }
+   .application-modal__content-window {
+     max-width: none;
+     height: 100%;
+   }
+   &-dialog {
+     max-width: none;
+     width: 100%;
+     height: 100%;
+     margin: 0;
+   }
+  }
+  .application-modal {
+    &__heading {
+     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+     background-color: #ffffff;
+     font-size: 16px;
+     padding: 10px 12px;
+     color: #4b5669;
+     line-height: 22px;
+     position: fixed;
+    }
+    &__content {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+  .close {
+    float:none;
+    opacity: 1;
+  }
+ }
+
+
+ .thanks-modal {
+  &__mail-img {
+    margin-bottom: 20px;
+  }
+  &__header {
+    color: #387c89;
+    font-family: $font-mont;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+  &__text {
+    margin-bottom: 20px;
+  }
+  &__header-text {
+    font-weight: 600;
+    margin-bottom: 12px; 
+  }
+}

@@ -1,0 +1,23 @@
+<div class="custom-dropdown js-search-control {{ customDropdownClass }}">
+    <div class="custom-dropdown__control">
+
+            <svg class="custom-dropdown__icon" width="24" height="24" viewBox="0 0 16.5 24" stroke="#9CA4B3" stroke-width="0.2pt">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="Images/icons-search.svg#{{ iconName }}"></use>
+            </svg>
+
+        <div class="custom-dropdown__text">
+            <div class="ellipsis-text">{{ textDropdown }}</div>
+        </div>
+        <div class="custom-dropdown__search" style="display: none">
+            {#<svg class="custom-dropdown__icon custom-dropdown__icon--search" width="20" height="20">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="Images/icons-search.svg#search"></use>
+            </svg>#}
+            <input class="ui-autocomplete-input" type="text" placeholder="Введите адрес для поиска офиса">
+        </div>
+        {#<div class="custom-dropdown__expanded arrow-icon"></div>#}
+    </div>
+    {{ dropdown(mobile) }}
+</div>
+

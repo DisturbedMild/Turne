@@ -1,0 +1,19 @@
+{% macro dropdown(mobile) %}
+	<div class="b-dropdown_simple-b b-dropdown m-dropdown no-user-select jsDropDownOptions" style="display: none;">
+		<div class="m-dropdown__header">
+			<button class="m-dropdown__back back-icon jsMultiSelectDone"></button>
+			<span class="m-dropdown__title">Сортировать</span>
+		</div>
+		<ul class="li-town">
+			<li class="jsDropDownItem dd-item">
+				По рейтингу
+			</li>
+			<li class="jsDropDownItem dd-item">
+            	По дате
+			</li>
+		</ul>
+		<div class="town-bottom town-bottom-controls jsControlPanel">
+			<button class="btn btn-brand btn-brand--orange jsMultiSelectDone">ПРИМЕНИТЬ</button>
+		</div>
+	</div>
+{% endmacro %}

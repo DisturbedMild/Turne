@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600,700|Open+Sans:400,600,700&display=swap&subset=cyrillic"
+          rel="stylesheet">
+    <link href="css/bootstrap/bootstrap.css?v=113" rel="stylesheet"/>
+    <link href="css/bootstrap/bootstrap-grid_mobile.css?v=113" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.9.2.custom.min.css">
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="css/bundle/globalMobile.css?v=113">
+
+        <link href="css/bundle/searchStyleMobile.css?v=113" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="js/fancybox/jquery.fancybox.min.css">
+    <link href="https://www.poehalisnami.ua/jsresourses/map/leaflet_styles.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+
+        <link href="css/details-page.css" rel="stylesheet">
+    <link href="css/details-page_mobile.css" rel="stylesheet">
+    <link href="css/bundle/oldGlobalMobile.css?v=113" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+    <link href="css/mobile-device.css?v=113" rel="stylesheet"/>
+    <script>
+        /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+        /* This file is meant as a standalone workflow for
+        - testing support for link[rel=preload]
+        - enabling async CSS loading in browsers that do not support rel=preload
+        - applying rel preload css once loaded, whether supported or not.
+        */
+        (function( w ){
+            "use strict";
+            // rel=preload support test
+            if( !w.loadCSS ){
+                w.loadCSS = function(){};
+            }
+            // define on the loadCSS obj
+            var rp = loadCSS.relpreload = {};
+            // rel=preload feature support test
+            // runs once and returns a function for compat purposes
+            rp.support = (function(){
+                var ret;
+                try {
+                    ret = w.document.createElement( "link" ).relList.supports( "preload" );
+                } catch (e) {
+                    ret = false;
+                }
+                return function(){
+                    return ret;
+                };
+            })();
+
+            // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+            // then change that media back to its intended value on load
+            rp.bindMediaToggle = function( link ){
+                // remember existing media attr for ultimate state, or default to 'all'
+                var finalMedia = link.media || "all";
+
+                function enableStylesheet(){
+                    link.media = finalMedia;
+                }
+
+                // bind load handlers to enable media
+                if( link.addEventListener ){
+                    link.addEventListener( "load", enableStylesheet );
+                } else if( link.attachEvent ){
+                    link.attachEvent( "onload", enableStylesheet );
+                }
+
+                // Set rel and non-applicable media type to start an async request
+                // note: timeout allows this to happen async to let rendering continue in IE
+                setTimeout(function(){
+                    link.rel = "stylesheet";
+                    link.media = "only x";
+                });
+                // also enable media after 3 seconds,
+                // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+                setTimeout( enableStylesheet, 3000 );
+            };
+
+            // loop through link elements in DOM
+            rp.poly = function(){
+                // double check this to prevent external calls from running
+                if( rp.support() ){
+                    return;
+                }
+                var links = w.document.getElementsByTagName( "link" );
+                for( var i = 0; i < links.length; i++ ){
+                    var link = links[ i ];
+                    // qualify links to those with rel=preload and as=style attrs
+                    if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+                        // prevent rerunning on link
+                        link.setAttribute( "data-loadcss", true );
+                        // bind listeners to toggle media back
+                        rp.bindMediaToggle( link );
+                    }
+                }
+            };
+
+            // if unsupported, run the polyfill
+            if( !rp.support() ){
+                // run once at least
+                rp.poly();
+
+                // rerun poly on an interval until onload
+                var run = w.setInterval( rp.poly, 500 );
+                if( w.addEventListener ){
+                    w.addEventListener( "load", function(){
+                        rp.poly();
+                        w.clearInterval( run );
+                    } );
+                } else if( w.attachEvent ){
+                    w.attachEvent( "onload", function(){
+                        rp.poly();
+                        w.clearInterval( run );
+                    } );
+                }
+            }
+
+
+            // commonjs
+            if( typeof exports !== "undefined" ){
+                exports.loadCSS = loadCSS;
+            }
+            else {
+                w.loadCSS = loadCSS;
+            }
+        }( typeof global !== "undefined" ? global : this ) );
+        /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+        (function(w){
+            "use strict";
+            /* exported loadCSS */
+            var loadCSS = function( href, before, media ){
+                // Arguments explained:
+                // `href` [REQUIRED] is the URL for your CSS file.
+                // `before` [OPTIONAL] is the element the script should use as a reference for injecting our stylesheet <link> before
+                // By default, loadCSS attempts to inject the link after the last stylesheet or script in the DOM. However, you might desire a more specific location in your document.
+                // `media` [OPTIONAL] is the media type or query of the stylesheet. By default it will be 'all'
+                var doc = w.document;
+                var ss = doc.createElement( "link" );
+                var ref;
+                if( before ){
+                    ref = before;
+                }
+                else {
+                    var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+                    ref = refs[ refs.length - 1];
+                }
+
+                var sheets = doc.styleSheets;
+                ss.rel = "stylesheet";
+                ss.href = href;
+                // temporarily set media to something inapplicable to ensure it'll fetch without blocking render
+                ss.media = "only x";
+
+                // wait until body is defined before injecting link. This ensures a non-blocking load in IE11.
+                function ready( cb ){
+                    if( doc.body ){
+                        return cb();
+                    }
+                    setTimeout(function(){
+                        ready( cb );
+                    });
+                }
+                // Inject link
+                // Note: the ternary preserves the existing behavior of "before" argument, but we could choose to change the argument to "after" in a later release and standardize on ref.nextSibling for all refs
+                // Note: `insertBefore` is used instead of `appendChild`, for safety re: http://www.paulirish.com/2011/surefire-dom-element-insertion/
+                ready( function(){
+                    ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+                });
+                // A method (exposed on return object for external use) that mimics onload by polling document.styleSheets until it includes the new sheet.
+                var onloadcssdefined = function( cb ){
+                    var resolvedHref = ss.href;
+                    var i = sheets.length;
+                    while( i-- ){
+                        if( sheets[ i ].href === resolvedHref ){
+                            return cb();
+                        }
+                    }
+                    setTimeout(function() {
+                        onloadcssdefined( cb );
+                    });
+                };
+
+                function loadCB(){
+                    if( ss.addEventListener ){
+                        ss.removeEventListener( "load", loadCB );
+                    }
+                    ss.media = media || "all";
+                }
+
+                // once loaded, set link's media back to `all` so that the stylesheet applies once it loads
+                if( ss.addEventListener ){
+                    ss.addEventListener( "load", loadCB);
+                }
+                ss.onloadcssdefined = onloadcssdefined;
+                onloadcssdefined( loadCB );
+                return ss;
+            };
+            // commonjs
+            if( typeof exports !== "undefined" ){
+                exports.loadCSS = loadCSS;
+            }
+            else {
+                w.loadCSS = loadCSS;
+            }
+        }( typeof global !== "undefined" ? global : this ));
+    </script>
+</head>
+<body class="mobile">
+<div class="wrap-content">
+    <div class="header">
+    <div class="header__content">
+                <div class="container">
+            <div class="row no-gutters header__bottom navbar ">
+                                                    
+                <a class="header__col header__col--left" href="home-mobile.html">
+                    <img class="header__logo animate" src="Images/logo.png" alt="">
+                </a>
+                <div class="html-block">
+                    <a class="media header__phone" href="tel:+380678294052">
+                        <svg class="svg-icon phone-icon" width="24" height="24">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                        </svg>
+                        <span>(067) 829-40-52</span>
+                    </a>
+                </div>
+                <div>
+                    
+                    <div class="hamburger hamburger--squeeze js-hamburger" data-toggle="collapse"
+                         data-target="#navbarsExample01">
+                        <div class="hamburger-box">
+                            <div class="hamburger-inner"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__col header__col--right navbar-collapse collapse" id="navbarsExample01">
+                    <nav class=" header__navbar">
+                        <ul class="nav navbar-nav">
+                                                                                        
+                            <li><a href="hot-tours_mobile.html">Горящие туры</a></li>
+                                                                                                                    <li class="active"><a href="search-tours-mobile.html">Поиск туров</a></li>
+                                                                                                                    <li><a href="tours-bus_mobile.html">Экскурсионные туры</a></li>
+                                                                                                                    <li class="nav-link-dropdown">
+                                <a class="jsEmptyLink" href="#">Страны
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+                                    </svg>
+                                </a>
+                                    <div class="b-dropdown header__child-menu jsHeaderMenu" style="display: none">
+    <ul>
+        <li><a href="tour-country_mobile.html"><span>Египет</span>от 15 367 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Турция</span>от 12 294 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Кипр</span>от 22 362 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>ОАЭ</span>от 15 367 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Италия</span>от 23 913 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Греция</span>от 15 785 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Испания</span>от 16 530 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Китай</span>от 25 379 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Шри-Ланка</span>от 32 918 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Таиланд (Тайланд)</span>от 38 177 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Французская Полинезия</span>от 38 177 грн</a></li>
+    </ul>
+    <span class="child-menu-link"><a href="tourne-countries_mobile.html">Все страны</a></span>
+</div>                            </li>
+                            <li><a href="hotels-mobile.html">Отели</a></li>
+                            <li><a href="where-buy-mobile.html">Где купить</a></li>
+                            <li><a href="reviews-hotels-page-mobile.html">Отзывы об отелях</a></li>
+                        </ul>
+                        <ul class="header-menu-contacts">
+                            <li>Контакты:</li>
+                            <li><a class="media" href="tel:+380678294052">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#kyivstar"></use>
+                                    </svg>
+                                    <span>(067) 829-40-52</span>
+                                </a></li>
+                            <li><a class="media" href="tel:+380952357060">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#vodafone"></use>
+                                    </svg>
+                                    <span>(095) 235-70-60</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="header-menu-contacts__callback media" href="#callbackModal" data-toggle="modal">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                                    </svg>
+                                    <span>Перезвонить мне</span>
+                                </a>
+                            </li>
+                        </ul>
+                        
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="main-content">
+            <div class="container">
+        <nav class="nav-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Главная ТУРНЕ</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Поиск туров</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Туры в Египет</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Туры в Шарм-эль-Шейх</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Туры в отель Sharming Inn Hotel (ex. Sol Y Mar
+                    Sharming Inn)
+                </li>
+            </ol>
+        </nav>
+        <div class="details-heading">
+            <h1 class="heading">Sharming Inn Hotel (ex. Sol Y Mar Sharming Inn), 4*</h1>
+        </div>
+        <div class="details-place">
+            Египет, Шарм-эль-Шейх
+        </div>
+        <div class="details-tour">
+            <div class="tour-gallery">
+            <div class="top-sales">
+            Топ продаж
+        </div>
+    
+    
+    <div class="tour-gallery__slider tour-gallery-slider js-gallery-big" id="galleryBig">
+        <div class="tour-gallery__item" data-fancybox-index="0">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_1.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery__item" data-fancybox-index="1">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_10.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery__item" data-fancybox-index="2">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_11.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery__item" data-fancybox-index="3">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_13.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery__item" data-fancybox-index="4">
+            <img class="lazyload"
+                    data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_14.jpg"
+                    alt=""></div>
+        <div class="tour-gallery__item" data-fancybox-index="5">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_1.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery__item" data-fancybox-index="6">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_10.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery__item" data-fancybox-index="7">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_11.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery__item" data-fancybox-index="8">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_13.jpg"
+                 alt="">
+        </div>
+    </div>
+    <div class="tour-gallery__slider tour-gallery-nav js-gallery-thumbnail"
+         id="galleryThumbnail">
+        <div class="tour-gallery-nav__item">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_1.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery-nav__item">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_10.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery-nav__item">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_11.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery-nav__item">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_13.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery-nav__item">
+            <img class="lazyload"
+                    data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_14.jpg"
+                    alt="">
+        </div>
+        <div class="tour-gallery-nav__item">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_1.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery-nav__item">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_10.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery-nav__item">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_11.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery-nav__item tour-gallery-nav__old">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_13.jpg"
+                 alt="">
+            <div class="tour-gallery-nav__old-text">+10</div>
+        </div>
+    </div>
+</div>            <div class="details-tour__info info-box js-fixed-mobile-order-offset-top">
+    <div>
+        <div class="info-box__heading">
+            Информация о туре
+        </div>
+        <div class="review-score">
+            <svg class="radial-progress-bar" width="58" height="58" viewBox="0 0 58 58"
+                 style="stroke-dasharray: 109.2, 140">
+                <use href="#progressbar"></use>
+                <text text-anchor="middle" x="50%" y="34" fill="#387c89">3.9/5</text>
+            </svg>
+            <span>27 отзывов</span>
+        </div>
+    </div>
+    
+    <div class="clearfix expired-tour">
+        <div class="expired-tour__text">По заданным параметрам с 04.04 по 12.04 в Sharming Inn Hotel (ex. Sol Y Mar
+            Sharming Inn), 4* для 2 взрослых туров не найдено.
+            <div class="mt-3">Оставьте запрос, и наши менеджеры подберут вам лучший тур.</div>
+        </div>
+
+    </div>
+    <div class="info-box__buttons">
+        <button class="btn btn-brand btn-brand--orange" data-toggle="modal" data-target="#applicationModalmobile">
+            Оставить заявку
+        </button>
+        <button class="btn btn-brand btn-brand--orange fixed-mobile-button js-mobile-popup-order" data-toggle="modal"
+                data-target="#applicationModalmobile">Оставить заявку
+        </button>
+    </div>
+</div>        </div>
+        <div class="anchor-nav anchor-nav-section">
+            <div class="anchor-nav__wrapper">
+                <div class="anchor-nav__link">
+                    <a href="#">Описание отеля</a>
+                </div>
+                <div class="anchor-nav__link">
+                    <a href="#">Отзывы (24)</a>
+                </div>
+                <div class="anchor-nav__link">
+                    <a href="#">Отель на карте</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="detail-office-info">
+    <h2 style="text-align:center">Новый прекрасный с отличными
+        отзывами&nbsp;отель</h2>
+    <h2 style="text-align:center">на 1-й линии с АКВАПАРКОМ !&nbsp;</h2>
+    <p>&nbsp; Отель расположен на первой береговой линии. Общая площадь территории составляет 25000 кв.м.&nbsp;&nbsp;
+        &nbsp;Гости могут посещать территорию соседнего отеля Hawaii Le Jardin Resort &amp; Aqua Park Resort.&nbsp;Собственный
+        песчаный пляж протяженностью 200 метров.Зонтики, шезлонги, матрасы, пляжные полотенца -
+        бесплатно.Инфраструктура</p>
+    <ul>
+        <li>Главный ресторан рассчитан на 460 гостей (07.00 -10.00, 12:30 -14:30, 19:00-21:30)</li>
+        <li>Средиземноморский Аля Карт рeсторан в соседнем отеле Hawaii Le Jardin Resort &amp;Aqua Park Resort
+            (19:00-21:30, за дополнительную плату)
+        </li>
+        <li>Азиатский Аля Карт рeсторан рассчитан на 70 гостей (19:00-21:30, за дополнительную плату)</li>
+        <li>Рыбный Аля Карт ресторан на пляже рассчитан на 90 гостей (19:00-21:30, за дополнительную плату)</li>
+        <li>Бар на пляже (10:00 до заката солнца)</li>
+        <li>Бар у бассейна (10:00 до заката солнца)</li>
+        <li>Splash бар закусок (12:30-17:00)</li>
+        <li>Бистро Бар (17:00-23:00)</li>
+        <li>Лобби бар (10:00-24:00)</li>
+        <li>2 бассейна для взрослых (1 с подогревом в зимний период)</li>
+        <li>Детский бассейн с подогревом в зимний период</li>
+        <li>Бассейн без подогрева для взрослых и детей на территории второй береговой линии Club</li>
+        <li>Аквапарк (12 горок для взрослых и 6 горок для детей, часы работы: 10.00 –12.00/15:00 – 17:00, по
+            правилам пользования горок - минимальный рост гостей 120 см)
+        </li>
+        <li>Конференц зал (площадь 120 кв.м., рассчитан на 100 гостей)</li>
+        <li>Тренажерный зал (09:00-19:00, бесплатно)</li>
+        <li>Оздоровительный центр (платно)</li>
+        <li>Салон красоты (платно)</li>
+        <li>Амфитеатр</li>
+        <li>Магазины</li>
+        <li>Обмен валюты в соседнем отеле Hawaii Le Jardin Resort &amp;Aqua Park Resort</li>
+        <li>Парковка (бесплатно)</li>
+        <li>Теннисный корт, освещение и оборудование (платно)</li>
+        <li>Пляжный волейбол (бесплатно)</li>
+        <li>Поле для мини футбола доступно на пляже (бесплатно)</li>
+        <li>Дайвинг центр (платно)</li>
+    </ul>
+    <p>В номерах представлено: ванная комната с душевой кабиной, фен, индивидуальный кондиционер, спутниковое
+        телевидение (2 русских и 2 украинских канала, музыкальные каналы), мини бар (согласно концепции отеля),
+        набор для приготовления чая и кофе (бесплатно, чай, кофе и сахар предоставляется только один раз, за
+        весь период отдыха), дополнительная кровать (бесплатно, по запросу), сейф (бесплатно), балкон или
+        терраса.Уборка номера: ежедневно.</p>
+    <h3 class="info-title">ДЛЯ ДЕТЕЙ&nbsp;</h3>
+    <div class="hotel-facility-content">
+        <ul>
+            <li>Детский бассейн с подогревом в зимний период</li>
+            <li>Аквапарк в соседнем отеле Hawaii Le Jardin Resort &amp;Aqua Park Resort</li>
+            <li>Детский клуб для детей от 3 до 12 лет</li>
+            <li>Детская площадка на пляже</li>
+            <li>Детская кроватка (по запросу, бесплатно)</li>
+        </ul>
+    </div>
+    <p>&nbsp;&nbsp;</p>
+    <h2 style="text-align:center">У нас есть туры во все страны мира, на любой бюджет</h2>
+    <h2 style="text-align:center">(095) 260-62-00<br>(067) 565-52-10<br>(063) 361-17-30</h2></div>        <section id="hotel-desc" class="hotel-info__section hotel-info">
+    <h2 class="details-small-heading">
+        Общая информация об отеле
+    </h2>
+
+        <div class="text-collapse-wrap hotel-info__text-collapse">
+            <div class="articles-wrap text-collapse text-collapse--shadow">
+                <p>
+                    <span style="font-weight:400">Отель Reef Oasis Blue Bay Resort &amp; Spa 5* расположен на первой береговой линии в бухте Рас-Умм-Сид. Это место подойдет для отдыха и семейных пар с детьми, и молодежи. В 8 км отсюда находится ТРЦ «1001 ночь», в 5 км — бухта Наама-Бей, а к ближайшему аэропорту — 15 км.</span>
+                </p>
+                <p><span style="font-weight:400">Резорт представляет собой комплекс двухэтажных корпусов. Всего в гостинице насчитывается 698 номеров. Купить тур в отель Риф Оазис Блю Бей могут и люди с ограниченными возможностями, для них обустроены специальные уютные апартаменты. Все номера с кондиционерами, телевизорами, балконом и ванной комнатой. Бесплатно предоставляется пользование сейфом, телефоном, феном и мини-баром. Room service платный.</span></p>
+                <p>
+                    <span style="font-weight:400">Отель Reef Oasis Blue Bay Resort &amp; Spa 5* расположен на первой береговой линии в бухте Рас-Умм-Сид. Это место подойдет для отдыха и семейных пар с детьми, и молодежи. В 8 км отсюда находится ТРЦ «1001 ночь», в 5 км — бухта Наама-Бей, а к ближайшему аэропорту — 15 км.</span>
+                </p>
+                <p><span style="font-weight:400">Резорт представляет собой комплекс двухэтажных корпусов. Всего в гостинице насчитывается 698 номеров. Купить тур в отель Риф Оазис Блю Бей могут и люди с ограниченными возможностями, для них обустроены специальные уютные апартаменты. Все номера с кондиционерами, телевизорами, балконом и ванной комнатой. Бесплатно предоставляется пользование сейфом, телефоном, феном и мини-баром. Room service платный.</span></p>
+
+            </div>
+        </div>
+
+    
+    <div class="hotel-info__content-block">
+        <div class="hotel-info__items">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="hotel-info__item-title active" id="v-pills-info-tab" data-toggle="pill" href="#v-pills-info">
+                    Об отеле
+                </a>
+                <a class=" hotel-info__item-title" id="v-pills-location-tab" data-toggle="pill"
+                   href="#v-pills-place">
+                    Местоположение
+                </a>
+                <a class=" hotel-info__item-title" id="v-pills-hotelTerritory-tab" data-toggle="pill"
+                   href="#v-pills-territory">
+                    Территория
+                </a>
+                <a class="hotel-info__item-title" id="v-pills-beach-tab" data-toggle="pill" href="#v-pills-beach">
+                    Пляж
+                </a>
+                <a class="hotel-info__item-title" id="v-pills-pool-tab" data-toggle="pill" href="#v-pills-room"
+                   role="tab" aria-controls="v-pills-pool" aria-selected="false">
+                    Номера
+                </a>
+                <a class="hotel-info__item-title" id="v-pills-pool-tab" data-toggle="pill" href="#v-pills-pool">
+                    Бассейны
+                </a>
+                <a class="hotel-info__item-title" id="v-pills-entertainment-tab" data-toggle="pill"
+                   href="#v-pills-sport">
+                    Развлечение и спорт
+                </a>
+                <a class="hotel-info__item-title" id="v-pills-forChildren-tab" data-toggle="pill"
+                   href="#v-pills-kids">
+                    Для детей
+                </a>
+            </div>
+        </div>
+        <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active desc" id="v-pills-info">
+                <a class="hotel-info__collapse-heading" data-toggle="collapse" href="#collapse-info">
+                    Об отеле
+                    <span class="arrow-icon"></span>
+                </a>
+                <div id="collapse-info" class="collapse show">
+                    <div class="desc__content">
+                        <div class="label label--desc-content">Пляжный</div>
+                        <div class="label label--desc-content">все включено</div>
+                        <div class="label label--desc-content">Check-in 14:00</div>
+                        <div class="label label--desc-content">Check-out 12:00</div>
+                        <p class="desc__content-additional"><strong class="color--blue-accent">Время
+                                постройки/реконструкции:</strong> 2002/2017</p>
+                        <p class="desc__content-additional"><strong class="color--blue-accent">Дополнительная информация
+                                о питании:</strong></p>
+                        <p><strong>Система питания</strong>:</p>
+                        <ul>
+                            <li>HB (завтрак+ужин),&nbsp; AI (всё включено)</li>
+                            <li><strong>Система «все включено»</strong> работает с 10:00 до 00:00, включает алкогольные
+                                и безалкогольные напитки местного производства (за исключением вина). Все напитки
+                                подаются в стаканах по одному за раз.&nbsp;
+                            </li>
+                            <li><strong>За отдельную плату:</strong> молочные коктейли, эспрессо, воздушный кофе, свежий
+                                сок, импортные алкогольные напитки, напитки в бутылках.<br><br></li>
+                        </ul>
+                        <p class="desc__content-additional"><strong class="color--blue-accent">Виды номеров:</strong>
+                        </p>
+                        <ul>
+                            <li><strong>Standard Room </strong>(30 м2, макс. 3 чел., вид из номера на сад/бассейн)</li>
+                        </ul>
+                        <p class="desc__content-additional"><strong class="color--blue-accent">Типы корпусов:</strong>
+                        </p>
+                        <p><span>&nbsp;Отель состоит из комплекса 2х-этажных зданий</span></p>
+                        <p class="desc__content-additional"><strong class="color--blue-accent">Дополнительно об отеле
+                                Sharm Inn Amarein:</strong></p>
+                        <ul>
+                            <li>Вызов врача (платно)</li>
+                            <li>сейф на ресепш</li>
+                            <li>автобус на пляж по расписанию (2 пляжа, арендуемых отелем (коралловый El Fanar -
+                                расстояние 5 км, и песчаный - Marhaba 10 км)
+                            </li>
+                            <li>аптека</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade desc" id="v-pills-place">
+                <a class="hotel-info__collapse-heading collapsed" data-toggle="collapse" href="#collapse-location">
+                    Местоположение
+                    <span class="arrow-icon"></span>
+                </a>
+                <div id="collapse-location" class="collapse">
+                    <div class="desc__content">
+                        <div class="label label--desc-content">2 линия (до моря нужно пройтись)</div>
+                        <div class="media media--desc">
+                            <div class="media__image"><span class="label">20</span></div>
+                            <div class="media__body">Расстояние до аэропорта, км</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade desc" id="v-pills-territory">
+                <a class="hotel-info__collapse-heading collapsed" data-toggle="collapse" href="#collapse-territory">
+                    Территория
+                    <span class="arrow-icon"></span>
+                </a>
+                <div id="collapse-territory" class="collapse">
+                    <div class="desc__content">
+                        <div class="desc__divider desc__divider--free">
+                            <div class="label label--desc-divider"><h3><span>Бесплатно</span></h3></div>
+                        </div>
+                        <ul class="desc__content-list">
+                            <li><i class="adv-icon adv-icon--parking"></i> Места для парковки</li>
+                        </ul>
+                        <div class="desc__divider desc__divider--charge">
+                            <div class="label label--desc-divider">
+                                <h3>
+                                    <svg class="svg-icon svg-icon--sm svg-icon--fill-orange">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             xlink:href="Images/infrastructure/icons.svg#charge"></use>
+                                    </svg>
+                                    <span>Платно</span></h3>
+                            </div>
+                        </div>
+                        <ul class="desc__content-list">
+                            <li><i class="adv-icon adv-icon--wifi"></i> Wi-Fi в лобби</li>
+                            <li><i class="adv-icon adv-icon--shower"></i> Прачечная/Химчистка</li>
+                        </ul>
+                        <p class="desc__content-additional"><strong class="color--blue-accent">Бары: </strong></p>
+                        <ul>
+                            <li><strong>Macumba бар у бассейна:</strong> с 10:00-00:00;</li>
+                            <li><strong>Blues bar:</strong> с 18:00-02:00 (платно);</li>
+                            <li><strong>Bedouin Tent:</strong> кальян с 18:00-00:00 (платно)</li>
+                        </ul>
+                        <p class="desc__content-additional"><strong class="color--blue-accent">Рестораны: </strong></p>
+                        <p><span>Один основной ресторан. Шведский стол:</span></p>
+                        <ul>
+                            <li><span>Завтрак: с 07:00 до 10:00</span></li>
+                            <li><span>обед: с 13:00 до 15:00</span></li>
+                            <li><span>ужин: 19:00 до 21:00</span></li>
+                        </ul>
+                        <p class="desc__content-additional"><strong class="color--blue-accent">Рестораны a la
+                                carte: </strong></p>
+                        <ul>
+                            <li><span><strong>Kafr Amarein:</strong> ресторан морепродуктов, 12:00-23:00,&nbsp;по предварительной резервации;</span>
+                            </li>
+                            <li><span><strong>Jive Bollywood:</strong> индийская кухня, 12:00-00:00, по предварительной резервации;</span>
+                            </li>
+                            <li><span><strong>Jive British sport bar:</strong> 09:00-03:00;</span></li>
+                            <li><span>Посещение ресторанов платно</span></li>
+                        </ul>
+                        <p class="desc__content-additional"><strong class="color--blue-accent">SPA: </strong></p>
+                        <p>Оздоровительный спа-центр с полным спектром услуг (платно)</p></div>
+                </div>
+            </div>
+            <div class="tab-pane fade desc" id="v-pills-beach">
+                <a class="hotel-info__collapse-heading collapsed" data-toggle="collapse" href="#collapse-beach">
+                    Пляж
+                    <span class="arrow-icon"></span>
+                </a>
+                <div id="collapse-beach" class="collapse">
+                    <div class="desc__content"><span class="label label--desc-content">Песчаный</span> <span
+                                class="label label--desc-content">Собственный</span> <span
+                                class="label label--desc-content">Песок, Кораллы</span>
+                        <div class="desc__divider desc__divider--free">
+                            <div class="label label--desc-divider"><h3><span>Бесплатно</span></h3></div>
+                        </div>
+                        <ul class="desc__content-list">
+                            <li><i class="adv-icon adv-icon--umbrella"></i> Зонтики</li>
+                            <li><i class="adv-icon adv-icon--towels"></i> Полотенца</li>
+                            <li><i class="adv-icon adv-icon--beachchair"></i> Шезлонги</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade desc" id="v-pills-room">
+                <a class="hotel-info__collapse-heading collapsed" data-toggle="collapse" href="#collapse-room">
+                    Номера
+                    <span class="arrow-icon"></span>
+                </a>
+                <div id="collapse-room" class="collapse">
+                    <div class="desc__content">
+                        <div class="desc__divider desc__divider--free">
+                            <div class="label label--desc-divider"><h3><span>Бесплатно</span></h3></div>
+                        </div>
+                        <ul class="desc__content-list">
+                            <li><i class="adv-icon adv-icon--hairdryer"></i> Фен</li>
+                            <li><i class="adv-icon adv-icon--conditioning"></i> Кондиционер</li>
+                        </ul>
+                        <div class="desc__divider desc__divider--charge">
+                            <div class="label label--desc-divider">
+                                <h3>
+                                    <svg class="svg-icon svg-icon--sm svg-icon--fill-orange">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             xlink:href="Images/infrastructure/icons.svg#charge"></use>
+                                    </svg>
+                                    <span>Платно</span></h3>
+                            </div>
+                        </div>
+                        <ul class="desc__content-list">
+                            <li><i class="adv-icon adv-icon--minibar"></i> Мини-бар в номере</li>
+                        </ul>
+                        <p class="desc__content-additional"><strong class="color--blue-accent">Уборка номеров и смена
+                                белья: </strong></p>
+                        <ul>
+                            <li>уборка номера – ежедневно</li>
+                            <li>смена белья – по запросу</li>
+                        </ul>
+                        <p class="desc__content-additional"><strong class="color--blue-accent">Дополнительно о номерах в
+                                Sharm Inn Amarein 4*: </strong></p>
+                        <ul>
+                            <li>Ванна</li>
+                            <li>балкон/терраса</li>
+                            <li>сплит кондиционер</li>
+                            <li>ТВ</li>
+                            <li>холодильник</li>
+                            <li>телефон (платно)</li>
+                            <li>пол: плитка</li>
+                            <li>чайные принадлежности по запросу (платно)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade desc" id="v-pills-pool">
+                <a class="hotel-info__collapse-heading collapsed" data-toggle="collapse" href="#collapse-pool">
+                    Бассейны
+                    <span class="arrow-icon"></span>
+                </a>
+                <div id="collapse-pool" class="collapse">
+                    <div class="desc__content">
+                        <div class="desc__divider desc__divider--free">
+                            <div class="label label--desc-divider"><h3><span>Бесплатно</span></h3></div>
+                        </div>
+                        <ul class="desc__content-list">
+                            <li><i class="adv-icon adv-icon--umbrella"></i> Зонтики</li>
+                            <li><i class="adv-icon adv-icon--beachchair"></i> Шезлонги</li>
+                        </ul>
+                        <div class="media media--desc">
+                            <div class="media__image"><span class="label">1</span></div>
+                            <div class="media__body">Количество бассейнов</div>
+                        </div>
+                        <p class="desc__content-additional"><strong class="color--blue-accent">Бассейны: </strong></p>
+                        <p><span id="sobi2Details_field_hotel_desc">1 открытый бассейн</span></p></div>
+                </div>
+            </div>
+            <div class="tab-pane fade desc" id="v-pills-sport">
+                <a class="hotel-info__collapse-heading collapsed" data-toggle="collapse" href="#collapse-sport">
+                    Развлечение и спорт
+                    <span class="arrow-icon"></span>
+                </a>
+                <div id="collapse-sport" class="collapse">
+                    <div class="desc__content">
+                        <div class="desc__divider desc__divider--free">
+                            <div class="label label--desc-divider"><h3><span>Бесплатно</span></h3></div>
+                        </div>
+                        <ul class="desc__content-list">
+                            <li><i class="adv-icon adv-icon--animation"></i> Аниматоры</li>
+                            <li><i class="adv-icon adv-icon--ppong"></i> Настольный тенис</li>
+                            <li><i class="adv-icon adv-icon--fitnes"></i> Фитнес-клуб</li>
+                        </ul>
+                        <div class="desc__divider desc__divider--charge">
+                            <div class="label label--desc-divider">
+                                <h3>
+                                    <svg class="svg-icon svg-icon--sm svg-icon--fill-orange">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             xlink:href="Images/infrastructure/icons.svg#charge"></use>
+                                    </svg>
+                                    <span>Платно</span></h3>
+                            </div>
+                        </div>
+                        <ul class="desc__content-list">
+                            <li><i class="adv-icon adv-icon--bath"></i> Сауна</li>
+                            <li><i class="adv-icon adv-icon--billard"></i> Бильярд</li>
+                            <li><i class="adv-icon adv-icon--watersport"></i> Водный спорт</li>
+                            <li><i class="adv-icon adv-icon--massage"></i> Массаж</li>
+                        </ul>
+                        <p class="desc__content-additional"><strong class="color--blue-accent">Остальные бесплатные
+                                развлечения: </strong></p>
+                        <ul>
+                            <li>Акваджим,</li>
+                            <li>дартс,</li>
+                            <li>водное поло</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade desc" id="v-pills-kids">
+                <a class="hotel-info__collapse-heading collapsed" data-toggle="collapse" href="#collapse-kids">
+                    Для детей
+                    <span class="arrow-icon"></span>
+                </a>
+                <div id="collapse-kids" class="collapse">
+                    <div class="desc__content">
+                        <ul class="desc__content-list">
+                            <li><i class="adv-icon adv-icon--pool"></i> Бассейн</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+        <section id="reviews" class="reviews-section">
+    <h2 class="reviews-section__title details-small-heading">
+        Отзывы об отеле Sharming Inn Hotel (ex. Sol Y Mar Sharming Inn) 4*
+    </h2>
+    <div class="reviews-section__content">
+        <div class="reviews-section__count">Все отзывы туристов 45</div>
+        <div class="reviews-section__total-reviews">
+            <div class="total-reviews__facilities">
+                <div class="total-reviews__progress-bar">
+                    <svg class="radial-progress-bar" width="58" height="58" viewbox="0 0 58 58"
+                         style="stroke-dasharray: 109.2, 140">
+                        <use href="#progressbar"></use>
+                        <text text-anchor="middle" x="50%" y="34" fill="#387c89">3.9/5</text>
+                    </svg>
+                </div>
+                <div class="total-reviews__facilities-items">
+                    <div class="total-reviews__facilities-item">Расположение -
+                        <span class="total-reviews__rating">4</span>
+                    </div>
+                    <div class="total-reviews__facilities-item">Питание -
+                        <span class="total-reviews__rating">4</span>
+                    </div>
+                    <div class="total-reviews__facilities-item">Номера -
+                        <span class="total-reviews__rating">4</span>
+                    </div>
+                    <div class="total-reviews__facilities-item">Развлечения -
+                        <span class="total-reviews__rating">4</span>
+                    </div>
+                    <div class="total-reviews__facilities-item">Обслуживание -
+                        <span class="total-reviews__rating">4</span>
+                    </div>
+                </div>
+                <button class="btn btn-brand btn-brand--cloudBurst total-reviews__leave-feedback" data-toggle="modal" data-target="#modal-reviews">
+                    Оставить отзыв
+                </button>
+            </div>
+        </div>
+        <div class="reviews-section__reviews-body">
+            <div class="reviews-section__item">
+
+                <svg class="radial-progress-bar" width="58" height="58" viewbox="0 0 58 58"
+                     style="stroke-dasharray: 109.2, 140">
+                    <use href="#progressbar"></use>
+                    <text text-anchor="middle" x="50%" y="34" fill="#387c89">3.9/5</text>
+                </svg>
+
+                <div class="reviews-section__item-wrapper">
+                    <div class="reviews-section__heading-content">
+                        <div class="reviews-section__user-name">Юлия</div>
+                        <div class="reviews-section__comment-date">
+                            11 окт 2019
+                        </div>
+                        <div class="reviews-section__recommendation">
+                            <svg class="reviews-section__recomendation-icon" width="24" height="24">
+                                <use xlink:href="Images/icons-search.svg#recomend"></use>
+                            </svg>
+                            Рекомендует отель
+                        </div>
+                    </div>
+                    <div class="reviews-section__commentary">
+                        <div class="jsTouristCommentAnnouncement">Приехала я отдыхать со своей подругой, долго
+                            собирались наконец-то собрались, выбирали отель наугад .Должна сразу предупредить тех кто
+                            любит завышенной комфорт, чтобы было всё идеально, то я думаю вам нужно платить побольше
+                            денег и выбирать другие места. А за эти деньги которые мы заплатили я считаю что это просто
+                            прекрасный отель. Номер у нас был стандартный. С необходимая мебель и пусть даже не новый но
+                            зато удобной.А еще имелось TВ, чайник со всеми принадлежностями( кофе, чай, сахар),
+                            холодильник, телефон.У нас был балкон на котором стояли удобные кресла, столик, на столике
+                            была пепельница, как раз кстати потому что подруга очень много курит. Всё работало ничего не
+                            ломалось и нам этого, было достаточно. Что касается территории отеля то она была очень
+                            красочной и ухоженной. Приятно что днем, что вечерами по ней прогуливаться. Персонал тут
+                            говорит на несколько языках. Многие аниматоры говорят на русском пусть не очень хорошо, но
+                            всё-таки. Аниматоры есть детские и взрослые,
+                        </div>
+                        <div class="collapse" id="collapse0"> Приехала я отдыхать со своей подругой, долго собирались
+                            наконец-то собрались, выбирали отель наугад .Должна сразу предупредить тех кто любит
+                            завышенной комфорт, чтобы было всё идеально, то я думаю вам нужно платить побольше денег и
+                            выбирать другие места. А за эти деньги которые мы заплатили я считаю что это просто
+                            прекрасный отель. Номер у нас был стандартный. С необходимая мебель и пусть даже не новый но
+                            зато удобной.А еще имелось TВ, чайник со всеми принадлежностями( кофе, чай, сахар),
+                            холодильник, телефон.У нас был балкон на котором стояли удобные кресла, столик, на столике
+                            была пепельница, как раз кстати потому что подруга очень много курит. Всё работало ничего не
+                            ломалось и нам этого, было достаточно. Что касается территории отеля то она была очень
+                            красочной и ухоженной. Приятно что днем, что вечерами по ней прогуливаться. Персонал тут
+                            говорит на несколько языках. Многие аниматоры говорят на русском пусть не очень хорошо, но
+                            всё-таки. Аниматоры есть детские и взрослые, устраивают разные развлечения, конкурсы,
+                            представления. Всегда с ними очень весело, увлекают нас всякие игры.Например волейбол,
+                            многие занимались водной гимнастикой, аэробикой. Понравился аква-центр с различными водными
+                            видов спорта. Заказали экскурсии на medaliontours.com , у гида Mohamed amon +201027660085
+                            ….местный частный ..был профессионал.Посетили остров Утопия, ездили на квадроциклах по
+                            Сафари и посетили город Луксор. Впечатление было Вау не перечесть. Мы тоже попробовали
+                            подводное плавание. Подводный мир очень красочный очень разнообразный тоже. Посещали храмы и
+                            Ездили на пирамиды , грех было упустить такой шанс. Сделали отличные фотоки у нас уже
+                            инстаграм горит лайками!!!. Приходилось постоянно посещать спортзал, заниматься на
+                            тренажерах, потому что после вкусной и обильной еды, боялись не влезть в штаны.Ходили курить
+                            кальян мне если честно не понравилось, но подруга была счастлива. Пляж был песчаным и море
+                            прозрачным. Кругом лежаки, матрасы, зонтики, перегородки. В общем пляжная атрибутика. Также
+                            на пляже был бар где можно было и выпить и закусить.Бар и возле бассейна был, можно было не
+                            вылезать из воды и при этом наслаждаться каким-нибудь напитком.Проводилась дискотека, можно
+                            было хорошенько поплясать, что мы делали. В ресторанах подают прекрасную кухню, мы ходили в
+                            азиатский ресторан, в итальянский пару раз. Чаще всего в главном ресторане нравился
+                            тематический шведский стол.Всегда что-то новенькое, вкусненькое, особенно выпечка на ней мы
+                            как раз таки и толстели. Многие отдыхали тут семьями, некоторые приезжали уже даже несколько
+                            раз и очень расхваливали, что они были в других местах, но тут им понравилось больше. Нам
+                            тут тоже нравилось. Ну что сказать напоследок всё было супер! Мы с подругой оторвались по
+                            полной.Думаю наши приятные воспоминания будут долго греть нас в эту длинную зиму.
+                        </div>
+                    </div>
+                    <a href="#collapse0" data-toggle="collapse"
+                       class="reviews-section__readMore-btn jsTouristCommentReadMore">
+                        Читать полностью
+                    </a>
+                    <div class="slick-carousel-wrap">
+                        <div class="reviews-carousel slick-carousel js-detail-reviews-carousel">
+                            <div class="reviews-carousel__item">
+                                <a class="js-adv-feedback-fancybox" data-fancybox="reviews-group-1"
+                                   href="https://www.turne.com.ua/reviewdata/pimg/4495889/af7943f0-c1d3-4069-bfa1-439a38f0bc8d_orig.jpg">
+                                    <img class="lazyload" src=""
+                                         data-src="https://www.turne.com.ua/reviewdata/pimg/4495889/af7943f0-c1d3-4069-bfa1-439a38f0bc8d_orig.jpg">
+                                </a>
+                            </div>
+                            <div class="reviews-carousel__item">
+                                <a class="js-adv-feedback-fancybox" data-fancybox="reviews-group-1"
+                                   href="https://www.youtube.com/watch?v=rbCCe0liJ48&t=13s">
+                                    <img class="lazyload" src=""
+                                         data-src="https://img.youtube.com/vi/rbCCe0liJ48/mqdefault.jpg">
+                                </a>
+                            </div>
+                            <div class="reviews-carousel__item">
+                                <a class="js-adv-feedback-fancybox" data-fancybox="reviews-group-1"
+                                   href="https://www.turne.com.ua/reviewdata/pimg/4495889/4851e836-ec76-431c-a998-d66027b6a472_orig.jpg">
+                                    <img class="lazyload" src=""
+                                         data-src="https://www.turne.com.ua/reviewdata/pimg/4495889/4851e836-ec76-431c-a998-d66027b6a472_orig.jpg">
+                                </a>
+                            </div>
+                            <div class="reviews-carousel__item">
+                                <a class="js-adv-feedback-fancybox" data-fancybox="reviews-group-1"
+                                   href="https://www.turne.com.ua/reviewdata/pimg/4495889/cd888c23-179f-4e65-90b8-7f70ef8502a7_orig.jpg">
+                                    <img class="lazyload" src=""
+                                         data-src="https://www.turne.com.ua/reviewdata/pimg/4495889/cd888c23-179f-4e65-90b8-7f70ef8502a7_orig.jpg">
+                                </a>
+                            </div>
+                            <div class="reviews-carousel__item">
+                                <a class="js-adv-feedback-fancybox" data-fancybox="reviews-group-1"
+                                   href="https://www.turne.com.ua/reviewdata/pimg/4495889/77417feb-5260-4607-b9d5-59baa03acce9_orig.jpg">
+                                    <img class="lazyload" src=""
+                                         data-src="https://www.turne.com.ua/reviewdata/pimg/4495889/77417feb-5260-4607-b9d5-59baa03acce9_orig.jpg">
+                                </a>
+                            </div>
+                            <div class="reviews-carousel__item">
+                                <a class="js-adv-feedback-fancybox" data-fancybox="reviews-group-1"
+                                   href="https://www.turne.com.ua/reviewdata/pimg/4495889/77417feb-5260-4607-b9d5-59baa03acce9_orig.jpg">
+                                    <img class="lazyload" src=""
+                                         data-src="https://www.turne.com.ua/reviewdata/pimg/4495889/77417feb-5260-4607-b9d5-59baa03acce9_orig.jpg">
+                                </a>
+                            </div>
+                            <div class="reviews-carousel__item">
+                                <a class="js-adv-feedback-fancybox" data-fancybox="reviews-group-1"
+                                   href="https://www.turne.com.ua/reviewdata/pimg/4495889/77417feb-5260-4607-b9d5-59baa03acce9_orig.jpg">
+                                    <img class="lazyload" src=""
+                                         data-src="https://www.turne.com.ua/reviewdata/pimg/4495889/77417feb-5260-4607-b9d5-59baa03acce9_orig.jpg">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="slick-navigation">
+                            <div class="js-dots"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviews-section__review-rating">
+                    <div class="reviews-section__rating-item">
+                        Расположение
+                        <span class="reviews-section__rating">4</span>
+                    </div>
+                    <div class="reviews-section__rating-item">
+                        Питание
+                        <span class="reviews-section__rating">4</span>
+                    </div>
+                    <div class="reviews-section__rating-item">
+                        Номера
+                        <span class="reviews-section__rating">4</span>
+                    </div>
+                    <div class="reviews-section__rating-item">
+                        Развлечения
+                        <span class="reviews-section__rating">4</span>
+                    </div>
+                    <div class="reviews-section__rating-item">
+                        Обслуживание
+                        <span class="reviews-section__rating">4</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews-section__item">
+
+                <svg class="radial-progress-bar" width="58" height="58" viewbox="0 0 58 58"
+                     style="stroke-dasharray: 109.2, 140">
+                    <use href="#progressbar"></use>
+                    <text text-anchor="middle" x="50%" y="34" fill="#387c89">3.9/5</text>
+                </svg>
+
+                <div class="reviews-section__item-wrapper">
+                    <div class="reviews-section__heading-content">
+                        <div class="reviews-section__user-name">Юлия</div>
+                        <div class="reviews-section__comment-date">
+                            11 окт 2019
+                        </div>
+                        <div class="reviews-section__recommendation">
+                            <svg class="reviews-section__recomendation-icon reviews-section__recomendation-icon--rotate"
+                                 width="24" height="24">
+                                <use xlink:href="Images/icons-search.svg#recomend"></use>
+                            </svg>
+                            Не рекомендует отель
+                        </div>
+                    </div>
+                    <div class="reviews-section__commentary">
+                        <div class="jsTouristCommentAnnouncement">Приехала я отдыхать со своей подругой, долго
+                            собирались наконец-то собрались, выбирали отель наугад .Должна сразу предупредить тех кто
+                            любит завышенной комфорт, чтобы было всё идеально, то я думаю вам нужно платить побольше
+                            денег и выбирать другие места. А за эти деньги которые мы заплатили я считаю что это просто
+                            прекрасный отель. Номер у нас был стандартный. С необходимая мебель и пусть даже не новый но
+                            зато удобной.А еще имелось TВ, чайник со всеми принадлежностями( кофе, чай, сахар),
+                            холодильник, телефон.У нас был балкон на котором стояли удобные кресла, столик, на столике
+                            была пепельница, как раз кстати потому что подруга очень много курит. Всё работало ничего не
+                            ломалось и нам этого, было достаточно. Что касается территории отеля то она была очень
+                            красочной и ухоженной. Приятно что днем, что вечерами по ней прогуливаться. Персонал тут
+                            говорит на несколько языках. Многие аниматоры говорят на русском пусть не очень хорошо, но
+                            всё-таки. Аниматоры есть детские и взрослые,
+                        </div>
+                        <div class="collapse" id="collapse1"> Приехала я отдыхать со своей подругой, долго собирались
+                            наконец-то собрались, выбирали отель наугад .Должна сразу предупредить тех кто любит
+                            завышенной комфорт, чтобы было всё идеально, то я думаю вам нужно платить побольше денег и
+                            выбирать другие места. А за эти деньги которые мы заплатили я считаю что это просто
+                            прекрасный отель. Номер у нас был стандартный. С необходимая мебель и пусть даже не новый но
+                            зато удобной.А еще имелось TВ, чайник со всеми принадлежностями( кофе, чай, сахар),
+                            холодильник, телефон.У нас был балкон на котором стояли удобные кресла, столик, на столике
+                            была пепельница, как раз кстати потому что подруга очень много курит. Всё работало ничего не
+                            ломалось и нам этого, было достаточно. Что касается территории отеля то она была очень
+                            красочной и ухоженной. Приятно что днем, что вечерами по ней прогуливаться. Персонал тут
+                            говорит на несколько языках. Многие аниматоры говорят на русском пусть не очень хорошо, но
+                            всё-таки. Аниматоры есть детские и взрослые, устраивают разные развлечения, конкурсы,
+                            представления. Всегда с ними очень весело, увлекают нас всякие игры.Например волейбол,
+                            многие занимались водной гимнастикой, аэробикой. Понравился аква-центр с различными водными
+                            видов спорта. Заказали экскурсии на medaliontours.com , у гида Mohamed amon +201027660085
+                            ….местный частный ..был профессионал.Посетили остров Утопия, ездили на квадроциклах по
+                            Сафари и посетили город Луксор. Впечатление было Вау не перечесть. Мы тоже попробовали
+                            подводное плавание. Подводный мир очень красочный очень разнообразный тоже. Посещали храмы и
+                            Ездили на пирамиды , грех было упустить такой шанс. Сделали отличные фотоки у нас уже
+                            инстаграм горит лайками!!!. Приходилось постоянно посещать спортзал, заниматься на
+                            тренажерах, потому что после вкусной и обильной еды, боялись не влезть в штаны.Ходили курить
+                            кальян мне если честно не понравилось, но подруга была счастлива. Пляж был песчаным и море
+                            прозрачным. Кругом лежаки, матрасы, зонтики, перегородки. В общем пляжная атрибутика. Также
+                            на пляже был бар где можно было и выпить и закусить.Бар и возле бассейна был, можно было не
+                            вылезать из воды и при этом наслаждаться каким-нибудь напитком.Проводилась дискотека, можно
+                            было хорошенько поплясать, что мы делали. В ресторанах подают прекрасную кухню, мы ходили в
+                            азиатский ресторан, в итальянский пару раз. Чаще всего в главном ресторане нравился
+                            тематический шведский стол.Всегда что-то новенькое, вкусненькое, особенно выпечка на ней мы
+                            как раз таки и толстели. Многие отдыхали тут семьями, некоторые приезжали уже даже несколько
+                            раз и очень расхваливали, что они были в других местах, но тут им понравилось больше. Нам
+                            тут тоже нравилось. Ну что сказать напоследок всё было супер! Мы с подругой оторвались по
+                            полной.Думаю наши приятные воспоминания будут долго греть нас в эту длинную зиму.
+                        </div>
+                    </div>
+                    <a href="#collapse1" data-toggle="collapse"
+                       class="reviews-section__readMore-btn jsTouristCommentReadMore">
+                        Читать полностью
+                    </a>
+                </div>
+                <div class="reviews-section__review-rating">
+                    <div class="reviews-section__rating-item">
+                        Расположение
+                        <span class="reviews-section__rating">4</span>
+                    </div>
+                    <div class="reviews-section__rating-item">
+                        Питание
+                        <span class="reviews-section__rating">4</span>
+                    </div>
+                    <div class="reviews-section__rating-item">
+                        Номера
+                        <span class="reviews-section__rating">4</span>
+                    </div>
+                    <div class="reviews-section__rating-item">
+                        Развлечения
+                        <span class="reviews-section__rating">4</span>
+                    </div>
+                    <div class="reviews-section__rating-item">
+                        Обслуживание
+                        <span class="reviews-section__rating">4</span>
+                    </div>
+                </div>
+            </div>
+            <a class="btn btn-brand btn-brand--white btn-brand--rounded btn--show-all reviews-section__btn" href="#">СМОТРЕТЬ
+                ВСЕ</a>
+        </div>
+    </div>
+</section>
+        <div class="map-section">
+    <h2 class="details-small-heading">
+        Отель Sharming Inn Hotel (ex. Sol Y Mar Sharming Inn), 4* на карте
+    </h2>
+    <div class="map-area leaflet-container leaflet-touch leaflet-fade-anim leaflet-touch-zoom" id="hotelMap"
+         data-lat="27.245919" data-lng="33.844344" tabindex="0"
+         data-gesture-handling-touch-content="Чтобы переместить карту, проведите по ней двумя пальцами"
+         data-gesture-handling-scroll-content="Чтобы изменить масштаб, прокручивайте карту, удерживая клавишу Ctrl."
+         style="outline: none;">
+        <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(125px, -26px, 0px);">
+            <div class="leaflet-pane leaflet-tile-pane">
+                <div class="leaflet-layer " style="z-index: 1; opacity: 1;">
+                    <div class="leaflet-tile-container leaflet-zoom-animated"
+                         style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt=""
+                                                                                                   role="presentation"
+                                                                                                   src="https://tile.openstreetmap.org/15/19464/13804.png"
+                                                                                                   class="leaflet-tile leaflet-tile-loaded"
+                                                                                                   style="width: 256px; height: 256px; transform: translate3d(295px, -41px, 0px); opacity: 1;"><img
+                                alt="" role="presentation" src="https://tile.openstreetmap.org/15/19464/13805.png"
+                                class="leaflet-tile leaflet-tile-loaded"
+                                style="width: 256px; height: 256px; transform: translate3d(295px, 215px, 0px); opacity: 1;"><img
+                                alt="" role="presentation" src="https://tile.openstreetmap.org/15/19463/13804.png"
+                                class="leaflet-tile leaflet-tile-loaded"
+                                style="width: 256px; height: 256px; transform: translate3d(39px, -41px, 0px); opacity: 1;"><img
+                                alt="" role="presentation" src="https://tile.openstreetmap.org/15/19465/13804.png"
+                                class="leaflet-tile leaflet-tile-loaded"
+                                style="width: 256px; height: 256px; transform: translate3d(551px, -41px, 0px); opacity: 1;"><img
+                                alt="" role="presentation" src="https://tile.openstreetmap.org/15/19463/13805.png"
+                                class="leaflet-tile leaflet-tile-loaded"
+                                style="width: 256px; height: 256px; transform: translate3d(39px, 215px, 0px); opacity: 1;"><img
+                                alt="" role="presentation" src="https://tile.openstreetmap.org/15/19465/13805.png"
+                                class="leaflet-tile leaflet-tile-loaded"
+                                style="width: 256px; height: 256px; transform: translate3d(551px, 215px, 0px); opacity: 1;"><img
+                                alt="" role="presentation" src="https://tile.openstreetmap.org/15/19462/13804.png"
+                                class="leaflet-tile leaflet-tile-loaded"
+                                style="width: 256px; height: 256px; transform: translate3d(-217px, -41px, 0px); opacity: 1;"><img
+                                alt="" role="presentation" src="https://tile.openstreetmap.org/15/19466/13804.png"
+                                class="leaflet-tile leaflet-tile-loaded"
+                                style="width: 256px; height: 256px; transform: translate3d(807px, -41px, 0px); opacity: 1;"><img
+                                alt="" role="presentation" src="https://tile.openstreetmap.org/15/19462/13805.png"
+                                class="leaflet-tile leaflet-tile-loaded"
+                                style="width: 256px; height: 256px; transform: translate3d(-217px, 215px, 0px); opacity: 1;"><img
+                                alt="" role="presentation" src="https://tile.openstreetmap.org/15/19466/13805.png"
+                                class="leaflet-tile leaflet-tile-loaded"
+                                style="width: 256px; height: 256px; transform: translate3d(807px, 215px, 0px); opacity: 1;"><img
+                                alt="" role="presentation" src="https://tile.openstreetmap.org/15/19461/13804.png"
+                                class="leaflet-tile leaflet-tile-loaded"
+                                style="width: 256px; height: 256px; transform: translate3d(-473px, -41px, 0px); opacity: 1;"><img
+                                alt="" role="presentation" src="https://tile.openstreetmap.org/15/19461/13805.png"
+                                class="leaflet-tile leaflet-tile-loaded"
+                                style="width: 256px; height: 256px; transform: translate3d(-473px, 215px, 0px); opacity: 1;">
+                    </div>
+                </div>
+            </div>
+            <div class="leaflet-pane leaflet-shadow-pane"></div>
+            <div class="leaflet-pane leaflet-overlay-pane"></div>
+            <div class="leaflet-pane leaflet-marker-pane"><img src="https://img.poehalisnami.ua/images/pin.png"
+                                                               class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive"
+                                                               alt="" tabindex="0"
+                                                               style="margin-left: -20px; margin-top: -51px; width: 67px; height: 58px; transform: translate3d(445px, 187px, 0px); z-index: 187;">
+            </div>
+            <div class="leaflet-pane leaflet-tooltip-pane"></div>
+            <div class="leaflet-pane leaflet-popup-pane"></div>
+            <div class="leaflet-proxy leaflet-zoom-animated"
+                 style="transform: translate3d(4.98281e+06px, 3.53408e+06px, 0px) scale(16384);"></div>
+        </div>
+        <div class="leaflet-control-container">
+            <div class="leaflet-top leaflet-left">
+                <div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="#"
+                                                                                 title="Zoom in" role="button"
+                                                                                 aria-label="Zoom in">+</a><a
+                            class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button"
+                            aria-label="Zoom out">−</a></div>
+            </div>
+            <div class="leaflet-top leaflet-right"></div>
+            <div class="leaflet-bottom leaflet-left"></div>
+            <div class="leaflet-bottom leaflet-right">
+                <div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com"
+                                                                            title="A JS library for interactive maps">Leaflet</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        <section class="suitable-tour suitable-tour-section js-fixed-mobile-order-offset-bottom">
+  
+      <div class="suitable-tour__content">
+          <div class="suitable-tour__heading">Остались вопросы по туру?</div>
+          <div>Отправьте запрос и менеджер туркомпании поможет вам.</div>
+      </div>
+    <form class="form-callback form-callback--small">
+      <div class="row">
+        <div class="form-group col-12 col-md col-xl">
+                            <svg class="form-callback__icon" width="24" height="24">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                         xlink:href="Images/icons-search.svg#user"></use>
+                </svg>
+                        <input class="form-callback__input form-control input-placeholder autoHide" type="text"
+                   placeholder="Имя">
+            <span class="validation field-validation-valid"><span class="">Введите имя</span></span>
+        </div>
+          <div class="form-group col-12 col-md col-xl">
+              <svg class="form-callback__icon" width="24" height="24">
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+              </svg>
+
+              <input class="form-callback__input form-control input-placeholder autoHide" type="tel" placeholder="Телефон">
+              <span class="validation field-validation-valid"><span class="">Введите номер телефона</span></span>
+          </div>
+        <div class="form-group col-12 col-md col-xl">
+          <input class="btn btn-brand btn-brand--orange callback-btn" type="submit" value="ОТПРАВИТЬ">
+        </div>
+      </div>
+    </form>
+  
+</section>
+    </div>
+    <div style="width: 0; height: 0;">
+        <svg>
+            <symbol id="progressbar" viewbox="0 0 58 58">
+                <circle cx="29" cy="29" r="29"/>
+                <path fill="none" stroke-dasharray="140" stroke="#dfe3eb" stroke-width="4"
+                      d="M29,6.778c12.273,0,22.222,9.949,22.222,22.222 S41.273,51.222,29,51.222S6.778,41.273,6.778,29S16.727,6.778,29,6.778"/>
+                <path fill="none" stroke="#387c89" stroke-width="4"
+                      d="M29,6.778c12.273,0,22.222,9.949,22.222,22.222 S41.273,51.222,29,51.222S6.778,41.273,6.778,29S16.727,6.778,29,6.778"/>
+            </symbol>
+        </svg>
+    </div>
+    </div>
+        <div class="footer-wrap">
+    <div class="footer container">
+        <div class="row col-pd-10">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Турне в соц сетях</div>
+                <div class="footer__social">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M3.516 24h7.828v-8.531H8.53v-2.813h2.813V9.141a3.52 3.52 0 0 1 3.515-3.516h3.516v2.813h-2.813c-.775 0-1.406.63-1.406 1.406v2.812h4.092l-.469 2.813h-3.623V24h6.328A3.52 3.52 0 0 0 24 20.484V3.516A3.52 3.52 0 0 0 20.484 0H3.516A3.52 3.52 0 0 0 0 3.516v16.968A3.52 3.52 0 0 0 3.516 24zM1.406 3.516c0-1.163.947-2.11 2.11-2.11h16.968c1.163 0 2.11.947 2.11 2.11v16.968c0 1.163-.947 2.11-2.11 2.11h-4.922v-5.719h3.409l.937-5.625h-4.346V9.844h4.22V4.219h-4.923A4.927 4.927 0 0 0 9.938 9.14v2.109H7.124v5.625h2.813v5.719H3.516a2.112 2.112 0 0 1-2.11-2.11V3.516z"/>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M6.497 0h11.006a6.504 6.504 0 0 1 6.493 6.264l.004.233v11.007a6.504 6.504 0 0 1-6.264 6.492l-.232.004H6.497a6.504 6.504 0 0 1-6.493-6.264L0 17.504V6.497A6.504 6.504 0 0 1 6.264.004L6.497 0h11.006zm11.007 1.407H6.497A5.096 5.096 0 0 0 1.41 6.282l-.004.215v11.007a5.096 5.096 0 0 0 4.875 5.085l.215.004h11.006a5.096 5.096 0 0 0 5.086-4.875l.004-.214V6.497a5.095 5.095 0 0 0-5.09-5.09zM12 5.437A6.57 6.57 0 0 1 18.562 12 6.57 6.57 0 0 1 12 18.562 6.57 6.57 0 0 1 5.438 12 6.57 6.57 0 0 1 12 5.438zm0 1.408A5.161 5.161 0 0 0 6.845 12 5.161 5.161 0 0 0 12 17.155 5.161 5.161 0 0 0 17.155 12 5.161 5.161 0 0 0 12 6.845zm6.72-3.738c1.069 0 1.939.87 1.939 1.94a1.94 1.94 0 0 1-1.94 1.938c-1.07 0-1.939-.87-1.939-1.939s.87-1.939 1.94-1.939zm0 1.407a.533.533 0 1 0 0 1.065.533.533 0 0 0 0-1.065z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="footer__heading">Контакты</div>
+                <div class="footer__contacts">
+                    <a href="tel:+380678294052">(067) 829-40-52</a><br>
+                    <a href="tel:+380952357060">(095) 235-70-60</a><br>
+                    <a href="#callbackModal" class="footer__callback" data-toggle="modal">
+                        Перезвоните мне
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Ваш отдых</div>
+                <ul>
+                    <li><a href="/">Горящие туры</a></li>
+                    <li><a href="/">Туры</a></li>
+                    <li><a href="/">Туры на майские</a></li>
+                    <li><a href="/">Экскурсионные туры</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Куда поехать</div>
+                <ul>
+                    <li><a href="/">Страны</a></li>
+                    <li><a href="/">Отели</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Туристам</div>
+                <ul>
+                    <li><a href="where-buy-mobile.html">Где купить</a></li>
+                    <li><a href="/">Статьи</a></li>
+                                                                                    <li><a href="reviews-hotels-page-mobile.html">Отзывы об отелях</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Партнерам</div>
+                <ul>
+                    <li><a href="/">Для турфирм</a></li>
+                    <li><a href="/">Правовая информация</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Turne.com.ua</div>
+                <div class="footer__text">Copyright © 2019 "X-tend". <br>
+                    Все права защищены.
+                </div>
+                <ul>
+                    <li><a href="/">О проекте</a></li>
+                    <li><a href="hot-details-expired.html">Полная версия</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div></div>
+<!-- Modal -->
+<div class="modal contacts-modal" id="contactsModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Контакты
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="contacts-modal__content">
+                    <div class="contacts-modal__row">
+                        <div>
+                            Подбор тура
+                        </div>
+                        <a href="tel:+380678294052" class="media contacts-modal__phone">
+                            <svg class="contacts-modal__icon" width="24" height="24">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#kyivstar"></use>
+                            </svg>
+                            <span class="media-body">(067) 829-40-52</span>
+                        </a>
+                        <a href="tel:+380952357060" class="media contacts-modal__phone">
+                            <svg class="contacts-modal__icon" width="24" height="24">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#vodafone"></use>
+                            </svg>
+                            <span class="media-body">(095) 235-70-60</span>
+                        </a>
+                    </div>
+                    <div class="contacts-modal__row">
+                        <div>
+                            Реклама
+                        </div>
+                        <a href="tel:+380955453888" class="media contacts-modal__phone">
+                            <svg class="contacts-modal__icon" width="24" height="24">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#vodafone"></use>
+                            </svg>
+                            <span class="media-body">(095) 545-38-88</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- Modal -->
+<div class="modal callback-modal" id="callbackModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Обратный звонок
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                    <div class="b-dropdown-callback" style="display: block !important;">
+                        <form action="/common/phonecallbackformsubmit" data-ajax="true" data-ajax-begin="oForms.FormOnBegin"
+                              data-ajax-complete="oForms.FormOnComplete" data-ajax-success="oForms.PhoneCallbackFormOnSuccess"
+                              id="form1" method="post" novalidate="novalidate"><span class="b-dropdown-callback__heading">Введите свой номер телефона:</span>
+
+                            <div class="form-group"><input class="form-control jsMaskedInputPhone" data-val="true"
+                                                           data-val-regex="Неверный формат"
+                                                           data-val-regex-pattern="^\+38\(\d{3}\)\s{1}\d{3}-\d{2}-\d{2}$"
+                                                           data-val-required="Неверный формат" id="Phone" maxlength="100"
+                                                           name="Phone" placeholder="+38(XXX) XXX-XX-XX" type="tel"> <span
+                                        class="field-validation-valid validation" data-valmsg-for="Phone"
+                                        data-valmsg-replace="true"></span></div>
+                            <input id="Url" name="Url" type="hidden" value="%2f">
+                            <input type="submit" id="btnSend"
+                                   name="btnSend"
+                                   class="btn btn-brand btn-brand--orange"
+                                   value="Перезвоните мне"></form>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>    <!-- Modal -->
+<div class="modal modal-mob application-modal" id="applicationModalmobile" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+                <button class="modal-mob__back back-icon" data-dismiss="modal"></button>
+				<div class="application-modal__heading">
+                    Заявка на тур
+                </div>
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+			</div>
+			<div class="modal-body">
+				<form action="/" class="application-modal__content">
+					<div class="application-modal__control">
+						<label class="application-modal__label">Имя</label>
+						<input class="form-callback__input form-control input-placeholder autoHide" type="text">
+						<span class="validation field-validation-valid">
+							<span class="">Введите имя</span>
+						</span>
+					</div>
+					<div class="application-modal__control">
+						<label class="application-modal__label">Телефон</label>
+						<input class="form-callback__input form-control input-placeholder autoHide" type="tel" value="+380">
+						<span class="validation field-validation-valid">
+							<span class="">Введите номер телефона</span>
+						</span>
+					</div>
+					<div class="application-modal__control">
+						<label class="application-modal__label">Email</label>
+						<input class="form-callback__input form-control input-placeholder autoHide" type="email">
+					</div>
+					<div class="application-modal__control">
+                        <label class="brand-checkbox" >
+                            <input type="checkbox" checked>
+                            <span class="brand-checkbox__media"></span>
+                            <span class="brand-checkbox__inner">
+							Получать горящие туры по почте
+						</span>
+                        </label>
+                    </div>
+					<div class="application-modal__control modal-mob__btn">
+                        <input class="btn btn-brand btn-brand--orange modal--send-btn" data-dismiss="modal" type="submit" value="ОТПРАВИТЬ ЗАЯВКУ">
+                    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+    <div class="modal modal-mob modal-component tour-detail__modal-reviews" id="modal-reviews" tabindex="-1" role="dialog"
+     aria-labelledby="modal-reviews">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-mob__back back-icon" data-dismiss="modal"></button>
+                <div class="modal-title">Оставить отзыв об отеле <span>Amwaj Blue Beach Resort & Spa Abu Soma</span>
+                </div>
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="clearfix">
+                    <div class="b-add-review jsParentPosition">
+                        <div class="row">
+                            <div class="col-12 input-wrap">
+                                <label>
+                                    Ваш отзыв<span class="required">*</span></label>
+
+                                <textarea rows="2" cols="20" class="form-control jsFixScrollMobile">
+</textarea>
+                                <span class="validation" style="display:none">Обязательное поле</span>
+                            </div>
+                        </div>
+                        <div class="b-add-review__rating jsMarksHolder">
+                            <div class="title">Оценка отелю Amwaj Blue Beach Resort &amp; Spa Abu Soma</div>
+                            <div class="b-select-rating">
+                                <div>
+                                    Расположение:
+                                </div>
+                                <div class="b-rank-regular-tetragon">
+                                    <div>1</div>
+                                    <div>2</div>
+                                    <div>3</div>
+                                    <div>4</div>
+                                    <div>5</div>
+                                </div>
+                                <div class="b-sel-r-result">&nbsp;</div>
+                                <input type="hidden"/>
+                            </div>
+                            <div class="b-select-rating">
+                                <div>
+                                    Питание:
+                                </div>
+                                <div class="b-rank-regular-tetragon">
+                                    <div>1</div>
+                                    <div>2</div>
+                                    <div>3</div>
+                                    <div>4</div>
+                                    <div>5</div>
+                                </div>
+                                <div class="b-sel-r-result">&nbsp;</div>
+                                <input type="hidden"/>
+                            </div>
+                            <div class="b-select-rating">
+                                <div>
+                                    Развлечения:
+                                </div>
+                                <div class="b-rank-regular-tetragon">
+                                    <div>1</div>
+                                    <div>2</div>
+                                    <div>3</div>
+                                    <div>4</div>
+                                    <div>5</div>
+                                </div>
+                                <div class="b-sel-r-result">&nbsp;</div>
+                                <input type="hidden"/>
+                            </div>
+                            <div class="b-select-rating">
+                                <div>
+                                    Обслуживание:
+                                </div>
+                                <div class="b-rank-regular-tetragon">
+                                    <div>1</div>
+                                    <div>2</div>
+                                    <div>3</div>
+                                    <div>4</div>
+                                    <div>5</div>
+                                </div>
+                                <div class="b-sel-r-result">&nbsp;</div>
+                                <input type="hidden"/>
+                            </div>
+                            <div class="b-select-rating">
+                                <div>
+                                    Номера:
+                                </div>
+                                <div class="b-rank-regular-tetragon">
+                                    <div>1</div>
+                                    <div>2</div>
+                                    <div>3</div>
+                                    <div>4</div>
+                                    <div>5</div>
+                                </div>
+                                <div class="b-sel-r-result">&nbsp;</div>
+                                <input type="hidden"/>
+                            </div>
+                            <div>
+                                <span class="validation" style="display:none">Проставьте оценки</span></div>
+                        </div>
+                        <div class="row justify-content-between">
+                            <div class="input-wrap col-12 col-sm-6 col-xl-6">
+                                <label>
+                                    Ваше имя<span class="required">*</span></label>
+                                <div>
+                                    <input type="text" maxlength="100" class="form-control input-text"/>
+                                </div>
+                                <span class="validation" style="display:none">Обязательное поле</span>
+                            </div>
+                            <div class="input-wrap col-12 col-sm-6 col-xl-6">
+                                <label>
+                                    E-mail<span class="required">*</span></label>
+                                <div>
+                                    <input type="email" maxlength="100" class="form-control input-text"/>
+                                </div>
+                                <span class="validation" style="display:none">Обязательное поле</span>
+                                <span class="validation" style="display:none">Неверный формат Email</span>
+                            </div>
+                            <div class="b-add-review__alert col-12">
+                                Внимание! Поля отмеченные <span class="required">*</span> обязательны к заполнению
+                            </div>
+                        </div>
+                        <div class="modal-mob__btn">
+                            <input type="submit" value="Разместить отзыв"
+                                   onclick="return HotelCommentFormSend(&#39;comment&#39;);WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$ctl00$ctl00$ctl00$ctl00$center$center$center$innerFull$innerFull$innerFull$HCF$Save&quot;, &quot;&quot;, true, &quot;comment&quot;, &quot;&quot;, false, false))"
+                                   class="btn btn-brand btn-brand--orange btn-send"/>
+                            <input type="hidden" key="preSendComment"/>
+                        </div>
+                    </div>
+                    <div class="jstThankYouDialog" style="display: none;">
+                        <div class="b-opacity-layout"></div>
+                        <div class="b-alert">Спасибо за Ваш отзыв. Благодаря ему другие туристы смогут сделать
+                            правильный выбор.<br/>
+                            <input id="btnOk" type="button" value="Закрыть"
+                                   onclick="$('.jstThankYouDialog').hide(); return false;"/>
+                        </div>
+                    </div>
+                    <div style="clear: both">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // $('.jsFixScrollMobile').focus(function(){
+    //     window.scrollTo({
+    //         top: $('.jsParentPosition').position().top
+    //     });
+    // });
+
+    // var sumedges = $(window).width() + $(window).height();
+    // $(window).resize(function(){
+    //     if($(window).width() + $(window).height() < sumedges) {
+    //         $("body").addClass("keyboard-out");
+    //         $('input').focus(function(){
+    //             var calcOffsetTop = function(){
+    //                 if ($(this).offset().top > 70) {
+    //                     console.log('больше 70');
+    //                     return $(this).offset().top
+    //                 } else {
+    //                     console.log('возрващает 0');
+    //                     return 0;
+    //                 }
+    //             };
+    //             $('.modal.show').scrollTop(calcOffsetTop);
+    //             console.log($(this).offset().top);
+    //         });
+    //     } else {
+    //         $("body").removeClass("keyboard-out");
+    //     }
+    // });
+
+</script><script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.js" type="text/javascript"></script>
+<script src="js/datepicker_mobile.js" type="text/javascript"></script>
+<script src="js/scripts.js" type="text/javascript"></script>
+<script src="js/scripts_mobile.js" type="text/javascript"></script>
+<script src="js/lazysizes.min.js" async=""></script>
+<script src="js/svg4everybody.min.js" type="text/javascript"></script>
+<script src="js/ofi.min.js" type="text/javascript"></script>
+
+
+    <script src="js/slick/slick.min.js" type="text/javascript"></script>
+    <script src="js/fancybox/jquery.fancybox.min.js" type="text/javascript"></script>
+
+    <script src="js/detail.js" type="text/javascript"></script>
+</body>
+</html>

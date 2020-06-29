@@ -1,0 +1,127 @@
+<div class="header">
+    <div class="header__content">
+        {% if not mobile %}
+            {% include "header-top.twig" %}
+        {% endif %}
+        <div class="container">
+            <div class="row no-gutters header__bottom navbar {% if not mobile %} navbar-expand {% endif %}">
+                {% if mobile %}
+                    {% set MenuLinkLogo = "home-mobile.html" %}
+                {% else %}
+                    {% set MenuLinkLogo = "index.html" %}
+                {% endif %}
+
+                <a class="header__col header__col--left" href="{{ MenuLinkLogo }}">
+                    <img class="header__logo animate" src="Images/logo.png" alt="">
+                </a>
+                <div class="html-block">
+                    <a class="media header__phone" href="tel:+380678294052">
+                        <svg class="svg-icon phone-icon" width="24" height="24">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                        </svg>
+                        <span>(067) 829-40-52</span>
+                    </a>
+                </div>
+                <div>
+                    {#<button class="header__contacts-btn" data-toggle="modal" data-target="#contactsModal">
+                        <svg class="svg-icon" width="24" height="24">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="Images/communication-icons.svg#phone"></use>
+                        </svg>
+                    </button>#}
+                    <div class="hamburger hamburger--squeeze js-hamburger" data-toggle="collapse"
+                         data-target="#navbarsExample01">
+                        <div class="hamburger-box">
+                            <div class="hamburger-inner"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__col header__col--right navbar-collapse collapse" id="navbarsExample01">
+                    <nav class=" header__navbar">
+                        <ul class="nav navbar-nav">
+                            {% if mobile %}
+                                {% set MenuLink = "_mobile" %}
+                            {% else %}
+                                {% set MenuLink = "-page" %}
+                            {% endif %}
+
+                            <li><a href="hot-tours{{ MenuLink }}.html">Горящие туры</a></li>
+                            {% if mobile %}
+                                {% set MenuLink = "-mobile" %}
+                            {% else %}
+                                {% set MenuLink = "" %}
+                            {% endif %}
+                            <li class="active"><a href="search-tours{{ MenuLink }}.html">Поиск туров</a></li>
+                            {% if mobile %}
+                                {% set MenuLink = "_mobile" %}
+                            {% else %}
+                                {% set MenuLink = "" %}
+                            {% endif %}
+                            <li><a href="tours-bus{{ MenuLink }}.html">Экскурсионные туры</a></li>
+                            {% if mobile %}
+                                {% set MenuLink = "-mobile" %}
+                            {% else %}
+                                {% set MenuLink = "" %}
+                            {% endif %}
+                            <li class="nav-link-dropdown">
+                                <a class="jsEmptyLink" href="#">Страны
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+                                    </svg>
+                                </a>
+                                {% include "./country-menu.twig" %}
+                            </li>
+                            <li><a href="hotels{{ MenuLink }}.html">Отели</a></li>
+                            <li><a href="where-buy{{ MenuLink }}.html">Где купить</a></li>
+                            <li><a href="reviews-hotels-page{{ MenuLink }}.html">Отзывы об отелях</a></li>
+                        </ul>
+                        <ul class="header-menu-contacts">
+                            <li>Контакты:</li>
+                            <li><a class="media" href="tel:+380678294052">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#kyivstar"></use>
+                                    </svg>
+                                    <span>(067) 829-40-52</span>
+                                </a></li>
+                            <li><a class="media" href="tel:+380952357060">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#vodafone"></use>
+                                    </svg>
+                                    <span>(095) 235-70-60</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="header-menu-contacts__callback media" href="#callbackModal" data-toggle="modal">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                                    </svg>
+                                    <span>Перезвонить мне</span>
+                                </a>
+                            </li>
+                        </ul>
+                        {#<div class="header-menu-contacts">
+
+                                <a href="tel:+380678294052" class="media">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             xlink:href="Images/communication-icons.svg#phone"></use>
+                                    </svg>
+                                    <span class="media-body">(067) 829-40-52</span>
+                                </a>
+                            <a href="#" class="media">
+                                <svg class="svg-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/communication-icons.svg#phone"></use>
+                                </svg>
+                                <span class="media-body">Перезвонить мне</span>
+                            </a>
+
+
+                        </div>#}
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

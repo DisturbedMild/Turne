@@ -1,0 +1,91 @@
+@import "mixin";
+.form-callback {
+  &__icon {
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    fill: #9CA4B3;
+    pointer-events: none;
+  }
+  .form-control {
+    padding-left: 32px;
+  }
+}
+.form-callback--small {
+  .validation {
+    min-width: 180px;
+  }
+  .form-control {
+    padding-left: 26px;
+  }
+  .custom-dropdown__icon {
+    margin-left: -8px;
+  }
+  .form-callback__icon {
+    top: 8px;
+    left: 8px;
+  }
+
+}
+
+@media (max-width: 1199px) {
+
+  .section-callback__heading {
+    font-size: 20px;
+  }
+  .form-callback {
+    &__col, &__col:last-child {
+      max-width: 100%;
+    }
+    &__col--btn {
+      order: 1;
+    }
+    &__icon {
+      top: 8px;
+    }
+    .brand-checkbox {
+      order: 0;
+    }
+    &__btn {
+      //line-height: 26px;
+      width: 100%;
+      //font-size: 14px;
+      background-image: none;
+    }
+    .validation {
+      position: relative;
+    }
+  }
+  .form-section {
+    display: block;
+    padding: 10px;
+    &__header {
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+  }
+  .form-section__image {
+    text-align: center;
+    img {
+      margin: 0 auto;
+    }
+  }
+  .form-callback {
+    &__col {
+      max-width: none !important;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .custom-dropdown {
+      width: 100%;
+    }
+  }
+  .form-callback--order.form-callback--small {
+    .btn-brand--cloudBurst {
+      width: 100%;
+      font-size: 14px;
+      background-image: none;
+    }
+  }
+}

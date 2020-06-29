@@ -1,0 +1,47 @@
+<div class="form-section">
+    <div class="form-section__image">
+        <img src="Images/beach.png">
+    </div>
+    <div class="form-section__content">
+        <div class="form-section__header">Не знаете, какой горящий тур выбрать?</div>
+        <div class="form-section__text">Заполните заявку и наши эксперты подберут для вас лучший горящий тур!</div>
+        <form action="/" class="form-callback form-callback--order form-callback--small">
+            <div class="row">
+                <div class="col-12 col-lg-3 col-xl form-group form-callback__col">
+                    {% set textDropdown = "Страна" %}
+                    {% set iconName = "airplane" %}
+                    {% from "../components/custom-dropdown/country-dropdown.twig" import dropdown %}
+                    {% include "../components/custom-dropdown/custom-dropdown.twig" %}
+                    {% set customDropdownClass = "" %}
+                    <span class="validation field-validation-valid"><span>Выберите страну</span></span>
+                </div>
+                <div class="col-12 col-lg-3 col-xl form-group form-callback__col">
+                    {% if mobile %}
+                        <svg class="form-callback__icon" width="24" height="24">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="Images/icons-search.svg#user"></use>
+                        </svg>
+                    {% endif %}
+                    <input class="form-callback__input form-control input-placeholder autoHide" type="text"
+                           placeholder="Имя">
+                    <span class="validation field-validation-valid"><span class="">Введите имя</span></span>
+                </div>
+                <div class="col-12 col-lg-3 col-xl form-group form-callback__col">
+                    {% if mobile %}
+                        <svg class="form-callback__icon" width="24" height="24">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="Images/communication-icons.svg#phone"></use>
+                        </svg>
+                    {% endif %}
+                    <input class="form-callback__input form-control input-placeholder autoHide" type="tel"
+                           placeholder="Телефон">
+                    <span class="validation field-validation-valid"><span
+                                class="">Введите номер телефона</span></span>
+                </div>
+                <div class="col-12 col-lg-3 col-xl form-group form-callback__col form-callback__col--btn">
+                    <input class="btn btn-brand btn-brand--cloudBurst" type="submit" value="Отправить">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

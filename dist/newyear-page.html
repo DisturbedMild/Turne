@@ -1,0 +1,2307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600,700|Open+Sans:400,600,700&display=swap&subset=cyrillic"
+          rel="stylesheet">
+    <link href="css/bootstrap/bootstrap.css?v=113" rel="stylesheet"/>
+    <link href="css/bootstrap/bootstrap-grid.css?v=113" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.9.2.custom.min.css">
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="css/bundle/global.css?v=113">
+
+    
+	<link href="css/bundle/searchStyle.css?v=113" rel="stylesheet"/>
+
+    
+	<link href="css/rest-type-page.css" rel="stylesheet">
+
+    <link href="css/bundle/oldGlobal.css?v=113" rel="stylesheet"/>
+
+
+</head>
+<body class="">
+<div class="wrap-content">
+    <div class="header">
+    <div class="header__content">
+                    <div class="header-top">
+    <div class="header-top__content container">
+
+        <div class="header-top__left">
+            <div class="html-block">
+                Подбор тура: <a href="tel:+380678294052">(067) 829-40-52</a>, <a href="tel:+380952357060">(095)
+                    235-70-60</a>, Реклама: <a href="tel:+380955453888">(095) 545-38-88</a>
+            </div>
+            <div class="header-top__callback-wrap">
+                <a href="#" class="header-top__callback jsCallBackShow">
+                    <svg class="svg-icon phone-icon" width="24" height="24">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/communication-icons.svg#phone"></use>
+                    </svg> Перезвоните мне</a>
+                <div class="b-dropdown b-dropdown-callback jsCallBackForm" style="display: none;">
+                    <form action="/common/phonecallbackformsubmit" data-ajax="true" data-ajax-begin="oForms.FormOnBegin"
+                          data-ajax-complete="oForms.FormOnComplete" data-ajax-success="oForms.PhoneCallbackFormOnSuccess"
+                          id="form1" method="post" novalidate="novalidate"><span class="b-dropdown-callback__heading">Введите свой номер телефона:</span>
+
+                        <div class="form-group"><input class="form-control jsMaskedInputPhone" data-val="true"
+                                                       data-val-regex="Неверный формат"
+                                                       data-val-regex-pattern="^\+38\(\d{3}\)\s{1}\d{3}-\d{2}-\d{2}$"
+                                                       data-val-required="Неверный формат" id="Phone" maxlength="100"
+                                                       name="Phone" placeholder="+38(XXX) XXX-XX-XX" type="tel"> <span
+                                    class="field-validation-valid validation" data-valmsg-for="Phone"
+                                    data-valmsg-replace="true"></span></div>
+                        <input id="Url" name="Url" type="hidden" value="%2f">
+                        <input type="submit" id="btnSend"
+                                                                                     name="btnSend"
+                                                                                     class="btn btn-brand btn-brand--orange"
+                                                                                     value="Перезвоните мне"></form>
+                </div>
+            </div>
+        </div>
+
+        <a class="header__sign-in" href="#signInModal" data-toggle="modal">
+            Войти
+        </a>
+    </div>
+</div>                <div class="container">
+            <div class="row no-gutters header__bottom navbar  navbar-expand ">
+                                                    
+                <a class="header__col header__col--left" href="index.html">
+                    <img class="header__logo animate" src="Images/logo.png" alt="">
+                </a>
+                <div class="html-block">
+                    <a class="media header__phone" href="tel:+380678294052">
+                        <svg class="svg-icon phone-icon" width="24" height="24">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                        </svg>
+                        <span>(067) 829-40-52</span>
+                    </a>
+                </div>
+                <div>
+                    
+                    <div class="hamburger hamburger--squeeze js-hamburger" data-toggle="collapse"
+                         data-target="#navbarsExample01">
+                        <div class="hamburger-box">
+                            <div class="hamburger-inner"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__col header__col--right navbar-collapse collapse" id="navbarsExample01">
+                    <nav class=" header__navbar">
+                        <ul class="nav navbar-nav">
+                                                                                        
+                            <li><a href="hot-tours-page.html">Горящие туры</a></li>
+                                                                                                                    <li class="active"><a href="search-tours.html">Поиск туров</a></li>
+                                                                                                                    <li><a href="tours-bus.html">Экскурсионные туры</a></li>
+                                                                                                                    <li class="nav-link-dropdown">
+                                <a class="jsEmptyLink" href="#">Страны
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+                                    </svg>
+                                </a>
+                                    <div class="b-dropdown header__child-menu jsHeaderMenu" style="display: none">
+    <ul>
+        <li><a href="tour-country-page.html"><span>Египет</span>от 15 367 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Турция</span>от 12 294 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Кипр</span>от 22 362 грн</a></li>
+        <li><a href="tour-country-page.html"><span>ОАЭ</span>от 15 367 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Италия</span>от 23 913 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Греция</span>от 15 785 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Испания</span>от 16 530 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Китай</span>от 25 379 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Шри-Ланка</span>от 32 918 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Таиланд (Тайланд)</span>от 38 177 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Французская Полинезия</span>от 38 177 грн</a></li>
+    </ul>
+    <span class="child-menu-link"><a href="tourne-countries-page.html">Все страны</a></span>
+</div>                            </li>
+                            <li><a href="hotels.html">Отели</a></li>
+                            <li><a href="where-buy.html">Где купить</a></li>
+                            <li><a href="reviews-hotels-page.html">Отзывы об отелях</a></li>
+                        </ul>
+                        <ul class="header-menu-contacts">
+                            <li>Контакты:</li>
+                            <li><a class="media" href="tel:+380678294052">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#kyivstar"></use>
+                                    </svg>
+                                    <span>(067) 829-40-52</span>
+                                </a></li>
+                            <li><a class="media" href="tel:+380952357060">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#vodafone"></use>
+                                    </svg>
+                                    <span>(095) 235-70-60</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="header-menu-contacts__callback media" href="#callbackModal" data-toggle="modal">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                                    </svg>
+                                    <span>Перезвонить мне</span>
+                                </a>
+                            </li>
+                        </ul>
+                        
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="main-content">
+        
+	<div class="screen screen-search">
+    <img class="screen__bg objectFitCover lazyload"
+         data-src="Images/ny-bg.jpg" alt="">
+    <div class="screen-search__content container">
+     <nav aria-label="breadcrumb nav-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Главная Турне</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Туры на Новый год</li>
+      </ol>
+    </nav>
+        <div class="screen-search__row">
+            <h1 class="screen-search__heading">
+                Туры на Новый год 2019-2020
+            </h1>
+        </div>
+
+        
+<form action="tourne-search.html" method="get" class="full-search-wrap">
+        <div class="full-search clearfix js-scroll-scope">
+        <div class="row col-pd-10 full-search__row">
+            <div class="col-12 col-xl-3">
+                                                                                
+                <div class="full-search__title">Найти тур в</div>
+                                    <div class="custom-dropdown js-search-control custom-dropdown--no-border">
+    <div class="custom-dropdown__control">
+
+            <svg class="custom-dropdown__icon" width="24" height="24">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="Images/icons-search.svg#airplane"></use>
+            </svg>
+
+        <div class="custom-dropdown__text">
+            <div class="ellipsis-text">Египет</div>
+        </div>
+        <div class="custom-dropdown__search" style="display: none">
+                        <svg class="custom-dropdown__icon custom-dropdown__icon--search" width="20" height="20">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="Images/icons-search.svg#search"></use>
+            </svg>
+                        <input class="ui-autocomplete-input" type="text" placeholder="Страна, курорт, отель">
+        </div>
+    </div>
+        <div class="b-dropdown--filter module b-dropdown m-dropdown jsDropDownOptions" style="display: none;">
+        <div class="b-dropdown--filter-step step-country">
+            <div class="m-dropdown__header step-country">
+                <button class="m-dropdown__back back-icon jsMultiSelectDone"></button>
+                <span class="m-dropdown__title">Куда</span>
+            </div>
+            <div class="m-dropdown__header step-resort" style="display: none">
+                <button class="m-dropdown__back back-icon js-prev-search"></button>
+                <span class="m-dropdown__title">Курорты</span>
+            </div>
+            
+            <div class="step-country b-dropdown--filter__header">
+                <div class="b-dropdown--filter__title">
+                    Выбрано
+                </div>
+                <div class="display-table reset-list">
+                    <div class="m-left"><span class="filter-tag" cid="11" rid="0" hid="0" data-country-name="Египет">Египет&nbsp;<svg
+                                    class="n-svg-icon" width="24" height="24">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#arrow-close"></use>
+                            </svg>
+                        </span>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="section-list">
+                <div class="left-list display-table-cell step-country" style="">
+                    <ul>
+                        <li><span class="m-caption">Популярные</span>
+                            <ul>
+                                <li class="jsDropDownItem dd-item active">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Египет</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Турция</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Кипр</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">ОАЭ</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Италия</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Греция</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Испания</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Китай</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Шри-Ланка</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Таиланд (Тайланд)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><span class="m-caption">Остальные</span>
+                            <ul>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Австрия</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Азербайджан</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Албания</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Андорра</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Антигуа</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Аргентина</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Армения</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Аруба</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Багамские острова</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Барбадос</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Беларусь</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Бельгия</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Болгария</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Бразилия</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Великобритания</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Венгрия</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Вьетнам</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Германия</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="m-bottom-gr"></div>
+                </div>
+                <div class="right-list display-table-cell step-resort" style="">
+                    <ul>
+                        <li cid="11"><span class="m-caption">Курорты</span>
+                            <ul>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox" checked>
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Все курорты</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Мерса-Матрух</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Макади Бей</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Марса-Алам</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Сафага</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Сома Бей</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Хургада</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Эль Гуна</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Эль-Кусейр</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Дахаб</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Нувейба</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Таба</span>
+                                    </label>
+                                </li>
+                                <li class="jsDropDownItem dd-item">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox">
+                                        <span class="brand-checkbox__media"></span>
+                                        <span class="brand-checkbox__inner">Шарм-эль-Шейх</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="center-list display-table-cell m-nus" style="display: none">
+                    <ul id="ui-id-1" tabindex="0"
+                        class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front SearchDropDownList"
+                        style="width: 480px; top: -43px; left: 2px; display: none;">
+
+
+                        <li class="m-caption ui-menu-item">Страны</li>
+                        <li class="jsDropDownItem dd-item active ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner"><b>Еги</b>пет</span>
+                            </label>
+                        </li>
+                        <li class="m-caption ui-menu-item">Курорты</li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Александрия, <b>Еги</b>пет</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Дахаб, <b>Еги</b>пет</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Каир, <b>Еги</b>пет</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Макади Бей, <b>Еги</b>пет</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Марса-Алам, <b>Еги</b>пет</span>
+                            </label>
+                        </li>
+                        <li class="m-caption ui-menu-item">Отели</li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner"><b>Hot</b>el Edelweiss 3* , Аннаберг, Австрия</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Johannesbad <b>Hot</b>el St. Georg 4* , Аннаберг, Австрия</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Jufa <b>Hot</b>el Annaberg Bergerlebnis-Resort 3* , Аннаберг, Австрия</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Starlight Suiten <b>Hot</b>el Renngasse 4* , Аннаберг, Австрия</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Therme Laa - <b>Hot</b>el &amp; Spa (Laa An Der Thaya) 4* , Аннаберг, Австрия</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Tipotsch <b>Hot</b>el (Stumm) 3* , Аннаберг, Австрия</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Baerenhof <b>Hot</b>el 3* , Бад Гастайн, Австрия</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Bristol <b>Hot</b>el 3* , Бад Гастайн, Австрия</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Cesta Grand <b>Hot</b>el (Bad Gastein) 4* , Бад Гастайн, Австрия</span>
+                            </label>
+                        </li>
+                        <li class="jsDropDownItem dd-item ui-menu-item">
+                            <label class="brand-checkbox ui-menu-item-wrapper">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">Eden Rock <b>Hot</b>el Bad Gastein 3* , Бад Гастайн, Австрия</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="town-bottom town-bottom-controls step-resort jsControlPanel">
+                <button class="btn btn-brand btn-brand--orange jsMultiSelectDone">ПРИМЕНИТЬ</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+                            </div>
+            <div class="col-12 col-xl-2">
+                                                                
+                <div class="full-search__title">Вылет из</div>
+                
+    <div class="custom-dropdown custom-dropdown--no-border">
+        <div class="custom-dropdown__control" >
+                        <svg class="custom-dropdown__icon" width="24" height="24" >
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#place"></use>
+            </svg>
+                        <div class="custom-dropdown__text">
+                <div class="ellipsis-text">Киев</div>
+            </div>
+            <div class="custom-dropdown__expanded arrow-icon"></div>
+        </div>
+        <div class="b-dropdown_complex-b b-dropdown m-dropdown no-user-select jsDropDownOptions"
+     style="display: none;">
+    <div class="m-dropdown__header">
+        <button class="m-dropdown__back back-icon jsMultiSelectDone"></button>
+        <span class="m-dropdown__title">Выезд из</span>
+    </div>
+    <ul class="li-town">
+        <li data-id="2" class="jsDropDownItem dd-item">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner"> Днепра </span>
+            </label>
+        </li>
+        <li data-id="4" class="jsDropDownItem dd-item">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner"> Запорожья </span>
+            </label>
+        </li>
+        <li data-id="1" class="jsDropDownItem dd-item active">
+            <label class="brand-checkbox">
+                <input type="checkbox" checked>
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner"> Киева </span>
+            </label>
+        </li>
+        <li data-id="5" class="jsDropDownItem dd-item">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner"> Кривого Рога </span>
+            </label>
+        </li>
+        <li data-id="6" class="jsDropDownItem dd-item">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner"> Львова </span>
+            </label>
+        </li>
+        <li data-id="7" class="jsDropDownItem dd-item">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner"> Николаева </span>
+            </label>
+        </li>
+        <li data-id="8" class="jsDropDownItem dd-item">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner"> Одессы </span>
+            </label>
+        </li>
+        <li data-id="121" class="jsDropDownItem dd-item">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner"> Ровно </span>
+            </label>
+        </li>
+        <li data-id="11" class="jsDropDownItem dd-item">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner"> Харькова </span>
+            </label>
+        </li>
+        <li data-id="41" class="jsDropDownItem dd-item">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner"> Херсона </span>
+            </label>
+        </li>
+        <li class="dd-item m-divider jsItemLabel"></li>
+        <li data-id="0" class="jsDropDownItem dd-item">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner"> Без проезда </span>
+            </label>
+        </li>
+    </ul>
+    <div class="town-bottom town-bottom-controls jsControlPanel">
+        <button class="btn btn-brand btn-brand--orange jsMultiSelectDone">ПРИМЕНИТЬ</button>
+    </div>
+</div>
+
+    </div>
+            </div>
+            <div class="col-12 col-xl-2">
+                                                                
+                <div class="full-search__title">Кто поедет</div>
+                
+    <div class="custom-dropdown custom-dropdown--no-border">
+        <div class="custom-dropdown__control" >
+                        <svg class="custom-dropdown__icon" width="24" height="24" >
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#user"></use>
+            </svg>
+                        <div class="custom-dropdown__text">
+                <div class="ellipsis-text">2 взрослых</div>
+            </div>
+            <div class="custom-dropdown__expanded arrow-icon"></div>
+        </div>
+        <div class="b-dropdown_complex-b b-dropdown m-dropdown no-user-select jsDropDownOptions"
+     style="display: none;">
+    <div class="m-dropdown__header">
+        <button class="m-dropdown__back back-icon jsMultiSelectDone"></button>
+        <span class="m-dropdown__title">Выезд из</span>
+    </div>
+    <div class="peopleQuantity">
+        <div class="peopleQuantity__row">
+            <div>Взрослые</div>
+            <div class="peopleQuantity__control js-counter">
+                <button class="peopleQuantity__minus js-decrementer"></button>
+                <input class="js-number-input peopleQuantity__input" type="number" value="0" min="0" max="3"
+                       data-start="2">
+                <button class="peopleQuantity__plus js-incrementer"></button>
+            </div>
+        </div>
+        <div class="peopleQuantity__row">
+            <div>Дети</div>
+            <div class="peopleQuantity__control js-counter">
+                <button class="peopleQuantity__minus js-decrementer"></button>
+                <input class="js-number-input peopleQuantity__input" type="number" value="0" min="0" max="3">
+                <button class="peopleQuantity__plus js-incrementer"></button>
+            </div>
+        </div>
+        <div class="peopleQuantity__heading">Возраст детей</div>
+        <div class="peopleQuantity__row">
+            <div class="custom-dropdown">
+                <div class="custom-dropdown__control js-control-child">
+                    <div class="custom-dropdown__text">
+                        <div class="ellipsis-text">15</div>
+                    </div>
+                    <div class="custom-dropdown__expanded arrow-icon"></div>
+                </div>
+                <div class="b-dropdown_simple-b b-dropdown no-user-select jsDropDownChild" style="display: none;">
+                    <ul class="li-town">
+                        <li class="jsDropDownItem dd-item">
+                            1
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            2
+                        </li>
+                        <li class="jsDropDownItem dd-item active">
+                            3
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            4
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            5
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            6
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            7
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            8
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            9
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            10
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            11
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            12
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            13
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            14
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            15
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            16
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            17
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="peopleQuantity__row">
+            <div class="custom-dropdown">
+                <div class="custom-dropdown__control js-control-child">
+                    <div class="custom-dropdown__text">
+                        <div class="ellipsis-text">15</div>
+                    </div>
+                    <div class="custom-dropdown__expanded arrow-icon"></div>
+                </div>
+                <div class="b-dropdown_simple-b b-dropdown no-user-select jsDropDownChild" style="display: none;">
+                    <ul class="li-town">
+                        <li class="jsDropDownItem dd-item">
+                            1
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            2
+                        </li>
+                        <li class="jsDropDownItem dd-item active">
+                            3
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            4
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            5
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            6
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            7
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            8
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            9
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            10
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            11
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            12
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            13
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            14
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            15
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            16
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            17
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="peopleQuantity__row">
+            <div class="custom-dropdown">
+                <div class="custom-dropdown__control js-control-child">
+                    <div class="custom-dropdown__text">
+                        <div class="ellipsis-text">15</div>
+                    </div>
+                    <div class="custom-dropdown__expanded arrow-icon"></div>
+                </div>
+                <div class="b-dropdown_simple-b b-dropdown no-user-select jsDropDownChild" style="display: none;">
+                    <ul class="li-town">
+                        <li class="jsDropDownItem dd-item">
+                            1
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            2
+                        </li>
+                        <li class="jsDropDownItem dd-item active">
+                            3
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            4
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            5
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            6
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            7
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            8
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            9
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            10
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            11
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            12
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            13
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            14
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            15
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            16
+                        </li>
+                        <li class="jsDropDownItem dd-item">
+                            17
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="town-bottom town-bottom-controls jsControlPanel">
+        <button class="btn btn-brand btn-brand--orange jsMultiSelectDone">ПРИМЕНИТЬ</button>
+    </div>
+</div>
+
+    </div>
+                <div class="full-search__message">выберите возраст детей</div>
+            </div>
+            <div class="col-12 col-xl-3">
+                                                                                
+                <div class="full-search__title">Дата выезда</div>
+                
+    <div class="custom-dropdown custom-dropdown--no-border">
+        <div class="custom-dropdown__control" data-toggle="datepicker">
+                        <svg class="custom-dropdown__icon" width="24" height="24" >
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#date"></use>
+            </svg>
+                        <div class="custom-dropdown__text">
+                <div class="ellipsis-text">10.08 – 17.08, 7–9 ночей</div>
+            </div>
+            <div class="custom-dropdown__expanded arrow-icon"></div>
+        </div>
+        <div class="wrap-datepicker">
+    <div style="display: none;">
+                                                            <span id="ctl00_ctl00_ctl00_center_center_center_filters_spanDateFrom"
+                                                                  class="jsDateFrom">21.10</span>
+        <span id="ctl00_ctl00_ctl00_center_center_center_filters_spanDateTo"
+              class="jsDateTo">30.10</span>
+        <span id="ctl00_ctl00_ctl00_center_center_center_filters_spanDurationFrom">1</span>
+        <span id="ctl00_ctl00_ctl00_center_center_center_filters_spanDurationTo">10</span>
+        <input type="hidden"
+               name="ctl00$ctl00$ctl00$center$center$center$filters$hdDepartureDateFrom"
+               id="ctl00_ctl00_ctl00_center_center_center_filters_hdDepartureDateFrom"
+               value="21.10.2019">
+        <input type="hidden"
+               name="ctl00$ctl00$ctl00$center$center$center$filters$hdDepartureDateTo"
+               id="ctl00_ctl00_ctl00_center_center_center_filters_hdDepartureDateTo"
+               value="30.10.2019">
+        <input type="hidden"
+               name="ctl00$ctl00$ctl00$center$center$center$filters$hdnDurationFrom"
+               id="ctl00_ctl00_ctl00_center_center_center_filters_hdnDurationFrom"
+               value="1">
+        <input type="hidden"
+               name="ctl00$ctl00$ctl00$center$center$center$filters$hdnDurationTo"
+               id="ctl00_ctl00_ctl00_center_center_center_filters_hdnDurationTo"
+               value="10">
+    </div>
+    <div class="b-datepicker b-datepicker--center b-dropdown m-dropdown"
+         style="display:none;">
+        <div class="m-dropdown__header">
+            <button class="m-dropdown__back back-icon jsMultiSelectDone"></button>
+            <span class="m-dropdown__title">Дата вылета, длительность</span>
+        </div>
+    </div>
+</div>
+
+    </div>
+            </div>
+            <div class="col-12 col-xl-2">
+                <button class="btn btn-brand btn-brand--orange full-search__btn">Искать</button>
+            </div>
+        </div>
+    </div>
+</form>    </div>
+
+</div>
+	<div class="container">
+		<div class="section-hot-tours">
+			<h2 class="heading">Новогодние
+				<strong>пляжные туры</strong>
+			</h2>
+            <div class="row no-gutters hot-tours tour-card-shadow-mob">
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/egipet/sharm-el-shejjkh/h128828/small/booking128828_4.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи), из Киева
+                </div>
+                <div class="hot-content__heading">
+                    На выходные в Европу Микс Будапешт +Вена 3&nbsp;<svg class="svg-icon svg-icon--rating" width="10" height="8">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#rating"></use>
+                    </svg>
+                </div>
+                <div>
+                    Германия, Чехия, Прага, Дрезден
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>1 695</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="hot-details.html" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/egipet/sharm-el-shejjkh/h493/small/booking493_11.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи), из Киева
+                </div>
+                <div class="hot-content__heading">
+                    Throne Seagate Belek
+                </div>
+                <div>
+                    Тайланд, Бангкок, Паттайя
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>15 500</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="hot-details.html" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/oae/dubajj/h3674/small/booking3674_1.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи), из Киева
+                </div>
+                <div class="hot-content__heading">
+                    Супер отдых в Бодруме! Charm Beach Hotel 5&nbsp;<svg class="svg-icon svg-icon--rating" width="10" height="8">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#rating"></use>
+                    </svg>
+                </div>
+                <div>
+                    Турция, Бодрум
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>8 750</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="hot-details.html" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                
+                     
+                <img class="objectFitCover lazyload" data-src="Images/no-photo-small.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи), из Киева
+                </div>
+                <div class="hot-content__heading">
+                    Супер отдых в Бодруме! Charm Beach Hotel
+                </div>
+                <div>
+                    Турция, Бодрум
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>8 750</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="" class="tour-card">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/egipet/sharm-el-shejjkh/h3292/small/hi3292_1428679.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи)
+                </div>
+                <div class="hot-content__heading">
+                    На выходные в Европу Микс Будапешт +Вена
+                </div>
+                <div>
+                    Германия, Чехия, Прага, Дрезден
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>1 695</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="hot-details.html" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/egipet/sharm-el-shejjkh/h3292/small/hi3292_1428679.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи)
+                </div>
+                <div class="hot-content__heading">
+                    Throne Seagate Belek
+                </div>
+                <div>
+                    Тайланд, Бангкок, Паттайя
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>15 500</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="hot-details.html" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/egipet/sharm-el-shejjkh/h600/small/booking600_13.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи)
+                </div>
+                <div class="hot-content__heading">
+                    Супер отдых в Бодруме! Charm Beach Hotel
+                </div>
+                <div>
+                    Турция, Бодрум
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>8 750</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="hot-details.html" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/egipet/sharm-el-shejjkh/h600/small/booking600_13.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи)
+                </div>
+                <div class="hot-content__heading">
+                    Супер отдых в Бодруме! Charm Beach Hotel
+                </div>
+                <div>
+                    Турция, Бодрум
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>8 750</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+</div>
+<a class="btn btn-brand btn-brand--white btn-brand--rounded btn--show-all" href="#">СМОТРЕТЬ ВСЕ</a>
+		</div>
+		<div class="section-hot-tours">
+			<h2 class="heading">Новогодние
+				<strong>эскурсионные туры</strong>
+			</h2>
+            <div class="row no-gutters hot-tours tour-card-shadow-mob">
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/egipet/sharm-el-shejjkh/h128828/small/booking128828_4.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи), из Киева
+                </div>
+                <div class="hot-content__heading">
+                    На выходные в Европу Микс Будапешт +Вена 3&nbsp;<svg class="svg-icon svg-icon--rating" width="10" height="8">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#rating"></use>
+                    </svg>
+                </div>
+                <div>
+                    Германия, Чехия, Прага, Дрезден
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>1 695</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="hot-details.html" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/egipet/sharm-el-shejjkh/h493/small/booking493_11.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи), из Киева
+                </div>
+                <div class="hot-content__heading">
+                    Throne Seagate Belek
+                </div>
+                <div>
+                    Тайланд, Бангкок, Паттайя
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>15 500</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="hot-details.html" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/oae/dubajj/h3674/small/booking3674_1.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи), из Киева
+                </div>
+                <div class="hot-content__heading">
+                    Супер отдых в Бодруме! Charm Beach Hotel 5&nbsp;<svg class="svg-icon svg-icon--rating" width="10" height="8">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#rating"></use>
+                    </svg>
+                </div>
+                <div>
+                    Турция, Бодрум
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>8 750</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="hot-details.html" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                
+                     
+                <img class="objectFitCover lazyload" data-src="Images/no-photo-small.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи), из Киева
+                </div>
+                <div class="hot-content__heading">
+                    Супер отдых в Бодруме! Charm Beach Hotel
+                </div>
+                <div>
+                    Турция, Бодрум
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>8 750</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="" class="tour-card">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/egipet/sharm-el-shejjkh/h3292/small/hi3292_1428679.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи)
+                </div>
+                <div class="hot-content__heading">
+                    На выходные в Европу Микс Будапешт +Вена
+                </div>
+                <div>
+                    Германия, Чехия, Прага, Дрезден
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>1 695</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="hot-details.html" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/egipet/sharm-el-shejjkh/h3292/small/hi3292_1428679.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи)
+                </div>
+                <div class="hot-content__heading">
+                    Throne Seagate Belek
+                </div>
+                <div>
+                    Тайланд, Бангкок, Паттайя
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>15 500</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="hot-details.html" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/egipet/sharm-el-shejjkh/h600/small/booking600_13.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи)
+                </div>
+                <div class="hot-content__heading">
+                    Супер отдых в Бодруме! Charm Beach Hotel
+                </div>
+                <div>
+                    Турция, Бодрум
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>8 750</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="hot-details.html" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/egipet/sharm-el-shejjkh/h600/small/booking600_13.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи)
+                </div>
+                <div class="hot-content__heading">
+                    Супер отдых в Бодруме! Charm Beach Hotel
+                </div>
+                <div>
+                    Турция, Бодрум
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>8 750</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+</div>
+<a class="btn btn-brand btn-brand--white btn-brand--rounded btn--show-all" href="#">СМОТРЕТЬ ВСЕ</a>
+		</div>
+		<div class="section-hot-tours">
+			<h2 class="heading">Новогодние
+				<strong>горнолыжные туры</strong>
+			</h2>
+            <div class="row no-gutters hot-tours tour-card-shadow-mob">
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/egipet/sharm-el-shejjkh/h128828/small/booking128828_4.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи), из Киева
+                </div>
+                <div class="hot-content__heading">
+                    На выходные в Европу Микс Будапешт +Вена 3&nbsp;<svg class="svg-icon svg-icon--rating" width="10" height="8">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#rating"></use>
+                    </svg>
+                </div>
+                <div>
+                    Германия, Чехия, Прага, Дрезден
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>1 695</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="hot-details.html" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/egipet/sharm-el-shejjkh/h493/small/booking493_11.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи), из Киева
+                </div>
+                <div class="hot-content__heading">
+                    Throne Seagate Belek
+                </div>
+                <div>
+                    Тайланд, Бангкок, Паттайя
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>15 500</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="hot-details.html" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/oae/dubajj/h3674/small/booking3674_1.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи), из Киева
+                </div>
+                <div class="hot-content__heading">
+                    Супер отдых в Бодруме! Charm Beach Hotel 5&nbsp;<svg class="svg-icon svg-icon--rating" width="10" height="8">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#rating"></use>
+                    </svg>
+                </div>
+                <div>
+                    Турция, Бодрум
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>8 750</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="hot-details.html" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                
+                     
+                <img class="objectFitCover lazyload" data-src="Images/no-photo-small.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи), из Киева
+                </div>
+                <div class="hot-content__heading">
+                    Супер отдых в Бодруме! Charm Beach Hotel
+                </div>
+                <div>
+                    Турция, Бодрум
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>8 750</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="" class="tour-card">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/egipet/sharm-el-shejjkh/h3292/small/hi3292_1428679.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи)
+                </div>
+                <div class="hot-content__heading">
+                    На выходные в Европу Микс Будапешт +Вена
+                </div>
+                <div>
+                    Германия, Чехия, Прага, Дрезден
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>1 695</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="hot-details.html" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/egipet/sharm-el-shejjkh/h3292/small/hi3292_1428679.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи)
+                </div>
+                <div class="hot-content__heading">
+                    Throne Seagate Belek
+                </div>
+                <div>
+                    Тайланд, Бангкок, Паттайя
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>15 500</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="hot-details.html" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/egipet/sharm-el-shejjkh/h600/small/booking600_13.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи)
+                </div>
+                <div class="hot-content__heading">
+                    Супер отдых в Бодруме! Charm Beach Hotel
+                </div>
+                <div>
+                    Турция, Бодрум
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>8 750</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 hot-tours__col">
+        <a href="hot-details.html" class="tour-card tour-card--shadow-mob">
+            <div class="tour-card__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="https://img.turne.com.ua/static/hotels/egipet/sharm-el-shejjkh/h600/small/booking600_13.jpg">
+                <div class="lds-spinner"></div>
+            </div>
+            <div class="tour-card__body hot-content">
+                <div>
+                    23.08.2019 (3 ночи)
+                </div>
+                <div class="hot-content__heading">
+                    Супер отдых в Бодруме! Charm Beach Hotel
+                </div>
+                <div>
+                    Турция, Бодрум
+                </div>
+            </div>
+            <div class="tour-card__footer">
+                <span class="tour-card__price"><span>8 750</span> грн/чел</span>
+                <span class="btn btn-brand btn-brand--orange">Подробнее</span>
+            </div>
+        </a>
+    </div>
+</div>
+<a class="btn btn-brand btn-brand--white btn-brand--rounded btn--show-all" href="#">СМОТРЕТЬ ВСЕ</a>
+		</div>
+		<div class="search-tour-col">
+            <div class="form-section">
+    <div class="form-section__image">
+        <img src="Images/beach.png">
+    </div>
+    <div class="form-section__content">
+        <div class="form-section__header">Не знаете, какой горящий тур выбрать?</div>
+        <div class="form-section__text">Заполните заявку и наши эксперты подберут для вас лучший горящий тур!</div>
+        <form action="/" class="form-callback form-callback--order form-callback--small">
+            <div class="row">
+                <div class="col-12 col-lg-3 col-xl form-group form-callback__col">
+                    
+                    
+                    
+                    
+    <div class="custom-dropdown ">
+        <div class="custom-dropdown__control" >
+                        <svg class="custom-dropdown__icon" width="24" height="24" >
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#airplane"></use>
+            </svg>
+                        <div class="custom-dropdown__text">
+                <div class="ellipsis-text">Страна</div>
+            </div>
+            <div class="custom-dropdown__expanded arrow-icon"></div>
+        </div>
+        <div class="b-dropdown_simple-b b-dropdown m-dropdown no-user-select jsDropDownOptions"
+     style="display: none;">
+    <div class="m-dropdown__header">
+        <button class="m-dropdown__back back-icon jsMultiSelectDone"></button>
+        <span class="m-dropdown__title">Страна</span>
+    </div>
+    <ul class="li-town">
+        <li class="jsDropDownItem dd-item">
+            Австралия
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Австрия
+        </li>
+        <li class="jsDropDownItem dd-item active">
+            Азербайджан
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Албания
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Алжир
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Ангола
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Андорра
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Антигуа
+        </li>
+        <li class="jsDropDownItem dd-item">
+           Аргентина
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Армения
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Аруба
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Афганистан
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Багамские острова
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Бангладеш
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Барбадос
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Барбадос
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Австралия
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Австрия
+        </li>
+        <li class="jsDropDownItem dd-item active">
+            Азербайджан
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Албания
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Алжир
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Ангола
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Андорра
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Антигуа
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Аргентина
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Армения
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Аруба
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Афганистан
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Багамские острова
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Бангладеш
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Барбадос
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Барбадос
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+                    
+                    <span class="validation field-validation-valid"><span>Выберите страну</span></span>
+                </div>
+                <div class="col-12 col-lg-3 col-xl form-group form-callback__col">
+                    
+                    <input class="form-callback__input form-control input-placeholder autoHide" type="text"
+                           placeholder="Имя">
+                    <span class="validation field-validation-valid"><span class="">Введите имя</span></span>
+                </div>
+                <div class="col-12 col-lg-3 col-xl form-group form-callback__col">
+                    
+                    <input class="form-callback__input form-control input-placeholder autoHide" type="tel"
+                           placeholder="Телефон">
+                    <span class="validation field-validation-valid"><span
+                                class="">Введите номер телефона</span></span>
+                </div>
+                <div class="col-12 col-lg-3 col-xl form-group form-callback__col form-callback__col--btn">
+                    <input class="btn btn-brand btn-brand--cloudBurst" type="submit" value="Отправить">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+		</div>
+	</div>
+	<section class="section-popular-destinations">
+		<div class="container">
+			<h2 class="heading">Популярные направления</h2>
+			<div class="row">
+    <div class="col-12 col-md-6 col-xl-3 image-box__col">
+        <div class="image-box">
+            <a href="#" class="image-box__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="Images/popular-destinations/egipet.jpg">
+                <div class="lds-spinner"></div>
+            </a>
+            <div class="image-box__body">
+                <a href="#" class="row no-gutters image-box__row">
+                    <span class="col image-box__heading">
+                        Египет
+                    </span>
+                    <span class="col image-box__price">
+                        от 1 695 грн
+                    </span>
+                </a>
+                <ul class="image-box__links">
+                    <li>
+                        <a href="#" target="_blank">Шарм-эль-Шейх</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">Хургада</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">Марса-Алам</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 image-box__col">
+        <div class="image-box">
+            <a href="#" class="image-box__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="Images/popular-destinations/turciya.jpg">
+                <div class="lds-spinner"></div>
+            </a>
+            <div class="image-box__body">
+                <a href="#" class="row no-gutters image-box__row">
+                    <span class="col image-box__heading">
+                        Турция
+                    </span>
+                    <span class="col image-box__price">
+                        от 6 999 грн
+                    </span>
+                </a>
+                <ul class="image-box__links">
+                    <li>
+                        <a href="#" target="_blank">Сиде</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">Кемер</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">Аланья</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 image-box__col">
+        <div class="image-box">
+            <a href="#" class="image-box__thumbnail responsive-thumbnail">
+                
+                <img class="objectFitCover lazyload" data-src="Images/no-photo-small.jpg">
+                <div class="lds-spinner"></div>
+            </a>
+            <div class="image-box__body">
+                <a href="#" class="row no-gutters image-box__row">
+                    <span class="col image-box__heading">
+                        ОАЭ
+                    </span>
+                    <span class="col image-box__price">
+                        от 10 550 грн
+                    </span>
+                </a>
+                <ul class="image-box__links">
+                    <li>
+                        <a href="#" target="_blank">Дубай</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">Шарджа</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">Рас-эль-Хайма</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 image-box__col">
+        <div class="image-box">
+            <a href="#" class="image-box__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="Images/popular-destinations/tailand.jpg">
+                <div class="lds-spinner"></div>
+            </a>
+            <div class="image-box__body">
+                <a href="#" class="row no-gutters image-box__row">
+                    <span class="col image-box__heading">
+                        Тайланд
+                    </span>
+                    <span class="col image-box__price">
+                        от 17 990 грн
+                    </span>
+                </a>
+                <ul class="image-box__links">
+                    <li>
+                        <a href="#" target="_blank">Паттайяо</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">Пхукето</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">Самуи</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 image-box__col">
+        <div class="image-box">
+            <a href="#" class="image-box__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="Images/popular-destinations/shri-lanka.jpg">
+                <span class="lds-spinner"></span>
+            </a>
+            <div class="image-box__body">
+                <a href="#" class="row no-gutters image-box__row">
+                    <span class="col image-box__heading">
+                        Шри-Ланка
+                    </span>
+                    <span class="col image-box__price">
+                        от 16 900 грн
+                    </span>
+                </a>
+                <ul class="image-box__links">
+                    <li>
+                        <a href="#" target="_blank">Хиккадува</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">Когалла</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">Унаватуна</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 image-box__col">
+        <div class="image-box">
+            <a href="#" class="image-box__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="Images/popular-destinations/italiya.jpg">
+                <div class="lds-spinner"></div>
+            </a>
+            <div class="image-box__body">
+                <a href="#" class="row no-gutters image-box__row">
+                    <div class="col image-box__heading">
+                        Италия
+                    </div>
+                    <div class="col image-box__price">
+                        от 8 100 грн
+                    </div>
+                </a>
+                <ul class="image-box__links">
+                    <li>
+                        <a href="#" target="_blank">Рим</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">Венеция</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">Милан</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 image-box__col">
+        <div class="image-box">
+            <a href="#" class="image-box__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="Images/popular-destinations/ispaniya.jpg">
+                <div class="lds-spinner"></div>
+            </a>
+            <div class="image-box__body">
+                <a href="#" class="row no-gutters image-box__row">
+                    <div class="col image-box__heading">
+                        Испания
+                    </div>
+                    <div class="col image-box__price">
+                        от 12 300 грн
+                    </div>
+                </a>
+                <ul class="image-box__links">
+                    <li>
+                        <a href="#" target="_blank">Барселона</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">Тенерифе</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">Салоу</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 image-box__col">
+        <div class="image-box">
+            <a href="#" class="image-box__thumbnail responsive-thumbnail">
+                <img class="objectFitCover lazyload"
+                     data-src="Images/popular-destinations/greciya.jpg">
+                <div class="lds-spinner"></div>
+            </a>
+            <div class="image-box__body">
+                <a href="#" class="row no-gutters image-box__row">
+                    <div class="col image-box__heading">
+                        Греция
+                    </div>
+                    <div class="col image-box__price">
+                        от 8 600 грн
+                    </div>
+                </a>
+                <ul class="image-box__links">
+                    <li>
+                        <a href="#" target="_blank">о. Крито</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">Родосо</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">Корфу</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+		</div>
+	</section>
+	<div class="another-rest-section grey-background-f6f">
+		<div class="container">
+			<h2 class="heading">Другие виды отдыха</h2>
+			<div class="row">
+				<div class="col-12 col-md-6 col-lg-4 col-xl-3 another-rest-col">
+					<a href="#" class="image-box image-box--another-rest">
+						<div class="image-box__thumbnail responsive-thumbnail">
+							<img class="objectFitCover lazyloaded" data-src="Images/popular-destinations/egipet.jpg" src="Images/ny.jpg">
+							<div class="lds-spinner"></div>
+						</div>
+						<div class="image-box__text">
+							Новогодние туры
+						</div>
+					</a>
+				</div>
+				<div class="col-12 col-md-6 col-lg-4 col-xl-3 another-rest-col">
+					<a href="#" class="image-box image-box--another-rest">
+						<div class="image-box__thumbnail responsive-thumbnail">
+							<img class="objectFitCover lazyloaded" data-src="Images/popular-destinations/egipet.jpg" src="Images/may.jpg">
+							<div class="lds-spinner"></div>
+						</div>
+						<div class="image-box__text">
+							Туры на Майские
+						</div>
+					</a>
+				</div>
+				<div class="col-12 col-md-6 col-lg-4 col-xl-3 another-rest-col">
+					<a href="#" class="image-box image-box--another-rest">
+						<div class="image-box__thumbnail responsive-thumbnail">
+							<img class="objectFitCover lazyloaded" data-src="Images/popular-destinations/egipet.jpg" src="Images/early.jpg">
+							<div class="lds-spinner"></div>
+						</div>
+						<div class="image-box__text">
+							Ранее бронирование
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<section class="page-article">
+		<div class="container text-collapse-wrap">
+			<div class="articles-wrap text-collapse text-collapse--shadow">
+				<h2>Как выбрать новогодний тур</h2>
+				На нашем сайте представлены лучшие гостиницы и отели мира. У нас вы найдете всю необходимую информацию, как о дорогих пятизвездочных отелях, так и о бюджетных гостиницах. Все отели представлены на сайте с детальным описанием, которое включает фотографии отелей, гостиничных номеров, перечень предоставляемых услуг, а также, количество номеров, классификацию отеля и стоимость проживания. Мы искренне надеемся, что наш каталог отелей поможет вам найти самую достоверную и полную информацию об интересующих вас отелях, актуальных турах и отзывах о гостиницах. Не забудьте оставить свои отзывы об отелях!
+			</div>
+		</div>
+	</section>
+    </div>
+        <div class="footer-wrap">
+    <div class="footer container">
+        <div class="row col-pd-10">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Турне в соц сетях</div>
+                <div class="footer__social">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M3.516 24h7.828v-8.531H8.53v-2.813h2.813V9.141a3.52 3.52 0 0 1 3.515-3.516h3.516v2.813h-2.813c-.775 0-1.406.63-1.406 1.406v2.812h4.092l-.469 2.813h-3.623V24h6.328A3.52 3.52 0 0 0 24 20.484V3.516A3.52 3.52 0 0 0 20.484 0H3.516A3.52 3.52 0 0 0 0 3.516v16.968A3.52 3.52 0 0 0 3.516 24zM1.406 3.516c0-1.163.947-2.11 2.11-2.11h16.968c1.163 0 2.11.947 2.11 2.11v16.968c0 1.163-.947 2.11-2.11 2.11h-4.922v-5.719h3.409l.937-5.625h-4.346V9.844h4.22V4.219h-4.923A4.927 4.927 0 0 0 9.938 9.14v2.109H7.124v5.625h2.813v5.719H3.516a2.112 2.112 0 0 1-2.11-2.11V3.516z"/>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M6.497 0h11.006a6.504 6.504 0 0 1 6.493 6.264l.004.233v11.007a6.504 6.504 0 0 1-6.264 6.492l-.232.004H6.497a6.504 6.504 0 0 1-6.493-6.264L0 17.504V6.497A6.504 6.504 0 0 1 6.264.004L6.497 0h11.006zm11.007 1.407H6.497A5.096 5.096 0 0 0 1.41 6.282l-.004.215v11.007a5.096 5.096 0 0 0 4.875 5.085l.215.004h11.006a5.096 5.096 0 0 0 5.086-4.875l.004-.214V6.497a5.095 5.095 0 0 0-5.09-5.09zM12 5.437A6.57 6.57 0 0 1 18.562 12 6.57 6.57 0 0 1 12 18.562 6.57 6.57 0 0 1 5.438 12 6.57 6.57 0 0 1 12 5.438zm0 1.408A5.161 5.161 0 0 0 6.845 12 5.161 5.161 0 0 0 12 17.155 5.161 5.161 0 0 0 17.155 12 5.161 5.161 0 0 0 12 6.845zm6.72-3.738c1.069 0 1.939.87 1.939 1.94a1.94 1.94 0 0 1-1.94 1.938c-1.07 0-1.939-.87-1.939-1.939s.87-1.939 1.94-1.939zm0 1.407a.533.533 0 1 0 0 1.065.533.533 0 0 0 0-1.065z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="footer__heading">Контакты</div>
+                <div class="footer__contacts">
+                    <a href="tel:+380678294052">(067) 829-40-52</a><br>
+                    <a href="tel:+380952357060">(095) 235-70-60</a><br>
+                    <a href="#callbackModal" class="footer__callback" data-toggle="modal">
+                        Перезвоните мне
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Ваш отдых</div>
+                <ul>
+                    <li><a href="/">Горящие туры</a></li>
+                    <li><a href="/">Туры</a></li>
+                    <li><a href="/">Туры на майские</a></li>
+                    <li><a href="/">Экскурсионные туры</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Куда поехать</div>
+                <ul>
+                    <li><a href="/">Страны</a></li>
+                    <li><a href="/">Отели</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Туристам</div>
+                <ul>
+                    <li><a href="where-buy.html">Где купить</a></li>
+                    <li><a href="/">Статьи</a></li>
+                                                                                    <li><a href="reviews-hotels-page.html">Отзывы об отелях</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Партнерам</div>
+                <ul>
+                    <li><a href="/">Для турфирм</a></li>
+                    <li><a href="/">Правовая информация</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Turne.com.ua</div>
+                <div class="footer__text">Copyright © 2019 "X-tend". <br>
+                    Все права защищены.
+                </div>
+                <ul>
+                    <li><a href="/">О проекте</a></li>
+                    <li><a href="newyear_mobile.html">Мобильная версия</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div></div>
+<!-- Modal -->
+<div class="modal sign-in-modal" id="signInModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Форма входа</div>
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/" class="v-form sign-in-form">
+                    <div class="form-group">
+                        <input class="form-control input-placeholder autoHide" type="email" placeholder="E-mail">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control input-placeholder autoHide" type="password" placeholder="Пароль">
+                    </div>
+
+                    <input class="btn btn-brand btn-brand--orange" type="submit" value="Войти">
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="https://www.turne.com.ua/registration">Зарегистрироваться</a>
+                <a href="/passrecovery">Забыли пароль</a>
+            </div>
+        </div>
+    </div>
+</div><!-- Modal -->
+<div class="modal callback-modal" id="callbackModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Обратный звонок
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                    <div class="b-dropdown-callback" style="display: block !important;">
+                        <form action="/common/phonecallbackformsubmit" data-ajax="true" data-ajax-begin="oForms.FormOnBegin"
+                              data-ajax-complete="oForms.FormOnComplete" data-ajax-success="oForms.PhoneCallbackFormOnSuccess"
+                              id="form1" method="post" novalidate="novalidate"><span class="b-dropdown-callback__heading">Введите свой номер телефона:</span>
+
+                            <div class="form-group"><input class="form-control jsMaskedInputPhone" data-val="true"
+                                                           data-val-regex="Неверный формат"
+                                                           data-val-regex-pattern="^\+38\(\d{3}\)\s{1}\d{3}-\d{2}-\d{2}$"
+                                                           data-val-required="Неверный формат" id="Phone" maxlength="100"
+                                                           name="Phone" placeholder="+38(XXX) XXX-XX-XX" type="tel"> <span
+                                        class="field-validation-valid validation" data-valmsg-for="Phone"
+                                        data-valmsg-replace="true"></span></div>
+                            <input id="Url" name="Url" type="hidden" value="%2f">
+                            <input type="submit" id="btnSend"
+                                   name="btnSend"
+                                   class="btn btn-brand btn-brand--orange"
+                                   value="Перезвоните мне"></form>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div><script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.js" type="text/javascript"></script>
+<script src="js/datepicker.js" type="text/javascript"></script>
+<script src="js/svg4everybody.min.js" type="text/javascript"></script>
+<script src="js/ofi.min.js" type="text/javascript"></script>
+<script src="js/scripts.js" type="text/javascript"></script>
+<script src="js/scripts-desktop.js" type="text/javascript"></script>
+<script src="js/lazysizes.min.js" async=""></script>
+
+</body>
+</html>

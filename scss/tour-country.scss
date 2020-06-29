@@ -1,0 +1,194 @@
+@import "mixin";
+@import "variable";
+
+.sidebar-box {
+  padding-top: 20px;
+  padding-bottom: 19px;
+  border-bottom: 1px solid #efefef;
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  &__heading {
+    font-size: 16px;
+    font-family: $font-mont;
+    color: $menu-text-color;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  &__content {
+    margin-left: -4px;
+    margin-right: -4px;
+  }
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    margin: 4px;
+    border: solid 1px #efefef;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    &:hover {
+      box-shadow: 0 6px 12px 0 rgba(92, 50, 15, 0.15);
+    }
+    svg {
+      margin-left: 8px;
+      flex-shrink: 0;
+    }
+  }
+  .sidebar-icon {
+    margin-left: 8px;
+    margin-right: 8px;
+    height: 24px;
+    width: 24px;
+    fill: #387C89;
+  }
+  .sprite-flag {
+    height: 26px;
+    width: 26px;
+  }
+  &__link {
+    padding: 4px 8px 4px 8px;
+    width: 100%;
+    display: flex;
+    color: $menu-text-color;
+    min-height: 44px;
+    align-items: center;
+    &:hover {
+      text-decoration: none;
+      color: $menu-text-color;
+    }
+    > *:first-child {
+      margin-left: 0;
+    }
+    > *:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__price {
+    color: $orange;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  &__weather {
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    margin-left: auto;
+  }
+  &--two-col {
+    .sidebar-box__text {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-grow: 1;
+    }
+  }
+  &-season {
+    &__content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-left: -2px;
+      margin-right: -2px;
+    }
+    &__item {
+      width: 50%;
+      padding-left: 2px;
+      padding-right: 2px;
+      margin-bottom: 4px;
+    }
+    &__block {
+      width: 100%;
+      border-radius: 4px;
+      text-align: center;
+      padding-bottom: 16px;
+      color: $menu-text-color;
+      &:hover {
+        color: $menu-text-color;
+        text-decoration: none;
+      }
+      &--summer {
+        background-color: #fff3f2;
+        border: solid 1px #ffc0b6;
+      }
+      &--spring {
+        border: solid 1px #c1e8c1;
+        background-color: #f7fff7;
+      }
+      &--autumn {
+        background-color: #fff7f0;
+        border: solid 1px #ffcea4;
+      }
+      &--winter {
+        border: solid 1px #c1d8e8;
+        background-color: #f7fcff;
+      }
+    }
+    &__sprite {
+      padding: 12px;
+      border-radius: 50%;
+      background-color: #fff;
+      margin: 16px auto 8px auto;
+      max-width: fit-content;
+      &.sprite-winter {
+        border: solid 1px #c1d8e8;
+      }
+      &.sprite-autumn {
+        border: solid 1px #ffcea4;
+      }
+      &.sprite-spring {
+        border: solid 1px #c1e8c1;
+      }
+      &.sprite-summer {
+        border: solid 1px #ffc0b6;
+      }
+    }
+    &__img {
+      width: 24px;
+      height: 24px;
+      max-width: 100%;
+      margin: 0 auto;
+      background-image: url('../Images/seasons-sprite.png');
+      background-size: 100%;
+      &.autumn {
+        background-position: 0 0;
+        background-size: 100%;
+      }
+      &.spring {
+        background-position: 0 33.333333%;
+        background-size: 100%;
+      }
+      &.summer {
+        background-position: 0 66.666667%;
+        background-size: 100%;
+      }
+      &.winter {
+        background-position: 0 100%;
+        background-size: 100%;
+      }
+    }
+  }
+}
+
+.layout-box__sidebar > .sidebar-box:first-child {
+  border-top: 1px solid #efefef;
+}
+
+.section-hotels {
+  padding: rem(40px 0);
+  background-color: #f6f6f7
+}
+
+.section-news {
+  margin-top: rem(32px);
+}
+
+.layout-mg {
+  margin-bottom: rem(40px);
+}
+
+@import "home-page-modules/news";
+

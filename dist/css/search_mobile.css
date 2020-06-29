@@ -1,0 +1,41 @@
+.custom-dropdown__control {
+  padding: 6px 36px 6px 24px;
+}
+
+.custom-dropdown__icon {
+  position: relative;
+  z-index: 1;
+  margin-left: -16px;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  fill: #9CA4B3;
+}
+
+@media (max-width: 1199px) {
+  .full-search__title {
+    display: none;
+  }
+  .full-search .custom-dropdown {
+    margin-bottom: 1rem;
+  }
+  .full-search .custom-dropdown__control {
+    min-height: 40px;
+    font-size: 14px;
+    line-height: 26px;
+  }
+  .full-search__btn {
+    margin-top: 0;
+    font-size: 14px;
+    line-height: 26px;
+  }
+  .full-search__message {
+    position: relative;
+    margin-top: -13px;
+  }
+  .custom-dropdown__control input {
+    padding-left: 32px;
+  }
+}
+
+/*# sourceMappingURL=map/search_mobile.css.map */

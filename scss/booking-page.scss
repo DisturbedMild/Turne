@@ -1,0 +1,521 @@
+@import "mixin";
+@import "variable";
+
+.hotel-booking {
+  
+  &__header-info {
+    display: flex;
+    border-radius: 4px;
+    box-shadow: 0 12px 24px 0 rgba(33, 84, 94, 0.15);
+    margin-bottom: 65px;
+  }
+  &__content {
+    padding: 20px;
+    max-width: 560px;
+    width: 100%;
+  }
+  &__place {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+  &__facilities-wrapper {
+    padding-top: 12px;
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+    max-width: 480px;
+    width: 100%;
+    margin-bottom: 14px;
+  }
+  &__facilities {
+    padding: 0px;
+    column-count: 2;
+    .media {
+      margin-bottom: 5px;
+      svg {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  &__contacts {
+    color: #4B5669;
+    font-weight: 600;
+    line-height: 24px;
+    &:hover {
+      color: #4B5669;
+      text-decoration: none;;
+    }
+  }
+  &__price {
+    box-shadow: inset 1px 0 0 0 #efefef;
+    padding: 20px;
+  }
+  &__operator {
+    font-size: 13px;
+  }
+  &__operator img{
+    margin-bottom: 72px;
+    margin-top: 4px;
+  }
+  &__payment {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.45;
+    margin-bottom: 10px;
+    .hotel-booking__verification-buttons {
+      margin-left: 0px !important;
+    }
+  }
+  &__prepayment {
+    font-family: $font-mont;
+    font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 8px;
+  }
+  &__tourPrice {
+    font-size: 20px;
+    font-family: $font-mont;
+    color: $orange;
+    font-weight: 600;
+  }
+
+  &__info-btn {
+    font-size: 13px;
+    max-width: 100%;
+    font-weight: 700;
+    color: $orange;
+    line-height: 1.23;
+    border-radius: 4px;
+    border: solid 1px #ff8508;
+    &:hover {
+      color: #fff;
+      background-color: $orange;
+    }
+  }
+  
+  &__text-heading {
+    font-size: 20px;
+    font-family: $font-mont;
+    line-height: 20px;
+    font-weight: 600;
+  }
+  
+  &__included {
+    font-size: 13px;
+    color: $blue;
+    font-weight: 600;
+    padding-bottom: 16px;
+    font-family: $font-mont;
+    span {
+      color: #4B5669;
+      font-weight: normal;
+      font-family: $font-open;
+    }
+  }
+  .btn.btn-brand {
+    padding: 5px 8px;
+    max-width: 100px;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  &__passport {
+    display: block;
+  }
+
+  // шаг 1 
+  &__heading {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+    .arrow-icon {
+      transform: rotate(-180deg);
+      right: 20px;
+    }
+  }
+  &__item + &__item {
+    padding-left: 20px;
+  }
+  &__item-num {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: #d8d8e4;
+    line-height: 24px;
+    text-align: center;
+    font-weight: 700;
+    font-family: $font-mont;
+    margin-right: 12px;
+  }
+  &__item-heading {
+    font-size: 20px;
+    font-family: $font-mont;
+    font-weight: 600;
+  }
+  &__text {
+    display: none;
+  }
+  &__contacts-form {
+    column-count: 2;
+    padding: 20px 100px 10px 35px;
+  }  
+  &__next-btn {
+    width: 100%;
+    max-width: 100px;
+    margin-left: auto;
+  }
+  //  шаг 2 
+  &__passport-item {
+    margin-left: 35px;
+  }
+  &__passport-form {
+    .form-group {
+      max-width: 210px;
+    }
+    .form-group:nth-child(2){
+      margin-left: 12px;
+    }
+    .form-group:nth-child(3){
+      max-width: 106px;
+    }
+    .form-group:nth-child(4){
+      max-width: 140px;
+      margin-left: 12px;
+    }
+    .form-group:nth-child(5){
+      max-width: 160px;
+      margin-left: 12px;
+    }
+    .form-group:nth-child(7){
+      margin-left: 12px;
+    }
+  }
+  // шаг 3 
+  &-prepayment-info__title-text {
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    color: $blue;
+  }
+  &-percent-prepayment__items{
+    display: flex;
+    max-width: 360px !important;
+    width: 100%;
+    .prepayment-item {
+      width: 74px;
+      position: relative;
+      padding: 8px;
+      border-radius: 4px;
+      border: solid 1px #cbd2de;
+      height: 40px;
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+      }
+      &:hover input ~ .checkmark-sale {
+        background-color: #387c89;
+        color: #fff;
+      }
+      input:checked ~ .checkmark-sale {
+        background-color: #387c89;
+        color: #fff;
+        border: none;
+      }
+    }
+    .prepayment-item + .prepayment-item {
+      margin-left: 12px;
+    }
+    .checkmark-sale {
+    background-color: #fff;
+    border-radius: 4px;
+    color: #4b5669;
+    font-family: $font-mont;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 35px;
+    position: absolute;
+    z-index: 110;
+    top: 0;
+    left: 0;
+    height: 38px;
+    max-width: 72px;
+    width: 100%;
+    outline: none;
+    }
+  }
+
+  &-prepayment__item-price {
+    font-size: 24px;
+    color: $orange;
+    font-family: $font-mont;
+    font-weight: 600;
+  }
+  &__sms-verification {
+    padding-top: 8px;
+    box-shadow: inset 0 1px 0 0 #efefef;
+    max-width: 480px;
+    width: 100%;
+    margin-top: 20px;
+    &__title {
+      font-weight: 600;
+      padding-bottom: 4px;
+    }
+    &__text {
+      font-size: 11px;
+      margin-bottom: 22px;
+    }
+  }
+
+  &__verification-buttons {
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  &__prev-btn {
+    width: 100%;
+    max-width: 100px;
+    .btn-brand {
+      background-color: #fff;
+      color: #4B5669;
+      font-weight: 700;
+      border: solid 1px #dbdde1;
+      &:hover {
+        background-color: #4B5669;
+        color: #fff;
+      }
+    }
+  }
+
+  &__person {
+    color: $blue;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  &__person.collapsed {
+    border-bottom: 1px dashed;
+    display: inline-block;
+  }
+  .form-group {
+    max-width: 220px;
+    width: 100%;
+  }
+  .form-control {
+    height: 40px;
+  }
+
+  &__sex {
+    display: flex;
+    max-width: 106px;
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    border: solid 1px #cbd2de;
+
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+    .container .checkmark:after {
+      top: 9px;
+     left: 9px;
+     width: 8px;
+     height: 8px;
+     border-radius: 50%;
+     background: white;
+   }
+  }
+  &__verification-buttons {
+    margin-left: 35px;
+    margin-right: 55px;
+    .booking_next-btn {
+      padding-right: 0px;
+      margin-right: 80px;
+    }
+  }
+  &__thanks {
+    text-align: center;
+    margin-bottom: 40px;
+    a {
+      font-size: 22px;
+    }
+  }
+  &__thanks-heading {
+    color: $blue;
+    font-size: 24px;
+    font-family: $font-mont;
+    font-weight: 600;
+  }
+  &__thanks-description {
+    font-size: 16px;
+    line-height: 1.67;
+  }
+  &__label-confirm {
+    margin-left: 35px;
+    margin-bottom: 20px;
+  }
+}
+.booking-personalInfo {
+  margin-bottom: 60px;
+}
+
+
+
+.hotel-booking__contact, .hotel-booking__passport, .hotel-booking__payment-section {
+  max-width: 560px;
+  width: 100%;
+  box-shadow: inset -1px 0 0 0 rgba(0, 0, 0, 0.1);
+}
+.form-group {
+  .custom-dropdown__control {
+    border: 1px solid #ced4da;
+  }
+}
+.brand-checkbox__media {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+}
+.brand-checkbox__inner {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.67;
+  span {
+    color: $blue;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.collapsePerson {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
+}
+.toogle {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  width: 50px;
+  margin: 1px;
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  &:hover input ~ .checkmark {
+    background-color: #387c89;
+    color: #fff;
+  }
+  input:checked ~ .checkmark {
+    background-color: #387c89;
+    color: #fff;
+  }
+  .checkmark {
+    color: #333333;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 35px;
+  }
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 36px;
+  background-color: #fff;
+  border-radius: 4px;
+  &:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+}
+
+
+// modal 
+.confirm-modal {
+  text-align: center;
+  .modal-body {
+    padding: 0px 24px 32px 24px;
+  }
+  .modal-header {
+    border: none;
+    padding-bottom: 0px;
+    box-shadow: none;
+  }
+  .modal-dialog {
+    max-width: 360px;
+    width: 100%;
+  }
+  .modal--close-btn {
+    width: 100%;
+  }
+  .form-group {
+    margin: 15px auto;
+  }
+  .form-control {
+    max-width: 80px;
+    padding: 20px 12px;
+    margin: 0 auto;
+    font-size: 18px;
+  }
+}
+.hotel-booking {
+  &__contact-heading {
+    font-size: 24px;
+    color: $blue;
+    font-family: $font-mont;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  &__contact-text {
+    font-size: 13px;
+  }
+}
+.arrow-icon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+}
+
+
+  // when done step do -->
+  .done {
+    margin-bottom: 20px;
+    .hotel-booking__next-btn {
+      display: none;
+    }
+    .hotel-booking__prev-btn {
+      display: none;
+    }
+    .hotel-booking__heading {
+      box-shadow: inset -1px 0 0 0 rgba(0, 0, 0, 0.1);
+
+    }
+    .hotel-booking__body {
+      display: none;
+    }
+    .hotel-booking__text {
+      display: block;
+      margin-top: 20px;
+      margin-left: 35px;
+    }
+    .hotel-booking__item-num {
+      background-color: #4aa451;
+      font-size: 0px;
+      position: relative;
+      &:after {
+        position: absolute;
+        content: url(../Images/tick.png);
+        left: 4px;
+        top: 4px;
+      }
+    }
+  }

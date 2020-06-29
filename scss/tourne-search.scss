@@ -1,0 +1,43 @@
+@import "mixin";
+@import "variable";
+
+.section-callback {
+  margin-bottom: 40px;
+}
+.section-tours {
+  margin-bottom: 15px;
+  .slick-carousel {
+    .slick-track {
+      display: flex;
+      margin-left: 0;
+    }
+    .slick-carousel-item {
+      height: auto;
+      flex-grow: 1;
+      .tour-card {
+        height: 100%;
+      }
+    }
+    &:not(.slick-initialized) {
+      padding-left: 10px;
+      padding-right: 10px;
+      .slick-carousel-item {
+        min-width: 300px;
+      }
+    }
+  }
+}
+
+.tour-card {
+  position: relative;
+}
+
+
+.section-popular-destinations {
+  padding-top: 20px;
+}
+
+.screen-search__content {
+  position: relative;
+  margin-top: 0;
+}

@@ -1,0 +1,41 @@
+<div class="vertical-filter jsHotToursVerticalFilter">
+  <div class="vertical-filter__header">
+    <button class="vertical-filter__back back-icon jsCloseFilters"></button>
+    <span>Фильтры</span>
+  </div>
+  <div class="vertical-filter__container">
+    <div class="vertical-filter__section">
+      <div class="vertical-filter__content js-selected-filters">
+        {% include "../hot-tours-modules/selected-filters.twig" %}
+      </div>
+    </div>
+    <div class="vertical-filter__section">
+      {% include '../hot-tours-modules/price-range-slider.twig' %}
+    </div>
+    <div id="hot-tours__hotelClass-filter" class="vertical-filter__section">
+      {% include '../hot-tours-modules/filter-dropdown-search.twig' %}
+    </div>
+   <div id="hot-tours__hotelClass-filter" class="vertical-filter__section">
+      {% include '../hot-tours-modules/dropdown-hotel-class.twig' %}
+    </div>
+    <div id="hot-tours__foodType-filter" class="vertical-filter__section">
+      {% include '../hot-tours-modules/dropdown-food-type.twig' %}
+    </div>
+    <div id="hot-tours__tourOperator-filter" class="vertical-filter__section">
+      {% include '../hot-tours-modules/dropdown-tour-operator.twig' %}
+    </div>
+    <div id="hot-tours__tourOperator-filter" class="vertical-filter__section">
+      {% include '../hot-tours-modules/dropdown-hotel.twig' %}
+    </div>
+    <div id="hot-tours__tourOperator-filter" class="vertical-filter__section">
+      {% include '../hot-tours-modules/dropdown-beach.twig' %}
+    </div>
+    <div id="hot-tours__tourOperator-filter" class="vertical-filter__section">
+      {% include '../hot-tours-modules/dropdown-forChildren.twig' %}
+    </div>
+  </div>
+  <div class="vertical-filter__buttons">
+    <button class="btn btn-brand btn-brand--orange jsApplyAllFilters">ПРИМЕНИТЬ</button>
+    <button type="button" class="btn btn-brand vertical-filter__reset jsBottomClearAllFilters">Очистить фильтры</button>
+  </div>
+</div>

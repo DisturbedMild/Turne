@@ -1,0 +1,21 @@
+{% macro dropdown(mobile) %}
+    <div class="b-dropdown_simple-b b-dropdown m-dropdown no-user-select jsDropDownOptions"
+         style="display: none;">
+        <div class="m-dropdown__header">
+            <button class="m-dropdown__back back-icon jsMultiSelectDone"></button>
+            <span class="m-dropdown__title">Страна</span>
+        </div>
+
+        <div class="ui-front b-dropdown-autocomplite">
+            <div class="b-dropdown-search">
+                <svg class="b-dropdown-search__icon" width="20" height="20">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#search"></use>
+                </svg>
+                <input class="form-control input-placeholder-inherit autoHide ui-autocomplete-input"
+                       placeholder="Введите название отеля, страны или курорта">
+            </div>
+            {% from "autocomplite-dropdown.twig" import dropdown %}
+            {{ dropdown(mobile) }}
+        </div>
+        <input id="CountryDropDownList_Value" name="CountryDropDownList.Value" type="hidden" value="11"></div>
+{% endmacro %}

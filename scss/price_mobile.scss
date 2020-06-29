@@ -1,0 +1,24 @@
+@import 'mixin';
+@import 'variable';
+
+
+
+@media (max-width: 800px) {
+  .stacktable.large-only {
+    display: none;
+  }
+  .stacktable.small-only {
+    display: table;
+  }
+}
+
+@media (max-width: 767px) {
+  .services-page {
+    &__item-gallery {
+      a {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+    }
+  }
+}

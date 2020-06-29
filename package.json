@@ -1,0 +1,40 @@
+{
+  "name": "turne-new",
+  "version": "0.0.1",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.26.7",
+    "css-mquery-packer": "^1.2.0",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-cache": "^1.1.3",
+    "gulp-css-url-adjuster": "^0.2.3",
+    "gulp-css-urlencode-inline-svgs": "^0.0.7",
+    "gulp-cssbeautify": "^2.0.0",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-gm": "0.0.9",
+    "gulp-image-resize": "^0.13.1",
+    "gulp-jsmin": "^0.1.5",
+    "gulp-load-plugins": "^2.0.2",
+    "gulp-minify": "^3.1.0",
+    "gulp-nunjucks-render": "^2.2.3",
+    "gulp-postcss": "^8.0.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-svgmin": "^2.2.0",
+    "gulp-twig": "^1.2.0",
+    "gulp.spritesmith": "^6.11.0",
+    "imagemagick": "^0.1.3",
+    "merge-stream": "^2.0.0",
+    "postcss-merge-rules": "^4.0.3",
+    "sort-css-media-queries": "^1.5.0"
+  },
+  "browserslist": [
+    "last 25 versions"
+  ]
+}

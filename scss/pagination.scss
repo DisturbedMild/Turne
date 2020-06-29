@@ -1,0 +1,62 @@
+@import "mixin";
+@import "variable";
+.pagination {
+  align-items: center;
+  font-size: 1rem;
+  justify-content: center;
+  .page-item a {
+    color: #4b5669;
+    font-family: $font-mont;
+    font-weight: 600;
+    border:none;
+  }
+  .page-item + .page-item {
+    margin-left: rem(10px);
+  }
+  .page-item:first-child .page-link,
+  .page-item:last-child .page-link {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+  }
+  .page-item.active .page-link {
+    background-color: #fff;
+    color: $orange;
+  }
+  .page-link {
+    padding: 0.2rem 0.25rem;
+    margin-left: 0px;
+    &:hover {
+      background-color: #fff;
+      color: $orange;
+    }
+  }
+  .page-item .arrow-link {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    padding: 0px;
+    &:hover  {
+      background-color: #4b5669;
+    }
+  }
+  .arrow-link {
+    background:#4b5669;
+    svg {
+      fill: #fff;
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
+  }
+  .arrow-prev {
+    transform: rotate(90deg);
+    margin-right: 8px;
+  }
+  .arrow-next {
+    transform: rotate(-90deg);
+    margin-left: 8px;
+  }
+  .arrow.page-link {
+    background-color: #4b5669;
+  }
+}

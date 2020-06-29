@@ -1,0 +1,61 @@
+@import "../variable";
+
+.b-datepicker {
+  overflow: hidden;
+  .ui-datepicker {
+    max-width: 240px;
+    margin: 0 auto;
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: 190px;
+  }
+  header {
+    display: none;
+  }
+}
+
+.duration {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  &__heading {
+    max-width: 752px;
+    margin: 0 auto;
+  }
+  &__content {
+    max-width: 752px;
+    margin: 0 auto;
+  }
+  .arrow-icon {
+    bottom: 0;
+  }
+  &__slider {
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+  .duration__days span.m-select {
+    background: #387c89 !important;
+    color: #fff !important;
+  }
+}
+
+.b-datepicker .duration__heading {
+  font-size: 13px;
+}
+
+.duration-btn-wrap {
+  display: flex;
+  padding: 8px 12px 8px 12px;
+  border-top: 1px solid #efefef;
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .b-datepicker .ui-datepicker {
+    max-width: 768px !important;
+  }
+}

@@ -1,0 +1,102 @@
+{% extends "layouts/default-mobile.twig" %}
+{% set mobile = 'mobile' %}
+{% if mobile %}
+	{% set toggleMobileText = "Полная версия" %}
+	{% set toggleMobileLink = "newyear-page.html" %}
+{% else %}
+	{% set toggleMobileText = "Мобильная версия" %}
+	{% set toggleMobileLink = "newyear_mobile.html" %}
+{% endif %}
+
+{% block searchStyle %}
+	<link href="css/bundle/searchStyleMobile.css?v=113" rel="stylesheet"/>
+{% endblock %}
+{% block head %}
+	<link href="css/rest-type-page.css" rel="stylesheet">
+	<link href="css/rest-type-page_mobile.css" rel="stylesheet">
+{% endblock %}
+
+{% block scripts %}{% endblock %}
+
+{% block content %}
+	{% include "./newyear-modules/screen-box-newyear.twig" %}
+    <div class="container">
+        <div class="section-hot-tours">
+            <h2 class="heading">Новогодние
+                <strong>пляжные туры</strong>
+            </h2>
+            {% include "./newyear-modules/hot-tours.twig" %}
+        </div>
+        <div class="section-hot-tours">
+            <h2 class="heading">Новогодние
+                <strong>эскурсионные туры</strong>
+            </h2>
+            {% include "./newyear-modules/hot-tours.twig" %}
+        </div>
+        <div class="section-hot-tours">
+            <h2 class="heading">Новогодние
+                <strong>горнолыжные туры</strong>
+            </h2>
+            {% include "./newyear-modules/hot-tours.twig" %}
+        </div>
+        <div class="search-tour-col">
+            {% include "./newyear-modules/form-callback.twig" %}
+        </div>
+    </div>
+
+
+	<section class="section-popular-destinations">
+		<div class="container">
+			<h2 class="heading">Популярные направления</h2>
+			{% include "./home-page-modules/popular-destinations.twig" %}
+		</div>
+	</section>
+    <div class="another-rest-section grey-background-f6f">
+        <div class="container">
+            <h2 class="heading">Другие виды отдыха</h2>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 another-rest-col">
+                    <a href="#" class="image-box image-box--another-rest">
+                        <div class="image-box__thumbnail responsive-thumbnail">
+                            <img class="objectFitCover lazyloaded" data-src="Images/popular-destinations/egipet.jpg" src="Images/ny.jpg">
+                            <div class="lds-spinner"></div>
+                        </div>
+                        <div class="image-box__text">
+                            Новогодние туры
+                        </div>
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 another-rest-col">
+                    <a href="#" class="image-box image-box--another-rest">
+                        <div class="image-box__thumbnail responsive-thumbnail">
+                            <img class="objectFitCover lazyloaded" data-src="Images/popular-destinations/egipet.jpg" src="Images/may.jpg">
+                            <div class="lds-spinner"></div>
+                        </div>
+                        <div class="image-box__text">
+                            Туры на Майские
+                        </div>
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 another-rest-col">
+                    <a href="#" class="image-box image-box--another-rest">
+                        <div class="image-box__thumbnail responsive-thumbnail">
+                            <img class="objectFitCover lazyloaded" data-src="Images/popular-destinations/egipet.jpg" src="Images/early.jpg">
+                            <div class="lds-spinner"></div>
+                        </div>
+                        <div class="image-box__text">
+                            Ранее бронирование
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+	<section class="page-article">
+		<div class="container text-collapse-wrap">
+			<div class="articles-wrap text-collapse text-collapse--shadow">
+				<h2>Как выбрать новогодний тур</h2>
+				На нашем сайте представлены лучшие гостиницы и отели мира. У нас вы найдете всю необходимую информацию, как о дорогих пятизвездочных отелях, так и о бюджетных гостиницах. Все отели представлены на сайте с детальным описанием, которое включает фотографии отелей, гостиничных номеров, перечень предоставляемых услуг, а также, количество номеров, классификацию отеля и стоимость проживания. Мы искренне надеемся, что наш каталог отелей поможет вам найти самую достоверную и полную информацию об интересующих вас отелях, актуальных турах и отзывах о гостиницах. Не забудьте оставить свои отзывы об отелях!
+			</div>
+		</div>
+	</section>
+{% endblock %}

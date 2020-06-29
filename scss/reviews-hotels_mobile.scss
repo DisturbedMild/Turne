@@ -1,0 +1,130 @@
+@import "mixin";
+@import "variable";
+
+.full-search .custom-dropdown__control {
+  padding-right: 15px;
+}
+
+@media (min-width: 992px) {
+  .full-search__row {
+    align-items: flex-end;
+  }
+  .full-search .custom-dropdown {
+    margin-bottom: 0;
+  }
+  .full-search__title {
+    display: block;
+  }
+}
+
+@media (max-width: 1199px) {
+  .full-search-add-review .btn {
+    margin-top: 0;
+    font-size: 14px;
+    line-height: 26px;
+  }
+  .search-tour {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .full-search-add-review {
+    padding-left: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    &:before {
+      left: 15%;
+      top: 0;
+      height: 1px;
+      width: 70%;
+    }
+  }
+}
+
+.search-card {
+  @media (max-width: 991px) {
+    &__body {
+      padding-right: 8px;
+    }
+  }
+
+  &-hotel-review {
+    @media (max-width: 991px) {
+      &__rating {
+        position: relative;
+        display: flex;
+        border-left: 0;
+        width: 100%;
+        padding: 0;
+      }
+      &__score {
+        flex-shrink: 0;
+        //padding-right: 20px;
+        .radial-progress-bar {
+          width: 58px;
+          height: 58px;
+        }
+      }
+      &__facilities {
+        margin: 4px 0 0 20px;
+        li {
+          position: relative;
+          &:after {
+            content: "";
+            position: absolute;
+            bottom: 3px;
+            display: block;
+            width: 100%;
+            height: 1px;
+            border-bottom: 1px dotted #ccc;
+            z-index: 0;
+          }
+          span {
+            padding-right: 5px;
+            background: #fff;
+            z-index: 1;
+          }
+          i {
+            background: #fff;
+            z-index: 1;
+            border-radius: 2px;
+          }
+        }
+      }
+    }
+    @media (min-width: 375px) and (max-width: 767px) {
+      &__facilities {
+        max-width: 200px;
+
+      }
+    }
+  }
+}
+
+@media (max-width: 414px) {
+  .inline-sorting__heading {
+    width: 100%;
+  }
+}
+
+.b-dropdown-autocomplite {
+  position: relative;
+  height: calc(100% - 62px);
+  .ui-autocomplete {
+    top: 100% !important;
+    width: 100% !important;
+    margin-top: 3px;
+    max-height: calc(100% - 53px);
+    position: static !important;
+    &.ui-widget {
+      border: none;
+      box-shadow: none;
+      background: #ffffff;
+      font-size: 14px;
+      font-family: $font-open;
+    }
+  }
+}
+
+@import "details-components/modal-add-reviews-mobile";

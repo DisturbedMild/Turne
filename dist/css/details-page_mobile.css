@@ -1,0 +1,728 @@
+.info-box__buttons .fixed-mobile-button.fixed {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  -webkit-border-radius: 0;
+          border-radius: 0;
+  z-index: 100;
+  min-height: 40px;
+  font-size: 16px;
+  max-width: 100%;
+}
+
+@media (max-width: 1023px) {
+  .nav-breadcrumb {
+    display: none;
+  }
+}
+
+@media (max-width: 1199px) {
+  .details-heading {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+  .details-heading .heading {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .details-heading {
+    margin-top: 0.9375rem;
+  }
+}
+
+@media (max-width: 1199px) {
+  .details-small-heading {
+    font-size: 1.375rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .details-place {
+    font-size: 13px;
+  }
+  .details-tour {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background: #ffffff;
+  }
+}
+
+@media (max-width: 1199px) {
+  .review-score {
+    width: auto;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    padding-right: 15px;
+    font-size: 13px;
+  }
+  .review-score .radial-progress-bar {
+    width: 40px;
+    height: 40px;
+  }
+  .review-score > span {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 1199px) {
+  .tour-gallery {
+    max-width: 540px;
+  }
+}
+
+@media (max-width: 991px) {
+  .tour-gallery {
+    max-width: 100%;
+    min-height: auto;
+  }
+  .tour-gallery__item {
+    height: auto;
+    min-height: 176px;
+  }
+  .tour-gallery__item {
+    position: relative;
+  }
+  .tour-gallery__item::before {
+    display: block;
+    content: "";
+    padding-top: 56.25%;
+  }
+  .tour-gallery__item img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .tour-gallery .tour-gallery-nav {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  .info-box {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 12px;
+  }
+  .info-box__heading {
+    font-size: 1.375rem;
+  }
+  .info-box .review-score {
+    top: 12px;
+  }
+}
+
+@media (max-width: 991px) {
+  .info-box__columns {
+    margin-top: 8px;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    position: relative;
+  }
+  .info-box__logo {
+    max-width: 100px;
+  }
+  .info-box__price-wrap {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+  }
+  .info-box__price {
+    margin-right: 0.24em;
+    font-size: 24px;
+    color: #ff8508;
+  }
+  .info-box__buttons {
+    margin: 10px -6px;
+  }
+  .info-box__buttons .btn {
+    font-size: 13px;
+    padding: 0;
+    max-width: 100%;
+  }
+  .info-box__buttons .btn-brand--white {
+    font-weight: normal;
+  }
+  .info-box__heading {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+  .info-box__facilities {
+    -webkit-column-count: auto;
+       -moz-column-count: auto;
+            column-count: auto;
+  }
+  .info-box__facilities li:last-child {
+    margin-bottom: 2px;
+  }
+  .info-box-office {
+    margin-top: 10px;
+    padding: 8px;
+    background: #eaf1f3;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-border-radius: 4px;
+            border-radius: 4px;
+  }
+  .info-box-office__text {
+    font-size: 13px;
+  }
+  .info-box .review-score {
+    top: 8px;
+  }
+  .info-box .expired-tour {
+    margin: 0;
+  }
+}
+
+@media (max-width: 350px) {
+  .info-box-office {
+    display: block;
+  }
+  .info-box-office__icon {
+    padding: 5px;
+  }
+  .info-box .price-expired {
+    max-width: 120px;
+  }
+}
+
+.anchor-nav {
+  display: none !important;
+}
+
+.details-search__bg {
+  padding-bottom: 0.875rem;
+}
+
+@media (max-width: 1199px) {
+  .details-search .full-search__item:last-child {
+    max-width: 100%;
+  }
+  .details-search .full-search__btn {
+    font-size: 14px;
+    background-image: none;
+  }
+}
+
+@media (max-width: 1199px) {
+  .hotel-info .hotel-info__items {
+    display: none;
+  }
+  .hotel-info__collapse-heading {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    font-size: 14px;
+    text-decoration: none !important;
+    padding: 0.5625rem 0;
+    margin: 0 1.25rem;
+    line-height: 24px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid transparent;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    color: #387c89;
+  }
+  .hotel-info__collapse-heading:hover {
+    color: #387c89;
+  }
+  .hotel-info__collapse-heading .arrow-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  .hotel-info__collapse-heading.collapsed .arrow-icon {
+    -webkit-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+  }
+  .hotel-info .desc__content {
+    padding: 0.3125rem 1.25rem 0.625rem 1.25rem;
+  }
+  .hotel-info .desc:first-child .hotel-info__collapse-heading {
+    border-top-color: transparent;
+  }
+  .hotel-info .desc:last-child .hotel-info__collapse-heading .collapsed {
+    border-bottom-color: #cccccc;
+  }
+  .hotel-info .tab-content > .tab-pane {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hotel-info__collapse-heading {
+    display: none;
+  }
+  .hotel-info .tab-pane .collapse {
+    display: block !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  .hotel-info__text-collapse .text-collapse--shadow:not(.expanded)::before {
+    margin-top: -4.8rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hotel-info__text-collapse .text-collapse--shadow:not(.expanded)::before {
+    margin-top: -4.5rem;
+  }
+}
+
+@media (max-width: 1199px) {
+  .total-reviews__facilities {
+    margin-left: 0;
+    width: 100%;
+    line-height: 20px;
+    font-size: 13px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .total-reviews__facilities-items {
+    padding: 0 12px 0 12px;
+  }
+  .total-reviews__facilities-item {
+    padding-right: 5px;
+  }
+  .total-reviews__facilities-item + .total-reviews__facilities-item {
+    padding-left: 5px;
+  }
+  .total-reviews__leave-feedback {
+    margin-left: 12px;
+  }
+}
+
+@media (max-width: 991px) {
+  .total-reviews__facilities {
+    padding: 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-left: 0;
+    width: 100%;
+    font-size: 13px;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .total-reviews__facilities-items {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 12px 20px 12px 56px;
+    -webkit-border-radius: 4px;
+            border-radius: 4px;
+    background-color: #f6f6f7;
+    margin-left: 0;
+  }
+  .total-reviews__facilities-item + .total-reviews__facilities-item {
+    padding-left: 0;
+    border: none;
+  }
+  .total-reviews__leave-feedback {
+    margin-top: 12px;
+    width: 100%;
+    margin-left: 0;
+  }
+  .total-reviews__progress-bar {
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    z-index: 1;
+  }
+  .total-reviews__progress-bar .radial-progress-bar {
+    fill: #fff;
+  }
+}
+
+@media (max-width: 1199px) {
+  .reviews-section__review-rating {
+    display: none;
+    position: absolute;
+    top: 46px;
+    right: 2px;
+    -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+  }
+  .reviews-section__item-wrapper {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .reviews-section {
+    padding: 1px 12px 20px 12px;
+    -webkit-border-radius: 4px;
+            border-radius: 4px;
+    -webkit-box-shadow: 0 10px 24px 0 rgba(33, 84, 94, 0.15);
+            box-shadow: 0 10px 24px 0 rgba(33, 84, 94, 0.15);
+  }
+  .reviews-section__title {
+    margin-top: 1rem;
+  }
+  .reviews-section .radial-progress-bar {
+    width: 44px;
+    height: 44px;
+  }
+  .reviews-section__total-reviews {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: relative;
+  }
+  .reviews-section__heading-content {
+    margin-bottom: 0.625rem;
+  }
+  .reviews-section__item-wrapper {
+    margin: 0;
+  }
+  .reviews-section__item {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    position: relative;
+  }
+  .reviews-section__item .radial-progress-bar {
+    position: absolute;
+    right: -3px;
+    top: -5px;
+  }
+}
+
+@media (max-width: 767px) {
+  .reviews-section__heading-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-right: 54px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .price-graphic__wrapper {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .price-graphic__item {
+    display: table-row;
+  }
+  .price-graphic__date, .price-graphic__price {
+    display: table-cell;
+    width: 50%;
+    border: solid 1px #dbdde1;
+  }
+}
+
+@media (max-width: 1279px) {
+  .buy-tour-slider .content-spinner {
+    left: 0;
+    right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .suitable-tour {
+    padding: 1rem;
+  }
+  .suitable-tour .validation {
+    position: relative;
+  }
+}
+
+.application-modal__content-window {
+  max-width: none;
+}
+
+.application-modal__content {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.hotel-tours-section {
+  max-width: 1244px;
+  margin-bottom: 0;
+}
+
+.hotel-tours-section .slick-carousel-wrap {
+  padding: 0 5px;
+}
+
+.hotel-tours-section .btn--show-all {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .hotel-tours-section .slick-arrow {
+    margin-bottom: 8px;
+  }
+  .hotel-tours-section .slick-prev {
+    left: -16px;
+  }
+  .hotel-tours-section .slick-next {
+    right: -16px;
+  }
+}
+
+@media (max-width: 1279px) {
+  .hotel-tours-wrap .slick-carousel-wrap {
+    padding: 0 5px;
+  }
+  .hotel-tours-wrap .slick-arrow {
+    position: absolute;
+    height: auto;
+    margin-bottom: 8px;
+  }
+  .hotel-tours-wrap .slick-prev {
+    left: -12px;
+  }
+  .hotel-tours-wrap .slick-next {
+    right: -12px;
+  }
+}
+
+.hotel-tours {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+  margin-top: -12px;
+  overflow: hidden;
+}
+
+.hotel-tours > .hotel-tours__item:first-child {
+  display: none !important;
+}
+
+.hotel-tours__item {
+  position: relative;
+  display: block !important;
+  padding: 10px;
+  margin: 12px 12px 18px 12px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  -webkit-box-shadow: 0 8px 16px 0 rgba(33, 84, 94, 0.15);
+          box-shadow: 0 8px 16px 0 rgba(33, 84, 94, 0.15);
+  border: solid 1px #e0e4ec;
+  background-color: #ffffff;
+}
+
+.hotel-tours__th, .hotel-tours__td {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  padding: 0;
+  margin: 4px 0;
+}
+
+.hotel-tours__icon {
+  margin-right: 8px;
+  fill: #387c89;
+}
+
+.hotel-tours__logo {
+  max-height: 28px;
+  position: absolute;
+  right: 15px;
+  bottom: 48px;
+}
+
+.hotel-tours__date {
+  margin-right: 4px;
+}
+
+.hotel-tours__date::after {
+  content: ",";
+}
+
+.hotel-tours__buy-tour {
+  width: 100%;
+}
+
+.hotel-tours__buy-tour .btn {
+  padding: 0;
+  width: 50%;
+  font-size: 13px;
+}
+
+.hotel-tours__buy-tour .btn-brand--white {
+  font-weight: normal;
+}
+
+.hotel-tours__price {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  color: #ff8508;
+}
+
+.hotel-tours__item-link {
+  width: 50%;
+  padding: 0;
+  font-weight: normal;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  border: solid 1px #ff8508;
+  line-height: 26px;
+  font-size: 13px;
+  text-align: center;
+  margin-right: 10px;
+  color: #ff8508;
+}
+
+.hotel-tours .slick-list {
+  max-width: -webkit-calc(100% + 100px);
+  max-width: calc(100% + 100px);
+  margin-left: -50px;
+  margin-right: -50px;
+  padding: 0 50px;
+}
+
+.hotel-tours.slick-dotted {
+  margin-bottom: 0;
+}
+
+.tour-detail__modal-reviews .modal-dialog {
+  width: auto;
+  max-width: 100%;
+  min-width: auto;
+  margin: 0;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+}
+
+.tour-detail__modal-reviews .modal-body {
+  margin-top: 0;
+}
+
+.tour-detail__modal-reviews .input-wrap {
+  width: 100%;
+  height: 100% !important;
+}
+
+@media (max-width: 576px) {
+  .tour-detail__modal-reviews .input-wrap + .input-wrap {
+    margin-top: 10px;
+  }
+}
+
+.tour-detail__modal-reviews .input-wrap textarea {
+  min-height: 112px;
+  height: auto;
+}
+
+.tour-detail__modal-reviews .input-wrap .input-text {
+  width: 100% !important;
+}
+
+.tour-detail__modal-reviews .b-select-rating {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 0px;
+}
+
+.tour-detail__modal-reviews .b-select-rating div:first-child {
+  font-weight: bold;
+}
+
+@media (max-width: 425px) {
+  .tour-detail__modal-reviews .b-select-rating {
+    width: 100%;
+    padding-bottom: 10px;
+    border: 1px solid #eee;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 635px) {
+  .tour-detail__modal-reviews .b-select-rating {
+    width: 50%;
+  }
+}
+
+.tour-detail__modal-reviews .btn-send {
+  max-width: 100%;
+}
+
+/*# sourceMappingURL=map/details-page_mobile.css.map */

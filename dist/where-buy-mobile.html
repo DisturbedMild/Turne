@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600,700|Open+Sans:400,600,700&display=swap&subset=cyrillic"
+          rel="stylesheet">
+    <link href="css/bootstrap/bootstrap.css?v=113" rel="stylesheet"/>
+    <link href="css/bootstrap/bootstrap-grid_mobile.css?v=113" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.9.2.custom.min.css">
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="css/bundle/globalMobile.css?v=113">
+
+        <link href="css/bundle/searchStyleMobile.css?v=113" rel="stylesheet"/>
+
+        <link href="js/leaflet/leaflet.css" rel="stylesheet">
+    <link rel="stylesheet" href="js/leaflet/leaflet-gesture-handling.min.css">
+    <link href="css/where-buy.css" rel="stylesheet">
+    <link href="css/where-buy_mobile.css" rel="stylesheet">
+    <link href="css/bundle/oldGlobalMobile.css?v=113" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+    <link href="css/mobile-device.css?v=113" rel="stylesheet"/>
+    <script>
+        /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+        /* This file is meant as a standalone workflow for
+        - testing support for link[rel=preload]
+        - enabling async CSS loading in browsers that do not support rel=preload
+        - applying rel preload css once loaded, whether supported or not.
+        */
+        (function( w ){
+            "use strict";
+            // rel=preload support test
+            if( !w.loadCSS ){
+                w.loadCSS = function(){};
+            }
+            // define on the loadCSS obj
+            var rp = loadCSS.relpreload = {};
+            // rel=preload feature support test
+            // runs once and returns a function for compat purposes
+            rp.support = (function(){
+                var ret;
+                try {
+                    ret = w.document.createElement( "link" ).relList.supports( "preload" );
+                } catch (e) {
+                    ret = false;
+                }
+                return function(){
+                    return ret;
+                };
+            })();
+
+            // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+            // then change that media back to its intended value on load
+            rp.bindMediaToggle = function( link ){
+                // remember existing media attr for ultimate state, or default to 'all'
+                var finalMedia = link.media || "all";
+
+                function enableStylesheet(){
+                    link.media = finalMedia;
+                }
+
+                // bind load handlers to enable media
+                if( link.addEventListener ){
+                    link.addEventListener( "load", enableStylesheet );
+                } else if( link.attachEvent ){
+                    link.attachEvent( "onload", enableStylesheet );
+                }
+
+                // Set rel and non-applicable media type to start an async request
+                // note: timeout allows this to happen async to let rendering continue in IE
+                setTimeout(function(){
+                    link.rel = "stylesheet";
+                    link.media = "only x";
+                });
+                // also enable media after 3 seconds,
+                // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+                setTimeout( enableStylesheet, 3000 );
+            };
+
+            // loop through link elements in DOM
+            rp.poly = function(){
+                // double check this to prevent external calls from running
+                if( rp.support() ){
+                    return;
+                }
+                var links = w.document.getElementsByTagName( "link" );
+                for( var i = 0; i < links.length; i++ ){
+                    var link = links[ i ];
+                    // qualify links to those with rel=preload and as=style attrs
+                    if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+                        // prevent rerunning on link
+                        link.setAttribute( "data-loadcss", true );
+                        // bind listeners to toggle media back
+                        rp.bindMediaToggle( link );
+                    }
+                }
+            };
+
+            // if unsupported, run the polyfill
+            if( !rp.support() ){
+                // run once at least
+                rp.poly();
+
+                // rerun poly on an interval until onload
+                var run = w.setInterval( rp.poly, 500 );
+                if( w.addEventListener ){
+                    w.addEventListener( "load", function(){
+                        rp.poly();
+                        w.clearInterval( run );
+                    } );
+                } else if( w.attachEvent ){
+                    w.attachEvent( "onload", function(){
+                        rp.poly();
+                        w.clearInterval( run );
+                    } );
+                }
+            }
+
+
+            // commonjs
+            if( typeof exports !== "undefined" ){
+                exports.loadCSS = loadCSS;
+            }
+            else {
+                w.loadCSS = loadCSS;
+            }
+        }( typeof global !== "undefined" ? global : this ) );
+        /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+        (function(w){
+            "use strict";
+            /* exported loadCSS */
+            var loadCSS = function( href, before, media ){
+                // Arguments explained:
+                // `href` [REQUIRED] is the URL for your CSS file.
+                // `before` [OPTIONAL] is the element the script should use as a reference for injecting our stylesheet <link> before
+                // By default, loadCSS attempts to inject the link after the last stylesheet or script in the DOM. However, you might desire a more specific location in your document.
+                // `media` [OPTIONAL] is the media type or query of the stylesheet. By default it will be 'all'
+                var doc = w.document;
+                var ss = doc.createElement( "link" );
+                var ref;
+                if( before ){
+                    ref = before;
+                }
+                else {
+                    var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+                    ref = refs[ refs.length - 1];
+                }
+
+                var sheets = doc.styleSheets;
+                ss.rel = "stylesheet";
+                ss.href = href;
+                // temporarily set media to something inapplicable to ensure it'll fetch without blocking render
+                ss.media = "only x";
+
+                // wait until body is defined before injecting link. This ensures a non-blocking load in IE11.
+                function ready( cb ){
+                    if( doc.body ){
+                        return cb();
+                    }
+                    setTimeout(function(){
+                        ready( cb );
+                    });
+                }
+                // Inject link
+                // Note: the ternary preserves the existing behavior of "before" argument, but we could choose to change the argument to "after" in a later release and standardize on ref.nextSibling for all refs
+                // Note: `insertBefore` is used instead of `appendChild`, for safety re: http://www.paulirish.com/2011/surefire-dom-element-insertion/
+                ready( function(){
+                    ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+                });
+                // A method (exposed on return object for external use) that mimics onload by polling document.styleSheets until it includes the new sheet.
+                var onloadcssdefined = function( cb ){
+                    var resolvedHref = ss.href;
+                    var i = sheets.length;
+                    while( i-- ){
+                        if( sheets[ i ].href === resolvedHref ){
+                            return cb();
+                        }
+                    }
+                    setTimeout(function() {
+                        onloadcssdefined( cb );
+                    });
+                };
+
+                function loadCB(){
+                    if( ss.addEventListener ){
+                        ss.removeEventListener( "load", loadCB );
+                    }
+                    ss.media = media || "all";
+                }
+
+                // once loaded, set link's media back to `all` so that the stylesheet applies once it loads
+                if( ss.addEventListener ){
+                    ss.addEventListener( "load", loadCB);
+                }
+                ss.onloadcssdefined = onloadcssdefined;
+                onloadcssdefined( loadCB );
+                return ss;
+            };
+            // commonjs
+            if( typeof exports !== "undefined" ){
+                exports.loadCSS = loadCSS;
+            }
+            else {
+                w.loadCSS = loadCSS;
+            }
+        }( typeof global !== "undefined" ? global : this ));
+    </script>
+</head>
+<body class="mobile">
+<div class="wrap-content">
+    <div class="header">
+    <div class="header__content">
+                <div class="container">
+            <div class="row no-gutters header__bottom navbar ">
+                                                    
+                <a class="header__col header__col--left" href="home-mobile.html">
+                    <img class="header__logo animate" src="Images/logo.png" alt="">
+                </a>
+                <div class="html-block">
+                    <a class="media header__phone" href="tel:+380678294052">
+                        <svg class="svg-icon phone-icon" width="24" height="24">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                        </svg>
+                        <span>(067) 829-40-52</span>
+                    </a>
+                </div>
+                <div>
+                    
+                    <div class="hamburger hamburger--squeeze js-hamburger" data-toggle="collapse"
+                         data-target="#navbarsExample01">
+                        <div class="hamburger-box">
+                            <div class="hamburger-inner"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__col header__col--right navbar-collapse collapse" id="navbarsExample01">
+                    <nav class=" header__navbar">
+                        <ul class="nav navbar-nav">
+                                                                                        
+                            <li><a href="hot-tours_mobile.html">Горящие туры</a></li>
+                                                                                                                    <li class="active"><a href="search-tours-mobile.html">Поиск туров</a></li>
+                                                                                                                    <li><a href="tours-bus_mobile.html">Экскурсионные туры</a></li>
+                                                                                                                    <li class="nav-link-dropdown">
+                                <a class="jsEmptyLink" href="#">Страны
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+                                    </svg>
+                                </a>
+                                    <div class="b-dropdown header__child-menu jsHeaderMenu" style="display: none">
+    <ul>
+        <li><a href="tour-country_mobile.html"><span>Египет</span>от 15 367 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Турция</span>от 12 294 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Кипр</span>от 22 362 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>ОАЭ</span>от 15 367 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Италия</span>от 23 913 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Греция</span>от 15 785 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Испания</span>от 16 530 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Китай</span>от 25 379 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Шри-Ланка</span>от 32 918 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Таиланд (Тайланд)</span>от 38 177 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Французская Полинезия</span>от 38 177 грн</a></li>
+    </ul>
+    <span class="child-menu-link"><a href="tourne-countries_mobile.html">Все страны</a></span>
+</div>                            </li>
+                            <li><a href="hotels-mobile.html">Отели</a></li>
+                            <li><a href="where-buy-mobile.html">Где купить</a></li>
+                            <li><a href="reviews-hotels-page-mobile.html">Отзывы об отелях</a></li>
+                        </ul>
+                        <ul class="header-menu-contacts">
+                            <li>Контакты:</li>
+                            <li><a class="media" href="tel:+380678294052">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#kyivstar"></use>
+                                    </svg>
+                                    <span>(067) 829-40-52</span>
+                                </a></li>
+                            <li><a class="media" href="tel:+380952357060">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#vodafone"></use>
+                                    </svg>
+                                    <span>(095) 235-70-60</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="header-menu-contacts__callback media" href="#callbackModal" data-toggle="modal">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                                    </svg>
+                                    <span>Перезвонить мне</span>
+                                </a>
+                            </li>
+                        </ul>
+                        
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="main-content">
+            <div class="container">
+        <nav class="nav-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Главная ТУРНЕ</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Турфирмы</li>
+            </ol>
+        </nav>
+        <h1 class="heading">Турагентства Украины</h1>
+
+        <div class="where-buy">
+
+            <div class="where-buy__content">
+                <div class="where-buy__search">
+                    <div class="search clearfix">
+    <div class="row col-pd-4 search__row">
+        <div class="col-12 col-md-12 col-lg-12 col-xl-12 search__row js-city-dropdown">
+                                                            
+    <div class="custom-dropdown ">
+        <div class="custom-dropdown__control" >
+                        <svg class="custom-dropdown__icon" width="24" height="24" >
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#target"></use>
+            </svg>
+                        <div class="custom-dropdown__text">
+                <div class="ellipsis-text">Киев</div>
+            </div>
+            <div class="custom-dropdown__expanded arrow-icon"></div>
+        </div>
+        <div class="b-dropdown_simple-b b-dropdown m-dropdown no-user-select jsDropDownOptions"
+     style="display: none;">
+    <div class="m-dropdown__header">
+        <button class="m-dropdown__back back-icon jsMultiSelectDone"></button>
+        <span class="m-dropdown__title">Город</span>
+    </div>
+    <ul class="li-town">
+        <li class="jsDropDownItem dd-item">
+            Киев
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Бахмут
+        </li>
+        <li class="jsDropDownItem dd-item active">
+            Белая Церковь
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Борисполь
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Боярка
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Бровары
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Вишневое
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Гайсин
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Днепр
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Житомир
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Запорожье
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Измаил
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Ирпень
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Калуш
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Конотоп
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Котовск
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Краматорск
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Кременчуг
+        </li>
+        <li class="jsDropDownItem dd-item">
+            Кривой Рог
+        </li>
+    </ul>
+</div>
+
+    </div>
+        </div>
+
+        <div class="col-12 col-md-12 col-lg-12 col-xl-12 search__row js-metro-dropdown" style="display: none">
+                                                                                                    <div class="custom-dropdown custom-dropdown--filters">
+    <div class="custom-dropdown__control" >
+                    <svg class="custom-dropdown__icon" width="24" height="24">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="Images/icons-search.svg#place"></use>
+            </svg>
+                <div class="custom-dropdown__text">
+            <div class="js-clear-metro custom-dropdown__clear" style="display: none" title="Очистить">
+                <svg class="n-svg-icon" width="24" height="24">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                         xlink:href="Images/icons-search.svg#arrow-close"></use>
+                </svg>
+            </div>
+            <div class="ellipsis-text">Станция метро</div>
+        </div>
+        <div class="custom-dropdown__expanded arrow-icon"></div>
+    </div>
+        <div class="b-dropdown_simple-b b-dropdown m-dropdown jsDropDownOptions dropdown-metro"
+         style="display: none;">
+        <div class="m-dropdown__header">
+            <button class="m-dropdown__back back-icon jsMultiSelectDone"></button>
+            <span class="m-dropdown__title">Метро</span>
+        </div>
+        <ul class="li-town">
+            <li class="jsDropDownItem dd-item red-metro divider jsItemLabel" data-id=""><span class="item__text">Святошинско - Броварская</span>
+            </li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="13" data-latitude="50,464922"
+                data-longitude="30,355284">
+                <span class="item__text">Академгородок</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="28" data-latitude="50,456122"
+                data-longitude="30,365281">
+                <span class="item__text">Житомирская</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="30" data-latitude="50,458620"
+                data-longitude="30,403935">
+                <span class="item__text">Нивки</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="31" data-latitude="50,458620"
+                data-longitude="30,403935">
+                <span class="item__text">Берестейская</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="32" data-latitude="50,454487"
+                data-longitude="30,447251">
+                <span class="item__text">Шулявская</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="33" data-latitude="50,450966"
+                data-longitude="30,465156">
+                <span class="item__text">Политехнический институт</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="34" data-latitude="50,441369"
+                data-longitude="30,489039">
+                <span class="item__text">Вокзальная</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="35" data-latitude="50,444241"
+                data-longitude="30,505852">
+                <span class="item__text">Университет</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="36" data-latitude="50,445262"
+                data-longitude="30,518135">
+                <span class="item__text">Театральная</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="37" data-latitude="50,447193"
+                data-longitude="30,522849">
+                <span class="item__text">Крещатик</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="38" data-latitude="50,444291"
+                data-longitude="30,545542">
+                <span class="item__text">Арсенальная</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="41" data-latitude="50,451871"
+                data-longitude="30,598089">
+                <span class="item__text">Левобережная</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="42" data-latitude="50,455956"
+                data-longitude="30,612862">
+                <span class="item__text">Дарница</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="43" data-latitude="50,459816"
+                data-longitude="30,630316">
+                <span class="item__text">Черниговская</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="44" data-latitude="50,464666"
+                data-longitude="30,645575">
+                <span class="item__text">Лесная</span></li>
+            <li class="jsDropDownItem dd-item blue-metro divider jsItemLabel" data-id=""><span class="item__text">Куреневско - Красноармейская</span>
+            </li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="108" data-latitude="50,376275"
+                data-longitude="30,468296"><span class="item__text">Иподром</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="24" data-latitude="50,432153"
+                data-longitude="30,516359">
+                <span class="item__text">Олимпийская</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="109" data-latitude="50,367428"
+                data-longitude="30,454787"><span class="item__text">Теремки</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="53" data-latitude="50,512255"
+                data-longitude="30,498621">
+                <span class="item__text">Минская</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="52" data-latitude="50,501438"
+                data-longitude="30,498234">
+                <span class="item__text">Оболонь</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="51" data-latitude="50,486191"
+                data-longitude="30,497877">
+                <span class="item__text">Почайна</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="50" data-latitude="50,473298"
+                data-longitude="30,505203">
+                <span class="item__text">Тараса Шевченко</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="26" data-latitude="50,465052"
+                data-longitude="30,516569">
+                <span class="item__text">Контрактовая пл.</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="49" data-latitude="50,459125"
+                data-longitude="30,524600">
+                <span class="item__text">Почтовая площадь</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="48" data-latitude="50,449478"
+                data-longitude="30,524538">
+                <span class="item__text">Майдан Независимости </span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="64" data-latitude="50,439641"
+                data-longitude="30,516836">
+                <span class="item__text">Пл. Льва Толстого</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="45" data-latitude="50,420924"
+                data-longitude="30,520846">
+                <span class="item__text">Дворец Украина</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="27" data-latitude="50,413187"
+                data-longitude="30,524908">
+                <span class="item__text">Лыбедская</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="96" data-latitude="50,404845"
+                data-longitude="30,516962">
+                <span class="item__text">Демиевская</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="94" data-latitude="50,397466"
+                data-longitude="30,508464">
+                <span class="item__text">Голосеевская</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="97" data-latitude="50,393313"
+                data-longitude="30,487609">
+                <span class="item__text">Васильковская</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="98" data-latitude="50,382316"
+                data-longitude="30,477616">
+                <span class="item__text">Выставочный центр</span></li>
+            <li class="jsDropDownItem dd-item green-metro divider jsItemLabel" data-id=""><span class="item__text">Сирецко - Печерская</span>
+            </li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="57" data-latitude="50,462351"
+                data-longitude="30,482179"><span class="item__text">Лукьяновская</span></li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="58" data-latitude="50,448480"
+                data-longitude="30,513563"><span class="item__text">Золотые Ворота</span></li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="59" data-latitude="50,438105"
+                data-longitude="30,520821"><span class="item__text">Дворец Спорта</span></li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="60" data-latitude="50,436734"
+                data-longitude="30,532325"><span class="item__text">Кловская</span></li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="61" data-latitude="50,427552"
+                data-longitude="30,538768"><span class="item__text">Печерская</span></li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="25" data-latitude="50,418058"
+                data-longitude="30,545112"><span class="item__text">Дружбы народов</span></li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="20" data-latitude="50,395270"
+                data-longitude="30,616243"><span class="item__text">Осокорки</span></li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="19" data-latitude="50,397947"
+                data-longitude="30,634605"><span class="item__text">Позняки</span></li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="18" data-latitude="50,400879"
+                data-longitude="30,652454"><span class="item__text">Харьковская</span></li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="63" data-latitude="50,403466"
+                data-longitude="30,682993"><span class="item__text">Бориспольская</span></li>
+        </ul>
+        <input id="MetroDropDownList_Value" name="MetroDropDownList.Value" type="hidden" value=""></div>
+
+</div>
+        </div>
+
+        
+
+    </div>
+</div>                </div>
+                <div class="where-buy__map responsive-map responsive-map-1by1" id="mapForPage"></div>
+                <div class="where-buy__result custom-scroll">
+                        <div class="tagent-card tagent-card--priority">
+    <a href="tour-firms-page_mobile.html" class="tagent-card__logo">
+        <img src="https://img.turne.com.ua/static/turne/companies/c1775/orig/solnechnyjj_voyazh_1775_636888599438372354.jpg">
+    </a>
+    <div class="tagent-card__contact clearfix">
+        <a href="tour-firms-page_mobile.html" class="tagent-card__name">Солнечный Вояж</a>
+
+        <div class="tagent-card__item">
+            Киев , Шевченковский р-н , Ярославов Вал 11, оф. 2
+        </div>
+
+        <div class="tagent-card__item tagent-card-phones">
+            <a href="tel:+380442250025" class="tagent-card__number">(044) 225-00-25</a>,
+            <a href="tel:+380674422023" class="tagent-card__number">(067) 442-20-23</a>,
+            <a href="viber://chat?number=+380674422023" class="tagent-card__number">(067) 442-20-23 (viber)</a>
+        </div>
+
+        <div class="tagent-card__item">
+            <a class="tagent-card__link" target="_blank"
+               href="https://www.sunvoyage.com.ua">https://www.sunvoyage.com.ua</a>
+        </div>
+
+        <a class="tagent-card__btn btn btn-brand btn-brand--orange" href="tour-firms-page_mobile.html">Подробнее</a>
+    </div>
+</div>
+
+<div class="tagent-card tagent-card--priority">
+    <a href="#" class="tagent-card__logo">
+        <img src="https://img.turne.com.ua/static/turne/companies/c4229/orig/aneks_tur_turagencіya_4229_636676065036850565.jpg">
+    </a>
+    <div class="tagent-card__contact clearfix">
+        <a href="#" class="tagent-card__name">Анекс Тур Турагенція</a>
+
+        <div class="tagent-card__item">
+            Киев , Дворец Спорта , ул. Эспланадная 32 ,оф 1
+        </div>
+
+        <div class="tagent-card__item tagent-card-phones">
+            <a href="tel:+380931614528" class="tagent-card__number">(093) 161-45-28</a>,
+            <a href="tel:+380674422023" class="tagent-card__number">(067) 110-05-05</a>,
+            <a href="viber://chat?number=+380674422023" class="tagent-card__number">(063) 690-54-04 (viber)</a>
+        </div>
+
+        <div class="tagent-card__item">
+            <a class="tagent-card__link" target="_blank"
+               href="https://www.anex-agency.com.ua">https://www.anex-agency.com.ua</a>
+        </div>
+        <a class="tagent-card__btn btn btn-brand btn-brand--orange" href="#">Подробнее</a>
+    </div>
+</div>
+
+<div class="tagent-card tagent-card--priority">
+    <a href="#" class="tagent-card__logo">
+        <img src="https://img.turne.com.ua/static/turne/companies/c3845/orig/poekhali_s_nami_(glavnyjj_ofis)_113.jpg">
+    </a>
+    <div class="tagent-card__contact clearfix">
+        <a href="#" class="tagent-card__name">Поехали с нами</a>
+
+        <div class="tagent-card__item">
+            Киев , Днепровский р-н , Черниговская , ул.Миропольская, д.13б, оф.34
+        </div>
+
+        <div class="tagent-card__item tagent-card-phones">
+            <a href="tel:+380931614528" class="tagent-card__number">(067) 568-19-37</a>,
+            <a href="tel:+380674422023" class="tagent-card__number">(050) 410-14-18</a>
+        </div>
+
+        <div class="tagent-card__item">
+            <a class="tagent-card__link" target="_blank"
+               href="https://www.poehalisnami.ua">https://www.poehalisnami.ua</a>
+        </div>
+        <a class="tagent-card__btn btn btn-brand btn-brand--orange" href="#">Подробнее</a>
+    </div>
+</div>
+
+<div class="tagent-card">
+    <a href="#" class="tagent-card__logo">
+        <img src="https://img.turne.com.ua/static/turne/companies/c3362/orig/anex_tour_turagenciya_3362_636916169548184499.png">
+    </a>
+    <div class="tagent-card__contact clearfix">
+        <a href="#" class="tagent-card__name">Anex Tour Турагенцiя</a>
+
+        <div class="tagent-card__item">
+            Запорожье , Проспект Соборный, дом 193
+        </div>
+
+        <div class="tagent-card__item tagent-card-phones">
+            <a href="tel:+380931614528" class="tagent-card__number">(050) 201-18-88</a>,
+            <a href="tel:+380674422023" class="tagent-card__number">(098) 082-58-20</a>
+        </div>
+
+        <div class="tagent-card__item">
+            <a class="tagent-card__link" target="_blank"
+               href="http://Touristik.company">http://Touristik.company</a>
+        </div>
+        <a class="tagent-card__btn btn btn-brand btn-brand--orange" href="#">Подробнее</a>
+    </div>
+</div>
+
+<div class="tagent-card">
+    <a href="#" class="tagent-card__logo">
+        <img src="https://img.turne.com.ua/static/turne/companies/c4258/orig/more_turov_4258_636637173589139292.png">
+    </a>
+    <div class="tagent-card__contact clearfix">
+        <a href="#" class="tagent-card__name">Море Туров</a>
+
+        <div class="tagent-card__item">
+            Днепр , ул. Боброва, 3 ТЦ «Озерный» оф. 304
+        </div>
+
+        <div class="tagent-card__item tagent-card-phones">
+            <a href="tel:+380931614528" class="tagent-card__number">(097) 787-55-45</a>,
+            <a href="tel:+380674422023" class="tagent-card__number">(097) 787-55-45 (viber)</a>
+        </div>
+
+        <div class="tagent-card__item">
+            <a class="tagent-card__link" target="_blank"
+               href="http://dnipro.more-turov.com">http://dnipro.more-turov.com</a>
+        </div>
+        <a class="tagent-card__btn btn btn-brand btn-brand--orange" href="#">Подробнее</a>
+    </div>
+</div>
+
+<div class="tagent-card">
+    <a href="#" class="tagent-card__logo">
+        <img src="https://img.turne.com.ua/static/turne/companies/c1484/orig/poekhali_s_nami_(odessa)_1484.jpg">
+    </a>
+    <div class="tagent-card__contact clearfix">
+        <a href="#" class="tagent-card__name">Поехали с нами</a>
+
+        <div class="tagent-card__item">
+            Одесса , ул. Малая Арнаутская-19
+        </div>
+
+        <div class="tagent-card__item tagent-card-phones">
+            <a href="tel:+380931614528" class="tagent-card__number">(048) 709-05-88</a>,
+            <a href="tel:+380674422023" class="tagent-card__number"> (048) 737-78-82</a>
+        </div>
+
+        <a class="tagent-card__btn btn btn-brand btn-brand--orange" href="#">Подробнее</a>
+    </div>
+</div>
+
+<div class="tagent-card">
+    <a href="#" class="tagent-card__logo">
+        <img src="https://img.turne.com.ua/static/turne/companies/c4652/orig/4652_637159805902997700.jpg">
+    </a>
+    <div class="tagent-card__contact clearfix">
+        <a href="#" class="tagent-card__name">Ikotur</a>
+
+        <div class="tagent-card__item">
+            Одесса , Балковская 127
+        </div>
+
+        <div class="tagent-card__item tagent-card-phones">
+            <a href="tel:+380931614528" class="tagent-card__number">(050) 675-71-41</a>,
+            <a href="tel:+380931614528" class="tagent-card__number">(050) 678-18-36</a>,
+            <a href="tel:+380674422023" class="tagent-card__number">(050) 675-71-41 (viber)</a>
+        </div>
+
+        <div class="tagent-card__item">
+            <a class="tagent-card__link" target="_blank"
+               href="http://dnipro.more-turov.com">http://ikotur.ga/</a>
+        </div>
+        <a class="tagent-card__btn btn btn-brand btn-brand--orange" href="#">Подробнее</a>
+    </div>
+</div>
+
+<div class="tagent-card">
+    <a href="#" class="tagent-card__logo">
+        <img src="https://img.turne.com.ua/static/turne/companies/c4534/orig/joinup_to_travel_4534_636978318468655636.png">
+    </a>
+    <div class="tagent-card__contact clearfix">
+        <a href="#" class="tagent-card__name">JoinUp to travel</a>
+
+        <div class="tagent-card__item">
+            Одесса , Ул.Канатная, 79
+        </div>
+
+        <div class="tagent-card__item tagent-card-phones">
+            <a href="tel:+380931614528" class="tagent-card__number">(066) 299-94-00</a>,
+            <a href="tel:+380931614528" class="tagent-card__number">(048) 725-15-16</a>,
+            <a href="tel:+380674422023" class="tagent-card__number">(063) 629-95-66 (viber)</a>
+        </div>
+
+        <a class="tagent-card__btn btn btn-brand btn-brand--orange" href="#">Подробнее</a>
+    </div>
+</div>
+
+<div class="tagent-card">
+    <a href="#" class="tagent-card__logo">
+        <img src="https://img.turne.com.ua/static/turne/companies/c4639/orig/4639_637152978667109473.jpeg">
+    </a>
+    <div class="tagent-card__contact clearfix">
+        <a href="#" class="tagent-card__name">Ikotur</a>
+
+        <div class="tagent-card__item">
+            Одесса , Балковская 127
+        </div>
+
+        <div class="tagent-card__item tagent-card-phones">
+            <a href="tel:+380931614528" class="tagent-card__number">(050) 675-71-41</a>,
+            <a href="tel:+380931614528" class="tagent-card__number">(050) 678-18-36</a>,
+            <a href="tel:+380674422023" class="tagent-card__number">(050) 675-71-41 (viber)</a>
+        </div>
+
+        <div class="tagent-card__item">
+            <a class="tagent-card__link" target="_blank"
+               href="http://dnipro.more-turov.com">http://ikotur.ga/</a>
+        </div>
+        <a class="tagent-card__btn btn btn-brand btn-brand--orange" href="#">Подробнее</a>
+    </div>
+</div>                </div>
+
+
+            </div>
+        </div>
+        <section class="company-priority-section">
+            <h2 class="heading">Добавьте туркомпанию в наш каталог и вы получите</h2>
+            <div class="company-priority">
+    <div class="row col-pd-4">
+        <div class="col-12 col-lg-3 col-xl-3 media">
+            <div class="company-priority__icon">
+                <svg class="svg-icon" width="24" height="24">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                         xlink:href="Images/priorities-icon.svg#catalogue"></use>
+                </svg>
+            </div>
+            <div>
+                Бесплатное размещение в каталоге турфирм на 4 недели
+            </div>
+        </div>
+        <div class="col-12 col-lg-3 col-xl-3 media">
+            <div class="company-priority__icon">
+                <svg class="svg-icon" width="24" height="24">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                         xlink:href="Images/priorities-icon.svg#lock"></use>
+                </svg>
+            </div>
+            <div>
+                Доступ к блокноту туристического процессионала
+            </div>
+        </div>
+        <div class="col-12 col-lg-3 col-xl-3 media">
+            <div class="company-priority__icon">
+                <svg class="svg-icon" width="24" height="24">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                         xlink:href="Images/priorities-icon.svg#timer"></use>
+                </svg>
+            </div>
+            <div>
+                Быстрая регистрация
+                за 3 минуты
+            </div>
+        </div>
+        <div class="col-12 col-lg-3 col-xl-3">
+            <a href="#" class="btn btn-brand btn-brand--orange">Зарегистрироваться</a>
+        </div>
+    </div>
+</div>        </section>
+        <div class="row city-from__row">
+            <div>
+                <a href="#" class="city-from__item">Турагенства Днепра</a>
+            </div>
+            <div>
+                <a href="#" class="city-from__item">Турагенства Запорожья</a>
+            </div>
+            <div>
+                <a href="#" class="city-from__item">Турагенства Киева</a>
+            </div>
+            <div>
+                <a href="#" class="city-from__item">Турагенства Одессы</a>
+            </div>
+            <div>
+                <a href="#" class="city-from__item">Турагенства Полтавы</a>
+            </div>
+            <div>
+                <a href="#" class="city-from__item">Турагенства Ровно</a>
+            </div>
+            <div>
+                <a href="#" class="city-from__item">Турагенства Харькова</a>
+            </div>
+        </div>
+    </div>
+    <section class="page-article grey-background-f6f">
+        <div class="container text-collapse-wrap">
+            <div class="articles-wrap text-collapse text-collapse--shadow">
+                <h2 class="heading">Каталог турфирм на портале www.TURNE.com.ua</h2>
+                На нашем сайте представлены лучшие гостиницы и отели мира. У нас вы найдете всю необходимую информацию,
+                как о дорогих пятизвездочных отелях, так и о бюджетных гостиницах. Все отели представлены на сайте с
+                детальным описанием, которое включает фотографии отелей, гостиничных номеров, перечень предоставляемых
+                услуг, а также, количество номеров, классификацию отеля и стоимость проживания. Мы искренне надеемся,
+                что наш каталог отелей поможет вам найти самую достоверную и полную информацию об интересующих вас
+                отелях, актуальных турах и отзывах о гостиницах. Не забудьте оставить свои отзывы об отелях!
+
+            </div>
+        </div>
+    </section>
+    </div>
+        <div class="footer-wrap">
+    <div class="footer container">
+        <div class="row col-pd-10">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Турне в соц сетях</div>
+                <div class="footer__social">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M3.516 24h7.828v-8.531H8.53v-2.813h2.813V9.141a3.52 3.52 0 0 1 3.515-3.516h3.516v2.813h-2.813c-.775 0-1.406.63-1.406 1.406v2.812h4.092l-.469 2.813h-3.623V24h6.328A3.52 3.52 0 0 0 24 20.484V3.516A3.52 3.52 0 0 0 20.484 0H3.516A3.52 3.52 0 0 0 0 3.516v16.968A3.52 3.52 0 0 0 3.516 24zM1.406 3.516c0-1.163.947-2.11 2.11-2.11h16.968c1.163 0 2.11.947 2.11 2.11v16.968c0 1.163-.947 2.11-2.11 2.11h-4.922v-5.719h3.409l.937-5.625h-4.346V9.844h4.22V4.219h-4.923A4.927 4.927 0 0 0 9.938 9.14v2.109H7.124v5.625h2.813v5.719H3.516a2.112 2.112 0 0 1-2.11-2.11V3.516z"/>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M6.497 0h11.006a6.504 6.504 0 0 1 6.493 6.264l.004.233v11.007a6.504 6.504 0 0 1-6.264 6.492l-.232.004H6.497a6.504 6.504 0 0 1-6.493-6.264L0 17.504V6.497A6.504 6.504 0 0 1 6.264.004L6.497 0h11.006zm11.007 1.407H6.497A5.096 5.096 0 0 0 1.41 6.282l-.004.215v11.007a5.096 5.096 0 0 0 4.875 5.085l.215.004h11.006a5.096 5.096 0 0 0 5.086-4.875l.004-.214V6.497a5.095 5.095 0 0 0-5.09-5.09zM12 5.437A6.57 6.57 0 0 1 18.562 12 6.57 6.57 0 0 1 12 18.562 6.57 6.57 0 0 1 5.438 12 6.57 6.57 0 0 1 12 5.438zm0 1.408A5.161 5.161 0 0 0 6.845 12 5.161 5.161 0 0 0 12 17.155 5.161 5.161 0 0 0 17.155 12 5.161 5.161 0 0 0 12 6.845zm6.72-3.738c1.069 0 1.939.87 1.939 1.94a1.94 1.94 0 0 1-1.94 1.938c-1.07 0-1.939-.87-1.939-1.939s.87-1.939 1.94-1.939zm0 1.407a.533.533 0 1 0 0 1.065.533.533 0 0 0 0-1.065z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="footer__heading">Контакты</div>
+                <div class="footer__contacts">
+                    <a href="tel:+380678294052">(067) 829-40-52</a><br>
+                    <a href="tel:+380952357060">(095) 235-70-60</a><br>
+                    <a href="#callbackModal" class="footer__callback" data-toggle="modal">
+                        Перезвоните мне
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Ваш отдых</div>
+                <ul>
+                    <li><a href="/">Горящие туры</a></li>
+                    <li><a href="/">Туры</a></li>
+                    <li><a href="/">Туры на майские</a></li>
+                    <li><a href="/">Экскурсионные туры</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Куда поехать</div>
+                <ul>
+                    <li><a href="/">Страны</a></li>
+                    <li><a href="/">Отели</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Туристам</div>
+                <ul>
+                    <li><a href="where-buy-mobile.html">Где купить</a></li>
+                    <li><a href="/">Статьи</a></li>
+                                                                                    <li><a href="reviews-hotels-page-mobile.html">Отзывы об отелях</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Партнерам</div>
+                <ul>
+                    <li><a href="/">Для турфирм</a></li>
+                    <li><a href="/">Правовая информация</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Turne.com.ua</div>
+                <div class="footer__text">Copyright © 2019 "X-tend". <br>
+                    Все права защищены.
+                </div>
+                <ul>
+                    <li><a href="/">О проекте</a></li>
+                    <li><a href="where-buy.html">Полная версия</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div></div>
+<!-- Modal -->
+<div class="modal contacts-modal" id="contactsModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Контакты
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="contacts-modal__content">
+                    <div class="contacts-modal__row">
+                        <div>
+                            Подбор тура
+                        </div>
+                        <a href="tel:+380678294052" class="media contacts-modal__phone">
+                            <svg class="contacts-modal__icon" width="24" height="24">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#kyivstar"></use>
+                            </svg>
+                            <span class="media-body">(067) 829-40-52</span>
+                        </a>
+                        <a href="tel:+380952357060" class="media contacts-modal__phone">
+                            <svg class="contacts-modal__icon" width="24" height="24">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#vodafone"></use>
+                            </svg>
+                            <span class="media-body">(095) 235-70-60</span>
+                        </a>
+                    </div>
+                    <div class="contacts-modal__row">
+                        <div>
+                            Реклама
+                        </div>
+                        <a href="tel:+380955453888" class="media contacts-modal__phone">
+                            <svg class="contacts-modal__icon" width="24" height="24">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#vodafone"></use>
+                            </svg>
+                            <span class="media-body">(095) 545-38-88</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- Modal -->
+<div class="modal callback-modal" id="callbackModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Обратный звонок
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                    <div class="b-dropdown-callback" style="display: block !important;">
+                        <form action="/common/phonecallbackformsubmit" data-ajax="true" data-ajax-begin="oForms.FormOnBegin"
+                              data-ajax-complete="oForms.FormOnComplete" data-ajax-success="oForms.PhoneCallbackFormOnSuccess"
+                              id="form1" method="post" novalidate="novalidate"><span class="b-dropdown-callback__heading">Введите свой номер телефона:</span>
+
+                            <div class="form-group"><input class="form-control jsMaskedInputPhone" data-val="true"
+                                                           data-val-regex="Неверный формат"
+                                                           data-val-regex-pattern="^\+38\(\d{3}\)\s{1}\d{3}-\d{2}-\d{2}$"
+                                                           data-val-required="Неверный формат" id="Phone" maxlength="100"
+                                                           name="Phone" placeholder="+38(XXX) XXX-XX-XX" type="tel"> <span
+                                        class="field-validation-valid validation" data-valmsg-for="Phone"
+                                        data-valmsg-replace="true"></span></div>
+                            <input id="Url" name="Url" type="hidden" value="%2f">
+                            <input type="submit" id="btnSend"
+                                   name="btnSend"
+                                   class="btn btn-brand btn-brand--orange"
+                                   value="Перезвоните мне"></form>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div><script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.js" type="text/javascript"></script>
+<script src="js/datepicker_mobile.js" type="text/javascript"></script>
+<script src="js/scripts.js" type="text/javascript"></script>
+<script src="js/scripts_mobile.js" type="text/javascript"></script>
+<script src="js/lazysizes.min.js" async=""></script>
+<script src="js/svg4everybody.min.js" type="text/javascript"></script>
+<script src="js/ofi.min.js" type="text/javascript"></script>
+
+
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+    <script src="js/leaflet/leaflet-gesture-handling.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            var map = L.map('mapForPage', {
+                center: [51.505, -0.09],
+                zoom: 9,
+                gestureHandling: true
+            });
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            L.marker([51.5, -0.09]).addTo(map)
+                .bindPopup('A pretty CSS3 popup.<br> Easily customizable.');
+
+
+            $('.ui-autocomplete-input').on('input', function () {
+                $('.ui-autocomplete').show();
+            });
+            $('.ui-autocomplete .ui-menu-item').on('click', function () {
+                $(this).parents('.m-dropdown').hide();
+            });
+
+            $('.js-clear-metro').on('click', function (e) {
+                e.stopPropagation();
+                $(this).parents('.custom-dropdown--filters').find('.ellipsis-text').html('Станция метро');
+                $(this).hide();
+            });
+
+            $('.dropdown-metro .dd-item').on('click', function () {
+                $('body').removeClass('m-dropdown-open');
+                enableScroll();
+                var text = $(this).find('.item__text').text();
+                var dropdown = $(this).parents('.custom-dropdown--filters');
+                dropdown.find('.ellipsis-text').html(text);
+                dropdown.find('.js-clear-metro').show();
+                $(this).parents('.jsDropDownOptions').hide();
+            });
+            $('.js-city-dropdown .custom-dropdown .jsDropDownItem').on('click', function () {
+                $('body').removeClass('m-dropdown-open');
+                enableScroll();
+                $(this).parents('.jsDropDownOptions').hide();
+                $('.js-metro-dropdown').show();
+            })
+        });
+
+    </script>
+</body>
+</html>

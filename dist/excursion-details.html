@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600,700|Open+Sans:400,600,700&display=swap&subset=cyrillic"
+          rel="stylesheet">
+    <link href="css/bootstrap/bootstrap.css?v=113" rel="stylesheet"/>
+    <link href="css/bootstrap/bootstrap-grid.css?v=113" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.9.2.custom.min.css">
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="css/bundle/global.css?v=113">
+
+        <link href="css/bundle/searchStyle.css?v=113" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="js/fancybox/jquery.fancybox.min.css">
+    <link href="https://www.poehalisnami.ua/jsresourses/map/leaflet_styles.css" rel="preload" as="style"
+          onload="this.rel='stylesheet'">
+
+        <link href="css/details-page.css" rel="stylesheet">
+
+    <link href="css/bundle/oldGlobal.css?v=113" rel="stylesheet"/>
+
+
+</head>
+<body class="">
+<div class="wrap-content">
+    <div class="header">
+    <div class="header__content">
+                    <div class="header-top">
+    <div class="header-top__content container">
+
+        <div class="header-top__left">
+            <div class="html-block">
+                Подбор тура: <a href="tel:+380678294052">(067) 829-40-52</a>, <a href="tel:+380952357060">(095)
+                    235-70-60</a>, Реклама: <a href="tel:+380955453888">(095) 545-38-88</a>
+            </div>
+            <div class="header-top__callback-wrap">
+                <a href="#" class="header-top__callback jsCallBackShow">
+                    <svg class="svg-icon phone-icon" width="24" height="24">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/communication-icons.svg#phone"></use>
+                    </svg> Перезвоните мне</a>
+                <div class="b-dropdown b-dropdown-callback jsCallBackForm" style="display: none;">
+                    <form action="/common/phonecallbackformsubmit" data-ajax="true" data-ajax-begin="oForms.FormOnBegin"
+                          data-ajax-complete="oForms.FormOnComplete" data-ajax-success="oForms.PhoneCallbackFormOnSuccess"
+                          id="form1" method="post" novalidate="novalidate"><span class="b-dropdown-callback__heading">Введите свой номер телефона:</span>
+
+                        <div class="form-group"><input class="form-control jsMaskedInputPhone" data-val="true"
+                                                       data-val-regex="Неверный формат"
+                                                       data-val-regex-pattern="^\+38\(\d{3}\)\s{1}\d{3}-\d{2}-\d{2}$"
+                                                       data-val-required="Неверный формат" id="Phone" maxlength="100"
+                                                       name="Phone" placeholder="+38(XXX) XXX-XX-XX" type="tel"> <span
+                                    class="field-validation-valid validation" data-valmsg-for="Phone"
+                                    data-valmsg-replace="true"></span></div>
+                        <input id="Url" name="Url" type="hidden" value="%2f">
+                        <input type="submit" id="btnSend"
+                                                                                     name="btnSend"
+                                                                                     class="btn btn-brand btn-brand--orange"
+                                                                                     value="Перезвоните мне"></form>
+                </div>
+            </div>
+        </div>
+
+        <a class="header__sign-in" href="#signInModal" data-toggle="modal">
+            Войти
+        </a>
+    </div>
+</div>                <div class="container">
+            <div class="row no-gutters header__bottom navbar  navbar-expand ">
+                                                    
+                <a class="header__col header__col--left" href="index.html">
+                    <img class="header__logo animate" src="Images/logo.png" alt="">
+                </a>
+                <div class="html-block">
+                    <a class="media header__phone" href="tel:+380678294052">
+                        <svg class="svg-icon phone-icon" width="24" height="24">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                        </svg>
+                        <span>(067) 829-40-52</span>
+                    </a>
+                </div>
+                <div>
+                    
+                    <div class="hamburger hamburger--squeeze js-hamburger" data-toggle="collapse"
+                         data-target="#navbarsExample01">
+                        <div class="hamburger-box">
+                            <div class="hamburger-inner"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__col header__col--right navbar-collapse collapse" id="navbarsExample01">
+                    <nav class=" header__navbar">
+                        <ul class="nav navbar-nav">
+                                                                                        
+                            <li><a href="hot-tours-page.html">Горящие туры</a></li>
+                                                                                                                    <li class="active"><a href="search-tours.html">Поиск туров</a></li>
+                                                                                                                    <li><a href="tours-bus.html">Экскурсионные туры</a></li>
+                                                                                                                    <li class="nav-link-dropdown">
+                                <a class="jsEmptyLink" href="#">Страны
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+                                    </svg>
+                                </a>
+                                    <div class="b-dropdown header__child-menu jsHeaderMenu" style="display: none">
+    <ul>
+        <li><a href="tour-country-page.html"><span>Египет</span>от 15 367 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Турция</span>от 12 294 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Кипр</span>от 22 362 грн</a></li>
+        <li><a href="tour-country-page.html"><span>ОАЭ</span>от 15 367 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Италия</span>от 23 913 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Греция</span>от 15 785 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Испания</span>от 16 530 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Китай</span>от 25 379 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Шри-Ланка</span>от 32 918 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Таиланд (Тайланд)</span>от 38 177 грн</a></li>
+        <li><a href="tour-country-page.html"><span>Французская Полинезия</span>от 38 177 грн</a></li>
+    </ul>
+    <span class="child-menu-link"><a href="tourne-countries-page.html">Все страны</a></span>
+</div>                            </li>
+                            <li><a href="hotels.html">Отели</a></li>
+                            <li><a href="where-buy.html">Где купить</a></li>
+                            <li><a href="reviews-hotels-page.html">Отзывы об отелях</a></li>
+                        </ul>
+                        <ul class="header-menu-contacts">
+                            <li>Контакты:</li>
+                            <li><a class="media" href="tel:+380678294052">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#kyivstar"></use>
+                                    </svg>
+                                    <span>(067) 829-40-52</span>
+                                </a></li>
+                            <li><a class="media" href="tel:+380952357060">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#vodafone"></use>
+                                    </svg>
+                                    <span>(095) 235-70-60</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="header-menu-contacts__callback media" href="#callbackModal" data-toggle="modal">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                                    </svg>
+                                    <span>Перезвонить мне</span>
+                                </a>
+                            </li>
+                        </ul>
+                        
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="main-content">
+            <div class="container">
+        <nav class="nav-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Главная ТУРНЕ</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Поиск туров</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Туры в Египет</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Туры в Шарм-эль-Шейх</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Туры в отель Sharming Inn Hotel (ex. Sol Y Mar
+                    Sharming Inn)
+                </li>
+            </ol>
+        </nav>
+        <div class="details-heading">
+            <h1 class="heading">Париж - это все, что ты захочешь!</h1>
+        </div>
+        <div class="details-place">
+            Австрия (Вена), Польша (Краков), Франция (Париж, Диснейленд, Версаль), Чехия (Прага)
+        </div>
+        <div class="details-tour">
+            <div class="tour-gallery">
+            <div class="top-sales">
+            Топ продаж
+        </div>
+    
+    
+    <div class="tour-gallery__slider tour-gallery-slider js-gallery-big" id="galleryBig">
+        <div class="tour-gallery__item" data-fancybox-index="0">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_1.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery__item" data-fancybox-index="1">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_10.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery__item" data-fancybox-index="2">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_11.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery__item" data-fancybox-index="3">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_13.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery__item" data-fancybox-index="4">
+            <img class="lazyload"
+                    data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_14.jpg"
+                    alt=""></div>
+        <div class="tour-gallery__item" data-fancybox-index="5">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_1.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery__item" data-fancybox-index="6">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_10.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery__item" data-fancybox-index="7">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_11.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery__item" data-fancybox-index="8">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_13.jpg"
+                 alt="">
+        </div>
+    </div>
+    <div class="tour-gallery__slider tour-gallery-nav js-gallery-thumbnail"
+         id="galleryThumbnail">
+        <div class="tour-gallery-nav__item">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_1.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery-nav__item">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_10.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery-nav__item">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_11.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery-nav__item">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_13.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery-nav__item">
+            <img class="lazyload"
+                    data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_14.jpg"
+                    alt="">
+        </div>
+        <div class="tour-gallery-nav__item">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_1.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery-nav__item">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_10.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery-nav__item">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_11.jpg"
+                 alt="">
+        </div>
+        <div class="tour-gallery-nav__item tour-gallery-nav__old">
+            <img class="lazyload" data-src="https://img.poehalisnami.ua/static/hotels/egipet/sharm-el-shejjkh/h18059/orig/booking18059_13.jpg"
+                 alt="">
+            <div class="tour-gallery-nav__old-text">+10</div>
+        </div>
+    </div>
+</div>            <div class="details-tour__info info-box js-fixed-mobile-order-offset-top">
+    <div class="info-box__heading">
+        Информация о туре
+    </div>
+    <ul class="info-box__facilities">
+        <li class="media">
+            <svg class="svg-icon" width="16" height="16">
+                <use xlink:href="Images/icons-search.svg#date2"></use>
+            </svg>
+            Вылет 21.10, 7 ночей
+        </li>
+        <li class="media">
+            <svg class="svg-icon" width="16" height="16">
+                <use xlink:href="Images/icons-search.svg#plane"></use>
+            </svg>
+            Днепропетровск
+        </li>
+        <li class="media">
+            <svg class="svg-icon" width="16" height="16">
+                <use xlink:href="Images/icons-search.svg#rooms"></use>
+            </svg>
+            Standard Room
+        </li>
+        <li class="media">
+            <svg class="svg-icon" width="16" height="16">
+                <use xlink:href="Images/icons-search.svg#food"></use>
+            </svg>
+            AI (все включено)
+        </li>
+    </ul>
+    <div class="info-box__included">
+        Включено
+    </div>
+    <div>Страховка, перелет, групповой трансфер</div>
+    <div class="info-box__columns">
+        <div class="info-box__price-wrap">
+            <div class="info-box__price">
+                18 750 <span>грн</span>
+            </div>
+            <span>за тур 2 взрослых</span>
+        </div>
+    </div>
+    <div class="info-box__buttons">
+        <button class="btn btn-brand btn-brand--orange" data-toggle="modal" data-target="#applicationModalmobile">Оставить заявку</button>
+        <button class="btn btn-brand btn-brand--orange fixed-mobile-button js-mobile-popup-order" data-toggle="modal" data-target="#applicationModalmobile">Оставить заявку</button>
+    </div>
+    <div class="media info-box-office">
+        <div class="info-box-office__icon">
+            <svg class="svg-icon" width="24" height="24">
+                <use xlink:href="Images/icons-search.svg#detail-office"></use>
+            </svg>
+        </div>
+        <div>
+            <div class="info-box-office__text">
+                Тур предоставлен офисом <a href="#">Тут и Там</a>
+            </div>
+            <div class="info-box-office__contacts">
+                <a href="tel:+380673339831">(067) 333-98-31</a>,
+                <a href="viber://chat?number=+380933339831">
+                    <svg class="n-svg-icon n-svg-icon--viber" width="16" height="16">
+                        <use xlink:href="Images/communication-icons"></use>
+                    </svg>&nbsp;(093) 333-98-31</a>, вул.Клавдіївська, 40-Г
+            </div>
+        </div>
+    </div>
+</div>        </div>
+    </div>
+
+
+
+
+    <div class="container">
+        <h2 class="details-small-heading">Программа тура</h2>
+<div class="detail-text-description">
+        <p style="text-align:center"><strong>ТУР с ВЫЕЗДОМ из КИЕВА, ПРОЕЗД ПОЛНОСТЬЮ ВКЛЮЧЕН в
+                СТОИМОСТЬ!</strong><br>Когда стремительно холодает, а в воздухе появляются первые снежинки, мы все
+            начинаем жить ожиданием чуда – новогодней ночи! Празднично украшаются витрины, города сияют множеством
+            огней, в магазинах бойко шуршит оберточная бумага для подарков!... И уже нет сил ждать, душа требует
+            праздника! Предлагаем Вам немного приблизить новогодние чудеса и посетить рождественскую ярмарку в
+            Кракове: это яркие огни и веселые шоу, множество вкусностей и полезностей, новые друзья, незабываемые
+            ощущения и, главное, все это – без отрыва от работы!</p>
+        <p style="text-align:center"><strong>ГАРАНТИРОВАНАЯ ДАТА ВЫЕЗДА - 21.12.2019</strong></p>
+        <p><br><span
+                    style="text-decoration:underline"><strong>День 1: Знакомимся, начинаем путешествие!</strong></span><br>19.00
+            Встреча группы на ж/д вокзале г. Киев. Отъезд с Южного терминала ж/д вокзала комфортабельным автобусом.
+            Транзит по территории Украины. Возможно присоединение туристов к группе в Житомире, Ровно, Львове.</p>
+        <p><span style="text-decoration:underline"><strong>День 2: Первое знакомство!</strong></span><br>03:00
+            Возможно присоединение к группе туристов, прибывающих во Львов поездом. Прохождение пограничного
+            контроля.</p>
+        <p>Переезд в г. Краков, Польша. Поселение в гостиницу категории 3* в 2-местные стандартные номера с
+            удобствами.</p>
+        <p><strong>Выезд на обзорную экскурсию по Кракову "Здесь живут легенды и драконы..." (в стоимости).</strong><br>Краков
+            – один из старейших и прекраснейших городов не только Польши, но и всей Европы. Здесь пересеклись
+            исторические пути Запада и Востока, культуры, мысли, идеи и изобретения множества народов и народностей.
+            Вас ждет площадь Рынок, Мариацкий костел, знаменитый Вавельский холм – именно здесь по преданию жил
+            легендарный дракон. Вас не оставит равнодушным скромное обаяние узких улочек Казимежа и запыленная
+            роскошь коридоров Коллегиума Маяс…<br> <br><strong>Прогулка по Рыночной Площади и участие в
+                РОЖДЕСТВЕНСКОЙ ЯРМАРКЕ!</strong><br>Вы получите не только эстетическое, но и гастрономическое
+            удовольствие! На Рождественской Ярмарке можно будет увидеть и приобрести самые разнообразные
+            рождественские сувениры: расписанные вручную елочные игрушки, украшения для дома, керамику, изделия из
+            древесины, шерсти, стекла, бижутерию, открытки, подарки, календари. Каждый год Краков готовит для гостей
+            ярмарки богатое кулинарное предложение: здесь можно попробовать традиционные блюда на гриле, знаменитые
+            польские «пероги» (разновидность вареников с самыми разнообразными начинками) и печеный картофель. Можно
+            будет купить австрийский сыр и колбасные изделия, выпить галицийского глинтвейна или хлебного кваса,
+            свекольного и сельдерейного сока. Разумеется, будут и рождественские лакомства: жареные орехи в
+            карамели, изделия из шоколада и марципана, традиционные пряники. Как всегда, в рамках Краковской
+            рождественской ярмарки будет организовано много развлекательных мероприятий. Все это займет у Вас немало
+            часов.</p>
+        <p>Самостоятельное возвращение в гостиницу. Ночлег.</p>
+        <p>
+            <span style="text-decoration:underline"><strong>День 3: Краков: знакомый и незнакомый!</strong></span><br>Завтрак
+            в гостинице.</p>
+        <p><strong>Экскурсия по кварталу Казимеж "Два народа, две истории..." (дополнительно - 15
+                евро).</strong><br>Казимеж — краковский район, где от XIV века до 1939 года на территории между
+            улицами Иосифа, Тела Господня, Медовой и Дайвор жили евреи. Во время Второй мировой войны там находилось
+            еврейское гетто — своего рода концлагерь городского типа. Но это уже XX век, а до этого на территории
+            города Казимеж прекрасно сосуществовали две культуры и две религии: христиансво и иудаизм. Наверное,
+            больше нигде в мире не найдется пересечение ул. Раббина Майзельса с ул. Тела Господня — это одно из
+            доказательств мирного сосуществания двух разных и древних культур.</p>
+        <p><strong>Чтобы впечталение о Кракове было абсолютно полным, рекомендуем экскурсию в уникальный подземный
+                музей "10 метров вниз - 1000 лет назад..." (дополнительно - 15 евро).</strong><br>Вы увидите
+            уникальный, самый большой в Европе музей под центральной площадью, в котором сохранились остатки
+            поселений 12 века, а также фрагменты более поздней застройки Рыночной площади времен Болеслава
+            Стыдливого и Казимира Великого. Здесь сохранились средневековые мостовые и реликты городской
+            инфраструктуры. На территории парка расположено около семи сотен археологических находок, 500 рисунков
+            достопримечательностей, 600 цифровых реконструкций в 3D, а также три десятка мультимедийных установок.
+            Более 4 тысяч квадратных метров экспозиции оставят незабываемое впечатление.</p>
+        <p>Свободное время в Кракове для прогулки по уютным магазинчикам в центре города.</p>
+        <p><span style="text-decoration:underline"><strong>День 4: Подземное королевство</strong></span><br>Завтрак
+            в отеле. Выселение.</p>
+        <p><strong>Отъезд из Кракова. Переезд в г. Величка. Посещение знаменитых соляных копей в Величке
+                (дополнительно - 8 евро + входные билеты: взрослый - 21 евро/детский - 16 евро).</strong><br>Эти
+            соляные копи являются единственным в мире горнопромышленным объектом, работающим без перерыва от
+            средневековья до наших дней. Подземные залы и часовни из кристаллической соли, подземные озёра, солевые
+            камеры и гроты, мосты и деревянные пешеходные тропы, изумительная часовня Благословенной Кинги со
+            стенами, украшенными соляными барельефами, коллекция шахтерских машин. Подземный город, от 60 до 100м
+            под поверхностью земли, ресторан, магазин с сувенирами, концертные и бальные залы.</p>
+        <p>Во второй половине дня - отъезд в Украину. По дороге - посещение супермаркета TESCO (по
+            возможности!).</p>
+        <p><span style="text-decoration:underline"><strong>День 5: Дома всегда ждут!</strong></span><br>Прибытие в
+            Киев с 12.00 - 15.00.</p>
+        <p><span style="text-decoration:underline"><strong>В стоимость включено:</strong></span></p>
+        <ul>
+            <li>проезд комфортабельным автобусом из Киева по программе;</li>
+            <li>размещение в отеле категории 2-4* (2 ночи);</li>
+            <li>завтраки (шведский стол);</li>
+            <li>сопровождение руководителем группы;</li>
+            <li>экскурсии согласно программе;</li>
+        </ul>
+        <p><span style="text-decoration:underline"><strong>В стоимость НЕ включено:</strong></span></p>
+        <ul>
+            <li>личные расходы;</li>
+            <li>дополнительные экскурсии по программе;</li>
+            <li>медицинское страхование;</li>
+        </ul>
+
+</div>        <section class="suitable-tour suitable-tour-section js-fixed-mobile-order-offset-bottom">
+  
+      <div class="suitable-tour__content">
+          <div class="suitable-tour__heading">Остались вопросы по туру?</div>
+          <div>Отправьте запрос и менеджер туркомпании поможет вам.</div>
+      </div>
+    <form class="form-callback form-callback--small">
+      <div class="row">
+        <div class="form-group col-12 col-md col-xl">
+                        <input class="form-callback__input form-control input-placeholder autoHide" type="text"
+                   placeholder="Имя">
+            <span class="validation field-validation-valid"><span class="">Введите имя</span></span>
+        </div>
+          <div class="form-group col-12 col-md col-xl">
+              <svg class="form-callback__icon" width="24" height="24">
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+              </svg>
+
+              <input class="form-callback__input form-control input-placeholder autoHide" type="tel" placeholder="Телефон">
+              <span class="validation field-validation-valid"><span class="">Введите номер телефона</span></span>
+          </div>
+        <div class="form-group col-12 col-md col-xl">
+          <input class="btn btn-brand btn-brand--orange callback-btn" type="submit" value="ОТПРАВИТЬ">
+        </div>
+      </div>
+    </form>
+  
+</section>
+    </div>
+    <div style="width: 0; height: 0;">
+        <svg>
+            <symbol id="progressbar" viewbox="0 0 58 58">
+                <circle cx="29" cy="29" r="29"/>
+                <path fill="none" stroke-dasharray="140" stroke="#dfe3eb" stroke-width="4"
+                      d="M29,6.778c12.273,0,22.222,9.949,22.222,22.222 S41.273,51.222,29,51.222S6.778,41.273,6.778,29S16.727,6.778,29,6.778"/>
+                <path fill="none" stroke="#387c89" stroke-width="4"
+                      d="M29,6.778c12.273,0,22.222,9.949,22.222,22.222 S41.273,51.222,29,51.222S6.778,41.273,6.778,29S16.727,6.778,29,6.778"/>
+            </symbol>
+        </svg>
+    </div>
+    </div>
+        <div class="footer-wrap">
+    <div class="footer container">
+        <div class="row col-pd-10">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Турне в соц сетях</div>
+                <div class="footer__social">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M3.516 24h7.828v-8.531H8.53v-2.813h2.813V9.141a3.52 3.52 0 0 1 3.515-3.516h3.516v2.813h-2.813c-.775 0-1.406.63-1.406 1.406v2.812h4.092l-.469 2.813h-3.623V24h6.328A3.52 3.52 0 0 0 24 20.484V3.516A3.52 3.52 0 0 0 20.484 0H3.516A3.52 3.52 0 0 0 0 3.516v16.968A3.52 3.52 0 0 0 3.516 24zM1.406 3.516c0-1.163.947-2.11 2.11-2.11h16.968c1.163 0 2.11.947 2.11 2.11v16.968c0 1.163-.947 2.11-2.11 2.11h-4.922v-5.719h3.409l.937-5.625h-4.346V9.844h4.22V4.219h-4.923A4.927 4.927 0 0 0 9.938 9.14v2.109H7.124v5.625h2.813v5.719H3.516a2.112 2.112 0 0 1-2.11-2.11V3.516z"/>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M6.497 0h11.006a6.504 6.504 0 0 1 6.493 6.264l.004.233v11.007a6.504 6.504 0 0 1-6.264 6.492l-.232.004H6.497a6.504 6.504 0 0 1-6.493-6.264L0 17.504V6.497A6.504 6.504 0 0 1 6.264.004L6.497 0h11.006zm11.007 1.407H6.497A5.096 5.096 0 0 0 1.41 6.282l-.004.215v11.007a5.096 5.096 0 0 0 4.875 5.085l.215.004h11.006a5.096 5.096 0 0 0 5.086-4.875l.004-.214V6.497a5.095 5.095 0 0 0-5.09-5.09zM12 5.437A6.57 6.57 0 0 1 18.562 12 6.57 6.57 0 0 1 12 18.562 6.57 6.57 0 0 1 5.438 12 6.57 6.57 0 0 1 12 5.438zm0 1.408A5.161 5.161 0 0 0 6.845 12 5.161 5.161 0 0 0 12 17.155 5.161 5.161 0 0 0 17.155 12 5.161 5.161 0 0 0 12 6.845zm6.72-3.738c1.069 0 1.939.87 1.939 1.94a1.94 1.94 0 0 1-1.94 1.938c-1.07 0-1.939-.87-1.939-1.939s.87-1.939 1.94-1.939zm0 1.407a.533.533 0 1 0 0 1.065.533.533 0 0 0 0-1.065z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="footer__heading">Контакты</div>
+                <div class="footer__contacts">
+                    <a href="tel:+380678294052">(067) 829-40-52</a><br>
+                    <a href="tel:+380952357060">(095) 235-70-60</a><br>
+                    <a href="#callbackModal" class="footer__callback" data-toggle="modal">
+                        Перезвоните мне
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Ваш отдых</div>
+                <ul>
+                    <li><a href="/">Горящие туры</a></li>
+                    <li><a href="/">Туры</a></li>
+                    <li><a href="/">Туры на майские</a></li>
+                    <li><a href="/">Экскурсионные туры</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Куда поехать</div>
+                <ul>
+                    <li><a href="/">Страны</a></li>
+                    <li><a href="/">Отели</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Туристам</div>
+                <ul>
+                    <li><a href="where-buy.html">Где купить</a></li>
+                    <li><a href="/">Статьи</a></li>
+                                                                                    <li><a href="reviews-hotels-page.html">Отзывы об отелях</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Партнерам</div>
+                <ul>
+                    <li><a href="/">Для турфирм</a></li>
+                    <li><a href="/">Правовая информация</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Turne.com.ua</div>
+                <div class="footer__text">Copyright © 2019 "X-tend". <br>
+                    Все права защищены.
+                </div>
+                <ul>
+                    <li><a href="/">О проекте</a></li>
+                    <li><a href="excursion-details-mobile.html">Мобильная версия</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div></div>
+<!-- Modal -->
+<div class="modal sign-in-modal" id="signInModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Форма входа</div>
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/" class="v-form sign-in-form">
+                    <div class="form-group">
+                        <input class="form-control input-placeholder autoHide" type="email" placeholder="E-mail">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control input-placeholder autoHide" type="password" placeholder="Пароль">
+                    </div>
+
+                    <input class="btn btn-brand btn-brand--orange" type="submit" value="Войти">
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="https://www.turne.com.ua/registration">Зарегистрироваться</a>
+                <a href="/passrecovery">Забыли пароль</a>
+            </div>
+        </div>
+    </div>
+</div><!-- Modal -->
+<div class="modal callback-modal" id="callbackModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Обратный звонок
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                    <div class="b-dropdown-callback" style="display: block !important;">
+                        <form action="/common/phonecallbackformsubmit" data-ajax="true" data-ajax-begin="oForms.FormOnBegin"
+                              data-ajax-complete="oForms.FormOnComplete" data-ajax-success="oForms.PhoneCallbackFormOnSuccess"
+                              id="form1" method="post" novalidate="novalidate"><span class="b-dropdown-callback__heading">Введите свой номер телефона:</span>
+
+                            <div class="form-group"><input class="form-control jsMaskedInputPhone" data-val="true"
+                                                           data-val-regex="Неверный формат"
+                                                           data-val-regex-pattern="^\+38\(\d{3}\)\s{1}\d{3}-\d{2}-\d{2}$"
+                                                           data-val-required="Неверный формат" id="Phone" maxlength="100"
+                                                           name="Phone" placeholder="+38(XXX) XXX-XX-XX" type="tel"> <span
+                                        class="field-validation-valid validation" data-valmsg-for="Phone"
+                                        data-valmsg-replace="true"></span></div>
+                            <input id="Url" name="Url" type="hidden" value="%2f">
+                            <input type="submit" id="btnSend"
+                                   name="btnSend"
+                                   class="btn btn-brand btn-brand--orange"
+                                   value="Перезвоните мне"></form>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div><script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.js" type="text/javascript"></script>
+<script src="js/datepicker.js" type="text/javascript"></script>
+<script src="js/svg4everybody.min.js" type="text/javascript"></script>
+<script src="js/ofi.min.js" type="text/javascript"></script>
+<script src="js/scripts.js" type="text/javascript"></script>
+<script src="js/scripts-desktop.js" type="text/javascript"></script>
+<script src="js/lazysizes.min.js" async=""></script>
+
+    <script src="js/slick/slick.min.js" type="text/javascript"></script>
+    <script src="js/fancybox/jquery.fancybox.min.js" type="text/javascript"></script>
+
+    <script src="js/detail.js" type="text/javascript"></script>
+</body>
+</html>

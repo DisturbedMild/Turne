@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600,700|Open+Sans:400,600,700&display=swap&subset=cyrillic"
+          rel="stylesheet">
+    <link href="css/bootstrap/bootstrap.css?v=113" rel="stylesheet"/>
+    <link href="css/bootstrap/bootstrap-grid_mobile.css?v=113" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.9.2.custom.min.css">
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="css/bundle/globalMobile.css?v=113">
+
+    
+	<link href="css/bundle/searchStyleMobile.css?v=113" rel="stylesheet"/>
+
+
+    
+	<link href="css/articles-detail.css?v=113" rel="stylesheet"/>
+	<link href="css/articles-detail_mobile.css?v=113" rel="stylesheet"/>
+    <link href="css/bundle/oldGlobalMobile.css?v=113" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+    <link href="css/mobile-device.css?v=113" rel="stylesheet"/>
+    <script>
+        /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+        /* This file is meant as a standalone workflow for
+        - testing support for link[rel=preload]
+        - enabling async CSS loading in browsers that do not support rel=preload
+        - applying rel preload css once loaded, whether supported or not.
+        */
+        (function( w ){
+            "use strict";
+            // rel=preload support test
+            if( !w.loadCSS ){
+                w.loadCSS = function(){};
+            }
+            // define on the loadCSS obj
+            var rp = loadCSS.relpreload = {};
+            // rel=preload feature support test
+            // runs once and returns a function for compat purposes
+            rp.support = (function(){
+                var ret;
+                try {
+                    ret = w.document.createElement( "link" ).relList.supports( "preload" );
+                } catch (e) {
+                    ret = false;
+                }
+                return function(){
+                    return ret;
+                };
+            })();
+
+            // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+            // then change that media back to its intended value on load
+            rp.bindMediaToggle = function( link ){
+                // remember existing media attr for ultimate state, or default to 'all'
+                var finalMedia = link.media || "all";
+
+                function enableStylesheet(){
+                    link.media = finalMedia;
+                }
+
+                // bind load handlers to enable media
+                if( link.addEventListener ){
+                    link.addEventListener( "load", enableStylesheet );
+                } else if( link.attachEvent ){
+                    link.attachEvent( "onload", enableStylesheet );
+                }
+
+                // Set rel and non-applicable media type to start an async request
+                // note: timeout allows this to happen async to let rendering continue in IE
+                setTimeout(function(){
+                    link.rel = "stylesheet";
+                    link.media = "only x";
+                });
+                // also enable media after 3 seconds,
+                // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+                setTimeout( enableStylesheet, 3000 );
+            };
+
+            // loop through link elements in DOM
+            rp.poly = function(){
+                // double check this to prevent external calls from running
+                if( rp.support() ){
+                    return;
+                }
+                var links = w.document.getElementsByTagName( "link" );
+                for( var i = 0; i < links.length; i++ ){
+                    var link = links[ i ];
+                    // qualify links to those with rel=preload and as=style attrs
+                    if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+                        // prevent rerunning on link
+                        link.setAttribute( "data-loadcss", true );
+                        // bind listeners to toggle media back
+                        rp.bindMediaToggle( link );
+                    }
+                }
+            };
+
+            // if unsupported, run the polyfill
+            if( !rp.support() ){
+                // run once at least
+                rp.poly();
+
+                // rerun poly on an interval until onload
+                var run = w.setInterval( rp.poly, 500 );
+                if( w.addEventListener ){
+                    w.addEventListener( "load", function(){
+                        rp.poly();
+                        w.clearInterval( run );
+                    } );
+                } else if( w.attachEvent ){
+                    w.attachEvent( "onload", function(){
+                        rp.poly();
+                        w.clearInterval( run );
+                    } );
+                }
+            }
+
+
+            // commonjs
+            if( typeof exports !== "undefined" ){
+                exports.loadCSS = loadCSS;
+            }
+            else {
+                w.loadCSS = loadCSS;
+            }
+        }( typeof global !== "undefined" ? global : this ) );
+        /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+        (function(w){
+            "use strict";
+            /* exported loadCSS */
+            var loadCSS = function( href, before, media ){
+                // Arguments explained:
+                // `href` [REQUIRED] is the URL for your CSS file.
+                // `before` [OPTIONAL] is the element the script should use as a reference for injecting our stylesheet <link> before
+                // By default, loadCSS attempts to inject the link after the last stylesheet or script in the DOM. However, you might desire a more specific location in your document.
+                // `media` [OPTIONAL] is the media type or query of the stylesheet. By default it will be 'all'
+                var doc = w.document;
+                var ss = doc.createElement( "link" );
+                var ref;
+                if( before ){
+                    ref = before;
+                }
+                else {
+                    var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+                    ref = refs[ refs.length - 1];
+                }
+
+                var sheets = doc.styleSheets;
+                ss.rel = "stylesheet";
+                ss.href = href;
+                // temporarily set media to something inapplicable to ensure it'll fetch without blocking render
+                ss.media = "only x";
+
+                // wait until body is defined before injecting link. This ensures a non-blocking load in IE11.
+                function ready( cb ){
+                    if( doc.body ){
+                        return cb();
+                    }
+                    setTimeout(function(){
+                        ready( cb );
+                    });
+                }
+                // Inject link
+                // Note: the ternary preserves the existing behavior of "before" argument, but we could choose to change the argument to "after" in a later release and standardize on ref.nextSibling for all refs
+                // Note: `insertBefore` is used instead of `appendChild`, for safety re: http://www.paulirish.com/2011/surefire-dom-element-insertion/
+                ready( function(){
+                    ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+                });
+                // A method (exposed on return object for external use) that mimics onload by polling document.styleSheets until it includes the new sheet.
+                var onloadcssdefined = function( cb ){
+                    var resolvedHref = ss.href;
+                    var i = sheets.length;
+                    while( i-- ){
+                        if( sheets[ i ].href === resolvedHref ){
+                            return cb();
+                        }
+                    }
+                    setTimeout(function() {
+                        onloadcssdefined( cb );
+                    });
+                };
+
+                function loadCB(){
+                    if( ss.addEventListener ){
+                        ss.removeEventListener( "load", loadCB );
+                    }
+                    ss.media = media || "all";
+                }
+
+                // once loaded, set link's media back to `all` so that the stylesheet applies once it loads
+                if( ss.addEventListener ){
+                    ss.addEventListener( "load", loadCB);
+                }
+                ss.onloadcssdefined = onloadcssdefined;
+                onloadcssdefined( loadCB );
+                return ss;
+            };
+            // commonjs
+            if( typeof exports !== "undefined" ){
+                exports.loadCSS = loadCSS;
+            }
+            else {
+                w.loadCSS = loadCSS;
+            }
+        }( typeof global !== "undefined" ? global : this ));
+    </script>
+</head>
+<body class="mobile">
+<div class="wrap-content">
+    <div class="header">
+    <div class="header__content">
+                <div class="container">
+            <div class="row no-gutters header__bottom navbar ">
+                                                    
+                <a class="header__col header__col--left" href="home-mobile.html">
+                    <img class="header__logo animate" src="Images/logo.png" alt="">
+                </a>
+                <div class="html-block">
+                    <a class="media header__phone" href="tel:+380678294052">
+                        <svg class="svg-icon phone-icon" width="24" height="24">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                        </svg>
+                        <span>(067) 829-40-52</span>
+                    </a>
+                </div>
+                <div>
+                    
+                    <div class="hamburger hamburger--squeeze js-hamburger" data-toggle="collapse"
+                         data-target="#navbarsExample01">
+                        <div class="hamburger-box">
+                            <div class="hamburger-inner"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__col header__col--right navbar-collapse collapse" id="navbarsExample01">
+                    <nav class=" header__navbar">
+                        <ul class="nav navbar-nav">
+                                                                                        
+                            <li><a href="hot-tours_mobile.html">Горящие туры</a></li>
+                                                                                                                    <li class="active"><a href="search-tours-mobile.html">Поиск туров</a></li>
+                                                                                                                    <li><a href="tours-bus_mobile.html">Экскурсионные туры</a></li>
+                                                                                                                    <li class="nav-link-dropdown">
+                                <a class="jsEmptyLink" href="#">Страны
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+                                    </svg>
+                                </a>
+                                    <div class="b-dropdown header__child-menu jsHeaderMenu" style="display: none">
+    <ul>
+        <li><a href="tour-country_mobile.html"><span>Египет</span>от 15 367 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Турция</span>от 12 294 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Кипр</span>от 22 362 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>ОАЭ</span>от 15 367 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Италия</span>от 23 913 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Греция</span>от 15 785 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Испания</span>от 16 530 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Китай</span>от 25 379 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Шри-Ланка</span>от 32 918 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Таиланд (Тайланд)</span>от 38 177 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Французская Полинезия</span>от 38 177 грн</a></li>
+    </ul>
+    <span class="child-menu-link"><a href="tourne-countries_mobile.html">Все страны</a></span>
+</div>                            </li>
+                            <li><a href="hotels-mobile.html">Отели</a></li>
+                            <li><a href="where-buy-mobile.html">Где купить</a></li>
+                            <li><a href="reviews-hotels-page-mobile.html">Отзывы об отелях</a></li>
+                        </ul>
+                        <ul class="header-menu-contacts">
+                            <li>Контакты:</li>
+                            <li><a class="media" href="tel:+380678294052">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#kyivstar"></use>
+                                    </svg>
+                                    <span>(067) 829-40-52</span>
+                                </a></li>
+                            <li><a class="media" href="tel:+380952357060">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#vodafone"></use>
+                                    </svg>
+                                    <span>(095) 235-70-60</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="header-menu-contacts__callback media" href="#callbackModal" data-toggle="modal">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                                    </svg>
+                                    <span>Перезвонить мне</span>
+                                </a>
+                            </li>
+                        </ul>
+                        
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="main-content">
+        
+	<div class="container">
+		<nav class="nav-breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="#">Главная Турне</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="#">Статьи</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="#">Рубрика "Вокруг Света"</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Что привезти из Египта?</li>
+  </ol>
+</nav>
+
+		<h2 class="heading">
+			Что привезти из Египта?
+		</h2>
+		<div class="article">
+			<div class="article-wrapper">
+				<div class="article-container">
+					<div class="article-inner">
+						<div class="article-header">
+							<div class="article-date">
+								23.01.2020
+							</div>
+							<div class="article-name">
+								Исландия
+							</div>
+						</div>
+						<p>
+	<img height="150" src="https://turne.com.ua/data/img/Articles/september/pict1565_club_sorgun.jpg" width="200" align="right">
+	Даже если шеф отправил вас в отпуск, когда на город уже опустились серой кашей осенние тучи, вы еще можете взять у лета свое. И даже съездить туда, откуда в августе вернулись ваши загорелые сотрудники, ведь в сентябре–октябре отдыхать, загорать и купаться можно почти во всех излюбленных нашими туристами странах. Представляем пять мест, где еще можно догнать ускользающее лето: Крым,
+	<a href="#">
+		Турция
+	</a>,
+	<a href="#">
+		Испания
+	</a>,
+	<a href="#">
+		Кипр
+	</a>,
+	<a href="#">
+		Тунис
+	</a>.
+</p>
+<p>
+	В заключение предлагаем вам сводную таблицу "метеорологических условий" в самых популярных туристических странах мира:
+</p>
+<p>
+	Если повезет, позагорать получится, даже не выезжая за пределы Украины. Купальный сезон в
+	<strong>Крыму</strong>
+	обычно продолжается до октября. Самые жаркие дни, разумеется, приходятся на июль – август, но в это же время достигают своего максимума количество отдыхающих и цены на размещение. Со второй половины сентября снижается стоимость гостиничных номеров, а среднемесячная температура воздуха все еще составляет 23-24С. Многие вполне обоснованно считают, что октябрь – оптимальное время для отдыха на Черноморском побережье.
+</p>
+<p>
+	<a href="#">
+		Турция
+	</a>
+	тоже до конца октября готова принять любителей морских купаний. Правда, нужно учитывать, что вечера уже не будут такими теплыми, как летом, и для прогулок под луной понадобятся свитер и брюки. Достаточно прохладно к тому времени станет в
+	<strong>
+		Бодруме
+	</strong>
+	и
+	<strong>
+		Мармарисе</strong>
+	, да и чартерные перевозки к середине октября прекратятся. Дожди, скорее всего, будут идти в октябре в
+	<strong>
+		Кемере
+	</strong>, расположенном на склонах гор. Зато
+	<strong>
+		Белек
+	</strong>,
+	<strong>
+		Сиде
+	</strong>
+	и особенно
+	<strong>
+		Аланья
+	</strong>
+	, где сезон продолжает до начала ноября, – то, что нужно для любителей отдыха у моря. Средняя температура воздуха в середине осени составляет там +26-28С, температура воды +23-24С. К тому же цены в это время падают там практически на четверть, а отели проводят множество специальных рекламных акций.
+</p>
+<p>
+	Как не парадоксально, на юге
+	<a href="#">
+		Испании
+	</a>
+	из-за холодного течения, идущего вдоль берега, купальный сезон закончится раньше, чем на севере. Поэтому на
+	<strong>
+		Коста-дель-Соль
+	</strong>
+	лучше ехать до 20-х чисел сентября. Зато на
+	<strong>
+		Коста-Брава
+	</strong>
+	благодаря теплому течению можно купаться и в октябре. Комфортный отдых ждет вас и в Коммуне Валенсия, состоящей из трех провинций –
+	<strong>
+		Кастельо
+	</strong>,
+	<strong>
+		Валенсия
+	</strong>
+	и
+	<strong>
+		Аликанте
+	</strong>. Летом тут невыносимо жарко, поэтому многие специально выбирают время для отдыха с октября по декабрь, когда температура воздуха составляет +30-33С. Мы советуем вам поехать туда на две недели, и одну из них посвятить экскурсиям: только в "бабье лето" ни жара, ни дожди не помешают вам провести целый день в городе.
+</p>
+<p>
+	<img height="150" src="https://turne.com.ua/data/img/Articles/september/pict1635_justiniano_varuna.jpg" width="200" align="left">
+	Ехать на
+	<a href="#">
+		Кипр
+	</a>
+	тоже лучше всего именно в октябре. Вы можете выбрать любой курорт для отдыха: октябрь на Кипре – это разгар сезона. Средняя температура воздуха будет составлять +27С, воды +22С. Даже в полдень здесь не будет изнуряющей жары, и можно будет валяться на пляже, не опасаясь палящих солнечных лучей. Да еще и можно будет посидеть на исключительно полезной витаминной диете – в это время здесь много дешевых фруктов.</p>
+<p>
+	В
+	<a href="#">
+		Тунис
+	</a>
+	мы бы тоже не советовали ехать в разгар сезона, например, в августе, когда температура воздуха достигает отметки +40С. Комфортнее всего отдыхать там в октябре – в "бархатный сезон": температура воздуха составляет +29С, море прогревается до +22С. Плавательный сезон длится здесь до середины ноября, и до ноября продолжает свою работу чартерная программа. Отдыхать в середине осени особенно приятно еще и потому, что после 10 сентября отели вводят 30-50% скидки на размещение.
+</p>
+<table cellspacing="1" cellpadding="7" width="640" border="1">
+	<tbody>
+		<tr>
+			<td width="33%">
+				<p align="justify">
+					<b>
+						<font size="2">Страна</font>
+					</b>
+				</p>
+			</td>
+			<td width="33%">
+				<p>
+					<b>
+						<font size="2">Средняя дневная температура СЕНТЯБРЯ</font>
+					</b>
+				</p>
+			</td>
+			<td width="33%">
+				<p>
+					<b>
+						<font size="2">Средняя дневная температура ОКТЯБРЯ</font>
+					</b>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="33%">
+				<p align="justify">
+					<font size="2">Болгария Золотые Пески)</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+26</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+20</font>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="33%">
+				<p align="justify">
+					<font size="2">Греция</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+28</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+24</font>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="33%">
+				<p align="justify">
+					<font size="2">Египет</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+33</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+30</font>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="33%">
+				<p align="justify">
+					<font size="2">Израиль (Эйлат)</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+36</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+33</font>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="33%">
+				<p align="justify">
+					<font size="2">Испания</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+28</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+22</font>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="33%">
+				<p align="justify">
+					<font size="2">Италия</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+26</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+20</font>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="33%">
+				<p align="justify">
+					<font size="2">Канарские о-ва</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+25</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+28</font>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="33%">
+				<p align="justify">
+					<font size="2">Кипр (Ларнака)</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+32</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+28</font>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="33%">
+				<p align="justify">
+					<font size="2">Крит</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+25</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+24</font>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="33%">
+				<p align="justify">
+					<font size="2">Мальта</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+27</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+20</font>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="33%">
+				<p align="justify">
+					<font size="2">ОАЭ (Дубай)</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+36</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+33</font>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="33%">
+				<p align="justify">
+					<font size="2">Таиланд</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+30</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+30</font>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="33%">
+				<p align="justify">
+					<font size="2">Тунис</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+28</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+26</font>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="33%">
+				<p align="justify">
+					<font size="2">Турция (Анталья)
+					</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+24</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+20</font>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="33%">
+				<p align="justify">
+					<font size="2">Хорватия</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+23</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+21</font>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="33%">
+				<p align="justify">
+					<font size="2">Чехия</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+22</font>
+				</p>
+			</td>
+			<td width="33%">
+				<p align="center">
+					<font size="2">+18</font>
+				</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+					</div>
+					<div class="article-sidebar">
+						<div class="social-links">
+							<div class="article-sidebar__heading">
+								Поделиться
+							</div>
+							<a href="#" class="article-sidebar__item">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#google-gray"></use>
+								</svg>
+							</a>
+							<a href="#" class="article-sidebar__item">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#facebook-gray"></use>
+								</svg>
+							</a>
+							<a href="#" class="article-sidebar__item">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#twitter-gray"></use>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="article-outer">
+					<div class="article-pages">
+						<a href="#" class="article-page__prev-article">
+							<div class="arrow-prev" href="#" aria-label="Previous">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+								</svg>
+							</div>
+							Предыдущая статья
+						</a>
+						<a href="#" class="article-page__next-article">
+							Следующая статья
+							<div class=" arrow-next" href="#" aria-label="Next">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+								</svg>
+							</div>
+						</a>
+					</div>
+					<div class="form-section">
+						<div class="form-section__image">
+							<img src="Images/subscribe-2.png" alt="">
+						</div>
+						<div class="form-section__content">
+							<div class="form-section__header">
+								Узнавайте о горящих турах первыми!
+							</div>
+							<div class="form-section__text">
+								Подпишитесь на рассылку. Путешествуйте с Турне.
+							</div>
+							<form action="/" class="form-callback form-callback--small ">
+    <div class="row">
+        <div class="col-12 col-md-9 col-xl-8 form-group">
+                            <svg class="form-callback__icon" width="24" height="24">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                         xlink:href="Images/communication-icons.svg#email"></use>
+                </svg>
+                        <input type="email" class="form-callback__input form-control input-placeholder autoHide"
+                   placeholder="Укажите Ваш email">
+            <span class="validation field-validation-valid"><span class="">Введите Ваш email</span></span>
+        </div>
+        <div class="col-12 col-md-3 col-xl-4 form-group">
+            <input type="submit" class="btn btn-brand btn-brand--cloudBurst" value="ОТПРАВИТЬ">
+        </div>
+    </div>
+</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="another-articles grey-background-f6f">
+		<div class="container">
+			<h2 class="heading">
+				Статьи, которые могут Вам понравиться
+			</h2>
+			<div class="row another-articles__box">
+				<a href="#" class="col-12 col-md-6 col-lg-3 col-xl-3 another-articles__item">
+					<img src="https://img.poehalisnami.ua/contentdata/blog/bc6ee7c2-3ad5-4365-9fb5-b0112f5c055f/1nqmdwob.k00.jpg" alt="">
+					<div class="another-articles__date">
+						23.01.2020
+					</div>
+					<div class="another-articles__title">
+						Под Киевом презентуют уникальную коллекцию
+					</div>
+				</a>
+				<a href="#" class="col-12 col-md-6 col-lg-3 col-xl-3 another-articles__item">
+					<img src="https://img.poehalisnami.ua/contentdata/blog/bc6ee7c2-3ad5-4365-9fb5-b0112f5c055f/1nqmdwob.k00.jpg" alt="">
+					<div class="another-articles__date">
+						23.01.2020
+					</div>
+					<div class="another-articles__title">
+						Под Киевом презентуют уникальную коллекцию
+					</div>
+				</a>
+				<a href="#" class="col-12 col-md-6 col-lg-3 col-xl-3 another-articles__item">
+					<img src="https://img.poehalisnami.ua/contentdata/blog/bc6ee7c2-3ad5-4365-9fb5-b0112f5c055f/1nqmdwob.k00.jpg" alt="">
+					<div class="another-articles__date">
+						23.01.2020
+					</div>
+					<div class="another-articles__title">
+						Под Киевом презентуют уникальную коллекцию
+					</div>
+				</a>
+				<a href="#" class="col-12 col-md-6 col-lg-3 col-xl-3 another-articles__item">
+					<img src="https://img.poehalisnami.ua/contentdata/blog/bc6ee7c2-3ad5-4365-9fb5-b0112f5c055f/1nqmdwob.k00.jpg" alt="">
+					<div class="another-articles__date">
+						23.01.2020
+					</div>
+					<div class="another-articles__title">
+						Под Киевом презентуют уникальную коллекцию
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+    </div>
+        <div class="footer-wrap">
+    <div class="footer container">
+        <div class="row col-pd-10">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Турне в соц сетях</div>
+                <div class="footer__social">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M3.516 24h7.828v-8.531H8.53v-2.813h2.813V9.141a3.52 3.52 0 0 1 3.515-3.516h3.516v2.813h-2.813c-.775 0-1.406.63-1.406 1.406v2.812h4.092l-.469 2.813h-3.623V24h6.328A3.52 3.52 0 0 0 24 20.484V3.516A3.52 3.52 0 0 0 20.484 0H3.516A3.52 3.52 0 0 0 0 3.516v16.968A3.52 3.52 0 0 0 3.516 24zM1.406 3.516c0-1.163.947-2.11 2.11-2.11h16.968c1.163 0 2.11.947 2.11 2.11v16.968c0 1.163-.947 2.11-2.11 2.11h-4.922v-5.719h3.409l.937-5.625h-4.346V9.844h4.22V4.219h-4.923A4.927 4.927 0 0 0 9.938 9.14v2.109H7.124v5.625h2.813v5.719H3.516a2.112 2.112 0 0 1-2.11-2.11V3.516z"/>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M6.497 0h11.006a6.504 6.504 0 0 1 6.493 6.264l.004.233v11.007a6.504 6.504 0 0 1-6.264 6.492l-.232.004H6.497a6.504 6.504 0 0 1-6.493-6.264L0 17.504V6.497A6.504 6.504 0 0 1 6.264.004L6.497 0h11.006zm11.007 1.407H6.497A5.096 5.096 0 0 0 1.41 6.282l-.004.215v11.007a5.096 5.096 0 0 0 4.875 5.085l.215.004h11.006a5.096 5.096 0 0 0 5.086-4.875l.004-.214V6.497a5.095 5.095 0 0 0-5.09-5.09zM12 5.437A6.57 6.57 0 0 1 18.562 12 6.57 6.57 0 0 1 12 18.562 6.57 6.57 0 0 1 5.438 12 6.57 6.57 0 0 1 12 5.438zm0 1.408A5.161 5.161 0 0 0 6.845 12 5.161 5.161 0 0 0 12 17.155 5.161 5.161 0 0 0 17.155 12 5.161 5.161 0 0 0 12 6.845zm6.72-3.738c1.069 0 1.939.87 1.939 1.94a1.94 1.94 0 0 1-1.94 1.938c-1.07 0-1.939-.87-1.939-1.939s.87-1.939 1.94-1.939zm0 1.407a.533.533 0 1 0 0 1.065.533.533 0 0 0 0-1.065z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="footer__heading">Контакты</div>
+                <div class="footer__contacts">
+                    <a href="tel:+380678294052">(067) 829-40-52</a><br>
+                    <a href="tel:+380952357060">(095) 235-70-60</a><br>
+                    <a href="#callbackModal" class="footer__callback" data-toggle="modal">
+                        Перезвоните мне
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Ваш отдых</div>
+                <ul>
+                    <li><a href="/">Горящие туры</a></li>
+                    <li><a href="/">Туры</a></li>
+                    <li><a href="/">Туры на майские</a></li>
+                    <li><a href="/">Экскурсионные туры</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Куда поехать</div>
+                <ul>
+                    <li><a href="/">Страны</a></li>
+                    <li><a href="/">Отели</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Туристам</div>
+                <ul>
+                    <li><a href="where-buy-mobile.html">Где купить</a></li>
+                    <li><a href="/">Статьи</a></li>
+                                                                                    <li><a href="reviews-hotels-page-mobile.html">Отзывы об отелях</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Партнерам</div>
+                <ul>
+                    <li><a href="/">Для турфирм</a></li>
+                    <li><a href="/">Правовая информация</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Turne.com.ua</div>
+                <div class="footer__text">Copyright © 2019 "X-tend". <br>
+                    Все права защищены.
+                </div>
+                <ul>
+                    <li><a href="/">О проекте</a></li>
+                    <li><a href="articles-detail.html">Полная версия</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div></div>
+<!-- Modal -->
+<div class="modal contacts-modal" id="contactsModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Контакты
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="contacts-modal__content">
+                    <div class="contacts-modal__row">
+                        <div>
+                            Подбор тура
+                        </div>
+                        <a href="tel:+380678294052" class="media contacts-modal__phone">
+                            <svg class="contacts-modal__icon" width="24" height="24">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#kyivstar"></use>
+                            </svg>
+                            <span class="media-body">(067) 829-40-52</span>
+                        </a>
+                        <a href="tel:+380952357060" class="media contacts-modal__phone">
+                            <svg class="contacts-modal__icon" width="24" height="24">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#vodafone"></use>
+                            </svg>
+                            <span class="media-body">(095) 235-70-60</span>
+                        </a>
+                    </div>
+                    <div class="contacts-modal__row">
+                        <div>
+                            Реклама
+                        </div>
+                        <a href="tel:+380955453888" class="media contacts-modal__phone">
+                            <svg class="contacts-modal__icon" width="24" height="24">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#vodafone"></use>
+                            </svg>
+                            <span class="media-body">(095) 545-38-88</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- Modal -->
+<div class="modal callback-modal" id="callbackModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Обратный звонок
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                    <div class="b-dropdown-callback" style="display: block !important;">
+                        <form action="/common/phonecallbackformsubmit" data-ajax="true" data-ajax-begin="oForms.FormOnBegin"
+                              data-ajax-complete="oForms.FormOnComplete" data-ajax-success="oForms.PhoneCallbackFormOnSuccess"
+                              id="form1" method="post" novalidate="novalidate"><span class="b-dropdown-callback__heading">Введите свой номер телефона:</span>
+
+                            <div class="form-group"><input class="form-control jsMaskedInputPhone" data-val="true"
+                                                           data-val-regex="Неверный формат"
+                                                           data-val-regex-pattern="^\+38\(\d{3}\)\s{1}\d{3}-\d{2}-\d{2}$"
+                                                           data-val-required="Неверный формат" id="Phone" maxlength="100"
+                                                           name="Phone" placeholder="+38(XXX) XXX-XX-XX" type="tel"> <span
+                                        class="field-validation-valid validation" data-valmsg-for="Phone"
+                                        data-valmsg-replace="true"></span></div>
+                            <input id="Url" name="Url" type="hidden" value="%2f">
+                            <input type="submit" id="btnSend"
+                                   name="btnSend"
+                                   class="btn btn-brand btn-brand--orange"
+                                   value="Перезвоните мне"></form>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div><script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.js" type="text/javascript"></script>
+<script src="js/datepicker_mobile.js" type="text/javascript"></script>
+<script src="js/scripts.js" type="text/javascript"></script>
+<script src="js/scripts_mobile.js" type="text/javascript"></script>
+<script src="js/lazysizes.min.js" async=""></script>
+<script src="js/svg4everybody.min.js" type="text/javascript"></script>
+<script src="js/ofi.min.js" type="text/javascript"></script>
+
+
+</body>
+</html>

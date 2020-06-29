@@ -1,0 +1,192 @@
+{% extends "layouts/default.twig" %}
+{% set mobile = "" %}
+{% if mobile %}
+	{% set toggleMobileText = "Полная версия" %}
+	{% set toggleMobileLink = "articles-detail.html" %}
+{% else %}
+	{% set toggleMobileText = "Мобильная версия" %}
+	{% set toggleMobileLink = "articles-detail_mobile.html" %}
+{% endif %}
+
+{% block searchStyle %}
+	<link href="css/bundle/searchStyle.css?v=113" rel="stylesheet"/>
+{% endblock %}
+{% block head %}
+	<link href="css/articles-detail.css?v=113" rel="stylesheet"/>
+{% endblock %}
+
+{% block scripts %}{% endblock %}
+
+{% block content %}
+	<div class="container">
+		{% include "./articles-detail-modules/breadcrumbs.twig" %}
+		<h2 class="heading">
+			Что привезти из Египта?
+		</h2>
+		<div class="article">
+			<div class="article-wrapper">
+				<div class="article-container">
+					<div class="article-inner">
+						<div class="article-header">
+							<div class="article-date">
+								23.01.2020
+							</div>
+							<div class="article-name">
+								Исландия
+							</div>
+						</div>
+						<p dir="ltr">
+							<span>Исландия, которую неофициально называют «страной льдов», обладает непривычным для европейцев ландшафтом и удивительными природными красотами.</span>
+						</p>
+						<p dir="ltr">
+							<span>Туристы едут сюда, чтобы получить эстетическое наслаждение от осмотра водопадов, ледников, фьордов. Туры в Исландию, как правило, подразумевают собой путешествие на пароме, и часто включают посещение других стран — Норвегии, Финляндии, Швеции, поэтому времени на знакомство со всеми достопримечательностями острова немного.
+							</span>
+							<span>Но что посмотреть в Исландии за 3 дня
+							</span>
+							<span>точно стоит, рассказываем в статье.&nbsp;</span>
+						</p>
+						<h2 dir="ltr" style="text-align:left">
+							<span>Национальный парк Тингветлир</span>
+						</h2>
+						<p dir="ltr">
+							<span>Парк Тингветлир находится под охраной ЮНЕСКО и считается одним из красивейших мест на земле,
+							</span>
+							<span>что посмотреть в Исландии
+							</span>
+							<span>просто необходимо. К его территории относится северная часть озера Тингвадлаватн и лавовое плато. Но главная особенность в том, что парк расположен на стыке двух плит, и их границы четко видны. Таким образом туристы могут с одного континента перейти на другой.</span>
+						</p>
+						<h2 dir="ltr" style="text-align:left">
+							<span>Голубая лагуна</span>
+						</h2>
+						<p dir="ltr">
+							<span>Блауа-Лоунид — уникальный геотермальный бассейн со стабильной температурой воды около +40 °С в течение всего года. Находится он в 40 минутах езды от столицы, на полуострове Рейкьянес. Приехав сюда, путешественники насладятся, красивейшим пейзажем: чистейшие молочно-голубые бассейны окружены черными лавовыми скалами, поросшими столетним мхом. Для отдыхающих оборудованы мостики и домики для релакса. Однако основная причина повышенного туристического интереса — целебные свойства лагуны, обусловленные наличием в составе воды водорослей, минеральных солей, кремния. Дно покрыто белой глиной. Это настоящий природный спа-центр. Кстати, Блауа-Лоунид обладает наградой «Голубой флаг».</span>
+						</p>
+						<p dir="ltr">
+							<span><img src="https://www.turne.com.ua/Data/mceimages/photo-1439725434120-c1b50e0cc329-2.jpg" alt="photo-1439725434120-c1b50e0cc329-2.jpg" title="Голубая лагуна"></span>
+						</p>
+						<h2 dir="ltr" style="text-align:left">
+							<span>Полуостров Снайфедльснес</span>
+						</h2>
+						<p dir="ltr">
+							<span>Находится в 150 км от Рейкьявика. Его еще называют Исландией в миниатюре, а Жюль Верн подробно описывает это место в «Путешествии к центру Земли». Важнейшая точка полуострова, за которой и закрепилось название «врата в подземный мир» — вулкан Снайфедльс, закованный в леднике Снаайфедльсйёкюдль. Также на территории Снайфедльснеса находятся геотермальные источники, водопады, пещеры — в общем все природное богатство страны «в одном флаконе». Побывав здесь, турист точно найдет ответ на вопрос: «что интересного в Исландии».</span>
+						</p>
+						<h2 dir="ltr" style="text-align:left">
+							<span>Гора Эсья</span>
+						</h2>
+						<p dir="ltr">
+							<span>Вершина горы Эсья — это то,
+							</span>
+							<span>что посетить в Исландии
+							</span>
+							<span>необходимо, если хотите осмотреть Рейкьявик с высоты птичьего полета. Отсюда открывается великолепный вид на столицу Исландии и Атлантический океан. Западной части горной цепи насчитывается 3,2 млн лет. Тут популярен пеший туризм, а для любителей и профессиональных альпинистов оборудованы пешеходные тропы разных уровней сложности.</span>
+						</p>
+						<p dir="ltr">
+							<span><img src="https://www.turne.com.ua/Data/mceimages/photo-1556191838-c17d5132bb87-2.jpg" alt="photo-1556191838-c17d5132bb87-2.jpg" title="Гора Эсья"></span>
+						</p>
+					</div>
+					<div class="article-sidebar">
+						<div class="social-links">
+							<div class="article-sidebar__heading">
+								Поделиться
+							</div>
+							<a href="#" class="article-sidebar__item">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#google-gray"></use>
+								</svg>
+							</a>
+							<a href="#" class="article-sidebar__item">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#facebook-gray"></use>
+								</svg>
+							</a>
+							<a href="#" class="article-sidebar__item">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#twitter-gray"></use>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="article-outer">
+					<div class="article-pages">
+						<a href="#" class="article-page__prev-article">
+							<div class="arrow-prev" href="#" aria-label="Previous">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+								</svg>
+							</div>
+							Предыдущая статья
+						</a>
+						<a href="#" class="article-page__next-article">
+							Следующая статья
+							<div class=" arrow-next" href="#" aria-label="Next">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+								</svg>
+							</div>
+						</a>
+					</div>
+					<div class="form-section">
+						<div class="form-section__image">
+							<img src="Images/subscribe-2.png" alt="">
+						</div>
+						<div class="form-section__content">
+							<div class="form-section__header">
+								Узнавайте о горящих турах первыми!
+							</div>
+							<div class="form-section__text">
+								Подпишитесь на рассылку. Путешествуйте с Турне.
+							</div>
+							{% include "./articles-detail-modules/subscribe-form.twig" %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="another-articles grey-background-f6f">
+		<div class="container">
+			<h2 class="heading">
+				Статьи, которые могут Вам понравиться
+			</h2>
+			<div class="row another-articles__box">
+				<a href="#" class="col-12 col-md-6 col-lg-3 col-xl-3 another-articles__item">
+					<img src="https://img.poehalisnami.ua/contentdata/blog/bc6ee7c2-3ad5-4365-9fb5-b0112f5c055f/1nqmdwob.k00.jpg" alt="">
+					<div class="another-articles__date">
+						23.01.2020
+					</div>
+					<div class="another-articles__title">
+						Под Киевом презентуют уникальную коллекцию
+					</div>
+				</a>
+				<a href="#" class="col-12 col-md-6 col-lg-3 col-xl-3 another-articles__item">
+					<img src="https://img.poehalisnami.ua/contentdata/blog/bc6ee7c2-3ad5-4365-9fb5-b0112f5c055f/1nqmdwob.k00.jpg" alt="">
+					<div class="another-articles__date">
+						23.01.2020
+					</div>
+					<div class="another-articles__title">
+						Под Киевом презентуют уникальную коллекцию
+					</div>
+				</a>
+				<a href="#" class="col-12 col-md-6 col-lg-3 col-xl-3 another-articles__item">
+					<img src="https://img.poehalisnami.ua/contentdata/blog/bc6ee7c2-3ad5-4365-9fb5-b0112f5c055f/1nqmdwob.k00.jpg" alt="">
+					<div class="another-articles__date">
+						23.01.2020
+					</div>
+					<div class="another-articles__title">
+						Под Киевом презентуют уникальную коллекцию
+					</div>
+				</a>
+				<a href="#" class="col-12 col-md-6 col-lg-3 col-xl-3 another-articles__item">
+					<img src="https://img.poehalisnami.ua/contentdata/blog/bc6ee7c2-3ad5-4365-9fb5-b0112f5c055f/1nqmdwob.k00.jpg" alt="">
+					<div class="another-articles__date">
+						23.01.2020
+					</div>
+					<div class="another-articles__title">
+						Под Киевом презентуют уникальную коллекцию
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

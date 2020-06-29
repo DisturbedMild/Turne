@@ -1,0 +1,182 @@
+@import "mixin";
+@import "variable";
+
+.sidebar-box__rating {
+  display: inline-block;
+  width: 28px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-left: 4px;
+  border-radius: 2px;
+  background-color: #387c89;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+}
+
+.inline-sorting {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 16px;
+  &__heading {
+    margin-right: 8px;
+    font-family: $font-mont;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+  .btn {
+    padding: 1px 15px;
+    border-radius: 14px;
+    border: solid 1px #387c89;
+    font-family: $font-mont;
+    color: #4b5669;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-transform: none;
+    &.selected {
+      background-color: #387c89;
+      color: #fff;
+    }
+    & + .btn {
+      margin-left: 8px;
+    }
+  }
+}
+
+.search-card {
+  &__body {
+    position: relative;
+    max-width: 100%;
+    padding-right: 180px;
+  }
+
+  &__fromTo {
+    font-size: 12px;
+    color: #387c89;
+    font-weight: 600;
+  }
+  &__content {
+    flex-grow: 1;
+  }
+  &__all-reviews {
+    font-weight: 600;
+  }
+  .radial-progress-bar {
+    width: 73px;
+    height: 73px;
+    text {
+      font-size: 13px;
+    }
+  }
+}
+
+.search-card-hotel-review {
+  $this: &;
+  margin-top: rem(12px);
+  &__info {
+    margin-bottom: 2px;
+  }
+  &__author {
+    color: #387c89;
+    font-weight: 600;
+  }
+  a {
+    white-space: nowrap;
+  }
+  &__facilities {
+    width: 100%;
+    margin: 8px 0 0 0;
+    padding: 0;
+    li {
+      color: #4b5669;
+      font-weight: 600;
+      line-height: 1.23;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      i {
+        padding-left: 4px;
+        font-style: normal;
+      }
+    }
+  }
+  &__rating {
+    width: 160px;
+    padding: 12px 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-left: 1px solid #efefef;
+    &:hover {
+      text-decoration: none;
+      #{$this}__score {
+        text-decoration: underline;
+      }
+    }
+    #{$this}__score {
+      color: #ff8508;
+      font-weight: 600;
+    }
+  }
+  &__score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.full-search-add-review {
+  padding-left: 30px;
+  position: relative;
+  &:before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 1px;
+    position: absolute;
+    left: 10px;
+    opacity: 0.5;
+    background-color: #d8d8d8;
+  }
+  .btn {
+    border-radius: 4px;
+    background-color: #387c89;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    text-transform: none;
+    line-height: 34px;
+    width: 100%;
+    &:hover {
+      background-color: #39707d;
+    }
+  }
+  .full-search__title {
+    display: block;
+  }
+}
+
+.sort-dropdown {
+  display: flex;
+  align-items: center;
+  //max-width: 220px;
+  margin-bottom: 20px;
+  &__title {
+    //margin-bottom: 5px;
+    margin-right: 5px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .custom-dropdown {
+    width: 220px;
+  }
+  //.full-search__title {
+  //  color: #4b5669;
+  //}
+}
+
+@import "details-components/modal-add-reviews";

@@ -1,0 +1,209 @@
+{% extends "layouts/default.twig" %}
+{% set mobile = "" %}
+{% if mobile %}
+    {% set toggleMobileText = "Полная версия" %}
+    {% set toggleMobileLink = "index.html" %}
+    {% set hotDetailLink = "hot-details-mobile.html" %}
+    {% set excursionDetailLink = "excursion-details-mobile.html" %}
+{% else %}
+    {% set toggleMobileText = "Мобильная версия" %}
+    {% set toggleMobileLink = "home-mobile.html" %}
+    {% set hotDetailLink = "hot-details.html" %}
+    {% set excursionDetailLink = "excursion-details.html" %}
+{% endif %}
+
+{% block searchStyle %}
+    <link href="css/bundle/searchStyle.css?v=113" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slider.css">
+{% endblock %}
+{% block head %}
+    <link href="css/tour-country.css?v=113" rel="stylesheet">
+    <link rel="stylesheet" href="css/countries-info.css">
+{% endblock %}
+
+{% block scripts %}
+    <script src="js/slick/slick.min.js" type="text/javascript"></script>
+    <script src="js/home-page.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container layout-mg">
+        <nav class="nav-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Главная ТУРНЕ</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Страны</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Египет</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Достопримечательности Египта</li>
+            </ol>
+        </nav>
+        <h1 class="heading">Виза в Египет</h1>
+        <div class="row layout-box layout-box--reverse">
+            <div class="col-12 col-xl-9 ">
+                <div class="countries-detail">
+                    <img src="https://img.poehalisnami.ua/static/countries/c11/small/11_637067501800629621.jpg"
+                         style="width:250px">
+                    <div class="countries-detail__description"><br>
+                        <p><span style="font-weight:400">В связи с новыми законами о безвизовом режиме некоторых стран и вводом новых паспортов возникла путаница. Непонятно теперь, </span>какие
+                            документы нужны для поездки в Египет из Украины<span style="font-weight:400">.</span></p>
+                        <p><span style="font-weight:400">Так как Египет безвизовый режим не открыл, чтобы попасть в государство, необходимо иметь визу. Поэтому загранпаспорт может быть любого образца, главное действующий. Это и есть ответ на самый распространенный вопрос желающих посетить страну фараонов: </span>какой
+                            паспорт нужен для поездки в Египет<span style="font-weight:400">. Если вы собираетесь в поездку с ребенком, на него тоже необходимы документы. При выезде из Украины несовершеннолетних детей без одного родителя, нужно взять у отсутствующего разрешение на вывоз ребенка из страны, и заверить документ у нотариуса.</span>
+                        </p>
+                        <p><span style="font-weight:400">Обращаем Ваше внимание на </span>правила въезда в Египет для
+                            украинцев<span style="font-weight:400"> и россиян. Визовый режим обязует туристов по прилете, перед прохождением паспортного контроля, приобрести визу у стойки VISA, ее стоимость — 25$. Данная виза дает право на однократный въезд в страну и непрерывное пребывание на территории Египта до 30 дней. Для посещения Египта дети до 18 лет не нуждаются в приобретении визы, если они вписаны в паспорт родителей. Оплачивается только одна виза на один паспорт.</span>
+                        </p>
+                        <p><span style="font-weight:400">По прилете на Синайский полуостров путешественники могут не ставить визу и соответственно не платить 25$. На иммиграционной карте туристы должны написать: SINAI ONLY. В паспорт будет поставлен штамп с таким же текстом: SINAI ONLY. Данный штамп дает право пребывания только на территории Синайского полуострова сроком до 14 дней. Обращаем внимание, что если данное правило будет нарушено, туристам будет выставлен штраф в размере 1053 египетских фунта.</span>
+                        </p>
+                        <p><span style="font-weight:400">В случае, если будет нарушен визовый режим, то есть турист будет пребывать в стране более 30 дней, власти Египта имеют официальное право наложить штраф и ввести ограничение на посещение страны. Обращаем внимание, что если отдыхающие находились по туристической визе более 30 дней, вылет из страны на чартерном рейсе невозможен. Туристам следует воспользоваться регулярными рейсами.</span>
+                        </p>
+                        <p><span style="font-weight:400">Граждане Республики Беларусь и Молдовы должны оформить визу в Посольстве. Право предоставить документы на получение визы в Посольстве Арабской Республики Египет в Киеве дает вид на жительство либо регистрация в Украине. Женщинам в возрасте от 15 до 36 лет (граждане Молдовы) требуется дополнительно получать разрешение на въезд.</span>
+                        </p>
+                        <p><span style="font-weight:400">Просьба также обратить внимание, что во время паспортного контроля при себе необходимо иметь пакет документов: а/б, страховку, ваучер.</span>
+                        </p>
+                        <p>&nbsp;</p>
+                        <h2><strong>Документы, необходимые для получения визы по прилете в Египет:</strong></h2>
+                        <ol>
+                            <li style="font-weight:400">Нужен ли биометрический паспорт в Египет<span
+                                        style="font-weight:400">? Нет. Достаточно загранпаспорта (действующего не менее ТРЁХ месяцев со дня окончания запланированного тура — для вылетов из Украины*). Продленные паспорта граждан Украины действительны для въезда в Египет. </span><span
+                                        style="font-weight:400"><br></span><span
+                                        style="font-weight:400"><br></span><span style="font-weight:400">*Информация для пассажиров, вылетающих на крыльях а/к Anda Air: В случае, если у туриста паспорт действителен менее 6 и более 3 месяцев, во время check in в аэропорту Украины представитель а/к выдаст заявление, которое является обязательным для заполнения. Заявление о том, что у туриста в случае возникновения проблем при прохождении паспортного контроля в Египте — к а/к претензий не будет.</span><span
+                                        style="font-weight:400"><br></span><span style="font-weight:400">— Для вылетов в Египет из Республики Беларусь необходим загранпаспорт, действующий не менее 180 дней со дня окончания запланированного тура.</span><span
+                                        style="font-weight:400"><br></span><span style="font-weight:400">— Для вылетов в Египет из Молдовы необходим загранпаспорт, действующий не менее 190 дней со дня окончания запланированного тура.</span><span
+                                        style="font-weight:400"><br><br></span></li>
+                            <li style="font-weight:400"><span style="font-weight:400">Две чистые страницы паспорта для визы и штампов.</span>
+                            </li>
+                            <li style="font-weight:400"><span style="font-weight:400">Туристический ваучер.</span><span
+                                        style="font-weight:400"><br><br></span></li>
+                        </ol>
+                        <p><span style="font-weight:400"><span style="color:#ff0000">ВНИМАНИЕ!</span> Гражданам всех стран, кроме Украины и России, следует самостоятельно узнавать условия визового режима в Консульстве Арабской Республики Египет в Украине.</span>
+                        </p></div>
+                </div>
+            </div>
+            <div class="col-12 col-xl-3 layout-box__sidebar">
+                <div class="sidebar-box">
+                    <div class="sidebar-box__heading">
+                        Полезная информация
+                    </div>
+                    <div class="sidebar-box__content">
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#plane"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Туры в Египет
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#hotels"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Отели Египта
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#visa"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Виза в Египет
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#dost"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Достопримечательности Египта
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#weather"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Погода в Египте
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#currency"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Валюта Египта
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#suggestion"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Советы туристам
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#food"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Кухня Египта
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#embrassy"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Посольства Египта
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#culture"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Культурные особенности Египта
+								</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

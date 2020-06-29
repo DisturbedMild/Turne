@@ -1,0 +1,200 @@
+{% extends "layouts/default-mobile.twig" %}
+{% set mobile = 'mobile' %}
+{% if mobile %}
+	{% set toggleMobileText = "Полная версия" %}
+	{% set toggleMobileLink = "articles-detail.html" %}
+{% else %}
+	{% set toggleMobileText = "Мобильная версия" %}
+	{% set toggleMobileLink = "articles-detail_mobile.html" %}
+{% endif %}
+
+{% block searchStyle %}
+	<link href="css/bundle/searchStyleMobile.css?v=113" rel="stylesheet"/>
+
+{% endblock %}
+{% block head %}
+	<link href="css/articles-detail.css?v=113" rel="stylesheet"/>
+	<link href="css/articles-detail_mobile.css?v=113" rel="stylesheet"/>
+{% endblock %}
+{% block scripts %}{% endblock %}
+
+{% block content %}
+	<div class="container">
+		{% include "./articles-detail-modules/breadcrumbs.twig" %}
+		<h2 class="heading">
+			Что привезти из Египта?
+		</h2>
+		<div class="article">
+			<div class="article-wrapper">
+				<div class="article-container">
+					<div class="article-inner">
+						<div class="article-header">
+							<div class="article-date">
+								23.01.2020
+							</div>
+							<div class="article-name">
+								Вокруг света
+							</div>
+						</div>
+						<p>
+							<span>Независимо от времени года, миллионы туристов стремятся увидеть невероятно красивую Италию, и на это есть немало причин: кристально чистое море, нежные пляжи, живописная природа и яркие развлечения.&nbsp; И почему бы не отдохнуть на
+								<a href="https://www.turne.com.ua/may-holidays" target="_blank">майские праздники</a>&nbsp;в этой обласканной солнцем и напоенной морским бризом стране? &nbsp;Туры в Италию понравятся каждому:&nbsp;поклоннику древнейшей культуры и истории, ценителю искусства, гурману или настоящему сомелье. Италию стоит посетить, потому что она – «галерея мирового искусства». Загадочная Античность, чувственное Возрождение и грозное Средневековье оставили на Италии неизгладимый след. &nbsp;</span>
+						</p>
+						<h3 class="heading">
+							<span>Величественный Рим</span>
+						</h3>
+						<p>
+							<span>Куда ведут все дороги? Конечно же в Рим! Столица объявлена объектом Всемирного наследия человечества, и это неудивительно. Рим видел и расцвет, и падение одной из самых величественных цивилизаций.&nbsp; Вас восхитят древние руины, пестрые современные набережные, узкие улочки популярного района Трастевере, модерновый центр художественной культуры, и излюбленный район туристов с многочисленными ресторанами Авентино-Тестаччио. Май считается наиболее удачным сезоном для
+								<a href="https://www.turne.com.ua/tour/italiya/rim" target="_blank">посещения Рима</a>, когда столбик термометра показывает +23 днем и +13 ночью.
+							</span>
+						</p>
+						<h3 class="heading">
+							<span>Современный Милан</span>
+						</h3>
+						<p>
+							<span>Настоящие любители шопинга мечтают посетить Милан. К тому же, это не просто суетливый мегаполис с огромным количеством бизнес-центров, бутиков и фешенебельных отелей, а и красивый, исторический город с особым характером.&nbsp; И весна – это лучшее время, чтобы насладиться изяществом Милана.&nbsp; Погода радует еще не таким знойным солнцем, а для туристов открыта разнообразная программа концертов и выставок.
+								<a href="https://www.turne.com.ua/tour/italiya/milan" target="_blank">Туры в Милан</a>&nbsp;– это отдых, который богат эмоциями и впечатлениями.
+							</span>
+						</p>
+						<h3 class="heading">
+							<span>Романтичная Венеция</span>
+						</h3>
+						<p>
+							<span>Странная, необычная и одновременно роскошная Венеция вскружит голову любому туристу. Последний месяц весны здесь считается высоким сезоном, ведь погода на берегах шикарной Венецианской лагуны всегда комфортная для прогулок на свежем воздухе и многочисленных экскурсий.&nbsp; Приобретая тур на майские каникулы, вас вдохновит оживленная культурная жизнь, так как популярный фестиваль оперы «<strong>Дух</strong>
+								<strong>музыки</strong>» открывается именно в конце весны и собирает миллионы поклонников по всему миру. Город превращается в живую музыкальную площадку просто под открытым небом.&nbsp; Кроме того, у вас будет потрясающая возможность отметить необычный итальянский праздник «<strong>Феста</strong>
+								<strong>делла</strong>
+								<strong>Сенса</strong>», когда мер Венеции исполняет старинный обряд, в сопровождении костюмированного шествия.</span>
+						</p>
+						<h3 class="heading">
+							<span>Теплый Неаполь</span>
+						</h3>
+						<p>
+							<span>Попробовать вкусную пиццу и весело провести время вы можете, посетив южный итальянский город Неаполь.&nbsp; Начало мая – это наиболее комфортный период для долгих прогулок, ведь средиземноморский климат достигает отметок +23 только в последний месяц весны, но при этом ночи остаются прохладными, опускаясь до отметки +8. Величие Неаполя поразит ваше воображение, ведь здесь вы сможете познакомиться с такой невероятной архитектурой и уникальной культурой города.&nbsp; Только раз в году на майские праздники вы сможете побывать на фестивале «<strong>Maggio</strong>
+								<strong>dei</strong>
+								<strong>Monumenti</strong>» - удивительное событие, когда во всех городских зданиях массово пройдут разнообразные спектакли и выставки.</span>
+						</p>
+						<h3 class="heading">
+							<span>Историческая Флоренция</span>
+						</h3>
+						<p>
+							<span>Еще один поистине красивый город Италии – Флоренция. В мае вы сможет посетить не только экскурсии по историческим местам, но и узнать оживленную ночную жизнь города во всех ярких красках.&nbsp; Весна для Флоренции – зелени, ярких красок и сладко-страстных ароматов.&nbsp; Дневные показатели температуры достигают до +23, а ночи по-весеннему теплые, поэтому ртутный столбик колеблется от +11 до +13.&nbsp; Ценители прекрасного смогут посетить масштабный фестиваль классической музыки, а сладкоежек порадует фестиваль мороженого.&nbsp; Сама Флоренция достаточно многогранна и здесь много галерей, различных музеев и выставок.<br><br></span>
+							<strong></strong>
+							<strong>
+								<span>Италия</span>
+							</strong>
+							<span>
+								– невероятная страна, которая превзошла во всех областях музыки, литературы, скульптуры и архитектуры.&nbsp; Многие мировые шедевры были созданы именно итальянскими мастерами. К тому же свое культурное наследие и исторические традиции итальянский народ сохранил до наших дней. Италия навсегда изменит ваше представление о красоте и изысканности! Не лишайте себя возможности провести незабываемый
+								<a href="https://www.turne.com.ua/tour/italiya" target="_blank">отдых в Италии</a>.</span>
+							<span>
+								<div class="embed-responsive embed-responsive-16by9">
+									<iframe src="https://www.youtube.com/embed/3k3hnYgBYtw"></iframe>
+								</div>
+							</span>
+						</p>
+					</div>
+					<div class="article-sidebar">
+						<div class="social-links">
+							<div class="article-sidebar__heading">
+								Поделиться
+							</div>
+							<a href="#" class="article-sidebar__item">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#google-gray"></use>
+								</svg>
+							</a>
+							<a href="#" class="article-sidebar__item">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#facebook-gray"></use>
+								</svg>
+							</a>
+							<a href="#" class="article-sidebar__item">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#twitter-gray"></use>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="article-outer">
+					<div class="article-pages">
+						<a href="#" class="article-page__prev-article">
+							<div class="arrow-prev" href="#" aria-label="Previous">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+								</svg>
+							</div>
+							Предыдущая статья
+						</a>
+						<a href="#" class="article-page__next-article">
+							Следующая статья
+							<div class=" arrow-next" href="#" aria-label="Next">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+								</svg>
+							</div>
+						</a>
+					</div>
+					<div class="form-section">
+						<div class="form-section__image">
+							<img src="Images/subscribe-2.png" alt="">
+						</div>
+						<div class="form-section__content">
+							<div class="form-section__header">
+								Узнавайте о горящих турах первыми!
+							</div>
+							<div class="form-section__text">
+								Подпишитесь на рассылку. Путешествуйте с Турне.
+							</div>
+							{% include "./articles-detail-modules/subscribe-form.twig" %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="another-articles grey-background-f6f">
+		<div class="container">
+			<h2 class="heading">
+				Статьи, которые могут Вам понравиться
+			</h2>
+			<div class="row another-articles__box">
+				<a href="#" class="col-12 col-md-6 col-lg-3 col-xl-3 another-articles__item">
+					<img src="https://img.poehalisnami.ua/contentdata/blog/bc6ee7c2-3ad5-4365-9fb5-b0112f5c055f/1nqmdwob.k00.jpg" alt="">
+					<div class="another-articles__date">
+						23.01.2020
+					</div>
+					<div class="another-articles__title">
+						Под Киевом презентуют уникальную коллекцию
+					</div>
+				</a>
+				<a href="#" class="col-12 col-md-6 col-lg-3 col-xl-3 another-articles__item">
+					<img src="https://img.poehalisnami.ua/contentdata/blog/bc6ee7c2-3ad5-4365-9fb5-b0112f5c055f/1nqmdwob.k00.jpg" alt="">
+					<div class="another-articles__date">
+						23.01.2020
+					</div>
+					<div class="another-articles__title">
+						Под Киевом презентуют уникальную коллекцию
+					</div>
+				</a>
+				<a href="#" class="col-12 col-md-6 col-lg-3 col-xl-3 another-articles__item">
+					<img src="https://img.poehalisnami.ua/contentdata/blog/bc6ee7c2-3ad5-4365-9fb5-b0112f5c055f/1nqmdwob.k00.jpg" alt="">
+					<div class="another-articles__date">
+						23.01.2020
+					</div>
+					<div class="another-articles__title">
+						Под Киевом презентуют уникальную коллекцию
+					</div>
+				</a>
+				<a href="#" class="col-12 col-md-6 col-lg-3 col-xl-3 another-articles__item">
+					<img src="https://img.poehalisnami.ua/contentdata/blog/bc6ee7c2-3ad5-4365-9fb5-b0112f5c055f/1nqmdwob.k00.jpg" alt="">
+					<div class="another-articles__date">
+						23.01.2020
+					</div>
+					<div class="another-articles__title">
+						Под Киевом презентуют уникальную коллекцию
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

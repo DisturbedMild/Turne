@@ -1,0 +1,10 @@
+@import "mixin";
+@import "variable";
+@media (max-width: 991px) {
+  .search-card-slider {
+    .search-card__image {
+      max-width: 100%;
+    }
+  }
+}
+

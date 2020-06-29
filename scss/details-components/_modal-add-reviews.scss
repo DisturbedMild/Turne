@@ -1,0 +1,246 @@
+$reviews-orange: #ff8508;
+$reviews-orange-hover: #E15E02;
+.tour-detail__modal-reviews {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  color: #424242;
+  text-align: left;
+  .modal-dialog {
+    width: 680px;
+    max-width: 100%;
+    min-width: 680px;
+  }
+  .modal-body {
+    padding: rem(20px);
+  }
+  .b-dropdown-search {
+    display: block;
+    margin-bottom: 15px;
+    padding: 0;
+    box-shadow: none;
+    .form-control {
+      height: 40px;
+      font-size: 16px;
+      padding-left: 34px;
+      border-radius: 4px;
+    }
+    &__icon {
+      left: 10px;
+    }
+  }
+  .b-add-review__autocomplite {
+    position: relative;
+    .ui-autocomplete {
+      max-height: 340px;
+      border-bottom: 2px solid #fff;
+    }
+  }
+  .b-add-review {
+    position: relative;
+    &__row {
+      margin-bottom: 15px;
+      //display: flex;
+      //flex-wrap: wrap;
+    }
+    &__rating {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 5px;
+    }
+  }
+  .b-add-review__alert {
+    font-size: 13px;
+    font-style: italic;
+    padding-top: 2px;
+  }
+
+  .b-select-rating {
+    margin: 0 0 10px;
+    width: 200px;
+  }
+  .b-select-rating > div:first-child {
+    margin: 0 0 7px 0;
+    color: #4b5669;
+  }
+
+  .input-wrap .input-text {
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+  }
+  .input-wrap .input-text:focus {
+    border: 1px solid #cccccc;
+  }
+  .input-wrap textarea {
+    font-size: 16px;
+    border-radius: 4px;
+    width: 100%;
+    height: 115px;
+    resize: vertical;
+    padding: 10px;
+    outline: none;
+  }
+  .input-wrap textarea:focus {
+    border: 1px solid #cccccc;
+  }
+  .b-add-review .title {
+    width: 100%;
+  }
+  .b-add-review .title,
+  .input-wrap label {
+    font-size: 16px;
+    margin: 0 0 5px;
+    color: #4b5669;
+    font-weight: 600;
+  }
+
+  span.required {
+    color: red;
+  }
+
+  .b-rank-regular-tetragon {
+    width: 185px;
+    height: 30px;
+    border: 1px solid $orange;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    border-radius: 3px;
+    background-clip: padding-box;
+  }
+
+  .b-rank-regular-tetragon .active {
+    color: #FFFFFF;
+    background-color: $orange;
+    border-right: 1px solid #FFFFFF;
+  }
+  .b-rank-regular-tetragon > div {
+    line-height: 28px;
+    width: 20%;
+    float: left;
+    text-align: center;
+    color: #4b5669;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    border-right: 1px solid $orange;
+  }
+  .b-rank-regular-tetragon > div:last-child {
+    border-right: none !important;
+  }
+  //.m-caption {
+  //  font-weight: normal;
+  //  width: 100%;
+  //  font-size: 21px;
+  //  margin: 10px 0 5px;
+  //  text-align: center;
+  //}
+  .btn-send {
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: 10px auto;
+    &:hover {
+      background-color: #DD5411;
+    }
+  }
+  .btnOk {
+    margin-top: 5px;
+  }
+}
+
+.file-upload {
+  &__heading {
+    font-size: 16px;
+    font-weight: 600;
+    color: #4b5669;
+    margin-bottom: 8px;
+    align-items: center;
+  }
+  &__icon {
+    fill: #387c89;
+    margin-right: 10px;
+  }
+  .custom-dropzone {
+    margin-top: 10px;
+  }
+  &-format {
+    position: relative;
+    font-size: 12px;
+    line-height: 1.33;
+    color: #656565;
+    padding-top: 8px;
+    &:before {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 100px;
+      background: #ccc;
+      position: absolute;
+      top: 4px;
+    }
+    &__icon {
+      margin-right: 10px;
+    }
+  }
+}
+
+.video-uploader {
+  margin-top: 15px;
+  &__preview-content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  &-preview {
+    position: relative;
+    max-width: 154px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 20px;
+    &__img {
+      max-width: 100%;
+    }
+    &__remove {
+      position: absolute;
+      top: -12px;
+      right: -2px;
+      svg {
+        vertical-align: middle;
+      }
+    }
+  }
+  .form-inline {
+    flex-wrap: nowrap;
+    .form-group {
+      margin-right: rem(7px);
+      margin-bottom: 8px;
+      &:first-child {
+        flex-grow: 1;
+      }
+    }
+    .form-control {
+      width: 100%;
+      height: 40px;
+      border-radius: 4px;
+      border: solid 1px rgba(43, 54, 65, 0.2);
+    }
+    .btn {
+      line-height: 12px;
+      height: 40px;
+      width: 60px;
+      border-radius: 4px;
+    }
+    .validation {
+      position: relative;
+    }
+  }
+  &__text {
+    font-size: 12px;
+    line-height: 1.33;
+    color: #656565;
+  }
+}

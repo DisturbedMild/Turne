@@ -1,0 +1,31 @@
+
+<form action="reviews-hotels.html" method="get" class="full-search-wrap">
+    <div class="full-search clearfix">
+        <div class="row col-pd-10 full-search__row">
+            <div class="col-12 col-lg-7 col-xl-7">
+                {% set fullSearchTitle = "Найдите отзывы об отеле" %}
+                {% set iconName = "place" %}
+                {% set textDropdown = "Введите название отеля, страны или курорта" %}
+                {% set customDropdownClass = "custom-dropdown--no-border" %}
+                {% if not mobile %}
+                    {% from "./autocomplite-dropdown.twig" import dropdown %}
+                {% else %}
+                    {% from "./autocomplite-dropdown-mobile.twig" import dropdown %}
+                {% endif %}
+                <div class="full-search__title">{{ fullSearchTitle }}</div>
+                {% if not mobile %}
+                    {% include "../components/custom-dropdown/custom-dropdown-search.twig" %}
+                {% else %}
+                    {% include "../components/custom-dropdown/custom-dropdown.twig" %}
+                {% endif %}
+            </div>
+            <div class="col-12 col-lg-2 col-xl-2">
+                <button class="btn btn-brand btn-brand--orange full-search__btn">найти отзывы</button>
+            </div>
+            <div class="col-12 col-lg-3 col-xl-3 full-search-add-review">
+                <div class="full-search__title">Оставьте свой отзыв</div>
+                <a href="#modal-reviews" class="btn btn-brand" data-toggle="modal">Добавить отзыв</a>
+            </div>
+        </div>
+    </div>
+</form>

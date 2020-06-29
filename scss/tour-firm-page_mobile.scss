@@ -1,0 +1,56 @@
+@import "mixin";
+@import "variable";
+
+@media (max-width: 991px) {
+  .agency-card {
+      width: 300px;
+  }
+}
+
+@media (max-width: 767px) {
+  .agency {
+    &__map {
+      position: relative;
+      height: 210px;
+    }
+    &-card {
+      height: auto;
+      top: 0px;
+      right: 0px;
+      margin-bottom: 10px;
+      margin-left: unset;
+      width: 100%;
+      &__body {
+        column-count: 2;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+
+  }
+}
+
+@media (max-width: 552px) {
+  .agency {
+    &-card {
+      max-width: 300px;
+      width: 100%;
+      &__logo {
+        text-align: left;
+        padding-left: 20px;
+      }
+      &__body {
+        column-count: initial;
+      }
+    }
+  }
+}
+
+@media (max-width: 326px) {
+  .breadcrumb li {
+    font-size: 11px;
+    a {
+      font-size: 11px;
+    }
+  }
+}

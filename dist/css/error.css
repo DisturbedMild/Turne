@@ -1,0 +1,27 @@
+html {
+  height: 100%;
+}
+
+.error-page {
+  margin: 1.25rem 0;
+}
+
+.error-page__center {
+  text-align: center;
+  font-size: 16px;
+}
+
+.error-page .form-section {
+  max-width: 880px;
+  margin: 1.25rem auto;
+}
+
+.b-404 {
+  margin: 0 auto;
+}
+
+.b-code404 {
+  font-size: 9.375rem;
+}
+
+/*# sourceMappingURL=map/error.css.map */

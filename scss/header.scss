@@ -1,0 +1,217 @@
+@import "mixin";
+@import "variable";
+
+$top-nav: '.top-nav';
+.navbar-open {
+  overflow: hidden;
+}
+
+.header {
+  min-height: 110px;
+  font-family: $header-font;
+  font-size: 14px;
+  &-top {
+    background: $menu-top-background;
+    font-size: $menu-top-font-size;
+    color: $menu-top-text-color;
+    font-weight: normal;
+    &__content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2px 15px;
+    }
+    &__left {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+    }
+    &__callback-wrap {
+      position: relative;
+      line-height: normal;
+    }
+    &__callback {
+      margin-left: rem(15px);
+      display: inline-flex;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 600 !important;
+      color: #fff !important;
+      text-decoration: underline;
+      .svg-icon {
+        margin-right: 4px;
+        fill: #fff;
+        stroke: #fff;
+        stroke-width: .5px;
+      }
+    }
+    a {
+      color: $menu-top-text-color;
+      font-weight: bold;
+    }
+  }
+
+  &__callback, &-menu-contacts, &__phone  {
+   display: none;
+  }
+
+  &__sign-in {
+    color: $menu-top-text-color;
+  }
+  &__col {
+
+    &--left {
+      width: 22%;
+      height: 100%;
+    }
+    &--right {
+      width: 78%;
+      flex-grow: 1;
+    }
+  }
+  &__logo {
+    display: inline-block;
+    max-width: 216px;
+    margin-left: -3px;
+    vertical-align: middle;
+  }
+  &__bottom {
+    padding: 11px 0;
+  }
+  &__content {
+    min-width: 1210px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background: #ffffff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+    z-index: 53;
+    .btn-admin-edit {
+      position: absolute;
+    }
+  }
+  &__contacts-btn {
+    display: none;
+  }
+  &__navbar {
+    padding: 0;
+    margin-bottom: 0;
+    border: none;
+    position: relative;
+    left: 0;
+    right: 0;
+    transition: all 1s;
+    align-items: flex-start;
+    flex-grow: 1;
+    white-space: nowrap;
+    ul {
+      padding: 0;
+    }
+    .navbar-nav {
+      width: 100%;
+      margin: 0;
+      justify-content: space-between;
+      > li {
+        position: relative;
+        padding-right: 16px;
+        margin-left: 0;
+        padding-left: 0;
+        line-height: normal;
+        &:last-child {
+          padding-right: 0;
+        }
+        &.nav-link-dropdown {
+          padding-right: 30px;
+        }
+        .svg-icon {
+          width: 24px;
+          height: 24px;
+          position: absolute;
+          right: -23px;
+          margin-top: 1px;
+          fill: #4b5669;
+        }
+        &.open {
+          > a {
+            color: $menu-text-color-active;
+          }
+          .svg-icon {
+            fill: $menu-text-color-active;
+            transform: rotate(-180deg);
+          }
+        }
+        > a {
+          position: relative;
+          display: inline-block;
+          line-height: 25px;
+          padding: 18px 0 17px 0;
+          color: $menu-text-color;
+          font-size: $menu-font-size;
+          font-weight: 600;
+          &:hover {
+            text-decoration: none;
+            color: $menu-text-color-active;
+            .svg-icon {
+              fill: $menu-text-color-active;
+            }
+          }
+        }
+        &.active a {
+          color: $menu-text-color-active;
+        }
+        .btn-brand {
+          text-transform: none;
+        }
+      }
+    }
+  }
+  &__child-menu {
+    display: block;
+    padding: 10px 0 16px 0;
+    font-size: 13px;
+    min-width: 315px;
+    a {
+      line-height: 28px;
+      padding: 0 20px;
+    }
+    li {
+      a {
+        display: flex;
+        justify-content: space-between;
+        color: #333333;
+        &:hover {
+          background-color: #EBF1F3;
+          text-decoration: none;
+        }
+        span {
+          font-weight: 600;
+          color: #387c89;
+        }
+      }
+    }
+    .child-menu-link {
+      display: block;
+      margin-top: 12px;
+      text-align: center;
+      a {
+        font-weight: 600;
+        color: #f08c36;
+      }
+    }
+  }
+}
+
+.b-dropdown-callback {
+  min-width: 232px;
+  padding: rem(10px 15px 15px 15px);
+  &__heading {
+    font-size: 13px;
+  }
+  .validation {
+    position: absolute;
+  }
+  .btn {
+    width: 100%
+  }
+}

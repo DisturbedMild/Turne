@@ -1,0 +1,40 @@
+<div class="header-top">
+    <div class="header-top__content container">
+
+        <div class="header-top__left">
+            <div class="html-block">
+                Подбор тура: <a href="tel:+380678294052">(067) 829-40-52</a>, <a href="tel:+380952357060">(095)
+                    235-70-60</a>, Реклама: <a href="tel:+380955453888">(095) 545-38-88</a>
+            </div>
+            <div class="header-top__callback-wrap">
+                <a href="#" class="header-top__callback jsCallBackShow">
+                    <svg class="svg-icon phone-icon" width="24" height="24">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/communication-icons.svg#phone"></use>
+                    </svg> Перезвоните мне</a>
+                <div class="b-dropdown b-dropdown-callback jsCallBackForm" style="display: none;">
+                    <form action="/common/phonecallbackformsubmit" data-ajax="true" data-ajax-begin="oForms.FormOnBegin"
+                          data-ajax-complete="oForms.FormOnComplete" data-ajax-success="oForms.PhoneCallbackFormOnSuccess"
+                          id="form1" method="post" novalidate="novalidate"><span class="b-dropdown-callback__heading">Введите свой номер телефона:</span>
+
+                        <div class="form-group"><input class="form-control jsMaskedInputPhone" data-val="true"
+                                                       data-val-regex="Неверный формат"
+                                                       data-val-regex-pattern="^\+38\(\d{3}\)\s{1}\d{3}-\d{2}-\d{2}$"
+                                                       data-val-required="Неверный формат" id="Phone" maxlength="100"
+                                                       name="Phone" placeholder="+38(XXX) XXX-XX-XX" type="tel"> <span
+                                    class="field-validation-valid validation" data-valmsg-for="Phone"
+                                    data-valmsg-replace="true"></span></div>
+                        <input id="Url" name="Url" type="hidden" value="%2f">
+                        <input type="submit" id="btnSend"
+                                                                                     name="btnSend"
+                                                                                     class="btn btn-brand btn-brand--orange"
+                                                                                     value="Перезвоните мне"></form>
+                </div>
+            </div>
+        </div>
+
+        <a class="header__sign-in" href="#signInModal" data-toggle="modal">
+            Войти
+        </a>
+    </div>
+</div>

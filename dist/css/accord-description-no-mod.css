@@ -1,0 +1,95 @@
+.accord-description {
+  line-height: 20px;
+  padding-left: 66px;
+}
+
+.accord-description img {
+  height: auto;
+  width: auto;
+  max-height: 120px;
+}
+
+.accord-description h3 {
+  display: inline;
+  font-size: 14px;
+}
+
+.accord-description table {
+  margin-bottom: 15px;
+}
+
+.accord-description table td {
+  padding: 0;
+  vertical-align: top;
+}
+
+.accord-description table td img {
+  -webkit-border-radius: 2px;
+          border-radius: 2px;
+  -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+.accord-description > div > div {
+  display: inline-block;
+  width: auto;
+}
+
+.accord-description > div > div img:not(.youtube-modal-ex) {
+  max-width: 100%;
+  float: left;
+  -webkit-border-radius: 2px;
+          border-radius: 2px;
+  -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 15px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+
+.accord-description h2 {
+  position: relative;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.42;
+  color: #387c89;
+  padding-bottom: 17px;
+  padding-left: 0;
+  padding-top: 25px;
+  margin: 0;
+}
+
+.accord-description h2:first-child {
+  margin-top: 0;
+}
+
+.accord-description h2 + p {
+  padding-left: 30px;
+  border-left: 4px #d8d8d8 dotted;
+}
+
+.heading-icon {
+  float: left;
+  max-width: 57px;
+  -webkit-border-radius: 8px;
+          border-radius: 8px;
+  -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+  font-size: 17px;
+  font-weight: bold;
+  border: 2px solid #387c89;
+  padding: 15px 0;
+  margin-top: 9px;
+  margin-left: -66px;
+  text-align: center;
+  left: 0;
+  color: #424242;
+}
+
+.youtube-modal-ex {
+  margin: 15px 0;
+}
+
+/*# sourceMappingURL=map/accord-description-no-mod.css.map */

@@ -1,0 +1,167 @@
+$popover-bg: #ff8508;
+$popover-border-color: #ff8508;
+$popover-arrow-color: #ff8508;
+$popover-arrow-outer-color: #ff8508;
+$popover-body-color: #fff;
+
+$popover-grey-bg: #f4f4f5;
+$popover-grey-border-color: #bdbdbd;
+$popover-grey-arrow-color: #f4f4f5;
+$popover-grey-arrow-outer-color: #bdbdbd;
+$popover-grey-body-color: #424242;
+
+.popover-orange {
+  &.popover {
+    background-color: $popover-bg;
+    border-color: $popover-border-color;
+    font-size: 1rem;
+    background-clip: border-box;
+  }
+  //&.bs-popover-top {
+  //  .arrow::before {
+  //    border-top-color: $popover-arrow-outer-color;
+  //  }
+  //  .arrow::after {
+  //    border-top-color: $popover-arrow-color;
+  //  }
+  //}
+
+  &.bs-popover-right {
+    .arrow::before {
+      border-right-color: $popover-arrow-outer-color;
+    }
+    .arrow::after {
+      border-right-color: $popover-arrow-color;
+    }
+  }
+
+  //&.bs-popover-bottom {
+  //  .arrow::before {
+  //    border-bottom-color: $popover-arrow-outer-color;
+  //  }
+  //  .arrow::after {
+  //    border-bottom-color: $popover-arrow-color;
+  //  }
+  //
+  //}
+  //
+  //&.bs-popover-left {
+  //  .arrow::before {
+  //    border-left-color: $popover-arrow-outer-color;
+  //  }
+  //  .arrow::after {
+  //    border-left-color: $popover-arrow-color;
+  //  }
+  //}
+
+  //&.bs-popover-auto {
+  //  &[x-placement^="top"] {
+  //    @extend .bs-popover-top;
+  //  }
+    &[x-placement^="right"] {
+      @extend .bs-popover-right;
+    }
+  //  &[x-placement^="bottom"] {
+  //    @extend .bs-popover-bottom;
+  //  }
+  //  &[x-placement^="left"] {
+  //    @extend .bs-popover-left;
+  //  }
+  //}
+
+  .popover-body {
+    display: block;
+    color: $popover-body-color;
+  }
+
+  &.popover-filter {
+    filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.3));
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 9;
+    .popover-body {
+      padding: 7px;
+      min-width: 110px;
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+  a {
+    color: #050286;
+    text-decoration: underline;
+  }
+}
+
+//.popover--grey {
+//  &.popover {
+//    border-radius: 0;
+//    background-color: $popover-grey-bg;
+//    border-color: $popover-grey-border-color;
+//    font-size: 1rem;
+//    background-clip: border-box;
+//  }
+//  &.bs-popover-top {
+//    .arrow::before {
+//      border-top-color: $popover-grey-arrow-outer-color;
+//    }
+//    .arrow::after {
+//      border-top-color: $popover-grey-arrow-color;
+//    }
+//  }
+//
+//  &.bs-popover-right {
+//    .arrow::before {
+//      border-right-color: $popover-grey-arrow-outer-color;
+//    }
+//    .arrow::after {
+//      border-right-color: $popover-grey-arrow-color;
+//    }
+//  }
+//
+//  &.bs-popover-bottom {
+//    .arrow::before {
+//      border-bottom-color: $popover-grey-arrow-outer-color;
+//    }
+//    .arrow::after {
+//      border-bottom-color: $popover-grey-arrow-color;
+//    }
+//
+//  }
+//
+//  &.bs-popover-left {
+//    .arrow::before {
+//      border-left-color: $popover-grey-arrow-outer-color;
+//    }
+//    .arrow::after {
+//      border-left-color: $popover-grey-arrow-color;
+//    }
+//  }
+//
+//  //&.bs-popover-auto {
+//  //  &[x-placement^="top"] {
+//  //    @extend .bs-popover-top;
+//  //  }
+//  //  &[x-placement^="right"] {
+//  //    @extend .bs-popover-right;
+//  //  }
+//  //  &[x-placement^="bottom"] {
+//  //    @extend .bs-popover-bottom;
+//  //  }
+//  //  &[x-placement^="left"] {
+//  //    @extend .bs-popover-left;
+//  //  }
+//  //}
+//
+//  .popover-body {
+//    display: block;
+//    color: $popover-grey-body-color;
+//  }
+//  a {
+//    //color: #007bff;
+//    font-weight: 600;
+//    text-decoration: underline;
+//  }
+//  .close {
+//    padding-right: 5px;
+//  }
+//}

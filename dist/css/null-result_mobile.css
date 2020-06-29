@@ -1,0 +1,37 @@
+.null-result__img {
+  display: none;
+}
+
+.null-result__content {
+  margin-left: 0;
+  width: 100%;
+}
+
+.null-result__callback svg {
+  left: 8px;
+  top: 8px;
+}
+
+.null-result__form-call {
+  padding-left: 26px;
+}
+
+@media (max-width: 1199px) {
+  .null-result__form-btn {
+    width: 100%;
+  }
+  .null-result__text-info {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .null-result__form .form-group {
+    max-width: 100% !important;
+    -webkit-flex-basis: 100%;
+        -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
+  }
+}
+
+/*# sourceMappingURL=map/null-result_mobile.css.map */

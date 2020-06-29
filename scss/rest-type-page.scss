@@ -1,0 +1,47 @@
+@import "mixin";
+@import "variable";
+
+.heading {
+  margin-bottom: rem(20px);
+  margin-top: rem(40px);
+}
+
+.form-section {
+  margin-top: rem(40px);
+}
+
+.form-callback--small .form-callback__col {
+  max-width: none;
+}
+
+.section-popular-destinations {
+  margin-bottom: rem(20px);
+  .image-box__thumbnail {
+    height: 140px;
+  }
+}
+
+.another-rest-section {
+  padding-bottom: rem(40px);
+}
+
+.another-rest-col {
+  margin-bottom: 20px;
+}
+
+.image-box--another-rest {
+  box-shadow: none !important;
+  .image-box__thumbnail img {
+    border-radius: 4px;
+  }
+  .image-box__text {
+    font-family: $font-mont;
+    font-weight: 600;
+    padding-top: 8px;
+    color: #4b5669;
+  }
+  &:hover {
+    color: #4b5669;
+    text-decoration: none;
+  }
+}

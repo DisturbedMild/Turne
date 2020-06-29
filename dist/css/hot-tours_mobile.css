@@ -1,0 +1,28 @@
+.form-callback .form-control {
+  padding-left: 26px;
+}
+
+.form-callback .custom-dropdown__icon {
+  margin-left: -8px;
+}
+
+.form-callback .form-callback__icon {
+  top: 8px;
+  left: 8px;
+}
+
+.vertical-filter__section.hide + .vertical-filter__section .vertical-filter__title {
+  padding-top: 20px;
+}
+
+.vertical-filter__section.hide + .vertical-filter__section .vertical-filter__title .arrow-icon {
+  top: 20px;
+}
+
+@media (max-width: 767px) {
+  .hot-tours .form-section {
+    margin: 0px;
+  }
+}
+
+/*# sourceMappingURL=map/hot-tours_mobile.css.map */

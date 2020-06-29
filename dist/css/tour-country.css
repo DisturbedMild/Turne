@@ -1,0 +1,319 @@
+.sidebar-box {
+  padding-top: 20px;
+  padding-bottom: 19px;
+  border-bottom: 1px solid #efefef;
+}
+
+.sidebar-box:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.sidebar-box__heading {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  color: #4b5669;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.sidebar-box__content {
+  margin-left: -4px;
+  margin-right: -4px;
+}
+
+.sidebar-box__item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin: 4px;
+  border: solid 1px #efefef;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.sidebar-box__item:hover {
+  -webkit-box-shadow: 0 6px 12px 0 rgba(92, 50, 15, 0.15);
+          box-shadow: 0 6px 12px 0 rgba(92, 50, 15, 0.15);
+}
+
+.sidebar-box__item svg {
+  margin-left: 8px;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+}
+
+.sidebar-box .sidebar-icon {
+  margin-left: 8px;
+  margin-right: 8px;
+  height: 24px;
+  width: 24px;
+  fill: #387C89;
+}
+
+.sidebar-box .sprite-flag {
+  height: 26px;
+  width: 26px;
+}
+
+.sidebar-box__link {
+  padding: 4px 8px 4px 8px;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  color: #4b5669;
+  min-height: 44px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sidebar-box__link:hover {
+  text-decoration: none;
+  color: #4b5669;
+}
+
+.sidebar-box__link > *:first-child {
+  margin-left: 0;
+}
+
+.sidebar-box__link > *:last-child {
+  margin-right: 0;
+}
+
+.sidebar-box__price {
+  color: #ff8508;
+  font-weight: 600;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+}
+
+.sidebar-box__weather {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 15px;
+  margin-left: auto;
+}
+
+.sidebar-box--two-col .sidebar-box__text {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.sidebar-box-season__content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-left: -2px;
+  margin-right: -2px;
+}
+
+.sidebar-box-season__item {
+  width: 50%;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin-bottom: 4px;
+}
+
+.sidebar-box-season__block {
+  width: 100%;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  text-align: center;
+  padding-bottom: 16px;
+  color: #4b5669;
+}
+
+.sidebar-box-season__block:hover {
+  color: #4b5669;
+  text-decoration: none;
+}
+
+.sidebar-box-season__block--summer {
+  background-color: #fff3f2;
+  border: solid 1px #ffc0b6;
+}
+
+.sidebar-box-season__block--spring {
+  border: solid 1px #c1e8c1;
+  background-color: #f7fff7;
+}
+
+.sidebar-box-season__block--autumn {
+  background-color: #fff7f0;
+  border: solid 1px #ffcea4;
+}
+
+.sidebar-box-season__block--winter {
+  border: solid 1px #c1d8e8;
+  background-color: #f7fcff;
+}
+
+.sidebar-box-season__sprite {
+  padding: 12px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  background-color: #fff;
+  margin: 16px auto 8px auto;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+.sidebar-box-season__sprite.sprite-winter {
+  border: solid 1px #c1d8e8;
+}
+
+.sidebar-box-season__sprite.sprite-autumn {
+  border: solid 1px #ffcea4;
+}
+
+.sidebar-box-season__sprite.sprite-spring {
+  border: solid 1px #c1e8c1;
+}
+
+.sidebar-box-season__sprite.sprite-summer {
+  border: solid 1px #ffc0b6;
+}
+
+.sidebar-box-season__img {
+  width: 24px;
+  height: 24px;
+  max-width: 100%;
+  margin: 0 auto;
+  background-image: url("../Images/seasons-sprite.png");
+  background-size: 100%;
+}
+
+.sidebar-box-season__img.autumn {
+  background-position: 0 0;
+  background-size: 100%;
+}
+
+.sidebar-box-season__img.spring {
+  background-position: 0 33.333333%;
+  background-size: 100%;
+}
+
+.sidebar-box-season__img.summer {
+  background-position: 0 66.666667%;
+  background-size: 100%;
+}
+
+.sidebar-box-season__img.winter {
+  background-position: 0 100%;
+  background-size: 100%;
+}
+
+.layout-box__sidebar > .sidebar-box:first-child {
+  border-top: 1px solid #efefef;
+}
+
+.section-hotels {
+  padding: 2.5rem 0;
+  background-color: #f6f6f7;
+}
+
+.section-news {
+  margin-top: 2rem;
+}
+
+.layout-mg {
+  margin-bottom: 2.5rem;
+}
+
+.section-news {
+  margin-bottom: 20px;
+}
+
+.news-card {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+  text-decoration: none !important;
+  background-color: #ffffff;
+}
+
+.news-card__thumbnail {
+  display: block;
+  width: 100%;
+  height: 216px;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+}
+
+.news-card__thumbnail img {
+  height: 100%;
+  width: 100%;
+}
+
+.news-card__caption {
+  padding-top: 12px;
+}
+
+.news-card__heading {
+  color: #4b5669;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.news-card__text {
+  line-height: 1.54;
+  margin-top: 4px;
+  color: #4b5669;
+}
+
+/*# sourceMappingURL=map/tour-country.css.map */

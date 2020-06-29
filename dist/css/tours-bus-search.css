@@ -1,0 +1,191 @@
+.bus-tours-container {
+  margin-top: 2.5rem;
+}
+
+.vertical-filter-bus-tour__heading {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  color: #4b5669;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.vertical-filter-bus-tour .bus-tour_checkbox {
+  padding-top: 20px;
+}
+
+.vertical-filter-bus-tour .vertical-filter__section:first-child {
+  border-top: 1px solid #efefef;
+}
+
+.section-tours {
+  margin-top: 1.875rem;
+}
+
+.section-hot-tours {
+  margin-top: 1.25rem;
+}
+
+.section-popular-destinations {
+  margin-top: 1.25rem;
+}
+
+.tour-card__about-trip, .search-card__about-trip {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.tour-card__date, .search-card__date {
+  margin-right: 5px;
+}
+
+.tour-card__date-info, .search-card__date-info {
+  background-color: #387c89;
+  color: #ffffff;
+  -webkit-border-radius: 8px;
+          border-radius: 8px;
+  padding: 0px 8px;
+  font-weight: 600;
+}
+
+.tour-card__tour-info, .search-card__tour-info {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.2;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.tour-card__countries, .search-card__countries {
+  font-size: 13px;
+  font-weight: 600;
+  color: #387c89;
+}
+
+.tour-card__countries-tour, .search-card__countries-tour {
+  font-size: 13px;
+}
+
+.tour-card__about-tour, .search-card__about-tour {
+  display: block;
+}
+
+.tour-card__about-tour .media, .search-card__about-tour .media {
+  margin-right: 10px;
+}
+
+.tour-card__about-tour .media strong, .search-card__about-tour .media strong {
+  margin-left: 5px;
+}
+
+.search-card__about-trip {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.search-card__countries {
+  margin-top: 5px;
+}
+
+.search-card__countries-tour {
+  margin-bottom: 12px;
+}
+
+.search-card__review-block {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.tour-card__about-trip {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.tour-card__date-info {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 150px;
+}
+
+.tour-card__countries-tour {
+  margin-bottom: 5px;
+}
+
+.tour-card__icon {
+  fill: #387c89;
+}
+
+.tour-card__about-tour .media {
+  margin-bottom: 3px;
+}
+
+.tour-card__about-tour .media svg {
+  margin-right: 5px;
+}
+
+.tour-card__about-tour .media strong {
+  margin-left: 5px;
+}
+
+.image-box__thumbnail {
+  height: 200px;
+}
+
+.form-callback .btn {
+  line-height: 25px;
+}
+
+.city-from__row {
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+.city-from__row div {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 10px;
+}
+
+.city-from__item {
+  color: #4b5669;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #efefef;
+  -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.city-from__item:hover {
+  color: #4b5669;
+  text-decoration: none;
+}
+
+.bus-tours .slick-carousel .slick-track {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.bus-tours .slick-carousel .slick-carousel-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: auto;
+}
+
+/*# sourceMappingURL=map/tours-bus-search.css.map */

@@ -1,0 +1,131 @@
+{% macro dropdown(mobile) %}
+    <div class="b-dropdown_simple-b b-dropdown m-dropdown jsDropDownOptions dropdown-metro"
+         style="display: none;">
+        <div class="m-dropdown__header">
+            <button class="m-dropdown__back back-icon jsMultiSelectDone"></button>
+            <span class="m-dropdown__title">Метро</span>
+        </div>
+        <ul class="li-town">
+            <li class="jsDropDownItem dd-item red-metro divider jsItemLabel" data-id=""><span class="item__text">Святошинско - Броварская</span>
+            </li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="13" data-latitude="50,464922"
+                data-longitude="30,355284">
+                <span class="item__text">Академгородок</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="28" data-latitude="50,456122"
+                data-longitude="30,365281">
+                <span class="item__text">Житомирская</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="30" data-latitude="50,458620"
+                data-longitude="30,403935">
+                <span class="item__text">Нивки</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="31" data-latitude="50,458620"
+                data-longitude="30,403935">
+                <span class="item__text">Берестейская</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="32" data-latitude="50,454487"
+                data-longitude="30,447251">
+                <span class="item__text">Шулявская</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="33" data-latitude="50,450966"
+                data-longitude="30,465156">
+                <span class="item__text">Политехнический институт</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="34" data-latitude="50,441369"
+                data-longitude="30,489039">
+                <span class="item__text">Вокзальная</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="35" data-latitude="50,444241"
+                data-longitude="30,505852">
+                <span class="item__text">Университет</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="36" data-latitude="50,445262"
+                data-longitude="30,518135">
+                <span class="item__text">Театральная</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="37" data-latitude="50,447193"
+                data-longitude="30,522849">
+                <span class="item__text">Крещатик</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="38" data-latitude="50,444291"
+                data-longitude="30,545542">
+                <span class="item__text">Арсенальная</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="41" data-latitude="50,451871"
+                data-longitude="30,598089">
+                <span class="item__text">Левобережная</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="42" data-latitude="50,455956"
+                data-longitude="30,612862">
+                <span class="item__text">Дарница</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="43" data-latitude="50,459816"
+                data-longitude="30,630316">
+                <span class="item__text">Черниговская</span></li>
+            <li class="jsDropDownItem dd-item red-metro" data-id="44" data-latitude="50,464666"
+                data-longitude="30,645575">
+                <span class="item__text">Лесная</span></li>
+            <li class="jsDropDownItem dd-item blue-metro divider jsItemLabel" data-id=""><span class="item__text">Куреневско - Красноармейская</span>
+            </li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="108" data-latitude="50,376275"
+                data-longitude="30,468296"><span class="item__text">Иподром</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="24" data-latitude="50,432153"
+                data-longitude="30,516359">
+                <span class="item__text">Олимпийская</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="109" data-latitude="50,367428"
+                data-longitude="30,454787"><span class="item__text">Теремки</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="53" data-latitude="50,512255"
+                data-longitude="30,498621">
+                <span class="item__text">Минская</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="52" data-latitude="50,501438"
+                data-longitude="30,498234">
+                <span class="item__text">Оболонь</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="51" data-latitude="50,486191"
+                data-longitude="30,497877">
+                <span class="item__text">Почайна</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="50" data-latitude="50,473298"
+                data-longitude="30,505203">
+                <span class="item__text">Тараса Шевченко</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="26" data-latitude="50,465052"
+                data-longitude="30,516569">
+                <span class="item__text">Контрактовая пл.</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="49" data-latitude="50,459125"
+                data-longitude="30,524600">
+                <span class="item__text">Почтовая площадь</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="48" data-latitude="50,449478"
+                data-longitude="30,524538">
+                <span class="item__text">Майдан Независимости </span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="64" data-latitude="50,439641"
+                data-longitude="30,516836">
+                <span class="item__text">Пл. Льва Толстого</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="45" data-latitude="50,420924"
+                data-longitude="30,520846">
+                <span class="item__text">Дворец Украина</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="27" data-latitude="50,413187"
+                data-longitude="30,524908">
+                <span class="item__text">Лыбедская</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="96" data-latitude="50,404845"
+                data-longitude="30,516962">
+                <span class="item__text">Демиевская</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="94" data-latitude="50,397466"
+                data-longitude="30,508464">
+                <span class="item__text">Голосеевская</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="97" data-latitude="50,393313"
+                data-longitude="30,487609">
+                <span class="item__text">Васильковская</span></li>
+            <li class="jsDropDownItem dd-item blue-metro" data-id="98" data-latitude="50,382316"
+                data-longitude="30,477616">
+                <span class="item__text">Выставочный центр</span></li>
+            <li class="jsDropDownItem dd-item green-metro divider jsItemLabel" data-id=""><span class="item__text">Сирецко - Печерская</span>
+            </li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="57" data-latitude="50,462351"
+                data-longitude="30,482179"><span class="item__text">Лукьяновская</span></li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="58" data-latitude="50,448480"
+                data-longitude="30,513563"><span class="item__text">Золотые Ворота</span></li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="59" data-latitude="50,438105"
+                data-longitude="30,520821"><span class="item__text">Дворец Спорта</span></li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="60" data-latitude="50,436734"
+                data-longitude="30,532325"><span class="item__text">Кловская</span></li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="61" data-latitude="50,427552"
+                data-longitude="30,538768"><span class="item__text">Печерская</span></li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="25" data-latitude="50,418058"
+                data-longitude="30,545112"><span class="item__text">Дружбы народов</span></li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="20" data-latitude="50,395270"
+                data-longitude="30,616243"><span class="item__text">Осокорки</span></li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="19" data-latitude="50,397947"
+                data-longitude="30,634605"><span class="item__text">Позняки</span></li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="18" data-latitude="50,400879"
+                data-longitude="30,652454"><span class="item__text">Харьковская</span></li>
+            <li class="jsDropDownItem dd-item green-metro" data-id="63" data-latitude="50,403466"
+                data-longitude="30,682993"><span class="item__text">Бориспольская</span></li>
+        </ul>
+        <input id="MetroDropDownList_Value" name="MetroDropDownList.Value" type="hidden" value=""></div>
+{% endmacro %}

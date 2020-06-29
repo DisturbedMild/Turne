@@ -1,0 +1,20 @@
+@import "mixin";
+@import "variable";
+
+@media (max-width: 770px) {
+  .preloader-section__logos {
+    justify-content: space-around;
+  }
+  .preloader-section__item {
+    max-width: 30%;
+  }
+}
+
+@media (max-width: 445px) {
+  .preloader-section__logos-title {
+    font-size: 13px;
+  }
+  .preloader-section__logos-block .heading {
+    font-size: 16px;
+  }
+}

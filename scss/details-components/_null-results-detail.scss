@@ -1,0 +1,13 @@
+.hotel-detail-null-results {
+  font-family: $font-mont;
+  margin-bottom: rem(14px);
+  color: #4b5669;
+  font-size: 16px;
+  font-weight: 400;
+  &__heading {
+   margin-bottom: 10px;
+  }
+}
+.hotel-detail-null-results:not([style*='display:none']) + .hotel-tours-section {
+  margin-bottom: 0;
+}

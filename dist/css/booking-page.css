@@ -1,0 +1,633 @@
+.hotel-booking__header-info {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  -webkit-box-shadow: 0 12px 24px 0 rgba(33, 84, 94, 0.15);
+          box-shadow: 0 12px 24px 0 rgba(33, 84, 94, 0.15);
+  margin-bottom: 65px;
+}
+
+.hotel-booking__content {
+  padding: 20px;
+  max-width: 560px;
+  width: 100%;
+}
+
+.hotel-booking__place {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.hotel-booking__facilities-wrapper {
+  padding-top: 12px;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+  max-width: 480px;
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.hotel-booking__facilities {
+  padding: 0px;
+  -webkit-column-count: 2;
+     -moz-column-count: 2;
+          column-count: 2;
+}
+
+.hotel-booking__facilities .media {
+  margin-bottom: 5px;
+}
+
+.hotel-booking__facilities .media svg {
+  margin-right: 5px;
+}
+
+.hotel-booking__contacts {
+  color: #4B5669;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.hotel-booking__contacts:hover {
+  color: #4B5669;
+  text-decoration: none;
+}
+
+.hotel-booking__price {
+  -webkit-box-shadow: inset 1px 0 0 0 #efefef;
+          box-shadow: inset 1px 0 0 0 #efefef;
+  padding: 20px;
+}
+
+.hotel-booking__operator {
+  font-size: 13px;
+}
+
+.hotel-booking__operator img {
+  margin-bottom: 72px;
+  margin-top: 4px;
+}
+
+.hotel-booking__payment {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+  margin-bottom: 10px;
+}
+
+.hotel-booking__payment .hotel-booking__verification-buttons {
+  margin-left: 0px !important;
+}
+
+.hotel-booking__prepayment {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 8px;
+}
+
+.hotel-booking__tourPrice {
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  color: #ff8508;
+  font-weight: 600;
+}
+
+.hotel-booking__info-btn {
+  font-size: 13px;
+  max-width: 100%;
+  font-weight: 700;
+  color: #ff8508;
+  line-height: 1.23;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  border: solid 1px #ff8508;
+}
+
+.hotel-booking__info-btn:hover {
+  color: #fff;
+  background-color: #ff8508;
+}
+
+.hotel-booking__text-heading {
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.hotel-booking__included {
+  font-size: 13px;
+  color: #387c89;
+  font-weight: 600;
+  padding-bottom: 16px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.hotel-booking__included span {
+  color: #4B5669;
+  font-weight: normal;
+  font-family: "Open Sans", sans-serif;
+}
+
+.hotel-booking .btn.btn-brand {
+  padding: 5px 8px;
+  max-width: 100px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.hotel-booking__passport {
+  display: block;
+}
+
+.hotel-booking__heading {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.hotel-booking__heading .arrow-icon {
+  -webkit-transform: rotate(-180deg);
+      -ms-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  right: 20px;
+}
+
+.hotel-booking__item + .hotel-booking__item {
+  padding-left: 20px;
+}
+
+.hotel-booking__item-num {
+  height: 24px;
+  width: 24px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  background-color: #d8d8e4;
+  line-height: 24px;
+  text-align: center;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  margin-right: 12px;
+}
+
+.hotel-booking__item-heading {
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.hotel-booking__text {
+  display: none;
+}
+
+.hotel-booking__contacts-form {
+  -webkit-column-count: 2;
+     -moz-column-count: 2;
+          column-count: 2;
+  padding: 20px 100px 10px 35px;
+}
+
+.hotel-booking__next-btn {
+  width: 100%;
+  max-width: 100px;
+  margin-left: auto;
+}
+
+.hotel-booking__passport-item {
+  margin-left: 35px;
+}
+
+.hotel-booking__passport-form .form-group {
+  max-width: 210px;
+}
+
+.hotel-booking__passport-form .form-group:nth-child(2) {
+  margin-left: 12px;
+}
+
+.hotel-booking__passport-form .form-group:nth-child(3) {
+  max-width: 106px;
+}
+
+.hotel-booking__passport-form .form-group:nth-child(4) {
+  max-width: 140px;
+  margin-left: 12px;
+}
+
+.hotel-booking__passport-form .form-group:nth-child(5) {
+  max-width: 160px;
+  margin-left: 12px;
+}
+
+.hotel-booking__passport-form .form-group:nth-child(7) {
+  margin-left: 12px;
+}
+
+.hotel-booking-prepayment-info__title-text {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #387c89;
+}
+
+.hotel-booking-percent-prepayment__items {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 360px !important;
+  width: 100%;
+}
+
+.hotel-booking-percent-prepayment__items .prepayment-item {
+  width: 74px;
+  position: relative;
+  padding: 8px;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  border: solid 1px #cbd2de;
+  height: 40px;
+}
+
+.hotel-booking-percent-prepayment__items .prepayment-item input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.hotel-booking-percent-prepayment__items .prepayment-item:hover input ~ .checkmark-sale {
+  background-color: #387c89;
+  color: #fff;
+}
+
+.hotel-booking-percent-prepayment__items .prepayment-item input:checked ~ .checkmark-sale {
+  background-color: #387c89;
+  color: #fff;
+  border: none;
+}
+
+.hotel-booking-percent-prepayment__items .prepayment-item + .prepayment-item {
+  margin-left: 12px;
+}
+
+.hotel-booking-percent-prepayment__items .checkmark-sale {
+  background-color: #fff;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  color: #4b5669;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 35px;
+  position: absolute;
+  z-index: 110;
+  top: 0;
+  left: 0;
+  height: 38px;
+  max-width: 72px;
+  width: 100%;
+  outline: none;
+}
+
+.hotel-booking-prepayment__item-price {
+  font-size: 24px;
+  color: #ff8508;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.hotel-booking__sms-verification {
+  padding-top: 8px;
+  -webkit-box-shadow: inset 0 1px 0 0 #efefef;
+          box-shadow: inset 0 1px 0 0 #efefef;
+  max-width: 480px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.hotel-booking__sms-verification__title {
+  font-weight: 600;
+  padding-bottom: 4px;
+}
+
+.hotel-booking__sms-verification__text {
+  font-size: 11px;
+  margin-bottom: 22px;
+}
+
+.hotel-booking__verification-buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.hotel-booking__prev-btn {
+  width: 100%;
+  max-width: 100px;
+}
+
+.hotel-booking__prev-btn .btn-brand {
+  background-color: #fff;
+  color: #4B5669;
+  font-weight: 700;
+  border: solid 1px #dbdde1;
+}
+
+.hotel-booking__prev-btn .btn-brand:hover {
+  background-color: #4B5669;
+  color: #fff;
+}
+
+.hotel-booking__person {
+  color: #387c89;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.hotel-booking__person.collapsed {
+  border-bottom: 1px dashed;
+  display: inline-block;
+}
+
+.hotel-booking .form-group {
+  max-width: 220px;
+  width: 100%;
+}
+
+.hotel-booking .form-control {
+  height: 40px;
+}
+
+.hotel-booking__sex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 106px;
+  width: 100%;
+  height: 40px;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  border: solid 1px #cbd2de;
+}
+
+.hotel-booking__sex .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.hotel-booking__sex .container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  background: white;
+}
+
+.hotel-booking__verification-buttons {
+  margin-left: 35px;
+  margin-right: 55px;
+}
+
+.hotel-booking__verification-buttons .booking_next-btn {
+  padding-right: 0px;
+  margin-right: 80px;
+}
+
+.hotel-booking__thanks {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hotel-booking__thanks a {
+  font-size: 22px;
+}
+
+.hotel-booking__thanks-heading {
+  color: #387c89;
+  font-size: 24px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.hotel-booking__thanks-description {
+  font-size: 16px;
+  line-height: 1.67;
+}
+
+.hotel-booking__label-confirm {
+  margin-left: 35px;
+  margin-bottom: 20px;
+}
+
+.booking-personalInfo {
+  margin-bottom: 60px;
+}
+
+.hotel-booking__contact, .hotel-booking__passport, .hotel-booking__payment-section {
+  max-width: 560px;
+  width: 100%;
+  -webkit-box-shadow: inset -1px 0 0 0 rgba(0, 0, 0, 0.1);
+          box-shadow: inset -1px 0 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.form-group .custom-dropdown__control {
+  border: 1px solid #ced4da;
+}
+
+.brand-checkbox__media {
+  width: 18px;
+  height: 18px;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+}
+
+.brand-checkbox__inner {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.67;
+}
+
+.brand-checkbox__inner span {
+  color: #387c89;
+}
+
+.brand-checkbox__inner span:hover {
+  text-decoration: underline;
+}
+
+.collapsePerson {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin-left: 20px;
+}
+
+.toogle {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  width: 50px;
+  margin: 1px;
+}
+
+.toogle input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.toogle:hover input ~ .checkmark {
+  background-color: #387c89;
+  color: #fff;
+}
+
+.toogle input:checked ~ .checkmark {
+  background-color: #387c89;
+  color: #fff;
+}
+
+.toogle .checkmark {
+  color: #333333;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 35px;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 36px;
+  background-color: #fff;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.confirm-modal {
+  text-align: center;
+}
+
+.confirm-modal .modal-body {
+  padding: 0px 24px 32px 24px;
+}
+
+.confirm-modal .modal-header {
+  border: none;
+  padding-bottom: 0px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.confirm-modal .modal-dialog {
+  max-width: 360px;
+  width: 100%;
+}
+
+.confirm-modal .modal--close-btn {
+  width: 100%;
+}
+
+.confirm-modal .form-group {
+  margin: 15px auto;
+}
+
+.confirm-modal .form-control {
+  max-width: 80px;
+  padding: 20px 12px;
+  margin: 0 auto;
+  font-size: 18px;
+}
+
+.hotel-booking__contact-heading {
+  font-size: 24px;
+  color: #387c89;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.hotel-booking__contact-text {
+  font-size: 13px;
+}
+
+.arrow-icon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+}
+
+.done {
+  margin-bottom: 20px;
+}
+
+.done .hotel-booking__next-btn {
+  display: none;
+}
+
+.done .hotel-booking__prev-btn {
+  display: none;
+}
+
+.done .hotel-booking__heading {
+  -webkit-box-shadow: inset -1px 0 0 0 rgba(0, 0, 0, 0.1);
+          box-shadow: inset -1px 0 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.done .hotel-booking__body {
+  display: none;
+}
+
+.done .hotel-booking__text {
+  display: block;
+  margin-top: 20px;
+  margin-left: 35px;
+}
+
+.done .hotel-booking__item-num {
+  background-color: #4aa451;
+  font-size: 0px;
+  position: relative;
+}
+
+.done .hotel-booking__item-num:after {
+  position: absolute;
+  content: url(../Images/tick.png);
+  left: 4px;
+  top: 4px;
+}
+
+/*# sourceMappingURL=map/booking-page.css.map */

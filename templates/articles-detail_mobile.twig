@@ -1,0 +1,239 @@
+{% extends "layouts/default-mobile.twig" %}
+{% set mobile = 'mobile' %}
+{% if mobile %}
+	{% set toggleMobileText = "Полная версия" %}
+	{% set toggleMobileLink = "articles-detail.html" %}
+{% else %}
+	{% set toggleMobileText = "Мобильная версия" %}
+	{% set toggleMobileLink = "articles-detail_mobile.html" %}
+{% endif %}
+
+{% block searchStyle %}
+	<link href="css/bundle/searchStyleMobile.css?v=113" rel="stylesheet"/>
+
+{% endblock %}
+{% block head %}
+	<link href="css/articles-detail.css?v=113" rel="stylesheet"/>
+	<link href="css/articles-detail_mobile.css?v=113" rel="stylesheet"/>
+{% endblock %}
+{% block scripts %}{% endblock %}
+
+{% block content %}
+	<div class="container">
+		{% include "./articles-detail-modules/breadcrumbs.twig" %}
+		<h2 class="heading">
+			Что привезти из Египта?
+		</h2>
+		<div class="article">
+			<div class="article-wrapper">
+				<div class="article-container">
+					<div class="article-inner">
+						<div class="article-header">
+							<div class="article-date">
+								23.01.2020
+							</div>
+							<div class="article-name">
+								Вокруг света
+							</div>
+						</div>
+						<p>
+							Даже если шеф отправил вас в отпуск, когда на город уже опустились серой кашей осенние тучи, вы еще можете взять у лета свое. И даже съездить туда, откуда в августе вернулись ваши загорелые сотрудники, ведь в сентябре–октябре отдыхать, загорать и купаться можно почти во всех излюбленных нашими туристами странах. Представляем пять мест, где еще можно догнать ускользающее лето: Крым,
+							<a href="#">
+								Турция
+							</a>,
+							<a href="#">
+								Испания
+							</a>,
+							<a href="#">
+								Кипр
+							</a>,
+							<a href="#">
+								Тунис
+							</a>.
+						</p>
+						<p>
+							В заключение предлагаем вам сводную таблицу "метеорологических условий" в самых популярных туристических странах мира:
+						</p>
+						<div class="article-img">
+							<img src="Images/article-detail.jpg">
+						</div>
+						<p>
+							Если повезет, позагорать получится, даже не выезжая за пределы Украины. Купальный сезон в
+							<strong>Крыму</strong>
+							обычно продолжается до октября. Самые жаркие дни, разумеется, приходятся на июль – август, но в это же время достигают своего максимума количество отдыхающих и цены на размещение. Со второй половины сентября снижается стоимость гостиничных номеров, а среднемесячная температура воздуха все еще составляет 23-24С. Многие вполне обоснованно считают, что октябрь – оптимальное время для отдыха на Черноморском побережье.
+						</p>
+						<p>
+							<a href="#">
+								Турция
+							</a>
+							тоже до конца октября готова принять любителей морских купаний. Правда, нужно учитывать, что вечера уже не будут такими теплыми, как летом, и для прогулок под луной понадобятся свитер и брюки. Достаточно прохладно к тому времени станет в
+							<strong>
+								Бодруме
+							</strong>
+							и
+							<strong>
+								Мармарисе</strong>
+							, да и чартерные перевозки к середине октября прекратятся. Дожди, скорее всего, будут идти в октябре в
+							<strong>
+								Кемере
+							</strong>, расположенном на склонах гор. Зато
+							<strong>
+								Белек
+							</strong>,
+							<strong>
+								Сиде
+							</strong>
+							и особенно
+							<strong>
+								Аланья
+							</strong>
+							, где сезон продолжает до начала ноября, – то, что нужно для любителей отдыха у моря. Средняя температура воздуха в середине осени составляет там +26-28С, температура воды +23-24С. К тому же цены в это время падают там практически на четверть, а отели проводят множество специальных рекламных акций.
+						</p>
+						<p>
+							Как не парадоксально, на юге
+							<a href="#">
+								Испании
+							</a>
+							из-за холодного течения, идущего вдоль берега, купальный сезон закончится раньше, чем на севере. Поэтому на
+							<strong>
+								Коста-дель-Соль
+							</strong>
+							лучше ехать до 20-х чисел сентября. Зато на
+							<strong>
+								Коста-Брава
+							</strong>
+							благодаря теплому течению можно купаться и в октябре. Комфортный отдых ждет вас и в Коммуне Валенсия, состоящей из трех провинций –
+							<strong>
+								Кастельо
+							</strong>,
+							<strong>
+								Валенсия
+							</strong>
+							и
+							<strong>
+								Аликанте
+							</strong>. Летом тут невыносимо жарко, поэтому многие специально выбирают время для отдыха с октября по декабрь, когда температура воздуха составляет +30-33С. Мы советуем вам поехать туда на две недели, и одну из них посвятить экскурсиям: только в "бабье лето" ни жара, ни дожди не помешают вам провести целый день в городе.
+						</p>
+						<div class="article-img">
+							<img src="Images/article-detail2.jpg">
+						</div>
+						<p>
+							Ехать на
+							<a href="#">
+								Кипр
+							</a>
+							тоже лучше всего именно в октябре. Вы можете выбрать любой курорт для отдыха: октябрь на Кипре – это разгар сезона. Средняя температура воздуха будет составлять +27С, воды +22С. Даже в полдень здесь не будет изнуряющей жары, и можно будет валяться на пляже, не опасаясь палящих солнечных лучей. Да еще и можно будет посидеть на исключительно полезной витаминной диете – в это время здесь много дешевых фруктов.</p>
+						<p>
+							В
+							<a href="#">
+								Тунис
+							</a>
+							мы бы тоже не советовали ехать в разгар сезона, например, в августе, когда температура воздуха достигает отметки +40С. Комфортнее всего отдыхать там в октябре – в "бархатный сезон": температура воздуха составляет +29С, море прогревается до +22С. Плавательный сезон длится здесь до середины ноября, и до ноября продолжает свою работу чартерная программа. Отдыхать в середине осени особенно приятно еще и потому, что после 10 сентября отели вводят 30-50% скидки на размещение.
+						</p>
+					</div>
+					<div class="article-sidebar">
+						<div class="social-links">
+							<div class="article-sidebar__heading">
+								Поделиться
+							</div>
+							<a href="#" class="article-sidebar__item">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#google-gray"></use>
+								</svg>
+							</a>
+							<a href="#" class="article-sidebar__item">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#facebook-gray"></use>
+								</svg>
+							</a>
+							<a href="#" class="article-sidebar__item">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#twitter-gray"></use>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="article-outer">
+					<div class="article-pages">
+						<a href="#" class="article-page__prev-article">
+							<div class="arrow-prev" href="#" aria-label="Previous">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+								</svg>
+							</div>
+							Предыдущая статья
+						</a>
+						<a href="#" class="article-page__next-article">
+							Следующая статья
+							<div class=" arrow-next" href="#" aria-label="Next">
+								<svg class="svg-icon " width="24" height="24" fill="#387c89">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+								</svg>
+							</div>
+						</a>
+					</div>
+					<div class="form-section">
+						<div class="form-section__image">
+							<img src="Images/subscribe-2.png" alt="">
+						</div>
+						<div class="form-section__content">
+							<div class="form-section__header">
+								Узнавайте о горящих турах первыми!
+							</div>
+							<div class="form-section__text">
+								Подпишитесь на рассылку. Путешествуйте с Турне.
+							</div>
+							{% include "./articles-detail-modules/subscribe-form.twig" %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="another-articles grey-background-f6f">
+		<div class="container">
+			<h2 class="heading">
+				Статьи, которые могут Вам понравиться
+			</h2>
+			<div class="row another-articles__box">
+				<a href="#" class="col-12 col-md-6 col-lg-3 col-xl-3 another-articles__item">
+					<img src="https://img.poehalisnami.ua/contentdata/blog/bc6ee7c2-3ad5-4365-9fb5-b0112f5c055f/1nqmdwob.k00.jpg" alt="">
+					<div class="another-articles__date">
+						23.01.2020
+					</div>
+					<div class="another-articles__title">
+						Под Киевом презентуют уникальную коллекцию
+					</div>
+				</a>
+				<a href="#" class="col-12 col-md-6 col-lg-3 col-xl-3 another-articles__item">
+					<img src="https://img.poehalisnami.ua/contentdata/blog/bc6ee7c2-3ad5-4365-9fb5-b0112f5c055f/1nqmdwob.k00.jpg" alt="">
+					<div class="another-articles__date">
+						23.01.2020
+					</div>
+					<div class="another-articles__title">
+						Под Киевом презентуют уникальную коллекцию
+					</div>
+				</a>
+				<a href="#" class="col-12 col-md-6 col-lg-3 col-xl-3 another-articles__item">
+					<img src="https://img.poehalisnami.ua/contentdata/blog/bc6ee7c2-3ad5-4365-9fb5-b0112f5c055f/1nqmdwob.k00.jpg" alt="">
+					<div class="another-articles__date">
+						23.01.2020
+					</div>
+					<div class="another-articles__title">
+						Под Киевом презентуют уникальную коллекцию
+					</div>
+				</a>
+				<a href="#" class="col-12 col-md-6 col-lg-3 col-xl-3 another-articles__item">
+					<img src="https://img.poehalisnami.ua/contentdata/blog/bc6ee7c2-3ad5-4365-9fb5-b0112f5c055f/1nqmdwob.k00.jpg" alt="">
+					<div class="another-articles__date">
+						23.01.2020
+					</div>
+					<div class="another-articles__title">
+						Под Киевом презентуют уникальную коллекцию
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

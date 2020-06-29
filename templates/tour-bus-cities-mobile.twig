@@ -1,0 +1,99 @@
+{% extends "layouts/default-mobile.twig" %}
+{% set mobile = 'mobile' %}
+{% if mobile %}
+	{% set toggleMobileText = "Полная версия" %}
+	{% set toggleMobileLink = "tour-bus-cities.html" %}
+	{%  set hotDetailLink = "hot-details-mobile.html" %}
+	{%  set excursionDetailLink = "excursion-details-mobile.html" %}
+{% else %}
+	{% set toggleMobileText = "Мобильная версия" %}
+	{% set toggleMobileLink = "tour-bus-cities-mobile.html" %}
+	{%  set hotDetailLink = "hot-details.html" %}
+	{%  set excursionDetailLink = "excursion-details.html" %}
+{% endif %}
+
+{% block searchStyle %}
+	<link href="css/bundle/searchStyleMobile.css?v=113" rel="stylesheet"/>
+	<link rel="stylesheet" href="css/slick.css">
+	<link rel="stylesheet" href="css/slider.css">
+{% endblock %}
+{% block head %}
+	<link href="css/vertical-filter.css?v=112" rel="stylesheet">
+    <link href="css/vertical-filter_mobile.css?v=112" rel="stylesheet">
+	<link rel="stylesheet" href="css/search-tours-page.css">
+	<link rel="stylesheet" href="css/search-tours-page_mobile.css">
+	<link href="css/tour-country.css?v=113" rel="stylesheet">
+	<link rel="stylesheet" href="css/tour-country_mobile.css">
+	<link href="css/tours-bus-search.css?v=113" rel="stylesheet">
+	<link href="css/tours-bus-search_mobile.css?v=113" rel="stylesheet">
+{% endblock %}
+
+{% block scripts %}
+	<script src="js/slick/slick.min.js" type="text/javascript"></script>
+	<script src="js/home-page_mobile.js" type="text/javascript"></script>
+	<script src="js/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+	<script>
+		$(document).ready(function () {
+
+var textCollapse = $('.text-collapse');
+if (textCollapse.outerHeight() >= 140) {
+textCollapse.on('click', function () {
+$(this).toggleClass('expanded');
+});
+textCollapse.addClass('text-collapse-load');
+} else {
+textCollapse.removeClass('text-collapse--shadow');
+} textCollapse.find('.btn-admin-edit').on('click', function (e) {
+e.stopPropagation();
+})
+});
+	</script>
+{% endblock %}
+
+{% block content %}
+	{% include "./tours-bus-modules/screen-box-tour.twig" %}
+	<div class="container bus-tours-container">
+
+			<div class="row layout-box layout-box--reverse">
+				<div class="col-12 col-xl-9">
+					<div class="search-tour">
+						{% include "./tours-bus-modules/search-card.twig" %}
+					</div>
+				</div>
+				<div class="col-12 col-xl-3 layout-box__sidebar">
+					<div class="vertical-filter-bus-tour">
+						<div class="vertical-filter-bus-tour__heading">
+							Фильтры:
+						</div>
+						<div class="vertical-filter">
+                        <div class="vertical-filter__section">
+                            <label class="brand-checkbox bus-tour_checkbox">
+                                <input type="checkbox">
+                                <span class="brand-checkbox__media"></span>
+                                <span class="brand-checkbox__inner">
+                                    Без ночных переездов
+                                </span>
+                            </label>
+                        </div>
+                        <div class="vertical-filter__section">
+                            {% include './hot-tours-modules/price-range-slider.twig' %}
+							</div>
+                        </div>
+                    </div>
+					{% include './tours-bus-cities-modules/popular-cities.twig' %}
+                    {% include './tours-bus-cities-modules/popular-countries.twig' %}
+				</div>
+			</div>
+
+	</div>
+	<section class="page-article grey-background-f6f">
+		<div class="container text-collapse-wrap">
+			<div class="articles-wrap text-collapse text-collapse--shadow">
+				<h2>Почему надо ехать в Италию</h2>
+				<p>На нашем сайте представлены лучшие гостиницы и отели мира. У нас вы найдете всю необходимую информацию, как о дорогих пятизвездочных отелях, так и о бюджетных гостиницах. Все отели представлены на сайте с детальным описанием, которое включает фотографии отелей, гостиничных номеров, перечень предоставляемых услуг, а также, количество номеров, классификацию отеля и стоимость проживания. Мы искренне надеемся, что наш каталог отелей поможет вам найти самую достоверную и полную информацию об интересующих вас отелях, актуальных турах и отзывах о гостиницах. Не забудьте оставить свои отзывы об отелях!
+				</p>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

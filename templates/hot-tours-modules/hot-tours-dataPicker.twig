@@ -1,0 +1,26 @@
+{% set dataDatepicker = 'data-toggle="datepicker"'%}
+                {% set fullSearchTitle = "Дата выезда" %}
+                {% set iconName = "date-hot" %}
+                {% set textDropdown = "10.08 – 17.08, 7–9 ночей" %}
+                {% from "/../../components/custom-dropdown/datepicker-dropdown.twig" import dropdown %}
+<div class="vertical-filter__title">
+    Дата тура, длительность
+</div>
+<div class="vertical-filter__content">
+    <div class="vertical-filter-datepicker">
+        <div class="custom-dropdown {{ customDropdownClass }}">
+            <div class="custom-dropdown__control" {{ dataDatepicker }}>
+
+                <svg class="custom-dropdown__icon" width="16" height="16">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#{{ iconName }}"></use>
+                </svg>
+
+                <div class="custom-dropdown__text">
+                    <div class="ellipsis-text">{{ textDropdown }}</div>
+                </div>
+                <div class="custom-dropdown__expanded arrow-icon"></div>
+            </div>
+            {{ dropdown(mobile) }}
+        </div>
+    </div>
+</div>

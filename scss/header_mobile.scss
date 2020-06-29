@@ -1,0 +1,120 @@
+@import "mixin";
+@import "variable";
+
+@import "hamburgers/hamburgers";
+
+.header {
+  min-height: auto;
+  &__col {
+    &--left {
+      width: auto;
+    }
+    &--right {
+      width: 78%;
+    }
+  }
+  &__logo {
+    max-width: 101px;
+    margin-left: 0;
+  }
+  &__phone {
+    display: block;
+    color: #4b5669 !important;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: 10px;
+  }
+  .phone-icon {
+    fill: #4b5669;
+    stroke: #4b5669;
+    stroke-width: .5px;
+  }
+  &__bottom {
+    padding: 8px 0;
+    > .html-block {
+      margin-left: auto;
+    }
+  }
+  &__content {
+    position: relative;
+    min-width: auto;
+  }
+
+  .header-menu-contacts {
+    display: block;
+    border-top: 1px solid #92e2ee;
+    margin: 10px 0 0 0;
+    padding-top: 14px;
+    li {
+      list-style: none;
+    }
+    .media {
+      align-items: center;
+    }
+    .svg-icon {
+      margin-right: 5px;
+      fill: #4b5669;
+    }
+    &__callback {
+      text-decoration: underline;
+      .svg-icon {
+        fill: #4b5669;
+        stroke: #4b5669;
+        stroke-width: .5px;
+      }
+    }
+    a {
+      color: #4b5669;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 5px 0 5px 0;
+      &:hover {
+        text-decoration: none;
+        color: #e77d05;
+      }
+    }
+  }
+  &__navbar {
+    box-shadow: 0 -1px 0px 0px #92e2ee;
+    .navbar-nav {
+      margin-top: 10px;
+      > li {
+        padding-right: 0 !important;
+        .svg-icon {
+          right: auto;
+        }
+        > a {
+          width: 100%;
+          padding: 5px 0 5px 0;
+        }
+      }
+    }
+  }
+
+  &__child-menu {
+    max-width: 300px;
+    min-width: auto;
+    padding: 0;
+    position: relative !important;
+    top: 0 !important;
+    box-shadow: none !important;
+    a {
+      padding: rem(0 15px);
+    }
+    li {
+      a {
+        &:hover {
+          background-color: #EBF1F3;
+          text-decoration: none;
+        }
+        span {
+          margin-right: 10px;
+        }
+      }
+    }
+    .child-menu-link {
+      text-align: left;
+      margin-top: 0;
+    }
+  }
+}

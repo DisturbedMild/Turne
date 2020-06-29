@@ -1,0 +1,64 @@
+@import "mixin";
+@import "variable";
+
+@media (max-width: 991px) {
+  .search-card {
+    position: relative;
+    flex-direction: column;
+    &__inner {
+      flex-direction: column;
+    }
+    &__image {
+      max-width: 100%;
+      max-height: 218px;
+    }
+    &__body {
+      padding: 8px;
+      max-width: 100%;
+    }
+    &__content {
+      flex-grow: 0;
+    }
+    &__description {
+      padding-top: 0;
+      box-shadow: none;
+    }
+    &__logo {
+      float: none;
+      max-height: 28px;
+      margin-bottom: 7px;
+    }
+    &__review-block {
+      padding: 0;
+      box-shadow: none;
+      max-width: none;
+    }
+    &__review-score {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      flex-direction: row;
+      padding-right: 15px;
+      background: #fff;
+      border-radius: 30px;
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+    }
+    .radial-progress-bar {
+      width: 40px;
+      height: 40px;
+    }
+    &__price-content {
+      min-width: 50%;
+      margin-top: 0;
+    }
+    &__price {
+      padding: 8px;
+      border-top: 1px solid #efefef;
+      display: flex;
+      min-width: 100%;
+    }
+    &__btn {
+      margin-top: 0;
+    }
+  }
+}

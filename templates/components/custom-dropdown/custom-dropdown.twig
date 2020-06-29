@@ -1,0 +1,15 @@
+
+    <div class="custom-dropdown {{ customDropdownClass }}">
+        <div class="custom-dropdown__control" {{ dataDatepicker }}>
+            {% if not hideIcons %}
+            <svg class="custom-dropdown__icon" width="24" height="24" {{ viewBox }}>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#{{ iconName }}"></use>
+            </svg>
+            {% endif %}
+            <div class="custom-dropdown__text">
+                <div class="ellipsis-text">{{ textDropdown }}</div>
+            </div>
+            <div class="custom-dropdown__expanded arrow-icon"></div>
+        </div>
+        {{ dropdown(mobile) }}
+    </div>

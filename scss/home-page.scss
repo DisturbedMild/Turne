@@ -1,0 +1,141 @@
+@import "mixin";
+@import "variable";
+
+//.operators-header-slider {
+//  max-width: 350px;
+//  padding-right: 32px;
+//  img {
+//    display: block;
+//    margin: 0 auto;
+//    max-width: 100%;
+//  }
+//  .slick-carousel-item {
+//    padding: 0 6px;
+//  }
+//  &.slick-carousel .slick-next {
+//    right: 0;
+//  }
+//}
+.screen-search {
+  padding-bottom: rem(60px);
+  margin-bottom: 0;
+  &__content {
+    position: relative;
+    padding-top: 1px;
+    margin-top: 62px;
+  }
+}
+.section-hot-tours {
+  padding-top: 25px;
+  padding-bottom: 40px;
+  .btn--show-all {
+    margin: 10px auto 0 auto;
+    max-width: 180px;
+    display: block;
+  }
+}
+
+
+.form-callback {
+  &__col {
+    max-width: 334px;
+  }
+  &__col--btn {
+    max-width: 200px;
+  }
+  .custom-dropdown__control {
+    min-height: 48px;
+    line-height: 32px;
+    font-size: 16px;
+  }
+  .btn {
+    font-size: 16px;
+    line-height: 34px;
+  }
+}
+.section-popular-destinations {
+  padding-top: 40px;
+}
+
+.section-hotels {
+  padding: 14px 0 40px;
+}
+
+.image-box__col {
+  margin-bottom: 26px;
+}
+
+.section-callback {
+  padding: 32px 0 30px 0;
+  &__content {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+  }
+  &__heading {
+    font-family: $font-mont;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.29;
+  }
+}
+
+.form-callback--transparent {
+  .form-callback__input {
+    border-color: transparent;
+    background-clip: border-box;
+    height: 48px;
+  }
+}
+
+.form-callback--center {
+  justify-content: center;
+  .btn {
+    width: 100%;
+  }
+}
+
+/* our-advantages */
+.section-our-advantages {
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+.our-advantages {
+
+  &__item {
+    height: 200px;
+    border-radius: 4px;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding-top: 28px;
+    background-color: #fff;
+  }
+  &__item-circle {
+    max-width: 100px;
+    width: 100%;
+    height: 100px;
+    border: 1px solid $blue;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 12px;
+    position: relative;
+    svg {
+      fill: $blue;
+      position: absolute;
+      transform: translate(50%, 50%);
+    }
+  }
+
+  &__item-text {
+    text-align: center;
+    font-family: $font-mont;
+    font-weight: 600;
+    max-width: 248px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@import "home-page-modules/reviews";
+@import "home-page-modules/news";

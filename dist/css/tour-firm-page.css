@@ -1,0 +1,136 @@
+.agency-section {
+  margin-bottom: 40px;
+}
+
+.agency-wrapper {
+  position: relative;
+  min-height: 420px;
+}
+
+.agency__map {
+  position: absolute;
+  top: 0;
+  max-width: 1180px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: #ddd;
+}
+
+.agency-card {
+  position: relative;
+  z-index: 2;
+  margin-left: auto;
+  width: 380px;
+  top: 10px;
+  right: 10px;
+  background-color: #fff;
+}
+
+.agency-card__logo {
+  -webkit-box-shadow: inset 0 -1px 0 0 #efefef;
+          box-shadow: inset 0 -1px 0 0 #efefef;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.agency-card__logo img {
+  max-height: 130px;
+  width: auto;
+  margin-top: 10px;
+}
+
+.agency-card__body {
+  padding: 10px 28px 10px 28px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.agency-card__street {
+  margin-bottom: 8px;
+}
+
+.agency-card__phone {
+  margin-bottom: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.agency-card__phone svg {
+  margin-right: 12px;
+}
+
+.agency-card__viber {
+  margin-bottom: 8px;
+}
+
+.agency-card__email {
+  margin-bottom: 8px;
+  color: #ff8508;
+}
+
+.agency-card__web {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.agency-card__icon {
+  fill: #387c89;
+  margin-right: 8px;
+}
+
+.form-callback--small .form-callback__col {
+  max-width: initial;
+}
+
+.form-callback .custom-dropdown__control {
+  min-height: 40px;
+  line-height: 25px;
+}
+
+.form-callback .btn {
+  line-height: 25px;
+}
+
+.search-tour-col {
+  margin-bottom: 40px;
+}
+
+.city-from__row {
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+.city-from__row div {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 10px;
+}
+
+.city-from__item {
+  color: #4b5669;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #efefef;
+  -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.city-from__item:hover {
+  color: #4b5669;
+  text-decoration: none;
+}
+
+.section-hot-tours {
+  margin-top: 0px;
+}
+
+.form-section__header {
+  margin-bottom: 20px;
+  line-height: 22px;
+}
+
+/*# sourceMappingURL=map/tour-firm-page.css.map */

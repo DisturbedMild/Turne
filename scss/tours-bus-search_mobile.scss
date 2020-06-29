@@ -1,0 +1,102 @@
+@import "mixin";
+@import "variable";
+
+.section-hot-tours {
+  padding-bottom: 0;
+}
+
+@media (max-width: 1199px) and (min-width: 576px) {
+  .vertical-filter-bus-tour {
+    max-width: 696px;
+    right: 0;
+    left: 50%;
+    width: calc(100% - 24px);
+    transform: translateX(-50%);
+    .vertical-filter {
+      display: flex !important;
+    }
+  }
+  .vertical-filter-bus-tour {
+    .vertical-filter__section {
+      border: 1px solid #efefef;
+      width: 50%;
+      &:last-child {
+        margin-left: -1px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .layout-box {
+    position: relative;
+    padding-top: 179px;
+    .search-tour {
+      margin-top: rem(40px);
+    }
+  }
+  .layout-box__sidebar {
+    position: static;
+  }
+  .vertical-filter-bus-tour {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: auto;
+    background: #ffffff;
+    z-index: 2;
+    .vertical-filter {
+      position: static !important;
+      display: block;
+      padding: 0 !important;
+      min-height: auto;
+    }
+    .bus-tour_checkbox {
+      margin-left: 10px;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .layout-box {
+    padding-top: 241px;
+  }
+  .vertical-filter-bus-tour {
+    left: 0;
+    right: 0;
+    margin-left: 12px;
+    margin-right: 12px;
+    .vertical-filter__section {
+      border: solid #efefef;
+      border-width: 0 1px 1px 1px;
+      &:first-child {
+        border-width: 1px
+      }
+    }
+    .vertical-filter__title {
+      padding: 20px 10px;
+    }
+    .vertical-filter__content {
+      padding: 0 10px;
+    }
+  }
+}
+
+@media (max-width: 380px) {
+  .search-card {
+    &__about-trip {
+      display: block;
+    }
+    &__date-info {
+      width: 170px;
+      margin-top: 5px;
+    }
+  }
+}
+
+
+@media (max-width: 322px) {
+  .tour-card__about-trip {
+    display: block;
+  }
+}

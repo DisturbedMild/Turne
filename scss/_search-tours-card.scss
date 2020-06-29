@@ -1,0 +1,144 @@
+@import "mixin";
+@import "variable";
+
+.search-card {
+  line-height: 1.45;
+  display: flex;
+  border-radius: 4px;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  width: 100%;
+  min-height: 200px;
+  .lds-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  &__image {
+    width: 100%;
+    max-width: 260px;
+    flex-shrink: 0;
+    position: relative;
+    img {
+      visibility: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 4px;
+      border: solid 1px #ffffff;
+      &.lazyloaded {
+        visibility: visible;
+      }
+    }
+    .lazyloaded + .lds-spinner {
+      display: none;
+    }
+  }
+  &__inner {
+    flex-grow: 1;
+    display: flex;
+  }
+  &__body {
+    padding: 12px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: calc(100% - 160px); //IE11
+    max-width: calc(100% - 160px); // IE10
+    .media {
+      align-items: center;
+      margin-bottom: 2px;
+    }
+  }
+  .media &__icon {
+    margin-right: 8px;
+  }
+  &__heading {
+    line-height: 1.2;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: $font-mont;
+    color: #4b5669;
+    &:hover {
+      color: #4b5669;
+    }
+    span {
+      white-space: nowrap;
+    }
+  }
+  &__fromTo {
+    margin-bottom: 4px;
+    font-size: 13px;
+  }
+  &__duration {
+    font-weight: 600;
+    font-size: 13px;
+    font-family: $font-mont;
+    margin-bottom: 8px;
+  }
+  &__description {
+    padding-top: 8px;
+    font-size: 13px;
+    box-shadow: inset 0 1px 0 0 #efefef;
+  }
+  &__icon {
+    fill: #387c89;
+    flex-shrink: 0;
+  }
+  &__btn {
+    width: 100%;
+    margin-top: 12px;
+  }
+  &__logo {
+    float: right;
+    max-height: 40px;
+  }
+  &__title {
+    font-size: 13px;
+  }
+  &__review-block {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 160px;
+    padding: 12px 20px;
+    box-shadow: inset 1px 0 0 0 #efefef;
+    @at-root {
+      a#{&} {
+        color: #4b5669;
+        text-decoration: none;
+      }
+    }
+  }
+  &__review-score {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: center;
+    font-size: 13px;
+    color: $menu-top-background;
+    align-items: center;
+    &:hover {
+      color: $menu-top-background;
+    }
+  }
+  &__price-content {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
+    margin-top: 6px;
+  }
+  &__tour-price {
+    font-weight: 600;
+    font-size: 24px;
+    font-family: $font-mont;
+  }
+}

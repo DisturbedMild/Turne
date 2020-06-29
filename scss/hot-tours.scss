@@ -1,0 +1,71 @@
+@import "mixin";
+@import "variable";
+
+.li-town {
+  padding-left: 0;
+  li {
+    list-style-type: none;
+  }
+}
+
+.heading {
+  margin-bottom: 20px;
+}
+
+.vertical-filter {
+  &__section.hide + &__section {
+    border-top: none;
+    .vertical-filter__title {
+      padding-top: 0;
+      .arrow-icon {
+        top: 0;
+      }
+    }
+  }
+  &__buttons {
+    display: none;
+  }
+}
+
+.hot-tours {
+  .form-section {
+    margin: 0 10px;
+  }
+}
+
+.page-article {
+  margin-top: rem(40px);
+  background-color: #f6f6f7;
+}
+
+
+.bubbles{
+  margin:50px 0;
+  position:relative;
+  text-align: center;
+}
+
+.bubble{
+  display:inline-block;
+  padding:0 5px;
+
+  @for $i from 1 to 11 {
+    &:nth-of-type(#{$i}) .circle{
+      animation-delay: $i * 0.1s;
+    }
+  }
+}
+
+.bubble .circle{
+  width:rem(20px); height:rem(20px);
+  border-radius:50%;
+  background:#387c89;
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes pulse{
+  0%{ transform: scale(1); }
+  50%{ transform: scale(0.2); opacity:0.75; }
+  100%{ transform: scale(1); }
+}

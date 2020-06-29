@@ -1,0 +1,234 @@
+{% extends "layouts/default.twig" %}
+{% set mobile = "" %}
+{% if mobile %}
+    {% set toggleMobileText = "Полная версия" %}
+    {% set toggleMobileLink = "index.html" %}
+    {% set hotDetailLink = "hot-details-mobile.html" %}
+    {% set excursionDetailLink = "excursion-details-mobile.html" %}
+{% else %}
+    {% set toggleMobileText = "Мобильная версия" %}
+    {% set toggleMobileLink = "home-mobile.html" %}
+    {% set hotDetailLink = "hot-details.html" %}
+    {% set excursionDetailLink = "excursion-details.html" %}
+{% endif %}
+
+{% block searchStyle %}
+    <link href="css/bundle/searchStyle.css?v=113" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slider.css">
+{% endblock %}
+{% block head %}
+    <link href="css/tour-country.css?v=113" rel="stylesheet">
+    <link rel="stylesheet" href="css/countries-info.css">
+{% endblock %}
+
+{% block scripts %}
+    <script src="js/slick/slick.min.js" type="text/javascript"></script>
+    <script src="js/home-page.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container layout-mg">
+        <nav class="nav-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Главная ТУРНЕ</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Страны</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Египет</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Достопримечательности Египта</li>
+            </ol>
+        </nav>
+        <h1 class="heading">Погода в Египте</h1>
+        <div class="row layout-box layout-box--reverse">
+            <div class="col-12 col-xl-9">
+                <div class="countries-detail">
+                    <img src="Images/Egypt.jpg" alt="#">
+                    <div class="countries-detail__description"><br>
+                        <p><span style="font-weight:400">Египет – государство, расположенное в северной Африке и на Синайском полуострове, который, в свою очередь, считается частью Передней Азии. Берега страны омывают два моря: Красное и Средиземное. Тропический климат в стране засушливый. 95% территории занимает пустыня, остальная часть – долина Нила, самой длинной реки в мире.</span>
+                        </p>
+                        <p><span style="font-weight:400">Если вы собрались отдохнуть на море, ознакомьтесь с нашим прогнозом. Расписанная </span>погода
+                            в Египте по месяцам <span style="font-weight:400">поможет вам подобрать оптимальное время для поездки к фараонам и пирамидам.<br><br></span>
+                        </p>
+                        <h3><strong>Январь</strong></h3>
+                        <p><span style="font-weight:400">Зима на египетских курортах отличается от украинской. Здесь сухо и тепло, нет снега. Днем воздух прогревается до +18-20°С. Ночью прохладно, около +10°С. Вода не слишком комфортна для купания – около +20-22°С. В январе большинство туристов предпочитают отдыхать у бассейнов на территории отелей. Наибольшей популярностью пользуются туры в Табу и Шарм-эль-Шейх.</span>
+                        </p>
+                        <h3><strong>Февраль</strong></h3>
+                        <p><span style="font-weight:400">Самая холодная </span>погода в Египте зимой, <span
+                                    style="font-weight:400">а именно в феврале. На побережье дует холодный ветер, но в тихих бухтах Синайского полуострова тепло и уютно. На популярных курортах температура воздуха составляет +19-23°С, воды – до +21°С. К концу месяца становится теплее и не так ветрено.</span>
+                        </p>
+                        <h3><strong>Март</strong></h3>
+                        <p><span style="font-weight:400">Весеннее тепло приносит с собой песчаные бури. Столбик термометра поднимается до +24-26 °С, море прогревается до +20-22°С. Жарче всего в Асуане (до +30°С), но ночью все еще прохладно (около +12-14°С). Безветренно в городе Таба, который окружен горами.</span>
+                        </p>
+                        <h3><strong>Апрель</strong></h3>
+                        <p><span style="font-weight:400">Ветреная </span>погода в Египте в апреле «смягчает»<span
+                                    style="font-weight:400"> 30-градусную жару на юго-западных и юго-восточных курортах. Прохладнее на севере, где термометр показывает около +23°С. Прибрежные воды Красного моря прогреваются до +24°С, в Средиземном на один градус ниже. Дожди изредка бывают только в столице и Гизе.</span>
+                        </p>
+                        <h3><strong>Май</strong></h3>
+                        <p>Погода в Египте в мае <span style="font-weight:400">засушливая, без осадков. Воздух в курортной зоне нередко нагревается до +30°С днем, ночью прохладней – +20-22°С. Официально открывается купальный сезон: в Средиземном море вода прогрета до +24°С, в Красном на 1-2 °С теплее. Оптимальная погода для экскурсий и прогулок встречает туристов только в Александрии – около +26°С. В Гизе и Луксоре в это время слишком жарко.</span>
+                        </p>
+                        <h3><strong>Июнь</strong></h3>
+                        <p><span style="font-weight:400">В начале лета экскурсионные туры не пользуются особой популярностью. </span>Погода
+                            в Египте в июне <span style="font-weight:400">жаркая: в Хургаде, Сафаге, Эль-Гуне около +35°С, в Шарме столбик термометра днем показывает до +40°С. Ночью прохладнее: +23-25°С. Купаться приятно и в Красном, и в Средиземном морях –</span>
+                            <span style="font-weight:400">температура воды держится на отметках +25-28°С.</span></p>
+                        <h3><strong>Июль</strong></h3>
+                        <p><span style="font-weight:400">Более комфортная </span>погода в Египте в июле <span
+                                    style="font-weight:400">удерживается на африканском побережье Красного моря. Теплые ветра в Хургаде или Сафаге помогают легче перенести 37-ти градусную жару. </span>
+                        </p>
+                        <p><span style="font-weight:400">В Средиземном море вода нагревается до +26°С, в Красном – на 2-3 градуса теплее. </span>
+                        </p>
+                        <h3><strong>Август</strong></h3>
+                        <p><span style="font-weight:400">Самая некомфортная для людей с плохой переносимостью высоких температур </span>погода
+                            в Египте в августе. <span style="font-weight:400">Повышенная влажность на побережье сопровождает летний зной, в центральной части страны также сухо и жарко. В Асуане и Луксоре столбик термометра часто устанавливается на отметке +40°С, в Хургаде и Шарме немного прохладнее: +36-37 °С. Однако, даже ночью температура редко опускается ниже +29°С. Вода в море прогрета до +30 °С.</span>
+                        </p>
+                        <h3><strong>Сентябрь</strong></h3>
+                        <p>Погода в Египте летом <span style="font-weight:400">жаркая, а в первой половине сентябре она не слишком отличается от августа</span><b>. </b><span
+                                    style="font-weight:400">&nbsp;К концу месяца становится прохладней (около +32-35°С по сравнению с +36-40 </span><span
+                                    style="font-weight:400">°С</span><span style="font-weight:400"> в предыдущие недели), но море такое же теплое (+26-28 °С). В городах жара держится на уровне +35-38°С. На курортах начинается туристический сезон.</span>
+                        </p>
+                        <h3><strong>Октябрь</strong></h3>
+                        <p><span style="font-weight:400">В середине осени комфортно и в Хургаде, и в Шарм-эль-Шейхе.&nbsp;</span>Погода
+                            в Египте в сентябре <span style="font-weight:400">и октябре мало чем отличается, только температура опускается на 1-2 градуса. В Каире и Сома Бей +29°С, в Шарм-эль-Шейхе – +30°С. Вода в море прогрета до +25-27°С. Иногда бывают теплые кратковременные дожди.</span>
+                        </p>
+                        <h3><strong>Ноябрь</strong></h3>
+                        <p><span style="font-weight:400">По сравнению с сентябрем и октябрем, в ноябре <a
+                                        href="../../tour/egipet" target="_blank"
+                                        rel="noopener noreferrer">туры в Египет</a></span><b>&nbsp;</b><span
+                                    style="font-weight:400">можно приобрести дешевле. Во второй половине месяца чаще выпадают осадки, дует холодный порывистый ветер. Вода в Средиземном и Красном морях все еще теплая, +24-26°С, а температура воздуха снижается до +28°С. В Хургаде холодает до +26 °С днем и +15 °С ночью, В Шарм-эль-Шейхе +28°С в обед и около +19°С ближе к полуночи.</span>
+                        </p>
+                        <h3><strong>Декабрь</strong></h3>
+                        <p><span style="font-weight:400">Достаточно комфортная для отдыха </span>погода в Египте зимой.
+                            <span style="font-weight:400">В декабре море еще теплое: +20-23°С. Многие туристы предпочитают купаться в бассейнах, но принимать солнечные ванны на пляже можно. Из-за ветра, море часто штормит, что привлекает виндсерферов. Воздух теплый, в среднем +24°С на всех курортах Красного моря в дневное время. Ночью становится прохладно – +12-17°С.</span>
+                        </p>
+                        <p><span style="font-weight:400">В Каире и Луксоре устанавливается хорошая погода для экскурсий. Термометр показывает +20-24 °С, но стоит остерегаться песчаных бурь.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-xl-3 layout-box__sidebar">
+                <div class="sidebar-box">
+                    <div class="sidebar-box__heading">
+                        Полезная информация
+                    </div>
+                    <div class="sidebar-box__content">
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#plane"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Туры в Египет
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#hotels"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Отели Египта
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#visa"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Виза в Египет
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#dost"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Достопримечательности Египта
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#weather"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Погода в Египте
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#currency"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Валюта Египта
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#suggestion"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Советы туристам
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#food"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Кухня Египта
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#embrassy"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Посольства Египта
+								</span>
+                            </a>
+                        </div>
+                        <div class="sidebar-box__item">
+                            <a href="#" class="sidebar-box__link">
+                                <svg class="sidebar-icon" width="24" height="24">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="Images/country-icons.svg#culture"></use>
+                                </svg>
+                                <span class="sidebar-box__text">
+									Культурные особенности Египта
+								</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

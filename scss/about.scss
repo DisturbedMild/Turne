@@ -1,0 +1,50 @@
+@import 'mixin';
+@import 'variable';
+
+.static-page {
+  margin-bottom: rem(40px);
+}
+
+.about-section {
+  &__content-title {
+    font-size: 20px;
+    font-family: $font-mont;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .form-section {
+    margin-top: 20px;
+    padding: 20px 28px;
+    &__header {
+      margin-bottom: 10px;
+    }
+  }
+  .form-callback__icon {
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    fill: #9CA4B3;
+    pointer-events: none;
+  }
+  .form-callback--small .form-control {
+    padding-left: 26px;
+  }
+}
+
+.contacts-card {
+  padding: 18px 28px;
+  border-radius: 4px;
+  box-shadow: 0 12px 24px 0 rgba(33, 84, 94, 0.15);
+  &__title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  &__text {
+    margin-bottom: 20px;
+    a {
+      color: #4b5669;
+    }
+  }
+}

@@ -1,0 +1,190 @@
+<div class="modal modal-mob modal-component tour-detail__modal-reviews" id="modal-reviews" tabindex="-1" role="dialog"
+     aria-labelledby="modal-reviews">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-mob__back back-icon" data-dismiss="modal"></button>
+                <div class="modal-title">Оставить отзыв об отеле
+                </div>
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!--<div class="clearfix">-->
+                    <div class="b-add-review jsParentPosition">
+                        <label class="title" for="search">Выберите отель*</label>
+                        <div class="ui-front b-add-review__autocomplite js-autocomplite">
+                            <div class="b-dropdown-search">
+                                <svg class="b-dropdown-search__icon" width="20" height="20">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#search"></use>
+                                </svg>
+                                <input class="form-control input-placeholder-inherit autoHide ui-autocomplete-input"
+                                       placeholder="Введите название отеля">
+                            </div>
+                            {% from "modal-reviews-autocomplite.twig" import dropdown %}
+                            {{ dropdown(mobile) }}
+                        </div>
+                        <div class="row b-add-review__row">
+
+                            <div class="col-12 input-wrap">
+                                <label>
+                                    Ваш отзыв<span class="required">*</span></label>
+
+                                <textarea rows="2" cols="20" class="form-control jsFixScrollMobile">
+</textarea>
+                                <span class="validation" style="display:none">Обязательное поле</span>
+                            </div>
+                        </div>
+                        <div class="title">Оценка отелю Amwaj Blue Beach Resort &amp; Spa Abu Soma</div>
+                        <div class="b-add-review__rating b-add-review__row jsMarksHolder">
+                            <div class="b-select-rating">
+                                <div>
+                                    Расположение:
+                                </div>
+                                <div class="b-rank-regular-tetragon">
+                                    <div>1</div>
+                                    <div>2</div>
+                                    <div>3</div>
+                                    <div>4</div>
+                                    <div>5</div>
+                                </div>
+                                <!--<div class="b-sel-r-result">&nbsp;</div>-->
+                                <input type="hidden"/>
+                            </div>
+                            <div class="b-select-rating">
+                                <div>
+                                    Питание:
+                                </div>
+                                <div class="b-rank-regular-tetragon">
+                                    <div>1</div>
+                                    <div>2</div>
+                                    <div>3</div>
+                                    <div>4</div>
+                                    <div>5</div>
+                                </div>
+                                <!--<div class="b-sel-r-result">&nbsp;</div>-->
+                                <input type="hidden"/>
+                            </div>
+                            <div class="b-select-rating">
+                                <div>
+                                    Развлечения:
+                                </div>
+                                <div class="b-rank-regular-tetragon">
+                                    <div>1</div>
+                                    <div>2</div>
+                                    <div>3</div>
+                                    <div>4</div>
+                                    <div>5</div>
+                                </div>
+                                <!--<div class="b-sel-r-result">&nbsp;</div>-->
+                                <input type="hidden"/>
+                            </div>
+                            <div class="b-select-rating">
+                                <div>
+                                    Обслуживание:
+                                </div>
+                                <div class="b-rank-regular-tetragon">
+                                    <div>1</div>
+                                    <div>2</div>
+                                    <div>3</div>
+                                    <div>4</div>
+                                    <div>5</div>
+                                </div>
+                                <!--<div class="b-sel-r-result">&nbsp;</div>-->
+                                <input type="hidden"/>
+                            </div>
+                            <div class="b-select-rating">
+                                <div>
+                                    Номера:
+                                </div>
+                                <div class="b-rank-regular-tetragon">
+                                    <div>1</div>
+                                    <div>2</div>
+                                    <div>3</div>
+                                    <div>4</div>
+                                    <div>5</div>
+                                </div>
+                                <!--<div class="b-sel-r-result">&nbsp;</div>-->
+                                <input type="hidden"/>
+                            </div>
+                            <div>
+                                <span class="validation" style="display:none">Проставьте оценки</span></div>
+                        </div>
+                        <div class="row b-add-review__row justify-content-between">
+                            <div class="input-wrap col-12 col-sm-6 col-xl-6">
+                                <label>
+                                    Ваше имя<span class="required">*</span></label>
+                                <div>
+                                    <input type="text" maxlength="100" class="form-control input-text"/>
+                                </div>
+                                <span class="validation" style="display:none">Обязательное поле</span>
+                            </div>
+                            <div class="input-wrap col-12 col-sm-6 col-xl-6">
+                                <label>
+                                    E-mail<span class="required">*</span></label>
+                                <div>
+                                    <input type="email" maxlength="100" class="form-control input-text"/>
+                                </div>
+                                <span class="validation" style="display:none">Обязательное поле</span>
+                                <span class="validation" style="display:none">Неверный формат Email</span>
+                            </div>
+                            <div class="b-add-review__alert col-12">
+                                Внимание! Поля отмеченные <span class="required">*</span> обязательны к заполнению
+                            </div>
+                        </div>
+                        {% include "../components/photo-and-video-upload.twig" %}
+                        <div class="modal-mob__btn">
+                            <input type="submit" value="Разместить отзыв"
+                                   onclick="return HotelCommentFormSend(&#39;comment&#39;);WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$ctl00$ctl00$ctl00$ctl00$center$center$center$innerFull$innerFull$innerFull$HCF$Save&quot;, &quot;&quot;, true, &quot;comment&quot;, &quot;&quot;, false, false))"
+                                   class="btn btn-brand btn-brand--orange btn-send"/>
+                            <input type="hidden" key="preSendComment"/>
+                        </div>
+                    </div>
+                    <div class="jstThankYouDialog" style="display: none;">
+                        <!--<div class="b-opacity-layout"></div>-->
+                        <div class="b-alert">Спасибо за Ваш отзыв. Благодаря ему другие туристы смогут сделать
+                            правильный выбор.<br/>
+                            <input class="btnOk btn btn-brand btn-brand--orange" type="button" value="Закрыть"
+                                   data-dismiss="modal"/>
+                        </div>
+                    </div>
+                <!--<div style="clear: both"></div>-->
+            <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // $('.jsFixScrollMobile').focus(function(){
+    //     window.scrollTo({
+    //         top: $('.jsParentPosition').position().top
+    //     });
+    // });
+
+    // var sumedges = $(window).width() + $(window).height();
+    // $(window).resize(function(){
+    //     if($(window).width() + $(window).height() < sumedges) {
+    //         $("body").addClass("keyboard-out");
+    //         $('input').focus(function(){
+    //             var calcOffsetTop = function(){
+    //                 if ($(this).offset().top > 70) {
+    //                     console.log('больше 70');
+    //                     return $(this).offset().top
+    //                 } else {
+    //                     console.log('возрващает 0');
+    //                     return 0;
+    //                 }
+    //             };
+    //             $('.modal.show').scrollTop(calcOffsetTop);
+    //             console.log($(this).offset().top);
+    //         });
+    //     } else {
+    //         $("body").removeClass("keyboard-out");
+    //     }
+    // });
+
+</script>

@@ -1,0 +1,324 @@
+.preloader-section__logos-title {
+  color: #333333;
+  font-size: 16px;
+}
+
+.linear-activity {
+  overflow: hidden;
+  width: 100%;
+  height: 10px;
+  margin-top: 10px;
+  background-color: #cccccc;
+}
+
+.indeterminate {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.indeterminate:before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  background-color: #387c89;
+  -webkit-animation: indeterminate_first 5s infinite ease;
+          animation: indeterminate_first 5s infinite ease;
+}
+
+@-webkit-keyframes indeterminate_first {
+  0% {
+    left: -100%;
+    width: 100%;
+  }
+  100% {
+    left: 100%;
+    width: 10%;
+  }
+}
+
+@keyframes indeterminate_first {
+  0% {
+    left: -100%;
+    width: 100%;
+  }
+  100% {
+    left: 100%;
+    width: 10%;
+  }
+}
+
+.preloader-section__logos {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.preloader-section__item {
+  width: 100%;
+  max-width: 20%;
+  padding: 4% 4% 0 4%;
+  text-align: center;
+  opacity: 0.3;
+  -webkit-animation: 5s ease-in-out pulse infinite;
+          animation: 5s ease-in-out pulse infinite;
+}
+
+.preloader-section__logo {
+  max-width: 100%;
+  background-size: 100%;
+  background-image: url(../Images/preloader-sprite.png);
+  margin: auto;
+  position: relative;
+  display: block;
+  padding: 0;
+}
+
+.preloader-section__logo:before {
+  display: block;
+  content: "";
+}
+
+.preloader-section__logo.logo-1 {
+  width: 152px;
+  background-position: 0 69.159599%;
+  background-size: 143.421053%;
+}
+
+.preloader-section__logo.logo-1::before {
+  padding-top: 52.6315789%;
+}
+
+.preloader-section__logo.logo-2 {
+  width: 180px;
+  background-position: 0 21.91358%;
+  background-size: 121.111111%;
+}
+
+.preloader-section__logo.logo-2::before {
+  padding-top: 45%;
+}
+
+.preloader-section__logo.logo-3 {
+  width: 126px;
+  background-position: 0 76.869699%;
+  background-size: 173.015873%;
+}
+
+.preloader-section__logo.logo-3::before {
+  padding-top: 63.492063%;
+}
+
+.preloader-section__logo.logo-4 {
+  width: 180px;
+  background-position: 0 29.91453%;
+  background-size: 121.111111%;
+}
+
+.preloader-section__logo.logo-4::before {
+  padding-top: 50%;
+}
+
+.preloader-section__logo.logo-5 {
+  width: 173px;
+  background-position: 0 53.962264%;
+  background-size: 126.011561%;
+}
+
+.preloader-section__logo.logo-5::before {
+  padding-top: 30.057803%;
+}
+
+.preloader-section__logo.logo-6 {
+  width: 156px;
+  background-position: 0 61.149961%;
+  background-size: 139.74359%;
+}
+
+.preloader-section__logo.logo-6::before {
+  padding-top: 57.692307%;
+}
+
+.preloader-section__logo.logo-7 {
+  width: 205px;
+  background-position: 0 15.80938%;
+  background-size: 106.341463%;
+}
+
+.preloader-section__logo.logo-7::before {
+  padding-top: 26.829268%;
+}
+
+.preloader-section__logo.logo-8 {
+  width: 180px;
+  background-position: 0 38.461538%;
+  background-size: 121.111111%;
+}
+
+.preloader-section__logo.logo-8::before {
+  padding-top: 50%;
+}
+
+.preloader-section__logo.logo-9 {
+  width: 180px;
+  background-position: 0 47.008547%;
+  background-size: 121.111111%;
+}
+
+.preloader-section__logo.logo-9::before {
+  padding-top: 50%;
+}
+
+.preloader-section__logo.logo-10 {
+  width: 210px;
+  background-position: 0 5.789056%;
+  background-size: 103.809524%;
+}
+
+.preloader-section__logo.logo-10::before {
+  padding-top: 55.238095%;
+}
+
+.preloader-section__logo.logo-11 {
+  width: 100px;
+  background-position: 0 92.2899%;
+  background-size: 218%;
+}
+
+.preloader-section__logo.logo-11::before {
+  padding-top: 80%;
+}
+
+.preloader-section__logo.logo-12 {
+  width: 218px;
+  background-position: 0 0;
+  background-size: 100%;
+}
+
+.preloader-section__logo.logo-12::before {
+  padding-top: 24.311926%;
+}
+
+.preloader-section__logo.logo-13 {
+  width: 115px;
+  background-position: 0 84.5798%;
+  background-size: 189.565217%;
+}
+
+.preloader-section__logo.logo-13::before {
+  padding-top: 69.565217%;
+}
+
+.preloader-section__logo.logo-14 {
+  width: 83px;
+  background-position: 0 100%;
+  background-size: 262.650602%;
+}
+
+.preloader-section__logo.logo-14::before {
+  padding-top: 96.385542%;
+}
+
+.preloader-section__item:nth-child(1) {
+  -webkit-animation-delay: 0.21428571s;
+          animation-delay: 0.21428571s;
+}
+
+.preloader-section__item:nth-child(2) {
+  -webkit-animation-delay: 0.42857143s;
+          animation-delay: 0.42857143s;
+}
+
+.preloader-section__item:nth-child(3) {
+  -webkit-animation-delay: 0.64285714s;
+          animation-delay: 0.64285714s;
+}
+
+.preloader-section__item:nth-child(4) {
+  -webkit-animation-delay: 0.85714286s;
+          animation-delay: 0.85714286s;
+}
+
+.preloader-section__item:nth-child(5) {
+  -webkit-animation-delay: 1.07142857s;
+          animation-delay: 1.07142857s;
+}
+
+.preloader-section__item:nth-child(6) {
+  -webkit-animation-delay: 1.28571429s;
+          animation-delay: 1.28571429s;
+}
+
+.preloader-section__item:nth-child(7) {
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+
+.preloader-section__item:nth-child(8) {
+  -webkit-animation-delay: 1.71428571s;
+          animation-delay: 1.71428571s;
+}
+
+.preloader-section__item:nth-child(9) {
+  -webkit-animation-delay: 1.92857143s;
+          animation-delay: 1.92857143s;
+}
+
+.preloader-section__item:nth-child(10) {
+  -webkit-animation-delay: 2.14285714s;
+          animation-delay: 2.14285714s;
+}
+
+.preloader-section__item:nth-child(11) {
+  -webkit-animation-delay: 2.35714286s;
+          animation-delay: 2.35714286s;
+}
+
+.preloader-section__item:nth-child(12) {
+  -webkit-animation-delay: 2.57142857s;
+          animation-delay: 2.57142857s;
+}
+
+.preloader-section__item:nth-child(13) {
+  -webkit-animation-delay: 2.78571429s;
+          animation-delay: 2.78571429s;
+}
+
+.preloader-section__item:nth-child(14) {
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  25% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  25% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/*# sourceMappingURL=map/preloader.css.map */

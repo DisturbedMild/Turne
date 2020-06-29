@@ -1,0 +1,231 @@
+@media (max-width: 1199px) {
+  .booking-personalInfo {
+    -webkit-border-radius: 4px;
+            border-radius: 4px;
+    -webkit-box-shadow: 0 10px 24px 0 rgba(33, 84, 94, 0.15);
+            box-shadow: 0 10px 24px 0 rgba(33, 84, 94, 0.15);
+    background-color: #ffffff;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .nav-breadcrumb {
+    display: none;
+  }
+  .heading {
+    margin-top: 20px;
+    margin-bottom: 12px;
+  }
+  .hotel-booking__header-info {
+    display: block;
+    -webkit-border-radius: 0px;
+            border-radius: 0px;
+  }
+  .hotel-booking__operator img {
+    margin-bottom: 5px;
+  }
+  .hotel-booking__resort-img {
+    width: 100%;
+  }
+  .hotel-booking__resort-img img {
+    width: 100%;
+  }
+  .hotel-booking__content {
+    max-width: none;
+  }
+  .hotel-booking__facilities-wrapper {
+    padding-top: 0px;
+    margin-bottom: 0px;
+    border: none;
+  }
+  .hotel-booking__included {
+    padding-bottom: 10px;
+  }
+  .hotel-booking__contacts-form {
+    -webkit-column-count: unset;
+       -moz-column-count: unset;
+            column-count: unset;
+  }
+  .hotel-booking__contacts-form .form-group {
+    max-width: unset;
+  }
+  .hotel-booking__label-confirm {
+    margin-left: 0px;
+  }
+  .hotel-booking__verification-buttons {
+    margin-right: 12px;
+  }
+  .hotel-booking__call-svg {
+    margin-top: 10px;
+    display: grid;
+  }
+  .hotel-booking__call-content {
+    color: #387c89;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+  }
+  .hotel-booking__call-content img {
+    margin-top: 10px;
+  }
+  .hotel-booking__call-content a {
+    margin-top: 10px;
+  }
+  .hotel-booking__call-content span {
+    color: #387c89;
+    font-weight: 600;
+  }
+  .hotel-booking__price {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    padding: 0px;
+    margin-top: 20px;
+  }
+  .hotel-booking__heading .arrow-icon {
+    display: none;
+  }
+  .hotel-booking__passport-form {
+    margin: 20px 0px;
+  }
+  .hotel-booking__passport-form .form-group {
+    width: 100%;
+  }
+  .hotel-booking__passport-form .form-group:nth-child(1) {
+    margin-left: 0px;
+  }
+  .hotel-booking__passport-form .form-group:nth-child(2) {
+    margin-left: 0px;
+  }
+  .hotel-booking__passport-form .form-group:nth-child(5) {
+    max-width: unset;
+    margin-left: 0px;
+  }
+  .hotel-booking__passport-form .form-group:nth-child(7) {
+    margin-left: 0px;
+  }
+  .hotel-booking .collapsePerson {
+    margin-left: 0px;
+  }
+  .hotel-booking .collapsePerson .form-group {
+    max-width: unset;
+  }
+  .hotel-booking .collapsePerson .form-group:nth-child(3) {
+    max-width: 130px;
+  }
+  .hotel-booking .collapsePerson .form-group:nth-child(4) {
+    max-width: 130px;
+  }
+  .hotel-booking__sex {
+    max-width: 130px;
+  }
+  .hotel-booking__sex .toogle {
+    width: 100%;
+  }
+  .hotel-booking__sex .toogle .checkmark {
+    width: 100%;
+  }
+  .hotel-booking__contacts-form {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .hotel-booking__heading {
+    margin-bottom: 0px;
+    margin-top: 15px;
+  }
+  .hotel-booking__heading .hotel-booking__item-num {
+    display: none;
+  }
+  .hotel-booking__passport-item {
+    margin-left: 0px;
+  }
+  .hotel-booking__verification-buttons {
+    margin-left: 0px;
+  }
+  .hotel-booking .town-bottom .btn.btn-brand {
+    padding: 0;
+    max-width: unset;
+    width: 100%;
+    margin-bottom: 0px;
+  }
+  .hotel-booking__item-num {
+    color: #fff;
+    background-color: #387c89;
+  }
+  .hotel-booking__breadcrumbs {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 20px;
+    padding-left: 5px;
+  }
+  .hotel-booking__prepayment-info {
+    margin: 20px 0px;
+  }
+  .hotel-booking__contact, .hotel-booking__passport, .hotel-booking__payment-section {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    max-width: unset;
+  }
+  .hotel-booking__breadcrumb-item {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .hotel-booking__item-num {
+    margin-right: 0px;
+    margin-left: -4px;
+  }
+  .hotel-booking__breadcrumb-item + .hotel-booking__breadcrumb-item {
+    width: 100%;
+    position: relative;
+  }
+  .hotel-booking__breadcrumb-item + .hotel-booking__breadcrumb-item:before {
+    background-color: #d8d8e4;
+    content: "";
+    display: inline-block;
+    height: 2px;
+    width: 100%;
+    vertical-align: middle;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 991px) {
+  .hotel-booking__header-info {
+    display: block;
+  }
+  .hotel-booking__facilities {
+    -webkit-column-count: auto;
+       -moz-column-count: auto;
+            column-count: auto;
+  }
+}
+
+@media (max-width: 770px) {
+  .hotel-booking__info-btn {
+    width: 100%;
+  }
+  .hotel-booking__contacts-info {
+    max-width: unset;
+  }
+}
+
+@media (max-width: 580px) {
+  .hotel-booking__verification-buttons {
+    margin-right: 0px;
+  }
+  .hotel-booking__contact-heading {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 330px) {
+  .hotel-booking__passport-form .collapsePerson .form-group:nth-child(3) {
+    max-width: 110px;
+  }
+  .hotel-booking__passport-form .collapsePerson .form-group:nth-child(4) {
+    max-width: 110px;
+  }
+}
+
+/*# sourceMappingURL=map/booking-page_mobile.css.map */

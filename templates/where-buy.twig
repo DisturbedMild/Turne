@@ -1,0 +1,144 @@
+{% extends "layouts/default.twig" %}
+{% set mobile = "" %}
+{% set searchStickyClass =  ' js-search--fixed' %}
+{% if mobile %}
+    {% set toggleMobileText = "Полная версия" %}
+    {% set toggleMobileLink = "where-buy.html" %}
+    {% set hotelDetailLink = "hotel-details-mobile.html" %}
+{% else %}
+    {% set toggleMobileText = "Мобильная версия" %}
+    {% set toggleMobileLink = "where-buy-mobile.html" %}
+    {% set hotelDetailLink = "hotel-details.html" %}
+{% endif %}
+{% block searchStyle %}
+    <link href="css/bundle/searchStyle.css?v=112" rel="stylesheet"/>
+{% endblock %}
+{% block head %}
+    <link href="js/leaflet/leaflet.css" rel="stylesheet">
+    <link rel="stylesheet" href="js/leaflet/leaflet-gesture-handling.min.css">
+    <link href="css/where-buy.css" rel="stylesheet">
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+    <script src="js/leaflet/leaflet-gesture-handling.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            var map = L.map('mapForPage', {
+                center: [51.505, -0.09],
+                zoom: 9,
+                gestureHandling: true
+            });
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            L.marker([51.5, -0.09]).addTo(map)
+                .bindPopup('A pretty CSS3 popup.<br> Easily customizable.');
+
+
+            $('.ui-autocomplete-input').on('input', function () {
+                $('.ui-autocomplete').show();
+            });
+            $(document).on('click', function (e) {
+                if (!$(e.target).closest('.ui-autocomplete').length) {
+                    $('.ui-autocomplete').hide();
+                }
+            });
+
+            $('.js-clear-metro').on('click', function (e) {
+                e.stopPropagation();
+                $(this).parents('.custom-dropdown--filters').find('.ellipsis-text').html('Станция метро');
+                $(this).hide();
+            });
+
+            $('.b-select-metro .dd-item').on('click', function () {
+                var text = $(this).find('.item__text').text();
+                var dropdown = $(this).parents('.custom-dropdown--filters');
+                dropdown.find('.ellipsis-text').html(text);
+                dropdown.find('.js-clear-metro').show();
+                $(this).parents('.jsDropDownOptions').hide();
+            });
+            $('.js-city-dropdown .custom-dropdown .jsDropDownItem').on('click', function () {
+                $(this).parents('.jsDropDownOptions').hide();
+                $('.js-metro-dropdown').show();
+            })
+        });
+
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <nav class="nav-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Главная ТУРНЕ</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Турфирмы</li>
+            </ol>
+        </nav>
+        <h1 class="heading">Турагентства Украины</h1>
+
+        <div class="where-buy">
+
+            <div class="where-buy__content">
+                <div class="where-buy__search">
+                    {% include "where-buy-modules/search-where-buy.twig" %}
+                </div>
+                <div class="where-buy__map responsive-map responsive-map-1by1" id="mapForPage"></div>
+                <div class="where-buy__result custom-scroll">
+                    {% include "where-buy-modules/tagent-card.twig" %}
+                </div>
+
+
+            </div>
+        </div>
+        <section class="company-priority-section">
+            <h2 class="heading">Добавьте туркомпанию в наш каталог и вы получите</h2>
+            {% include "where-buy-modules/company-priority.twig" %}
+        </section>
+        <div class="row city-from__row">
+            <div>
+                <a href="#" class="city-from__item">Турагенства Днепра</a>
+            </div>
+            <div>
+                <a href="#" class="city-from__item">Турагенства Запорожья</a>
+            </div>
+            <div>
+                <a href="#" class="city-from__item">Турагенства Киева</a>
+            </div>
+            <div>
+                <a href="#" class="city-from__item">Турагенства Одессы</a>
+            </div>
+            <div>
+                <a href="#" class="city-from__item">Турагенства Полтавы</a>
+            </div>
+            <div>
+                <a href="#" class="city-from__item">Турагенства Ровно</a>
+            </div>
+            <div>
+                <a href="#" class="city-from__item">Турагенства Харькова</a>
+            </div>
+        </div>
+    </div>
+    <section class="page-article grey-background-f6f">
+        <div class="container text-collapse-wrap">
+            <div class="articles-wrap text-collapse text-collapse--shadow">
+                <h2 class="heading">Каталог турфирм на портале www.TURNE.com.ua</h2>
+                На нашем сайте представлены лучшие гостиницы и отели мира. У нас вы найдете всю необходимую информацию,
+                как о дорогих пятизвездочных отелях, так и о бюджетных гостиницах. Все отели представлены на сайте с
+                детальным описанием, которое включает фотографии отелей, гостиничных номеров, перечень предоставляемых
+                услуг, а также, количество номеров, классификацию отеля и стоимость проживания. Мы искренне надеемся,
+                что наш каталог отелей поможет вам найти самую достоверную и полную информацию об интересующих вас
+                отелях, актуальных турах и отзывах о гостиницах. Не забудьте оставить свои отзывы об отелях!
+
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

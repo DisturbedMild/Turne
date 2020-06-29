@@ -1,0 +1,74 @@
+@import "../mixin";
+@import "../variable";
+
+.hotel-tours-section {
+  margin-bottom: rem(30px);
+  .btn--show-all {
+    margin-top: rem(30px);
+  }
+}
+
+.hotel-tours {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  font-size: 14px;
+  color: #333333;
+  line-height: 1.54;
+
+  &__item .col-200 {
+    width: 200px;
+  }
+  &__item .col-120 {
+    width: 120px;
+  }
+  &__item .col-140 {
+    width: 140px;
+  }
+  &__item {
+    display: table-row;
+    padding: 10px 0;
+    //line-height: 16px;
+    > div {
+      //display: table-cell;
+      //padding: 10px 0;
+      //border-bottom: 1px solid #efefef;
+      //vertical-align: middle;
+    }
+  }
+  &__th {
+    font-weight: 600;
+  }
+  &__th, &__td {
+    display: table-cell;
+    padding: 10px 0;
+    border-bottom: 1px solid #efefef;
+    vertical-align: middle;
+  }
+  &__logo {
+    max-width: 100px !important; // important for mobile
+    max-height: 39px;
+    object-fit: contain;
+  }
+  &__price {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  &__buy-tour {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    color: #ff8508;
+  }
+  .btn {
+    text-transform: none;
+    width: 100%;
+    //&:first-child {
+    //  margin-right: 10px;
+    //}
+  }
+  //&__buy-btn {
+  //  font-size: 16px;
+  //}
+}

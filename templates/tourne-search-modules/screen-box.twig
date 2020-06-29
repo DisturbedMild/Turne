@@ -1,0 +1,45 @@
+<div class="screen screen-search">
+    <img class="screen__bg objectFitCover lazyload"
+         data-src="Images/Main.jpg" alt="">
+    <div class="screen-search__content container">
+        <nav aria-label="breadcrumb nav-breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Главная Турне</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Поиск туров</li>
+        </ol>
+        </nav>
+        <div class="screen-search__row">
+            <h1 class="screen-search__heading">
+                Поиск туров
+            </h1>
+            {#{% if not mobile %}
+            <div class="slick-carousel operators-header-slider  js-operator-header-carousel">
+                <div class="slick-carousel-item">
+                    <img class="lazyload" data-src="Images/operator-logo-white/pegas.png" alt="">
+                </div>
+                <div class="slick-carousel-item">
+                    <img class="lazyload" data-src="Images/operator-logo-white/mouzenidis.png" alt="">
+                </div>
+                <div class="slick-carousel-item">
+                    <img class="lazyload" data-src="Images/operator-logo-white/anex-tour.png" alt="">
+                </div>
+                <div class="slick-carousel-item">
+                    <img class="lazyload" data-src="Images/operator-logo-white/pegas.png" alt="">
+                </div>
+                <div class="slick-carousel-item">
+                    <img class="lazyload" data-src="Images/operator-logo-white/mouzenidis.png" alt="">
+                </div>
+                <div class="slick-carousel-item">
+                    <img class="lazyload" data-src="Images/operator-logo-white/anex-tour.png" alt="">
+                </div>
+
+            </div>
+            {% endif %}#}
+        </div>
+
+        {% include "../components/full-search-form/full-search-form.twig" %}
+    </div>
+
+</div>

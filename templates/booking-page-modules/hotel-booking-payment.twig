@@ -1,0 +1,44 @@
+<div class="hotel-booking__payment-section ">
+	<div class="hotel-booking__heading">
+		<div class="hotel-booking__item-num">
+			3
+		</div>
+		<div class="hotel-booking__item-heading">
+			Оплата
+			<br>
+			и подтверждение
+		</div>
+		<div class="arrow-icon"></div>
+	</div>
+	<div class="hotel-booking__text">
+		Оплата online
+	</div>
+	<div class="hotel-booking__prepayment-info hotel-booking__body">
+		<div class="hotel-booking-prepayment-info__title-text">
+			Размер предоплаты
+		</div>
+
+		<form class="hotel-booking-percent-prepayment__items form-group ">
+			<label class="prepayment-item">
+				<input type="radio" checked="checked" name="sale"></input>
+			<span class="checkmark-sale ">30%</span>
+		</label>
+		<label class="prepayment-item">
+			<input type="radio" name="sale"></input>
+		<span class="checkmark-sale ">50%</span>
+	</label>
+	<label class="prepayment-item">
+		<input type="radio" name="sale"></input>
+	<span class="checkmark-sale ">80%</span>
+</label>
+<label class="prepayment-item">
+	<input type="radio" name="sale"></input>
+<span class="checkmark-sale ">100%</span></label></form><div class="hotel-booking-prepayment__item-price">11 739<span>грн</span></div><div class="hotel-booking__sms-verification"><div class="hotel-booking__sms-verification__title">
+Требуется СМС-верификация</div><div class="hotel-booking__sms-verification__text">
+Подписание договора осуществляется с использованием одноразового идентификатора.
+            При
+            нажатии на кнопку "Оплатить" Вам будет отправлено смс-сообщение, код из которого
+            необходимо будет ввести во всплывающем окне. После подписания договора окно
+            ввода
+            платежных данных откроется автоматически.</div></div><div class="hotel-booking__verification-buttons"><input class="btn btn-brand btn-brand--cloudBurst hotel-booking__prev-btn" type="submit" value="Назад"><input class="btn btn-brand btn-brand--cloudBurst modal-btn hotel-booking__next-btn" type="submit" data-toggle="modal" data-target="#confirmModal" value="Оплатить"><div>
+{% include "../components/modal/confirm-modal.twig" %}</div></div></div></div>

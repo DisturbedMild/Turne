@@ -1,0 +1,237 @@
+@import "mixin";
+@import "variable";
+
+
+@media (max-width: 1199px) {
+  .booking-personalInfo {
+    border-radius: 4px;
+    box-shadow: 0 10px 24px 0 rgba(33, 84, 94, 0.15);
+    background-color: #ffffff;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .nav-breadcrumb {
+    display: none;
+  }
+  .heading {
+    margin-top: 20px;
+    margin-bottom: 12px;
+  }
+  .hotel-booking {
+    &__header-info {
+      display: block;
+      border-radius: 0px;
+    }
+    &__operator img {
+      margin-bottom: 5px;
+    }
+      &__resort-img {
+        width: 100%;
+
+      img {
+        width: 100%;
+      }
+    }
+    &__content {
+      max-width: none;
+    }
+    &__facilities-wrapper {
+      padding-top: 0px;
+      margin-bottom: 0px;
+      border: none;
+    }
+    &__included {
+      padding-bottom: 10px;
+    }
+    &__contacts-form {
+      column-count: unset;
+      .form-group {
+        max-width: unset;
+      }
+    }
+    &__label-confirm {
+      margin-left: 0px;
+    }
+    &__verification-buttons {
+      margin-right: 12px;
+    }
+    &__call-svg {
+      margin-top: 10px;
+      display: grid;
+
+    }
+    &__call-content {
+      color: $blue;
+      font-weight: 600;
+      font-family: $font-mont;
+      img {
+        margin-top: 10px;
+      }
+      a {
+        margin-top: 10px;
+      }
+    }
+    &__call-content span{
+      color: $blue;
+      font-weight: 600;
+    }
+    &__price {
+      box-shadow: none;
+      padding: 0px;
+      margin-top: 20px;
+    }
+    &__heading {
+      .arrow-icon {
+        display: none;
+      }
+    }
+    &__passport-form {
+      margin: 20px 0px;
+      .form-group {
+        width: 100%;
+      }
+      .form-group:nth-child(1){
+        margin-left: 0px;
+      }
+      .form-group:nth-child(2){
+        margin-left: 0px;
+      }
+      .form-group:nth-child(5){
+        max-width: unset;
+        margin-left: 0px;
+      }
+      .form-group:nth-child(7){
+        margin-left: 0px;
+      }
+    }
+    .collapsePerson {
+      margin-left: 0px;
+      .form-group {
+        max-width: unset;
+      }
+      .form-group:nth-child(3){
+        max-width: 130px;
+      }
+      .form-group:nth-child(4){
+        max-width: 130px;
+      }
+    }
+    &__sex {
+      max-width: 130px;
+      .toogle {
+        width: 100%;
+      }
+      .toogle .checkmark {
+        width: 100%;
+      }
+    }
+    &__contacts-form {
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+    &__heading {
+      margin-bottom: 0px;
+      margin-top: 15px;
+      .hotel-booking__item-num {
+        display: none;
+      }
+    }
+    &__passport-item {
+      margin-left: 0px;
+    }
+    &__verification-buttons {
+      margin-left: 0px;
+    }
+    .town-bottom {
+      .btn.btn-brand {
+        padding: 0;
+        max-width: unset;
+        width: 100%;
+        margin-bottom: 0px;
+      }
+    }
+    &__item-num {
+      color: #fff;
+      background-color: $blue;
+    }
+    &__breadcrumbs {
+      display: flex;
+      padding-top: 20px;
+      padding-left: 5px;
+    }
+    &__prepayment-info {
+      margin: 20px 0px;
+    }
+  }
+  .hotel-booking__contact, .hotel-booking__passport, .hotel-booking__payment-section {
+    box-shadow: none;
+    max-width: unset;
+  }
+  .hotel-booking__breadcrumb-item {
+    display: flex;
+  }
+  .hotel-booking__item-num {
+    margin-right: 0px;
+    margin-left: -4px;
+  }
+  .hotel-booking__breadcrumb-item + .hotel-booking__breadcrumb-item {
+    width: 100%; 
+    position: relative;
+    &:before {
+    background-color: #d8d8e4;
+    content: "";
+    display: inline-block;
+    height: 2px;
+    width: 100%;
+    vertical-align: middle;
+    margin-top: 10px;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .hotel-booking {
+    &__header-info {
+      display: block;
+    }
+    &__facilities {
+      column-count: auto;
+    }
+  }
+}
+
+
+@media (max-width: 770px) {
+  .hotel-booking {
+    &__info-btn {
+      width: 100%;
+    }
+    &__contacts-info {
+      max-width: unset;
+    }
+  }
+}
+@media (max-width: 580px) {
+  .hotel-booking {
+    &__verification-buttons {
+      margin-right: 0px;
+    }
+    &__contact-heading {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 330px) {
+  .hotel-booking__passport-form {
+    .collapsePerson {
+      .form-group:nth-child(3){
+        max-width: 110px;
+      }
+      .form-group:nth-child(4){
+        max-width: 110px;
+      }
+    }
+  }
+
+}

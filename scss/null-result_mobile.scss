@@ -1,0 +1,32 @@
+.null-result {
+  &__img {
+    display: none;
+  }
+  &__content {
+    margin-left: 0;
+    width: 100%;
+  }
+  &__callback svg {
+    left: 8px;
+    top: 8px;
+  }
+  &__form-call {
+    padding-left: 26px;
+  }
+}
+@media (max-width: 1199px) {
+  .null-result {
+    &__form-btn {
+      width: 100%;
+    }
+    &__text-info {
+      margin-bottom: 20px;
+    }
+  }
+}
+@media (max-width: 767px) {
+  .null-result__form .form-group {
+    max-width: 100% !important;
+    flex-basis: 100%;
+  }
+}

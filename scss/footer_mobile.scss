@@ -1,0 +1,19 @@
+@import "mixin";
+@import "variable";
+@media (max-width: 1199px) {
+  .footer-wrap {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  .footer {
+    &__heading {
+      margin-bottom: 0;
+    }
+    //&__col {
+    //  margin-bottom: 10px;
+    //}
+    &__social {
+      margin-top: 5px;
+    }
+  }
+}

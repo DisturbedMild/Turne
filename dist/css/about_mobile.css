@@ -1,0 +1,30 @@
+html {
+  height: 100%;
+}
+
+@media (max-width: 1199px) {
+  .about-section .form-section {
+    margin-bottom: 20px;
+  }
+  .about-section .contacts-card {
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  .about-section .form-section {
+    padding: 10px;
+  }
+  .about-section .form-section__header {
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 545px) {
+  .about-section .contacts-card {
+    margin-bottom: 30px;
+  }
+}
+
+/*# sourceMappingURL=map/about_mobile.css.map */

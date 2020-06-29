@@ -1,0 +1,50 @@
+@import "mixin";
+@import "variable";
+.hotel-tours-section {
+  max-width: 1210px;
+}
+.bus-tours__item {
+  display: none;
+}
+
+.hotel-tours__th {
+  display: block;
+}
+
+.hotel-tours__td {
+  max-width: 100% !important;
+  flex-basis: 100%;
+}
+
+.hotel-tours__item .hotel-tours__td {
+  display: block;
+  text-align: left;
+  border: none;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 10px;
+}
+
+.bus-tours__mobile-description {
+  display: block;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.hotel-tours__td:last-child {
+  border-bottom: none;
+  padding-top: 10px;
+  padding-bottom: 0;
+  .btn {
+    max-width: 100%;
+  }
+}
+.hotel-tours-section .slick-carousel-wrap {
+  margin: 0 -12px;
+  padding: 0;
+}
+
+@media (max-width: 767px) {
+  .bus-tours__wrap-footnote {
+    flex-direction: column;
+  }
+}

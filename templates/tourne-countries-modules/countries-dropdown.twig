@@ -1,0 +1,157 @@
+{% macro dropdown(mobile) %}
+    <div class="b-dropdown_simple-b b-dropdown m-dropdown no-user-select jsDropDownOptions"
+         style="display: none;">
+        <div class="m-dropdown__header">
+            <button class="m-dropdown__back back-icon jsMultiSelectDone"></button>
+            <span class="m-dropdown__title">Страна</span>
+        </div>
+        <div class="b-dropdown-search">
+            <svg class="b-dropdown-search__icon" width="20" height="20">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#search"></use>
+            </svg>
+            <input class="form-control input-placeholder-inherit autoHide jsAutocompleteFilter"
+                    placeholder="Введите название страны"></div>
+        <ul class="li-town">
+            <li data-id="0" class="jsDropDownItem dd-item">Все страны</li>
+            <li data-id="" class="jsDropDownItem dd-item divider jsItemLabel" data-sortorder="0">Популярные</li>
+            <li data-id="11" class="jsDropDownItem dd-item active" data-nameid="egipet" data-sortorder="1">Египет</li>
+            <li data-id="36" class="jsDropDownItem dd-item" data-nameid="turciya" data-sortorder="2">Турция</li>
+            <li data-id="70" class="jsDropDownItem dd-item" data-nameid="oae" data-sortorder="3">ОАЭ</li>
+            <li data-id="69" class="jsDropDownItem dd-item" data-nameid="tailand" data-sortorder="4">Таиланд (Тайланд)
+            </li>
+            <li data-id="88" class="jsDropDownItem dd-item" data-nameid="kitajj" data-sortorder="5">Китай</li>
+            <li data-id="141" class="jsDropDownItem dd-item" data-nameid="shri-lanka" data-sortorder="6">Шри-Ланка</li>
+            <li data-id="62" class="jsDropDownItem dd-item" data-nameid="dominikana" data-sortorder="7">Доминикана</li>
+            <li data-id="169" class="jsDropDownItem dd-item" data-nameid="gruziya" data-sortorder="8">Грузия</li>
+            <li data-id="63" class="jsDropDownItem dd-item" data-nameid="kuba" data-sortorder="9">Куба</li>
+            <li data-id="98" class="jsDropDownItem dd-item" data-nameid="indoneziya" data-sortorder="10">Индонезия</li>
+            <li data-id="" class="jsDropDownItem dd-item divider jsItemLabel" data-sortorder="0">Остальные</li>
+            <li data-id="135" class="jsDropDownItem dd-item" data-nameid="avstraliya" data-sortorder="0">Австралия</li>
+            <li data-id="75" class="jsDropDownItem dd-item" data-nameid="avstriya" data-sortorder="0">Австрия</li>
+            <li data-id="290" class="jsDropDownItem dd-item" data-nameid="azerbajjdzhan" data-sortorder="0">
+                Азербайджан
+            </li>
+            <li data-id="591" class="jsDropDownItem dd-item" data-nameid="albaniya" data-sortorder="0">Албания</li>
+            <li data-id="93" class="jsDropDownItem dd-item" data-nameid="andorra" data-sortorder="0">Андорра</li>
+            <li data-id="311" class="jsDropDownItem dd-item" data-nameid="antigua" data-sortorder="0">Антигуа</li>
+            <li data-id="113" class="jsDropDownItem dd-item" data-nameid="argentina" data-sortorder="0">Аргентина</li>
+            <li data-id="601" class="jsDropDownItem dd-item" data-nameid="armeniya" data-sortorder="0">Армения</li>
+            <li data-id="700" class="jsDropDownItem dd-item" data-nameid="aruba" data-sortorder="0">Аруба</li>
+            <li data-id="151" class="jsDropDownItem dd-item" data-nameid="bagamskie-ostrova" data-sortorder="0">
+                Багамские острова
+            </li>
+            <li data-id="121" class="jsDropDownItem dd-item" data-nameid="barbados" data-sortorder="0">Барбадос</li>
+            <li data-id="698" class="jsDropDownItem dd-item" data-nameid="bahrain" data-sortorder="0">Бахрейн</li>
+            <li data-id="164" class="jsDropDownItem dd-item" data-nameid="belarus" data-sortorder="0">Беларусь</li>
+            <li data-id="133" class="jsDropDownItem dd-item" data-nameid="beliz" data-sortorder="0">Белиз</li>
+            <li data-id="76" class="jsDropDownItem dd-item" data-nameid="belgiya" data-sortorder="0">Бельгия</li>
+            <li data-id="54" class="jsDropDownItem dd-item" data-nameid="bolgariya" data-sortorder="0">Болгария</li>
+            <li data-id="592" class="jsDropDownItem dd-item" data-nameid="bosniya-gercegovina" data-sortorder="0">Босния
+                и Герцеговина
+            </li>
+            <li data-id="137" class="jsDropDownItem dd-item" data-nameid="botsvana" data-sortorder="0">Ботсвана</li>
+            <li data-id="115" class="jsDropDownItem dd-item" data-nameid="braziliya" data-sortorder="0">Бразилия</li>
+            <li data-id="68" class="jsDropDownItem dd-item" data-nameid="velikobritaniya" data-sortorder="0">
+                Великобритания
+            </li>
+            <li data-id="57" class="jsDropDownItem dd-item" data-nameid="vengriya" data-sortorder="0">Венгрия</li>
+            <li data-id="143" class="jsDropDownItem dd-item" data-nameid="venesuela" data-sortorder="0">Венесуэла</li>
+            <li data-id="74" class="jsDropDownItem dd-item" data-nameid="vetnam" data-sortorder="0">Вьетнам</li>
+            <li data-id="78" class="jsDropDownItem dd-item" data-nameid="germaniya" data-sortorder="0">Германия</li>
+            <li data-id="713" class="jsDropDownItem dd-item" data-nameid="gonkong" data-sortorder="0">Гонконг</li>
+            <li data-id="84" class="jsDropDownItem dd-item" data-nameid="greciya" data-sortorder="0">Греция</li>
+            <li data-id="92" class="jsDropDownItem dd-item" data-nameid="daniya" data-sortorder="0">Дания</li>
+            <li data-id="139" class="jsDropDownItem dd-item" data-nameid="zimbabve" data-sortorder="0">Зимбабве</li>
+            <li data-id="101" class="jsDropDownItem dd-item" data-nameid="izrail" data-sortorder="0">Израиль</li>
+            <li data-id="80" class="jsDropDownItem dd-item" data-nameid="indiya" data-sortorder="0">Индия</li>
+            <li data-id="118" class="jsDropDownItem dd-item" data-nameid="iordaniya" data-sortorder="0">Иордания</li>
+            <li data-id="593" class="jsDropDownItem dd-item" data-nameid="irlandiya" data-sortorder="0">Ирландия</li>
+            <li data-id="153" class="jsDropDownItem dd-item" data-nameid="islandiya" data-sortorder="0">Исландия</li>
+            <li data-id="51" class="jsDropDownItem dd-item" data-nameid="ispaniya" data-sortorder="0">Испания</li>
+            <li data-id="67" class="jsDropDownItem dd-item" data-nameid="italiya" data-sortorder="0">Италия</li>
+            <li data-id="663" class="jsDropDownItem dd-item" data-nameid="kabo-verde" data-sortorder="0">Кабо-Верде</li>
+            <li data-id="65" class="jsDropDownItem dd-item" data-nameid="kambodzha" data-sortorder="0">Камбоджа</li>
+            <li data-id="150" class="jsDropDownItem dd-item" data-nameid="kanada" data-sortorder="0">Канада</li>
+            <li data-id="598" class="jsDropDownItem dd-item" data-nameid="katar" data-sortorder="0">Катар</li>
+            <li data-id="324" class="jsDropDownItem dd-item" data-nameid="keniya" data-sortorder="0">Кения</li>
+            <li data-id="52" class="jsDropDownItem dd-item" data-nameid="kipr" data-sortorder="0">Кипр</li>
+            <li data-id="581" class="jsDropDownItem dd-item" data-nameid="kolumbiya" data-sortorder="0">Колумбия</li>
+            <li data-id="577" class="jsDropDownItem dd-item" data-nameid="kosta-rika" data-sortorder="0">Коста-Рика</li>
+            <li data-id="597" class="jsDropDownItem dd-item" data-nameid="kuvejjt" data-sortorder="0">Кувейт</li>
+            <li data-id="603" class="jsDropDownItem dd-item" data-nameid="kyrgyzstan" data-sortorder="0">Кыргызстан</li>
+            <li data-id="547" class="jsDropDownItem dd-item" data-nameid="laos" data-sortorder="0">Лаос</li>
+            <li data-id="149" class="jsDropDownItem dd-item" data-nameid="latviya" data-sortorder="0">Латвия</li>
+            <li data-id="104" class="jsDropDownItem dd-item" data-nameid="livan" data-sortorder="0">Ливан</li>
+            <li data-id="129" class="jsDropDownItem dd-item" data-nameid="litva" data-sortorder="0">Литва</li>
+            <li data-id="94" class="jsDropDownItem dd-item" data-nameid="lyuksemburg" data-sortorder="0">Люксембург</li>
+            <li data-id="148" class="jsDropDownItem dd-item" data-nameid="mavrikijj" data-sortorder="0">Маврикий</li>
+            <li data-id="147" class="jsDropDownItem dd-item" data-nameid="madagaskar" data-sortorder="0">Мадагаскар</li>
+            <li data-id="590" class="jsDropDownItem dd-item" data-nameid="makedoniya" data-sortorder="0">Македония</li>
+            <li data-id="99" class="jsDropDownItem dd-item" data-nameid="malajjziya" data-sortorder="0">Малайзия</li>
+            <li data-id="64" class="jsDropDownItem dd-item" data-nameid="maldivy" data-sortorder="0">Мальдивы</li>
+            <li data-id="25" class="jsDropDownItem dd-item" data-nameid="malta" data-sortorder="0">Мальта</li>
+            <li data-id="145" class="jsDropDownItem dd-item" data-nameid="marokko" data-sortorder="0">Марокко</li>
+            <li data-id="119" class="jsDropDownItem dd-item" data-nameid="meksika" data-sortorder="0">Мексика</li>
+            <li data-id="144" class="jsDropDownItem dd-item" data-nameid="moldova" data-sortorder="0">Молдова</li>
+            <li data-id="95" class="jsDropDownItem dd-item" data-nameid="monako" data-sortorder="0">Монако</li>
+            <li data-id="171" class="jsDropDownItem dd-item" data-nameid="myanma" data-sortorder="0">Мьянма</li>
+            <li data-id="110" class="jsDropDownItem dd-item" data-nameid="nepal" data-sortorder="0">Непал</li>
+            <li data-id="579" class="jsDropDownItem dd-item" data-nameid="antilskiye-ostrova" data-sortorder="0">
+                Нидерландские Антильские Острова
+            </li>
+            <li data-id="154" class="jsDropDownItem dd-item" data-nameid="niderlandy" data-sortorder="0">Нидерланды</li>
+            <li data-id="125" class="jsDropDownItem dd-item" data-nameid="novaya-zelandiya" data-sortorder="0">Новая
+                Зеландия
+            </li>
+            <li data-id="126" class="jsDropDownItem dd-item" data-nameid="norvegiya" data-sortorder="0">Норвегия</li>
+            <li data-id="77" class="jsDropDownItem dd-item" data-nameid="oman" data-sortorder="0">Оман</li>
+            <li data-id="578" class="jsDropDownItem dd-item" data-nameid="panama" data-sortorder="0">Панама</li>
+            <li data-id="73" class="jsDropDownItem dd-item" data-nameid="peru" data-sortorder="0">Перу</li>
+            <li data-id="58" class="jsDropDownItem dd-item" data-nameid="polsha" data-sortorder="0">Польша</li>
+            <li data-id="86" class="jsDropDownItem dd-item" data-nameid="portugaliya" data-sortorder="0">Португалия</li>
+            <li data-id="71" class="jsDropDownItem dd-item" data-nameid="rossiya" data-sortorder="0">Россия</li>
+            <li data-id="158" class="jsDropDownItem dd-item" data-nameid="rumyniya" data-sortorder="0">Румыния</li>
+            <li data-id="127" class="jsDropDownItem dd-item" data-nameid="san-marino" data-sortorder="0">Сан-Марино</li>
+            <li data-id="106" class="jsDropDownItem dd-item" data-nameid="sejjshelskie-ostrova" data-sortorder="0">
+                Сейшельские острова
+            </li>
+            <li data-id="703" class="jsDropDownItem dd-item" data-nameid="sen-bartelemi" data-sortorder="0">
+                Сен-Бартелеми
+            </li>
+            <li data-id="176" class="jsDropDownItem dd-item" data-nameid="sent-lyusiya" data-sortorder="0">Сент-Люсия
+            </li>
+            <li data-id="299" class="jsDropDownItem dd-item" data-nameid="serbiya" data-sortorder="0">Сербия</li>
+            <li data-id="100" class="jsDropDownItem dd-item" data-nameid="singapur" data-sortorder="0">Сингапур</li>
+            <li data-id="165" class="jsDropDownItem dd-item" data-nameid="siriya" data-sortorder="0">Сирия</li>
+            <li data-id="87" class="jsDropDownItem dd-item" data-nameid="slovakiya" data-sortorder="0">Словакия</li>
+            <li data-id="109" class="jsDropDownItem dd-item" data-nameid="sloveniya" data-sortorder="0">Словения</li>
+            <li data-id="83" class="jsDropDownItem dd-item" data-nameid="ssha" data-sortorder="0">США</li>
+            <li data-id="657" class="jsDropDownItem dd-item" data-nameid="tanzaniya" data-sortorder="0">Танзания</li>
+            <li data-id="61" class="jsDropDownItem dd-item" data-nameid="tunis" data-sortorder="0">Тунис</li>
+            <li data-id="142" class="jsDropDownItem dd-item" data-nameid="uzbekistan" data-sortorder="0">Узбекистан</li>
+            <li data-id="37" class="jsDropDownItem dd-item" data-nameid="ukraine" data-sortorder="0">Украина</li>
+            <li data-id="124" class="jsDropDownItem dd-item" data-nameid="fidzhi" data-sortorder="0">Фиджи</li>
+            <li data-id="105" class="jsDropDownItem dd-item" data-nameid="filippiny" data-sortorder="0">Филиппины</li>
+            <li data-id="90" class="jsDropDownItem dd-item" data-nameid="finlyandiya" data-sortorder="0">Финляндия</li>
+            <li data-id="39" class="jsDropDownItem dd-item" data-nameid="franciya" data-sortorder="0">Франция</li>
+            <li data-id="589" class="jsDropDownItem dd-item" data-nameid="bora-bora" data-sortorder="0">Французская
+                Полинезия
+            </li>
+            <li data-id="55" class="jsDropDownItem dd-item" data-nameid="khorvatiya" data-sortorder="0">Хорватия</li>
+            <li data-id="155" class="jsDropDownItem dd-item" data-nameid="chernogoriya" data-sortorder="0">Черногория
+            </li>
+            <li data-id="42" class="jsDropDownItem dd-item" data-nameid="chekhiya" data-sortorder="0">Чехия</li>
+            <li data-id="163" class="jsDropDownItem dd-item" data-nameid="chili" data-sortorder="0">Чили</li>
+            <li data-id="72" class="jsDropDownItem dd-item" data-nameid="shvejjcariya" data-sortorder="0">Швейцария</li>
+            <li data-id="91" class="jsDropDownItem dd-item" data-nameid="shveciya" data-sortorder="0">Швеция</li>
+            <li data-id="102" class="jsDropDownItem dd-item" data-nameid="ekvador" data-sortorder="0">Эквадор</li>
+            <li data-id="140" class="jsDropDownItem dd-item" data-nameid="estoniya" data-sortorder="0">Эстония</li>
+            <li data-id="136" class="jsDropDownItem dd-item" data-nameid="yuar" data-sortorder="0">ЮАР</li>
+            <li data-id="390" class="jsDropDownItem dd-item" data-nameid="yuzhnaya-koreya" data-sortorder="0">Южная
+                Корея
+            </li>
+            <li data-id="117" class="jsDropDownItem dd-item" data-nameid="yamajjka" data-sortorder="0">Ямайка</li>
+            <li data-id="66" class="jsDropDownItem dd-item" data-nameid="yaponiya" data-sortorder="0">Япония</li>
+        </ul>
+        <input id="CountryDropDownList_Value" name="CountryDropDownList.Value" type="hidden" value="11"></div>
+{% endmacro %}

@@ -1,0 +1,14 @@
+@media (max-width: 1199px) {
+  .footer-wrap {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  .footer__heading {
+    margin-bottom: 0;
+  }
+  .footer__social {
+    margin-top: 5px;
+  }
+}
+
+/*# sourceMappingURL=map/footer_mobile.css.map */

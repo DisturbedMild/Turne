@@ -1,0 +1,20 @@
+@media (max-width: 800px) {
+  .stacktable.large-only {
+    display: none;
+  }
+  .stacktable.small-only {
+    display: table;
+  }
+}
+
+@media (max-width: 767px) {
+  .services-page__item-gallery a {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+/*# sourceMappingURL=map/price_mobile.css.map */

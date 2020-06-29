@@ -1,0 +1,43 @@
+<div class="search clearfix">
+    <div class="row col-pd-4 search__row">
+        <div class="col-12 col-md-12 col-lg-12 col-xl-12 search__row js-city-dropdown">
+            {% set fullSearchTitle = "Вылет из" %}
+            {% set iconName = "target" %}
+            {% set textDropdown = "Киев" %}
+            {% from "../components/custom-dropdown/form-city-dropdown.twig" import dropdown %}
+            {% include "../components/custom-dropdown/custom-dropdown.twig" %}
+        </div>
+
+        <div class="col-12 col-md-12 col-lg-12 col-xl-12 search__row js-metro-dropdown" style="display: none">
+            {% set fullSearchTitle = "Вылет из" %}
+            {% set iconName = "place" %}
+            {% set textDropdown = "Станция метро" %}
+            {% set customDropdownClass = "custom-dropdown--filters" %}
+            {% if not mobile %}
+                {% from "../components/custom-dropdown/metro-dropdown.twig" import dropdown %}
+            {% else %}
+                {% from "../components/custom-dropdown/metro-dropdown-mobile.twig" import dropdown %}
+            {% endif %}
+            {% include "../components/custom-dropdown/custom-dropdown-metro.twig" %}
+        </div>
+
+        {#<div class="col-12 col-md-12 col-lg col-xl search__row">
+            {% set fullSearchTitle = "Поиск по странам" %}
+            {% set iconName = "search" %}
+            {% set textDropdown = "Введите адрес для поиска офиса" %}
+            {% set customDropdownClass = "custom-dropdown--search" %}
+            {% if not mobile %}
+                {% from "./autocomplite-dropdown.twig" import dropdown %}
+            {% else %}
+                {% from "./autocomplite-dropdown-mobile.twig" import dropdown %}
+            {% endif %}
+
+            {% if not mobile %}
+                {% include "./custom-dropdown-search.twig" %}
+            {% else %}
+                {% include "./custom-dropdown.twig" %}
+            {% endif %}
+        </div>#}
+
+    </div>
+</div>

@@ -1,0 +1,21 @@
+@import "mixin";
+@import "variable";
+
+@media (max-width: 1199px) {
+  .company-priority {
+    padding-bottom: 0;
+    .row {
+      justify-content: flex-start;
+    }
+    .media {
+      margin-bottom: rem(20px);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .screen-search__row {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+}

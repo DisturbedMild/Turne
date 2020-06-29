@@ -1,0 +1,57 @@
+{% if mobile %}
+    {% set MenuLink = "-mobile" %}
+{% else %}
+    {% set MenuLink = "" %}
+{% endif %}
+<form action="tour-bus-cities{{ MenuLink }}.html" method="get" class="full-search-wrap">
+    {% if mobile %}
+        <div class="collapse-search-wrap {{ smallScrollVisibleClass }}">
+            <div class="collapse-search js-collapse-search-fixed">
+                <div class="collapse-search__control">
+                    <div class="collapse-search__text"><span>Египет</span>, <span>10.08 – 17.08, 7-9 ночей</span>, <span>2 взрослых</span></div>
+                    <div class="arrow-icon"></div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <div class="full-search clearfix js-scroll-scope{{ searchStickyClass }}">
+        <div class="row col-pd-10 full-search__row">
+            <div class="col-12 col-xl-5">
+                {% set fullSearchTitle = "Найти тур в" %}
+                {% set iconName = "airplane" %}
+                {% set textDropdown = "Чехия" %}
+                {% set customDropdownClass = "custom-dropdown--no-border" %}
+                {% from "./country-dropdown-filter.twig" import dropdown %}
+
+                <div class="full-search__title">{{ fullSearchTitle }}</div>
+                {% if not mobile %}
+                    {% include "../../components/custom-dropdown/custom-dropdown-search.twig" %}
+                {% else %}
+                    {% include "../../components/custom-dropdown/custom-dropdown.twig" %}
+                {% endif %}
+            </div>
+            <div class="col-12 col-xl-2">
+                {% set fullSearchTitle = "Выезд из" %}
+                {% set iconName = "place" %}
+                {% set textDropdown = "Киев" %}
+                {% from "../../components/custom-dropdown/dropdown-departure.twig" import dropdown %}
+
+                <div class="full-search__title">{{ fullSearchTitle }}</div>
+                {% include "../../components/custom-dropdown/custom-dropdown.twig" %}
+            </div>
+            <div class="col-12 col-xl-3">
+                {% set dataDatepicker = 'data-toggle="datepicker"'%}
+                {% set fullSearchTitle = "Дата выезда" %}
+                {% set iconName = "date" %}
+                {% set textDropdown = "10.08 – 17.08, 7–9 ночей" %}
+                {% from "./datepicker-dropdown.twig" import dropdown %}
+
+                <div class="full-search__title">{{ fullSearchTitle }}</div>
+                {% include "../../components/custom-dropdown/custom-dropdown.twig" %}
+            </div>
+            <div class="col-12 col-xl-2">
+                <button class="btn btn-brand btn-brand--orange full-search__btn">Искать</button>
+            </div>
+        </div>
+    </div>
+</form>

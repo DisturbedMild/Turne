@@ -1,0 +1,40 @@
+{% extends "layouts/default-mobile.twig" %}
+{% set mobile = 'mobile' %}
+{% if mobile %}
+    {% set toggleMobileText = "Полная версия" %}
+    {% set toggleMobileLink = "index.html" %}
+    {% set hotDetailLink = "hot-details-mobile.html" %}
+    {% set excursionDetailLink = "excursion-details-mobile.html" %}
+{% else %}
+    {% set toggleMobileText = "Мобильная версия" %}
+    {% set toggleMobileLink = "home-mobile.html" %}
+    {% set hotDetailLink = "hot-details.html" %}
+    {% set excursionDetailLink = "excursion-details.html" %}
+{% endif %}
+
+{% block searchStyle %}
+
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="css/error.css">
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="error-page">
+            <div class="error-page__center">
+                <div>
+                    Уважаемый пользователь!<br>
+                    К сожалению, <strong>на нашем сайте произошел сбой</strong>. Мы делаем все возможное, что бы как можно скорее устранить неполадки.
+                    <br>
+                    Чтобы продолжить работу с сайтом воспользуйтесь навигационным меню.<br>Спасибо.
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

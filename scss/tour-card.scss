@@ -1,0 +1,245 @@
+@import "mixin";
+@import "variable";
+
+.hot-tours__col {
+  margin-bottom: 20px;
+  .tour-card {
+    height: 100%;
+  }
+}
+
+.hot-tours {
+  margin-left: -10px;
+  margin-right: -10px;
+  .tour-card {
+    position: relative;
+    background: #fff;
+    border-radius: 4px;
+    padding: 10px;
+    &:hover {
+      box-shadow: 0 2px 10px 0 rgba(176, 176, 176, 0.6);
+      z-index: 1;
+    }
+  }
+}
+.hot-tours.slick-carousel .tour-card {
+  flex-grow: 1;
+}
+
+.tour-card {
+  display: flex;
+  flex-direction: column;
+  color: #4b5669;
+  &:hover {
+    color: #4b5669;
+    text-decoration: none;
+  }
+  &__thumbnail {
+    position: relative;
+    height: 180px;
+    .lds-spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+    img {
+      visibility: hidden;
+      border-radius: 4px;
+      width: 100%;
+      height: 100%;
+      &.lazyloaded {
+        visibility: visible;
+      }
+    }
+    .lazyloaded + .lds-spinner {
+      display: none;
+    }
+    .hot-ic {
+      position: absolute;
+      top: -12px;
+      right: 4px;
+      z-index: 1;
+    }
+  }
+  &__body {
+    padding-top: 9px;
+    //line-height: 1.38;
+    font-size: 13px;
+    flex-grow: 1;
+  }
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    .btn-brand {
+      min-width: 120px;
+      font-size: 13px;
+      line-height: 14px;
+    }
+  }
+  &__price {
+    font-family: $font-mont;
+    font-weight: 600;
+    color: $orange-text-tour-card;
+    font-size: 12px;
+    span {
+      font-size: 24px;
+      line-height: 31px;
+    }
+  }
+  .radial-progress-bar {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    top: 8px;
+    right: 8px;
+    border-radius: 50%;
+    fill: #ffffff;
+    box-shadow: 0 1px 8px 1px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.hot-content {
+  line-height: 1.38;
+  &__heading {
+    margin: 4px 0;
+    font-weight: 600;
+    line-height: 18px;
+    font-family: $font-mont;
+    span {
+      white-space: nowrap;
+    }
+  }
+}
+
+.hotels-content {
+  &__rating {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+    font-family: $font-mont;
+    font-weight: 600;
+    color: $orange-text-tour-card;
+  }
+  &__heading {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    font-family: $font-mont;
+    span {
+      white-space: nowrap;
+    }
+  }
+  &__price {
+    font-family: $font-mont;
+    font-size: 12px;
+    font-weight: 600;
+    color: $orange-text-tour-card;
+    span {
+      font-size: 16px;
+    }
+  }
+}
+
+.rating {
+  display: flex;
+}
+
+.hot-ic {
+  display: block;
+  width: 40px;
+  height: 55px;
+  background: url('data:image/png;base64,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');
+}
+
+.image-box__col {
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.image-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: #4b5669;
+  border-radius: 4px;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1);
+  &:hover {
+    box-shadow: 0 2px 10px 0 rgba(176, 176, 176, 0.6);
+  }
+  a {
+    color: #4b5669;
+    &:hover {
+      color: #4b5669;
+    }
+  }
+  &__thumbnail {
+    position: relative;
+    height: 168px;
+    img {
+      border-radius: 4px 4px 0 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__row:hover {
+    text-decoration: none;
+  }
+  &__row:hover .image-box__heading {
+    text-decoration: underline;
+  }
+  &__heading {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: $font-mont;
+  }
+  &__body {
+    padding: 10px 12px;
+  }
+
+  &__price {
+    font-family: $font-mont;
+    font-weight: 600;
+    font-size: 16px;
+    color: $orange-text-tour-card;
+    text-decoration: none;
+    text-align: right;
+  }
+  &__links {
+    padding: 0;
+    margin: 0;
+    li {
+      display: inline;
+      list-style: none;
+      &::after {
+        font-family: Arial;
+        content: "\2219";
+        display: inline;
+        font-weight: 600;
+        margin: 0 2px;
+      }
+      &:last-child::after {
+        content: "";
+      }
+    }
+    a {
+      line-height: 1.45;
+    }
+  }
+  &--resorts {
+    text-decoration: none !important;
+    &:hover {
+      color: inherit;
+      .image-box__heading {
+        text-decoration: underline;
+      }
+    }
+    .image-box__price {
+      text-align: left;
+      line-height: 1;
+    }
+  }
+}

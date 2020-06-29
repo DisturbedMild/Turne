@@ -1,0 +1,56 @@
+{% macro dropdown(mobile) %}
+<div class="b-dropdown_complex-b b-dropdown m-dropdown no-user-select jsDropDownOptions"
+     style="display: none;">
+    <div class="m-dropdown__header">
+        <button class="m-dropdown__back back-icon jsMultiSelectDone"></button>
+        <span class="m-dropdown__title">Класс отеля</span>
+    </div>
+    <ul class="li-town">
+        <li data-id="2" class="jsDropDownItem dd-item">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner"> Любой класс </span>
+            </label>
+        </li>
+        <li data-id="4" class="jsDropDownItem dd-item">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner"> 2* </span>
+            </label>
+        </li>
+        <li data-id="1" class="jsDropDownItem dd-item active">
+            <label class="brand-checkbox">
+                <input type="checkbox" checked>
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner"> 3* </span>
+            </label>
+        </li>
+        <li data-id="5" class="jsDropDownItem dd-item">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner"> 4* </span>
+            </label>
+        </li>
+        <li data-id="6" class="jsDropDownItem dd-item">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner"> 5* </span>
+            </label>
+        </li>
+        <li data-id="7" class="jsDropDownItem dd-item">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner"> Апартаменты </span>
+            </label>
+        </li>
+    </ul>
+    <div class="town-bottom town-bottom-controls jsControlPanel">
+        <button class="btn btn-brand btn-brand--orange jsMultiSelectDone">ПРИМЕНИТЬ</button>
+    </div>
+</div>
+{% endmacro %}

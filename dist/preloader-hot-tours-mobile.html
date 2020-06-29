@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600,700|Open+Sans:400,600,700&display=swap&subset=cyrillic"
+          rel="stylesheet">
+    <link href="css/bootstrap/bootstrap.css?v=113" rel="stylesheet"/>
+    <link href="css/bootstrap/bootstrap-grid_mobile.css?v=113" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.9.2.custom.min.css">
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="css/bundle/globalMobile.css?v=113">
+
+        <link href="css/bundle/searchStyleMobile.css?v=113" rel="stylesheet"/>
+
+        <link href="css/vertical-filter.css?v=112" rel="stylesheet">
+    <link href="css/vertical-filter_mobile.css?v=112" rel="stylesheet">
+    <link href="css/hot-tours.css?v=112" rel="stylesheet">
+    <link href="css/hot-tours_mobile.css?v=112" rel="stylesheet">
+    <link href="css/bundle/oldGlobalMobile.css?v=113" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+    <link href="css/mobile-device.css?v=113" rel="stylesheet"/>
+    <script>
+        /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+        /* This file is meant as a standalone workflow for
+        - testing support for link[rel=preload]
+        - enabling async CSS loading in browsers that do not support rel=preload
+        - applying rel preload css once loaded, whether supported or not.
+        */
+        (function( w ){
+            "use strict";
+            // rel=preload support test
+            if( !w.loadCSS ){
+                w.loadCSS = function(){};
+            }
+            // define on the loadCSS obj
+            var rp = loadCSS.relpreload = {};
+            // rel=preload feature support test
+            // runs once and returns a function for compat purposes
+            rp.support = (function(){
+                var ret;
+                try {
+                    ret = w.document.createElement( "link" ).relList.supports( "preload" );
+                } catch (e) {
+                    ret = false;
+                }
+                return function(){
+                    return ret;
+                };
+            })();
+
+            // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+            // then change that media back to its intended value on load
+            rp.bindMediaToggle = function( link ){
+                // remember existing media attr for ultimate state, or default to 'all'
+                var finalMedia = link.media || "all";
+
+                function enableStylesheet(){
+                    link.media = finalMedia;
+                }
+
+                // bind load handlers to enable media
+                if( link.addEventListener ){
+                    link.addEventListener( "load", enableStylesheet );
+                } else if( link.attachEvent ){
+                    link.attachEvent( "onload", enableStylesheet );
+                }
+
+                // Set rel and non-applicable media type to start an async request
+                // note: timeout allows this to happen async to let rendering continue in IE
+                setTimeout(function(){
+                    link.rel = "stylesheet";
+                    link.media = "only x";
+                });
+                // also enable media after 3 seconds,
+                // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+                setTimeout( enableStylesheet, 3000 );
+            };
+
+            // loop through link elements in DOM
+            rp.poly = function(){
+                // double check this to prevent external calls from running
+                if( rp.support() ){
+                    return;
+                }
+                var links = w.document.getElementsByTagName( "link" );
+                for( var i = 0; i < links.length; i++ ){
+                    var link = links[ i ];
+                    // qualify links to those with rel=preload and as=style attrs
+                    if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+                        // prevent rerunning on link
+                        link.setAttribute( "data-loadcss", true );
+                        // bind listeners to toggle media back
+                        rp.bindMediaToggle( link );
+                    }
+                }
+            };
+
+            // if unsupported, run the polyfill
+            if( !rp.support() ){
+                // run once at least
+                rp.poly();
+
+                // rerun poly on an interval until onload
+                var run = w.setInterval( rp.poly, 500 );
+                if( w.addEventListener ){
+                    w.addEventListener( "load", function(){
+                        rp.poly();
+                        w.clearInterval( run );
+                    } );
+                } else if( w.attachEvent ){
+                    w.attachEvent( "onload", function(){
+                        rp.poly();
+                        w.clearInterval( run );
+                    } );
+                }
+            }
+
+
+            // commonjs
+            if( typeof exports !== "undefined" ){
+                exports.loadCSS = loadCSS;
+            }
+            else {
+                w.loadCSS = loadCSS;
+            }
+        }( typeof global !== "undefined" ? global : this ) );
+        /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+        (function(w){
+            "use strict";
+            /* exported loadCSS */
+            var loadCSS = function( href, before, media ){
+                // Arguments explained:
+                // `href` [REQUIRED] is the URL for your CSS file.
+                // `before` [OPTIONAL] is the element the script should use as a reference for injecting our stylesheet <link> before
+                // By default, loadCSS attempts to inject the link after the last stylesheet or script in the DOM. However, you might desire a more specific location in your document.
+                // `media` [OPTIONAL] is the media type or query of the stylesheet. By default it will be 'all'
+                var doc = w.document;
+                var ss = doc.createElement( "link" );
+                var ref;
+                if( before ){
+                    ref = before;
+                }
+                else {
+                    var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+                    ref = refs[ refs.length - 1];
+                }
+
+                var sheets = doc.styleSheets;
+                ss.rel = "stylesheet";
+                ss.href = href;
+                // temporarily set media to something inapplicable to ensure it'll fetch without blocking render
+                ss.media = "only x";
+
+                // wait until body is defined before injecting link. This ensures a non-blocking load in IE11.
+                function ready( cb ){
+                    if( doc.body ){
+                        return cb();
+                    }
+                    setTimeout(function(){
+                        ready( cb );
+                    });
+                }
+                // Inject link
+                // Note: the ternary preserves the existing behavior of "before" argument, but we could choose to change the argument to "after" in a later release and standardize on ref.nextSibling for all refs
+                // Note: `insertBefore` is used instead of `appendChild`, for safety re: http://www.paulirish.com/2011/surefire-dom-element-insertion/
+                ready( function(){
+                    ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+                });
+                // A method (exposed on return object for external use) that mimics onload by polling document.styleSheets until it includes the new sheet.
+                var onloadcssdefined = function( cb ){
+                    var resolvedHref = ss.href;
+                    var i = sheets.length;
+                    while( i-- ){
+                        if( sheets[ i ].href === resolvedHref ){
+                            return cb();
+                        }
+                    }
+                    setTimeout(function() {
+                        onloadcssdefined( cb );
+                    });
+                };
+
+                function loadCB(){
+                    if( ss.addEventListener ){
+                        ss.removeEventListener( "load", loadCB );
+                    }
+                    ss.media = media || "all";
+                }
+
+                // once loaded, set link's media back to `all` so that the stylesheet applies once it loads
+                if( ss.addEventListener ){
+                    ss.addEventListener( "load", loadCB);
+                }
+                ss.onloadcssdefined = onloadcssdefined;
+                onloadcssdefined( loadCB );
+                return ss;
+            };
+            // commonjs
+            if( typeof exports !== "undefined" ){
+                exports.loadCSS = loadCSS;
+            }
+            else {
+                w.loadCSS = loadCSS;
+            }
+        }( typeof global !== "undefined" ? global : this ));
+    </script>
+</head>
+<body class="mobile">
+<div class="wrap-content">
+    <div class="header">
+    <div class="header__content">
+                <div class="container">
+            <div class="row no-gutters header__bottom navbar ">
+                                                    
+                <a class="header__col header__col--left" href="home-mobile.html">
+                    <img class="header__logo animate" src="Images/logo.png" alt="">
+                </a>
+                <div class="html-block">
+                    <a class="media header__phone" href="tel:+380678294052">
+                        <svg class="svg-icon phone-icon" width="24" height="24">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                        </svg>
+                        <span>(067) 829-40-52</span>
+                    </a>
+                </div>
+                <div>
+                    
+                    <div class="hamburger hamburger--squeeze js-hamburger" data-toggle="collapse"
+                         data-target="#navbarsExample01">
+                        <div class="hamburger-box">
+                            <div class="hamburger-inner"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__col header__col--right navbar-collapse collapse" id="navbarsExample01">
+                    <nav class=" header__navbar">
+                        <ul class="nav navbar-nav">
+                                                                                        
+                            <li><a href="hot-tours_mobile.html">Горящие туры</a></li>
+                                                                                                                    <li class="active"><a href="search-tours-mobile.html">Поиск туров</a></li>
+                                                                                                                    <li><a href="tours-bus_mobile.html">Экскурсионные туры</a></li>
+                                                                                                                    <li class="nav-link-dropdown">
+                                <a class="jsEmptyLink" href="#">Страны
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             xlink:href="Images/icons-search.svg#arrow-bottom"></use>
+                                    </svg>
+                                </a>
+                                    <div class="b-dropdown header__child-menu jsHeaderMenu" style="display: none">
+    <ul>
+        <li><a href="tour-country_mobile.html"><span>Египет</span>от 15 367 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Турция</span>от 12 294 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Кипр</span>от 22 362 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>ОАЭ</span>от 15 367 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Италия</span>от 23 913 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Греция</span>от 15 785 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Испания</span>от 16 530 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Китай</span>от 25 379 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Шри-Ланка</span>от 32 918 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Таиланд (Тайланд)</span>от 38 177 грн</a></li>
+        <li><a href="tour-country_mobile.html"><span>Французская Полинезия</span>от 38 177 грн</a></li>
+    </ul>
+    <span class="child-menu-link"><a href="tourne-countries_mobile.html">Все страны</a></span>
+</div>                            </li>
+                            <li><a href="hotels-mobile.html">Отели</a></li>
+                            <li><a href="where-buy-mobile.html">Где купить</a></li>
+                            <li><a href="reviews-hotels-page-mobile.html">Отзывы об отелях</a></li>
+                        </ul>
+                        <ul class="header-menu-contacts">
+                            <li>Контакты:</li>
+                            <li><a class="media" href="tel:+380678294052">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#kyivstar"></use>
+                                    </svg>
+                                    <span>(067) 829-40-52</span>
+                                </a></li>
+                            <li><a class="media" href="tel:+380952357060">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#vodafone"></use>
+                                    </svg>
+                                    <span>(095) 235-70-60</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="header-menu-contacts__callback media" href="#callbackModal" data-toggle="modal">
+                                    <svg class="svg-icon" width="24" height="24">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/communication-icons.svg#phone"></use>
+                                    </svg>
+                                    <span>Перезвонить мне</span>
+                                </a>
+                            </li>
+                        </ul>
+                        
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="main-content">
+            <div class="container">
+        <nav class="nav-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Главная Турне</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Поиск туров</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Туры в Египет</li>
+            </ol>
+        </nav>
+        <h1 class="heading">Горящие туры и путевки</h1>
+        <div class="filters-container">
+            <button class="filters-btn jsHotToursFiltersOpen">
+                <svg class="svg-icon" width="24" height="24">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#filters"></use>
+                </svg>
+                <span class="filters-btn__text">Фильтры</span>
+                <span class='filters-btn__choice-text'>Не выбрано</span>
+            </button>
+        </div>
+        <div class="row layout-box">
+            <div class="col-12 col-xl-3 layout-box__sidebar">
+                <div class="vertical-filter jsHotToursVerticalFilter">
+    <div class="vertical-filter__header">
+        <button class="vertical-filter__back back-icon jsCloseFilters"></button>
+        <span>Фильтры</span>
+    </div>
+    <div class="vertical-filter__container">
+        <div class="vertical-filter__section">
+            <div class="vertical-filter__content js-selected-filters">
+                <div class="selected-filters__header">
+    <div class="selected-filters__title">
+        Выбранные
+    </div>
+    <button class="selected-filters__clearAll js-clearAll">
+        Очистить
+    </button>
+</div>
+<div class="selected-filters__content">
+        <span data-group-id="">
+            <button class="selected-filters__item jsSelectedFilterClose">Киева
+                <span class="selected-filters__close">
+                    <svg class="n-svg-icon" width="24" height="24">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#arrow-close"></use>
+                     </svg>
+                </span>
+            </button>
+            <button class="selected-filters__item jsSelectedFilterClose">Львова
+                <span class="selected-filters__close">
+                    <svg class="n-svg-icon" width="24" height="24">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#arrow-close"></use>
+                     </svg>
+                </span>
+            </button>
+        </span>
+    <span data-group-id="">
+            <button class="selected-filters__item jsSelectedFilterClose">Египет
+                <span class="selected-filters__close">
+                    <svg class="n-svg-icon" width="24" height="24">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#arrow-close"></use>
+                     </svg>
+                </span>
+            </button>
+        </span>
+    <span data-group-id="">
+            <button class="selected-filters__item jsSelectedFilterClose">Бесплатный Wi-Fi в номере
+                <span class="selected-filters__close">
+                    <svg class="n-svg-icon" width="24" height="24">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#arrow-close"></use>
+                     </svg>
+                </span>
+            </button>
+        </span>
+</div>
+            </div>
+        </div>
+        <div id="hot-tours__country-filter" class="vertical-filter__section">
+            <div class="vertical-filter__title" data-toggle="collapse" data-target="#collapseCountry" aria-expanded="true"
+     aria-controls="collapseCountry">
+    Куда
+    <div class="vertical-filter__choice">
+        Все страны
+    </div>
+    <div class="filter-dropdown-arrow arrow-icon"></div>
+</div>
+<div class="collapse show collapseCountry" id="collapseCountry">
+    <div class="vertical-filter__content">
+        <div class="vertical-filter__scroll">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Все страны
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Египет
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Турция
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Кипр
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        ОАЭ
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Италия
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Греция
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Испания
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Китай
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Шри-Ланка
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Египет
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Турция
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Кипр
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        ОАЭ
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Италия
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Греция
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Испания
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Китай
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Шри-Ланка
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Египет
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Турция
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Кипр
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        ОАЭ
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Италия
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Греция
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Испания
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Китай
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Шри-Ланка
+      </span>
+            </label>
+        </div>
+    </div>
+</div>
+
+        </div>
+        <div id="hot-city-filter" class="vertical-filter__section">
+
+            <div class="vertical-filter__title" data-toggle="collapse" data-target="#collapseCity" aria-expanded="true"
+     aria-controls="collapseCity">
+    Выезд из
+    <div class="vertical-filter__choice">
+        Киева, Запорожья, Киева, Запорожья, Киева, Запорожья
+    </div>
+    <div class="filter-dropdown-arrow arrow-icon"></div>
+</div>
+<div class="collapse show collapseCity" id="collapseCity">
+    <div class="vertical-filter__content">
+        <div class="vertical-filter__scroll">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Все города
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Без проезда
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Киева
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Запорожья
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Львова
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Николаева
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Одессы
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Харькова
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Херсона
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Черновнов
+      </span>
+            </label>
+        </div>
+    </div>
+</div>
+
+        </div>
+        <div class="vertical-filter__section">
+            
+                
+                
+                
+                
+<div class="vertical-filter__title">
+    Дата тура, длительность
+</div>
+<div class="vertical-filter__content">
+    <div class="vertical-filter-datepicker">
+        <div class="custom-dropdown ">
+            <div class="custom-dropdown__control" data-toggle="datepicker">
+
+                <svg class="custom-dropdown__icon" width="16" height="16">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Images/icons-search.svg#date-hot"></use>
+                </svg>
+
+                <div class="custom-dropdown__text">
+                    <div class="ellipsis-text">10.08 – 17.08, 7–9 ночей</div>
+                </div>
+                <div class="custom-dropdown__expanded arrow-icon"></div>
+            </div>
+            <div class="wrap-datepicker">
+    <div style="display: none;">
+                                                            <span id="ctl00_ctl00_ctl00_center_center_center_filters_spanDateFrom"
+                                                                  class="jsDateFrom">21.10</span>
+        <span id="ctl00_ctl00_ctl00_center_center_center_filters_spanDateTo"
+              class="jsDateTo">30.10</span>
+        <span id="ctl00_ctl00_ctl00_center_center_center_filters_spanDurationFrom">1</span>
+        <span id="ctl00_ctl00_ctl00_center_center_center_filters_spanDurationTo">10</span>
+        <input type="hidden"
+               name="ctl00$ctl00$ctl00$center$center$center$filters$hdDepartureDateFrom"
+               id="ctl00_ctl00_ctl00_center_center_center_filters_hdDepartureDateFrom"
+               value="21.10.2019">
+        <input type="hidden"
+               name="ctl00$ctl00$ctl00$center$center$center$filters$hdDepartureDateTo"
+               id="ctl00_ctl00_ctl00_center_center_center_filters_hdDepartureDateTo"
+               value="30.10.2019">
+        <input type="hidden"
+               name="ctl00$ctl00$ctl00$center$center$center$filters$hdnDurationFrom"
+               id="ctl00_ctl00_ctl00_center_center_center_filters_hdnDurationFrom"
+               value="1">
+        <input type="hidden"
+               name="ctl00$ctl00$ctl00$center$center$center$filters$hdnDurationTo"
+               id="ctl00_ctl00_ctl00_center_center_center_filters_hdnDurationTo"
+               value="10">
+    </div>
+    <div class="b-datepicker b-datepicker--center b-dropdown m-dropdown"
+         style="display:none;">
+        <div class="m-dropdown__header">
+            <button class="m-dropdown__back back-icon jsMultiSelectDone"></button>
+            <span class="m-dropdown__title">Дата вылета, длительность</span>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</div>
+        </div>
+        <div class="vertical-filter__section">
+            
+  <div class="vertical-filter__title">
+    Стоимость
+  </div>
+  <div class="vertical-filter__content">
+    <div class="slider-controls-panel clearfix">
+      <input id="price-from" class="slider-controls-panel__input" type="number" value="0" size="7"/>
+      <span class="slider-controls-panel__currency">
+        грн
+      </span>
+      <span class="vertical-filter-slider__divider">
+        -
+      </span>
+      <input id="price-to" class="slider-controls-panel__input" type="number" value="10000" size="7"/>
+      <span class="slider-controls-panel__currency">
+        грн
+      </span>
+    </div>
+     
+    <div id="slider-range" class="slider-range hot-tours-slider-range"></div>
+  </div>
+
+
+        </div>
+        <div id="hot-tours__hotelClass-filter" class="vertical-filter__section">
+            <div class="vertical-filter__title" data-toggle="collapse" data-target="#collapseHotelClass" aria-expanded="true"
+     aria-controls="collapseHotelClass">
+    Класс отеля
+    <div class="filter-dropdown-arrow arrow-icon"></div>
+</div>
+<div class="collapse show collapseHotelClass" id="collapseHotelClass">
+    <div class="vertical-filter__content">
+        <div class="vertical-filter__scroll">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Любой класс
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        2*
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        3*
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        4*
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        5*
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Апартаменты
+      </span>
+            </label>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+        <div id="hot-tours__foodType-filter" class="vertical-filter__section">
+            <div class="vertical-filter__title" data-toggle="collapse" data-target="#collapseFoodType" aria-expanded="true"
+     aria-controls="collapseFoodType">
+    Тип питания
+    <div class="vertical-filter__choice">OB(без питания)</div>
+    <div class="filter-dropdown-arrow arrow-icon"></div>
+</div>
+<div class="collapse show collapseFoodType" id="collapseFoodType">
+    <div class="vertical-filter__content">
+        <div class="vertical-filter__scroll">
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        Любой
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        OB (Без питания)
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        BB (завтрак)
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        HB (завтрак+ужин)
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        FB (3х разовое питание)
+      </span>
+            </label>
+            <label class="brand-checkbox">
+                <input type="checkbox">
+                <span class="brand-checkbox__media"></span>
+                <span class="brand-checkbox__inner">
+        AI (все включено)
+      </span>
+            </label>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+    </div>
+    <div class="vertical-filter__buttons">
+        <button class="btn btn-brand btn-brand--orange jsApplyAllFilters">ПРИМЕНИТЬ</button>
+        <button type="button" class="btn btn-brand vertical-filter__reset jsBottomClearAllFilters">Очистить фильтры</button>
+    </div>
+</div>
+
+            </div>
+            <div class="col-12 col-xl-9">
+                <div class="bubbles">
+                    <div class="bubble">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="bubble">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="bubble">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="bubble">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="bubble">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="bubble">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="bubble">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="bubble">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="bubble">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="bubble">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <div class="form-section__image">
+                        <img src="Images/subscribe-2.png" alt="">
+                    </div>
+                    <div class="form-section__content">
+                        <div class="form-section__header">
+                            Узнавайте о горящих турах первыми!
+                        </div>
+                        <div class="form-section__text">
+                            Подпишитесь на рассылку. Путешествуйте с Турне.
+                        </div>
+                        <form action="/" class="form-callback form-callback--small ">
+    <div class="row">
+        <div class="col-12 col-md-9 col-xl-8 form-group">
+                            <svg class="form-callback__icon" width="24" height="24">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                         xlink:href="Images/communication-icons.svg#email"></use>
+                </svg>
+                        <input type="email" class="form-callback__input form-control input-placeholder autoHide"
+                   placeholder="Укажите Ваш email">
+            <span class="validation field-validation-valid"><span class="">Введите Ваш email</span></span>
+        </div>
+        <div class="col-12 col-md-3 col-xl-4 form-group">
+            <input type="submit" class="btn btn-brand btn-brand--cloudBurst" value="ОТПРАВИТЬ">
+        </div>
+    </div>
+</form>                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="page-article grey-background-f6f">
+        <div class="container text-collapse-wrap">
+            <div class="articles-wrap text-collapse text-collapse--shadow">
+                <div><h2 dir="ltr"><span>Горящие туры, что это и как они появляются?</span></h2><p><span><span>Горящие туры — это специальные предложения, стоимость которых ниже обычных из-за приближающихся сроков вылета, выезда. Чем ближе дата отправки, тем дешевле стоит поездка.</span></span></p><h2 dir="ltr"><span>Откуда появляются горящие путёвки?</span></h2><p><span><span>Причин появления горящих путевок несколько. Например, кто-то решил отказаться от путешествия и возвращает тур, или спрос на запланированные агентством поездки оказался ниже ожидаемого. В любом случае всё сводится к одной цели: снизить убытки, которые понесет фирма, если места не продадутся. Крупные турагентства бронируют номера в отелях и создают чартеры, рассчитывая отправить на отдых определённое количество туристов. Во многих отелях есть правило: компания туроператора должна выкупить места на весь сезон, а не только на пиковый период. Вот тогда появляются туры, которые не удаётся продать за установленный срок. В результате агентство снижает цену и продаёт путёвки либо по себестоимости, либо еще дешевле. Часто эта ситуация возникает в начале или в конце сезона, когда номера отелей раскуплены, а спрос среди туристов ещё не начался. Срок перехода обычных путёвок в «горящие» – 3 – 5 дней в безвизовые страны и до 10 дней в государства, где требуется виза (чтобы успеть получить разрешение на въезд).&nbsp; Очень часто туристические компании предлагают выгодные </span><span>горящие туры </span><span>на завтра</span><span>, стоимость которых иногда на 70% ниже начальной. Автобусные туры начинают дешеветь раньше – за 2 недели до отправки.&nbsp;<br></span><br><span>Есть ещё одна причина появления спецпредложений. Зависит она от самих отелей. Гостиницы, как и турагентства, также рассчитывают продать определенное количество мест для размещения туристов. Они проводят реконструкцию коттеджей, обновляют интерьер, дополняют дизайн террас и т.д. Если номера остаются невостребованными, перед завершением сезона отельеры делают скидки и просят туроператоров найти желающих отдохнуть. Это позволяет гостиницам покрыть затраты на подготовку к следующей «волне» путешественников.&nbsp;</span></span><span><br><span><br>Горящий тур — это самые обычные путевки, и покупают их так же, как и все остальные туры. Можно даже сообщить менеджеру турагентства, какую страну желаете посетить и если удача улыбнётся, вам позвонят и сообщат, что появились так называемые&nbsp;</span><span>«</span><span>предложения дня</span><span>» по выгодной цене в интересующем вас направлении. Такой вариант подходит тем, кто не привязан ко времени: вы должны быть готовы завтра-послезавтра отправиться на отдых. </span></span><span><br><br>Горящие путевки имеют сезонность. Летом есть выгодные предложения в одну страну, а осенью – в другую. Реже всего </span><span>дешевые туры</span><span> бывают в период праздников: Новый год, Рождество, длинные майские выходные и т. п. Кроме того, учитывайте и период школьных каникул, когда многие планируют семейное путешествие. Если хотите сэкономить на поездке, например, ищете </span><a href="https://www.turne.com.ua/tour/egipet" target="_blank"><span>горящие туры в Египет</span></a><span>, необходимо знать, в каком сезоне стоит просматривать интересующие направления.</span></p><h2 dir="ltr"><span>Как выбрать горящий тур?</span></h2><p><span><span>Купить горящий тур с перелетом – отличная идея для экономии на отдыхе, но низкая стоимость путевки не всегда говорит о том, что она действительно «горит». За соблазнительным ценником должен стоять тот же пакет услуг, что был доступен путешественнику при раннем бронировании аналогичного тура. Рассказываем, по каким критериям можно распознать настоящие горящие путевки из Украины:</span></span><span><strong><br>Покупка путевки со скидкой в пик туристического сезона</strong><span>, в какую бы страну вы не собрались – явление редкое и носит единичный характер. Если удалось словить такое предложение, считайте, что вам крупно повезло и спешно пакуйте чемоданы на отдых. Если же в каталоге турагентства в обилии представлены горящие туры из Киева в период национальных праздников или других массовых мероприятий, отпусков и каникул – это повод проверить пакет услуг, включенных в предложение. А еще – узнать детальную информацию об отеле.</span></span><span><span><strong><br>Стоимость проживания в сетевых отелях </strong></span><span>обычно стабильна и не имеет привязки к сезонности. Если путевкой предусмотрено недорогое заселение в гостиницу, принадлежащую крупной сети – скорее всего, для снижения ценника пришлось пожертвовать некоторыми услугами, входящими в пакет. Поинтересуйтесь уровнем предлагаемого комфорта, ведь горящие путевки все включено и в других форматах – повод для экономии, а не превращения отпуск в испытание на выносливость и терпение. Горящие предложения, как правило, предполагают заселение в популярный пляжный отель, где туроператор заблаговременно забронировал блоки мест, а не проживание в городском отеле.</span></span><span><strong><br>Пакет услуг, предоставляемый по горящей путевке</strong><span>, должен быть идентичным тому, что предлагается агентством при раннем бронировании. В него включаются те же экскурсии и список развлечений, формат питания и уровень комфорта при проживании, медицинская страховка, перелет, трансфер из аэропорта и в обратном направлении. Если вам предлагают купить горящую путевку из Киева с неполным списком удобств и услуг – велик риск, что это не специальное предложение, а обычный тур без скидки, просто оказавшийся невостребованным по ряду причин (неудобный рейс, размещение отеля далеко от моря и т.п.).</span></span><span><strong><br>Репутация агентства. </strong><span>Чтобы взять горящий тур по выгодной цене, а не просто недорогую путевку с не самыми лучшими условиями, обращайтесь в проверенные туристические агентства с многолетним опытом работы на рынке. Компания с именем имеет налаженную работу с туроператорами, дорожит завоеванным доверием клиентов и не будет рисковать репутацией. Чтобы убедиться в добросовестности агентства, можете ознакомиться с отзывами на тематических форумах, заручиться рекомендациями друзей и знакомых, не стесняйтесь, также, задавать уточняющие вопросы менеджерам про горящие туры из Украины, их особенностях и стоимости. Эксперты «Поехали с нами» всегда рады проконсультировать вас относительно путевок в любую страну, какой бы уголок мира вы не собирались посетить, и готовы помочь выбрать самое выгодное предложение.</span></span></p><h3 dir="ltr"><strong>Чем хороши горячие туры:</strong></h3><p><span><span><strong>Цена.</strong></span><span> Низкая стоимость – главный козырь горящей путевки. Благодаря скидке, вы сэкономите на отдыхе приличную сумму, которую можно потратить на развлечения или сувениры.</span><strong><br>Выбор есть всегда.</strong><span> В каком бы месяце вы не планировали отпуск, в турагентстве всё равно найдется горящее предложение. Фактор сезонности имеет силу, но если вы готовы довериться случаю при выборе направления для отдыха и внести в свою жизнь волну спонтанности – этот вариант точно для вас. За несколько дней до планируемой даты вылета обратитесь в турфирму и будьте уверены, что вам подберут путевку на интересующие даты. Сложности могут возникнуть разве что в разгар туристического сезона – июле и августе, когда многие пытаются вырваться на курорт.</span><strong><br>Бонусы.</strong><span> При покупке горящего тура иногда можно получить приятный подарок от оператора. Например, бесплатную экскурсию.</span></span></p><h3 dir="ltr"><strong>К чему нужно быть готовым при покупке горящего тура:</strong></h3><p><span><strong>Сжатые сроки до вылета.</strong><span> С покупкой горящей путевки нужно быть готовым к тому, что паковать чемоданы и отправляться на отдых потребуется в ближайшие дни, а то и часы. По этой причине стоит решить рабочие и домашние дела заранее, а еще – заблаговременно позаботиться об открытии визы, если таковая потребуется при въезде в страну.&nbsp;</span><strong><br>Полная оплата.</strong><span> В отличие от раннего бронирования, приобретение горящей путевки предполагает внесение оплаты одним платежом. Отказаться от тура и вернуть деньги не получится, какой бы веской не была на то причина.</span><strong><br>Нет времени на раздумья.</strong><span> Спецпредложения, особенно с большими скидками, – товар востребованный. Если долго думать, стоит брать понравившийся тур или нет, его может купить другой турист.</span></span></p><h2 dir="ltr"><span>Горящие туры зимой</span></h2><p><span><span>После новогодних праздников можно выгодно купить горящие путевки в Египет. В это время отдыхать в стране еще комфортно, однако для купания в море может быть прохладно. К концу зимы в Египте начинается сезон ветров с порывами, временами превышающими 17 м/с. Но есть среди египетских курортов места, защищенные от непогоды. В числе таких – набирающий популярность Марса Алам, где в низкий сезон стоит безветренная погода. В Марса Алам тоже встречаются горящие туры. Либо отели самостоятельно делают скидки, чтобы повысить интерес туристов к курорту. <br></span></span><span><span>Также с декабря по январь можно словить горящую путёвку в Таиланд. А в Индию и Индонезию (на остров Бали) выгодные предложения встречаются с конца октября и до весны (вплоть до апреля). Исключение составляют только новогодние праздники.</span></span></p><h2 dir="ltr"><span>Горящие туры весной</span></h2><p><span><span>В середине весны появляются горящие путёвки в Тунис. В это время пляжный сезон еще не открыт – море не прогрето, и купаться смогут только закаленные. А вот организовать в Суссе или Хаммамете экскурсионный тур по приятной цене – в самый раз! Аналогичная ситуация с курортами Средиземноморья. С самом начале сезона на рынке появляется много предложений, которые вскоре становятся горящими. В марте выгодно бронировать автобусные поездки по Европе. Назвать это «горящими путёвками» нельзя. Скорее, это «скидка первому клиенту» – то есть такие предложения приобретают выгоду при раннем бронировании. Хотя и конкретно «горящие путёвки» тоже случаются. Например, при неожиданном возврате тура агентству. <br></span></span><span><span>В конце весны в Испании стартует туристический сезон, и туристические фирмы создают уйму предложений для путешественников. Правда, спрос на них появляется не сразу, так как море ещё прохладное. Если хотите познакомиться со страной и изучить её достопримечательности, шансы приобрести горящую путёвку в этот период весьма велики.</span></span></p><h2 dir="ltr"><span>Горящие туры летом</span></h2><p><span><span>Летом популярны горящие туры в Египет. Связано это с тем, что египетское лето – низкий сезон. В эти месяцы в стране очень жарко – местами воздух прогревается до +50°С. Выдержать такой зной под силу только очень стойким туристам. В конце мая и в июне можно найти горящий тур в Турцию, где сезон только начинается. Море уже тёплое, отели и развлекательные центры работают в полную силу, но вечером еще может быть прохладно, поэтому прихватите пару свитеров – и в путь!&nbsp;</span></span><span><span><br>Выгодные предложения появляются летом в Таиланд, так как в этот период в стране сезон дождей. Летние ливни — привычная история и для Индии. Осадки интенсивные, поэтому рекомендуем подготовиться к высокой влажности, собираясь сюда на отдых. Летом туристы предпочитают пляжный отдых: все едут поближе к морю, потому пользуются популярностью горящие туры в Европу. Если удача окажется на вашей стороне, то в ту же Чехию можно съездить в два раза дешевле.</span></span></p><h2 dir="ltr"><span>Горящие туры осенью</span></h2><p><span id="docs-internal-guid-9e73d774-7fff-045f-91ab-8eb2e8919dbf"><span>В конце сентября в агентствах появляются горящие предложения в Эмираты. К этому времени жара ещё не ушла, и пляжный отдых на местных курортах не пользуется высоким спросом. Однако, «поймать» выгодную путевку в ОАЭ не так-то просто. Это направление популярно круглый год благодаря экскурсионной программе, обширному списку развлечений и национальному колориту, в который можно погрузиться на время путешествия. «Горят» начиная с 15-го сентября путевки в Турцию. Осенью пляжный сезон на турецких курортах завершается, снижением цен организаторы продлевают время наплыва туристов. Комфортные погодные условия сохраняются в Турции до конца октября. Также осенью падают цены на отдых в Греции. Опять-таки, из-за окончания туристического сезона. Аналогичная ситуация с Черногорией в октябре, когда воздух становится прохладнее и пляжный досуг уже не такой популярный. Но для любителей пеших экскурсий это будет комфортное время.</span></span><span id="docs-internal-guid-9e73d774-7fff-045f-91ab-8eb2e8919dbf"><span> <br><br>Рекомендуем приобретать горящие туры у проверенных туроператоров. Бояться таких путёвок не стоит, ведь причины их появления теперь нам известны. Планируйте покупку горящего тура заранее, анализируя возможное время его появления, за день до поиска предложений берите отпуск и наслаждайтесь отдыхом по низкой цене. Эмоции от неожиданной поездки всегда ярче!</span></span></p></div>
+            </div>
+        </div>
+    </section>
+    </div>
+        <div class="footer-wrap">
+    <div class="footer container">
+        <div class="row col-pd-10">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Турне в соц сетях</div>
+                <div class="footer__social">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M3.516 24h7.828v-8.531H8.53v-2.813h2.813V9.141a3.52 3.52 0 0 1 3.515-3.516h3.516v2.813h-2.813c-.775 0-1.406.63-1.406 1.406v2.812h4.092l-.469 2.813h-3.623V24h6.328A3.52 3.52 0 0 0 24 20.484V3.516A3.52 3.52 0 0 0 20.484 0H3.516A3.52 3.52 0 0 0 0 3.516v16.968A3.52 3.52 0 0 0 3.516 24zM1.406 3.516c0-1.163.947-2.11 2.11-2.11h16.968c1.163 0 2.11.947 2.11 2.11v16.968c0 1.163-.947 2.11-2.11 2.11h-4.922v-5.719h3.409l.937-5.625h-4.346V9.844h4.22V4.219h-4.923A4.927 4.927 0 0 0 9.938 9.14v2.109H7.124v5.625h2.813v5.719H3.516a2.112 2.112 0 0 1-2.11-2.11V3.516z"/>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M6.497 0h11.006a6.504 6.504 0 0 1 6.493 6.264l.004.233v11.007a6.504 6.504 0 0 1-6.264 6.492l-.232.004H6.497a6.504 6.504 0 0 1-6.493-6.264L0 17.504V6.497A6.504 6.504 0 0 1 6.264.004L6.497 0h11.006zm11.007 1.407H6.497A5.096 5.096 0 0 0 1.41 6.282l-.004.215v11.007a5.096 5.096 0 0 0 4.875 5.085l.215.004h11.006a5.096 5.096 0 0 0 5.086-4.875l.004-.214V6.497a5.095 5.095 0 0 0-5.09-5.09zM12 5.437A6.57 6.57 0 0 1 18.562 12 6.57 6.57 0 0 1 12 18.562 6.57 6.57 0 0 1 5.438 12 6.57 6.57 0 0 1 12 5.438zm0 1.408A5.161 5.161 0 0 0 6.845 12 5.161 5.161 0 0 0 12 17.155 5.161 5.161 0 0 0 17.155 12 5.161 5.161 0 0 0 12 6.845zm6.72-3.738c1.069 0 1.939.87 1.939 1.94a1.94 1.94 0 0 1-1.94 1.938c-1.07 0-1.939-.87-1.939-1.939s.87-1.939 1.94-1.939zm0 1.407a.533.533 0 1 0 0 1.065.533.533 0 0 0 0-1.065z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="footer__heading">Контакты</div>
+                <div class="footer__contacts">
+                    <a href="tel:+380678294052">(067) 829-40-52</a><br>
+                    <a href="tel:+380952357060">(095) 235-70-60</a><br>
+                    <a href="#callbackModal" class="footer__callback" data-toggle="modal">
+                        Перезвоните мне
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Ваш отдых</div>
+                <ul>
+                    <li><a href="/">Горящие туры</a></li>
+                    <li><a href="/">Туры</a></li>
+                    <li><a href="/">Туры на майские</a></li>
+                    <li><a href="/">Экскурсионные туры</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Куда поехать</div>
+                <ul>
+                    <li><a href="/">Страны</a></li>
+                    <li><a href="/">Отели</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Туристам</div>
+                <ul>
+                    <li><a href="where-buy-mobile.html">Где купить</a></li>
+                    <li><a href="/">Статьи</a></li>
+                                                                                    <li><a href="reviews-hotels-page-mobile.html">Отзывы об отелях</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Партнерам</div>
+                <ul>
+                    <li><a href="/">Для турфирм</a></li>
+                    <li><a href="/">Правовая информация</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-2 footer__col">
+                <div class="footer__heading">Turne.com.ua</div>
+                <div class="footer__text">Copyright © 2019 "X-tend". <br>
+                    Все права защищены.
+                </div>
+                <ul>
+                    <li><a href="/">О проекте</a></li>
+                    <li><a href="hot-tours-page.html">Полная версия</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div></div>
+<!-- Modal -->
+<div class="modal contacts-modal" id="contactsModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Контакты
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="contacts-modal__content">
+                    <div class="contacts-modal__row">
+                        <div>
+                            Подбор тура
+                        </div>
+                        <a href="tel:+380678294052" class="media contacts-modal__phone">
+                            <svg class="contacts-modal__icon" width="24" height="24">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#kyivstar"></use>
+                            </svg>
+                            <span class="media-body">(067) 829-40-52</span>
+                        </a>
+                        <a href="tel:+380952357060" class="media contacts-modal__phone">
+                            <svg class="contacts-modal__icon" width="24" height="24">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#vodafone"></use>
+                            </svg>
+                            <span class="media-body">(095) 235-70-60</span>
+                        </a>
+                    </div>
+                    <div class="contacts-modal__row">
+                        <div>
+                            Реклама
+                        </div>
+                        <a href="tel:+380955453888" class="media contacts-modal__phone">
+                            <svg class="contacts-modal__icon" width="24" height="24">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="Images/icons-search.svg#vodafone"></use>
+                            </svg>
+                            <span class="media-body">(095) 545-38-88</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- Modal -->
+<div class="modal callback-modal" id="callbackModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Обратный звонок
+                <button type="button" class="close" data-dismiss="modal">
+                    <svg class="svg-icon" width="32" height="32">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="Images/icons-search.svg#close"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                    <div class="b-dropdown-callback" style="display: block !important;">
+                        <form action="/common/phonecallbackformsubmit" data-ajax="true" data-ajax-begin="oForms.FormOnBegin"
+                              data-ajax-complete="oForms.FormOnComplete" data-ajax-success="oForms.PhoneCallbackFormOnSuccess"
+                              id="form1" method="post" novalidate="novalidate"><span class="b-dropdown-callback__heading">Введите свой номер телефона:</span>
+
+                            <div class="form-group"><input class="form-control jsMaskedInputPhone" data-val="true"
+                                                           data-val-regex="Неверный формат"
+                                                           data-val-regex-pattern="^\+38\(\d{3}\)\s{1}\d{3}-\d{2}-\d{2}$"
+                                                           data-val-required="Неверный формат" id="Phone" maxlength="100"
+                                                           name="Phone" placeholder="+38(XXX) XXX-XX-XX" type="tel"> <span
+                                        class="field-validation-valid validation" data-valmsg-for="Phone"
+                                        data-valmsg-replace="true"></span></div>
+                            <input id="Url" name="Url" type="hidden" value="%2f">
+                            <input type="submit" id="btnSend"
+                                   name="btnSend"
+                                   class="btn btn-brand btn-brand--orange"
+                                   value="Перезвоните мне"></form>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div><script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.js" type="text/javascript"></script>
+<script src="js/datepicker_mobile.js" type="text/javascript"></script>
+<script src="js/scripts.js" type="text/javascript"></script>
+<script src="js/scripts_mobile.js" type="text/javascript"></script>
+<script src="js/lazysizes.min.js" async=""></script>
+<script src="js/svg4everybody.min.js" type="text/javascript"></script>
+<script src="js/ofi.min.js" type="text/javascript"></script>
+
+
+    <script src="js/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+</body>
+</html>

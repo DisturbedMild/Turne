@@ -1,0 +1,100 @@
+.section-tours {
+  margin-top: 20px;
+}
+
+.bus-tours__item {
+  text-align: center;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border: 1px solid #e5e5e5;
+  background-color: #f4f5f5;
+  width: 1180px;
+}
+
+.hotel-tours--bus .btn-brand {
+  max-width: 50%;
+}
+
+.bus-tours__th {
+  width: 295px;
+  border-bottom: none;
+  padding: 5px 0px;
+}
+
+.bus-tours__th-title {
+  padding: 10px 0px;
+}
+
+.bus-tours__inner-th {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border-top: 1px solid #e5e5e5;
+}
+
+.bus-tours__mobile-description {
+  display: none;
+}
+
+.hotel-tours__th {
+  font-weight: 700;
+  border-bottom: none;
+  padding-top: 50px;
+}
+
+.hotel-tours__th span {
+  font-weight: 500;
+}
+
+.hotel-tours__th:nth-child(2) {
+  border-left: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.hotel-tours__item {
+  text-align: center;
+  font-weight: 700;
+}
+
+.hotel-tours__item .hotel-tours__td {
+  border: 1px solid #e5e5e5;
+  border-top: none;
+}
+
+.hotel-tours__item .hotel-tours__td + .hotel-tours__td {
+  border-left: none;
+}
+
+.bus-tours__wrap-footnote {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 1rem;
+  font-size: 14px;
+}
+
+.bus-tours__footnote {
+  font-weight: bold;
+}
+
+.bus-tours__sup {
+  color: #ff8508;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=map/bus-tours.css.map */

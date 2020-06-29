@@ -1,0 +1,72 @@
+@media (max-width: 1199px) {
+  .section-callback__heading {
+    font-size: 20px;
+  }
+  .form-callback__col, .form-callback__col:last-child {
+    max-width: 100%;
+  }
+  .form-callback__col--btn {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .form-callback .custom-dropdown__control {
+    min-height: 40px;
+    font-size: 14px;
+    line-height: 26px;
+  }
+  .form-callback .brand-checkbox {
+    -webkit-box-ordinal-group: 1;
+    -webkit-order: 0;
+        -ms-flex-order: 0;
+            order: 0;
+  }
+  .form-callback .btn {
+    line-height: 26px;
+    width: 100%;
+    font-size: 14px;
+    background-image: none;
+  }
+  .form-callback--transparent .form-callback__input {
+    height: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .our-advantages__item-text {
+    padding: 0px 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .our-advantages__item {
+    height: 100px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 5px 15px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .our-advantages__item-circle {
+    margin: 0px;
+    margin-right: 10px;
+    height: 80px;
+    max-width: 80px;
+  }
+  .our-advantages__item-circle svg {
+    height: 38px;
+    width: 38px;
+  }
+  .our-advantages__item-text {
+    margin: 0px;
+    max-width: none;
+    padding: 0px;
+  }
+}
+
+/*# sourceMappingURL=map/home-page_mobile.css.map */

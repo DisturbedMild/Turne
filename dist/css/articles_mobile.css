@@ -1,0 +1,53 @@
+@media (max-width: 1199px) {
+  .layout-box {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .form-section {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .form-section__content {
+    margin-top: 20px;
+  }
+  .form-section__btn {
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 767px) {
+  .form-section {
+    display: block;
+  }
+  .best-tours .form-section__content {
+    display: block;
+  }
+  .best-tours .form-section__btn {
+    margin-left: -10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .col-pd-20 {
+    margin-right: -12px;
+    margin-left: -12px;
+  }
+  .col-pd-20 > .col,
+  .col-pd-20 > [class*="col-"] {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .pagination .page-item + .page-item {
+    margin-left: 5px;
+  }
+}
+
+/*# sourceMappingURL=map/articles_mobile.css.map */

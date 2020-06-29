@@ -1,0 +1,301 @@
+.back-icon {
+  fill: #4A5567;
+}
+
+.modal-mob {
+  right: 0;
+  bottom: 0;
+}
+
+.modal-mob .modal-header {
+  width: 100%;
+  font-size: 16px;
+  color: #4b5669;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  z-index: 100;
+  background: #fff;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.modal-mob__btn {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 8px 12px;
+  margin: 0;
+  -webkit-box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+.modal-mob__btn .btn {
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+}
+
+.modal-mob .modal-body {
+  padding-bottom: 60px;
+}
+
+.modal-mob .modal-content {
+  border: none;
+  min-height: 100%;
+  -webkit-border-radius: 0;
+          border-radius: 0;
+}
+
+.modal-mob .modal-dialog {
+  max-width: none;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  margin: 0;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.modal-mob__back {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+  border: none;
+}
+
+.modal-mob .close {
+  display: none;
+}
+
+.contacts-modal {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
+.contacts-modal .modal-header {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contacts-modal .modal-content {
+  border: none;
+}
+
+.contacts-modal .modal-body {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 0;
+}
+
+.contacts-modal__content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.contacts-modal__row {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.contacts-modal__phone {
+  margin-left: -10px;
+  margin-top: 10px;
+  line-height: 31px;
+  font-weight: bold;
+  color: #4b5669;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contacts-modal__phone .media-body {
+  margin-left: 5px;
+}
+
+.contacts-modal .btn {
+  width: 100%;
+}
+
+.slick-carousel:not(.slick-initialized) {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+@media (max-width: 1900px) {
+  .slick-carousel:not(.slick-initialized) .slick-carousel-item {
+    min-width: 33.33333%;
+  }
+}
+
+@media (max-width: 991px) {
+  .slick-carousel:not(.slick-initialized) .slick-carousel-item {
+    min-width: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .slick-carousel:not(.slick-initialized) .slick-carousel-item {
+    min-width: 100%;
+  }
+}
+
+.collapse-search {
+  display: none;
+}
+
+.collapse-search-wrap.visible {
+  min-height: 59px;
+}
+
+.collapse-search-wrap.visible .collapse-search {
+  display: block;
+}
+
+.collapse-search-wrap.visible ~ .full-search {
+  display: none;
+}
+
+.collapse-search {
+  top: 0;
+  position: relative;
+  right: 0;
+  left: 0;
+  padding: 10px 0;
+  z-index: 50;
+}
+
+.collapse-search.search-fixed {
+  display: block;
+  position: fixed;
+  top: 0;
+  -webkit-transform: translateY(-100px);
+      -ms-transform: translateY(-100px);
+          transform: translateY(-100px);
+  background: #387c89;
+  padding: 10px;
+}
+
+.collapse-search.animate {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: opacity 600ms, -webkit-transform 600ms;
+  transition: opacity 600ms, -webkit-transform 600ms;
+  -o-transition: transform 600ms, opacity 600ms;
+  transition: transform 600ms, opacity 600ms;
+  transition: transform 600ms, opacity 600ms, -webkit-transform 600ms;
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1199px) {
+  html {
+    font-size: 14px;
+  }
+  .operators-cards .operators-cards__thumbnail img {
+    max-width: 80%;
+  }
+}
+
+.fancybox-horizontal-thumbs.fancybox-show-thumbs .fancybox-inner {
+  right: 0;
+  bottom: 95px;
+  overflow: visible;
+}
+
+.fancybox-horizontal-thumbs .fancybox-toolbar div {
+  display: inline-block;
+  height: 44px;
+  line-height: 42px;
+  background: rgba(30, 30, 30, 0.6);
+  color: #ccc;
+  font-size: 12px;
+  font-weight: bold;
+  min-width: 42px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.fancybox-horizontal-thumbs .fancybox-thumbs {
+  top: auto;
+  width: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 95px;
+  padding: 10px 10px 0 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.fancybox-horizontal-thumbs .fancybox-show-thumbs .fancybox-inner {
+  right: 0;
+  bottom: 95px;
+  overflow: visible;
+}
+
+.fancybox-horizontal-thumbs .fancybox-thumbs::-webkit-scrollbar {
+  height: 12px;
+}
+
+.fancybox-horizontal-thumbs .fancybox-thumbs::-webkit-scrollbar-track {
+  background: #2a2a2a;
+  -webkit-border-radius: 10px;
+          border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+          box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.fancybox-horizontal-thumbs .fancybox-thumbs::-webkit-scrollbar-thumb {
+  background: #ccc;
+  -webkit-border-radius: 10px;
+          border-radius: 10px;
+}
+
+/*# sourceMappingURL=map/mobile-device.css.map */

@@ -1,0 +1,44 @@
+.custom-dropdown {
+  &__control {
+    padding: 6px 36px 6px 24px;
+  }
+  &__icon {
+    position: relative;
+    z-index: 1;
+    margin-left: -16px;
+    flex-shrink: 0;
+    fill: #9CA4B3;
+  }
+}
+
+@media (max-width: 1199px) {
+  .full-search {
+    &__title {
+      display: none;
+    }
+    .custom-dropdown {
+      margin-bottom: 1rem;
+      &__control {
+        min-height: 40px;
+        font-size: 14px;
+        line-height: 26px;
+      }
+    }
+    &__btn {
+      margin-top: 0;
+      font-size: 14px;
+      line-height: 26px;
+    }
+    &__message {
+      position: relative;
+      margin-top: -13px;
+    }
+  }
+  .custom-dropdown {
+    &__control {
+      input {
+        padding-left: 32px;
+      }
+    }
+  }
+}

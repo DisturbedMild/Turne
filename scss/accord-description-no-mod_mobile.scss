@@ -1,0 +1,38 @@
+
+.accord-description {
+  padding: 0;
+}
+
+.accord-description table td img {
+  max-width: 100%;
+
+}
+.accord-description h2 {
+  padding: 15px 0;
+  font-size: 19px;
+}.accord-description h2 + p {
+  padding-left: 15px;
+}
+
+.accord-description table {
+  display: flex;
+  tr {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+.accord-description {
+  padding: 0;
+}
+
+@media (max-width: 1199px) {
+.accord-description .heading-icon {
+  float: none;
+  margin-left: 0;
+  max-width: none;
+  font-size: 16px;
+  padding: 8px 0;
+  }
+}

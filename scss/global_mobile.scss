@@ -1,0 +1,103 @@
+@import "mixin.scss";
+@import "variable";
+
+html {
+  height: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.back-icon {
+  background: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path fill="#4A5567" d="M19 11H7.414l3.293-3.293a.999.999 0 10-1.414-1.414l-5 5a1.001 1.001 0 000 1.414l5 5a.997.997 0 001.414 0 .999.999 0 000-1.414L7.414 13H19a1 1 0 000-2z"/></svg>') center no-repeat;
+}
+
+.text-collapse {
+  &--shadow {
+    @media (max-width: 1199px) {
+      &:not(.expanded)::before {
+        height: calc(100% - 73px);
+        margin-top: -5.4rem;
+      }
+    }
+    @media (max-width: 767px) {
+      &:not(.expanded)::before {
+        height: calc(100% - 73px);
+        margin-top: -4.8rem;
+      }
+    }
+  }
+}
+
+@import "dropdown/dropdown-list_mobile";
+@import "dropdown/dropdown-filter_mobile";
+@import "dropdown/datepicker_mobile";
+
+@media (max-width: 1199px) {
+  .layout-box {
+    &--reverse {
+      flex-direction: row;
+    }
+    &__sidebar {
+      > * {
+        margin-right: 0;
+      }
+    }
+  }
+  .screen-search__heading {
+    font-size: 20px;
+  }
+  //.screen-search__content {
+  //  margin-top: 19px;
+  //}
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .heading {
+    font-size: 20px;
+  }
+  .form-control {
+    height: 40px;
+    font-size: 14px;
+  }
+  .responsive-thumbnail {
+    position: relative;
+    &::before {
+      display: block;
+      content: "";
+      padding-top: 56.25%;
+    }
+    img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+  .tour-card__thumbnail.responsive-thumbnail, .news-card__thumbnail.responsive-thumbnail {
+    height: auto !important;
+    max-height: 218px;
+  }
+  .image-box__thumbnail.responsive-thumbnail {
+    height: auto !important;
+    max-height: 218px;
+  }
+  .articles-wrap {
+    h2 {
+      font-size: 20px;
+    }
+    h3 {
+      font-size: 18px;
+    }
+  }
+}
+@media (max-width: 767px) {
+  h4 {
+    font-size: 16px;
+  }
+  h5 {
+    font-size: 16px;
+  }
+  h6 {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,35 @@
+{% macro dropdown(mobile) %}
+<div class="wrap-datepicker">
+    <div style="display: none;">
+                                                            <span id="ctl00_ctl00_ctl00_center_center_center_filters_spanDateFrom"
+                                                                  class="jsDateFrom">21.10</span>
+        <span id="ctl00_ctl00_ctl00_center_center_center_filters_spanDateTo"
+              class="jsDateTo">30.10</span>
+        <span id="ctl00_ctl00_ctl00_center_center_center_filters_spanDurationFrom">1</span>
+        <span id="ctl00_ctl00_ctl00_center_center_center_filters_spanDurationTo">10</span>
+        <input type="hidden"
+               name="ctl00$ctl00$ctl00$center$center$center$filters$hdDepartureDateFrom"
+               id="ctl00_ctl00_ctl00_center_center_center_filters_hdDepartureDateFrom"
+               value="21.10.2019">
+        <input type="hidden"
+               name="ctl00$ctl00$ctl00$center$center$center$filters$hdDepartureDateTo"
+               id="ctl00_ctl00_ctl00_center_center_center_filters_hdDepartureDateTo"
+               value="30.10.2019">
+        <input type="hidden"
+               name="ctl00$ctl00$ctl00$center$center$center$filters$hdnDurationFrom"
+               id="ctl00_ctl00_ctl00_center_center_center_filters_hdnDurationFrom"
+               value="1">
+        <input type="hidden"
+               name="ctl00$ctl00$ctl00$center$center$center$filters$hdnDurationTo"
+               id="ctl00_ctl00_ctl00_center_center_center_filters_hdnDurationTo"
+               value="10">
+    </div>
+    <div class="b-datepicker b-datepicker--center b-dropdown m-dropdown"
+         style="display:none;">
+        <div class="m-dropdown__header">
+            <button class="m-dropdown__back back-icon jsMultiSelectDone"></button>
+            <span class="m-dropdown__title">Дата выезда, длительность</span>
+        </div>
+    </div>
+</div>
+{% endmacro %}

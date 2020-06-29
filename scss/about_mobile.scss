@@ -1,0 +1,34 @@
+@import 'mixin';
+@import 'variable';
+html {
+  height: 100%;
+}
+@media (max-width: 1199px) {
+  .about-section {
+    .form-section {
+      margin-bottom: 20px;
+    }
+    .contacts-card {
+      max-width: 300px;
+      width: 100%;
+    }
+  }
+}
+@media (max-width: 991px) {
+  .about-section {
+    .form-section {
+      padding: 10px;
+      &__header {
+        line-height: 1.4;
+      }
+    }
+  }
+}
+
+@media (max-width: 545px) {
+  .about-section {
+    .contacts-card {
+      margin-bottom: 30px;
+    }
+  }
+}

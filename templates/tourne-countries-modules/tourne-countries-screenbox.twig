@@ -1,0 +1,60 @@
+<div class="screen screen-search">
+  <img class="screen__bg objectFitCover lazyload" data-src="Images/Main.jpg" alt="">
+  <div class="screen-search__content container">
+    <nav aria-label="breadcrumb nav-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Главная Турне</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Cтраны</li>
+      </ol>
+    </nav>
+
+    <div class="screen-search__row">
+      <h1 class="screen-search__heading">
+        Cтраны
+      </h1>
+    </div>
+    {# {% include "../components/full-search-form/full-search-form.twig" %} #}
+    <div>
+      <form action="/tour" method="post" class="full-search-wrap">
+        {% if mobile %}
+          <div class="collapse-search-wrap {{ smallScrollVisibleClass }}">
+            <div class="collapse-search js-collapse-search-fixed">
+              <div class="collapse-search__control">
+                <div class="collapse-search__text">
+                  <span>Египет</span>,
+                  <span>10.08 – 17.08, 7-9 ночей</span>,
+                  <span>2 взрослых</span>
+                </div>
+                <div class="arrow-icon"></div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+        <div class="full-search clearfix js-scroll-scope{{ searchStickyClass }}">
+          <div class="row  full-search__row">
+            <div class="col-12 col-md-8 col-lg-5 col-xl-5">
+              {% set fullSearchTitle = "Поиск по странам" %}
+              {% set iconName = "airplane" %}
+              {% set textDropdown = "Египет" %}
+              {% set customDropdownClass = "custom-dropdown--no-border" %}
+              {% from "./countries-dropdown.twig" import dropdown %}
+              <div class="full-search__title">{{ fullSearchTitle }}</div>
+              {% if not mobile %}
+                    {% include "./custom-dropdown-search.twig" %}
+                {% else %}
+                    {% include "./custom-dropdown.twig" %}
+                {% endif %}
+            </div>
+            <div class="col-12 col-md-4 col-lg-2 col-xl-2">
+              <button class="btn btn-brand btn-brand--orange full-search__btn">Поиск</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,54 @@
+@import "../mixin";
+@import "../variable";
+
+.hotel-info {
+  &__header-text {
+    font-weight: 600;
+    color: #333333;
+  }
+  &__text-collapse {
+   margin-bottom: 0;
+    p {
+      margin-bottom: rem(5px);
+    }
+  }
+  &__content-block {
+    word-break: break-word; // IE & < Edge 18
+    overflow-wrap: break-word;
+    border-radius: 4px;
+    box-shadow: 0 10px 24px 0 rgba(33, 84, 94, 0.15);
+    display: flex;
+    margin-bottom: rem(30px);
+  }
+  &__items {
+    border-radius: 4px;
+    background-color: #f6f6f7;
+    padding-top: 20px;
+    flex-shrink: 0;
+    max-width: 300px;
+    a {
+      color: #4b5669;
+      text-decoration: none;
+    }
+  }
+  &__item-title {
+    font-family: $font-mont;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 20px;
+    cursor: pointer;
+    &:hover {
+      background: #fff;
+      color: $blue;
+    }
+  }
+  &__item-title.active{
+    background: #fff;
+    color: $blue;
+  }
+  .tab-content, .collapse {
+    width: 100%;
+  }
+}
+
+@import "hotel-infrastructure";

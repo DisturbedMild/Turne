@@ -1,0 +1,54 @@
+@import 'mixin';
+@import 'variable';
+
+
+@media (max-width: 1199px) {
+  .layout-box {
+    flex-direction: column-reverse;
+  }
+  .form-section {
+    display: flex;
+    &__content {
+      margin-top: 20px;
+    }
+    &__btn {
+      margin-left: 0px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .form-section {
+    display: block;
+  }
+  .best-tours {
+    .form-section {
+      &__content {
+        display: block;
+      }
+      &__btn {
+        margin-left: -10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+.col-pd-20 {
+  margin-right: -12px;
+  margin-left: -12px;
+
+  > .col,
+  > [class*="col-"] {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+}
+}
+@media (max-width: 380px) {
+  .pagination {
+    .page-item + .page-item {
+      margin-left: 5px;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{% extends "layouts/default.twig" %}
+{% set mobile = "" %}
+{% if mobile %}
+    {% set toggleMobileText = "Полная версия" %}
+    {% set toggleMobileLink = "price.html" %}
+{% else %}
+    {% set toggleMobileText = "Мобильная версия" %}
+    {% set toggleMobileLink = "price_mobile.html" %}
+{% endif %}
+
+{% block searchStyle %}
+    <link href="css/bundle/searchStyle.css?v=113" rel="stylesheet"/>
+    <link rel="stylesheet" href="js/fancybox/jquery.fancybox.min.css">
+{% endblock %}
+{% block head %}
+    <link href="css/price.css?v=113" rel="stylesheet"/>
+{% endblock %}
+
+{% block scripts %}
+    <script src="js/fancybox/jquery.fancybox.min.js" type="text/javascript"></script>
+    <script src="js/stacktable.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            var isMobileDevice = $('body').hasClass('mobile');
+            $('table').stacktable();
+
+            $('[data-fancybox]').fancybox({
+                baseClass: "fancybox-horizontal-thumbs",
+                thumbs: {
+                    autoStart: false,
+                    axis: isMobileDevice ? 'x' : 'y'
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% include "./price-modules/price-content.twig" %}
+    </div>
+
+{% endblock %}

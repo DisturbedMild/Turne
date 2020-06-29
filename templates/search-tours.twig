@@ -1,0 +1,154 @@
+{% extends "layouts/default.twig" %}
+{% set mobile = "" %}
+{% set searchStickyClass =  ' js-search--fixed'%}
+{% if mobile %}
+    {% set toggleMobileText = "Полная версия" %}
+    {% set toggleMobileLink = "search-tours.html" %}
+    {%  set hotelDetailLink = "hotel-details-mobile.html" %}
+{% else %}
+    {% set toggleMobileText = "Мобильная версия" %}
+    {% set toggleMobileLink = "search-tours-mobile.html" %}
+    {%  set hotelDetailLink = "hotel-details.html" %}
+{% endif %}
+{% block searchStyle %}
+    <link href="css/bundle/searchStyle.css?v=112" rel="stylesheet"/>
+{% endblock %}
+{% block head %}
+    <link href="css/vertical-filter.css?v=112" rel="stylesheet">
+    <link rel="stylesheet" href="css/search-tours-page.css">
+{% endblock %}
+
+{% block scripts %}
+    <script src="js/search-tours.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('.vertical-filter-search input').on('keyup', function () {
+                $(this).parents('.custom-dropdown').find('.jsDropDownOptions').show();
+                $(this).parents('.custom-dropdown').addClass('select-open');
+            })
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    {% include "./search-tours-modules/search-tours__screen-box.twig" %}
+    <div class="container search-container">
+        <div style="width: 0; height: 0;">
+            <svg>
+                <symbol id="progressbar" viewbox="0 0 58 58">
+                    <circle cx="29" cy="29" r="29"/>
+                    <path fill="none" stroke-dasharray="140" stroke="#dfe3eb" stroke-width="4"
+                          d="M29,6.778c12.273,0,22.222,9.949,22.222,22.222
+	S41.273,51.222,29,51.222S6.778,41.273,6.778,29S16.727,6.778,29,6.778"/>
+                    <path fill="none" stroke="#387c89" stroke-width="4" d="M29,6.778c12.273,0,22.222,9.949,22.222,22.222
+	S41.273,51.222,29,51.222S6.778,41.273,6.778,29S16.727,6.778,29,6.778"/>
+                </symbol>
+            </svg>
+        </div>
+        <div class="row layout-box layout-box--reverse">
+            <div class="col-12 col-xl-9">
+                <div class="search-tour">
+                    {% include "./search-tours-modules/search-card.twig" %}
+                </div>
+                <div class="form-section">
+                    <div class="form-section__image">
+                        <img src="Images/subscribe-2.png" alt="">
+                    </div>
+                    <div class="form-section__content">
+                        <div class="form-section__header">
+                            Узнавайте о турах первыми!
+                        </div>
+                        <div class="form-section__text">
+                            Подпишитесь на рассылку. Путешествуйте с Турне.
+                        </div>
+                        {% include "./hot-tours-modules/subscribe-hot-tour-page.twig" %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-xl-3 layout-box__sidebar">
+                {% include "./search-tours-modules/search-tours-filter.twig" %}
+            </div>
+        </div>
+    </div>
+    <section class="page-article grey-background-f6f">
+        <div class="container text-collapse-wrap">
+            <div class="articles-wrap text-collapse text-collapse--shadow">
+                <h2>Путевки на отдых: правила выбора</h2>
+                <span>Каким будет отдых, зависит от самого туриста, который отправляется купить путевку в турагентство. Правильно заданные вопросы и четкая определенность в желаниях увеличивают шансы подобрать идеальный вариант конкретно для вас.
+          <br>До того, как ехать в офис турфирмы, подумайте, что вам нужно от поездки – теплое море и белый песок, побольше музеев и красивой архитектуры, прогулки по романтическим местам, или множество возможностей для расслабляющего отдыха в СПА-центрах.</span>
+                <span><br><br>Как и виды отдыха, туристические туры тоже бывают разнонаправленными:
+          <br></span><br>
+                <ul>
+                    <li dir="ltr">
+            <span>
+              <strong>Пляжные.</strong>
+              Предполагают максимально комфортабельные условия для времяпровождения на побережье. В такие путевки включено проживание в отелях с высокоразвитой инфраструктурой (водный спорт, СПА-процедуры, бассейн, аквапарк, коктейли на пляже, анимация, дискотека).
+            </span>
+                    </li>
+                    <li dir="ltr">
+            <span>
+              <strong>Экскурсионные и автобусные.</strong>
+            </span>
+                        <span>Купить тур</span>
+                        <span>
+              такого типа будет отличным решением, если вы желаете осмотреть за одну поездку сразу несколько городов или стран. В стоимость предложений входит также экскурсионная программа.</span>
+                    </li>
+                    <li dir="ltr">
+            <span>
+              <strong>Романтические</strong>. Позволяют отдохнуть влюбленным в соответствующей атмосфере (необычные рестораны, уединенные гостиницы, организация свадебных церемоний).</span>
+                    </li>
+                    <li dir="ltr">
+            <span>
+              <strong>Событийные.</strong>
+              Привязаны к праздничным датам на курортах, нацелены познакомить туристов с культурой страны через традиционные гуляния и карнавалы.</span>
+                    </li>
+                    <li dir="ltr">
+                        <strong>Туристические путевки</strong>
+                        <span>
+              <strong>
+                выходного дня.</strong>
+              Предоставляют шанс отдохнуть насыщенно туристам, которые не имеют возможности отправиться в отпуск более чем на 3-4 дня.
+            </span>
+                    </li>
+                    <li dir="ltr">
+            <span>
+              <strong>Оздоровительные.</strong>
+              Путешествие в места, где можно поправить общее состояние здоровья или пройти расслабляющие процедуры.
+            </span>
+                    </li>
+                </ul>
+                <br><span>
+          <span>Далее сформируйте отпускной бюджет, от которого нужно отталкиваться при покупке путевки. В стоимость туров обычно включены: авиаперелет (проезд на автобусе) и трансфер от места прибытия, питание и проживание, страховка и виза (в случае, если она нужна). Последние также могут оказаться и отдельной статьей расхода.
+          </span>
+          <span>Не в каждом отеле представлено питание в формате All inclusive, которое может оказаться в некоторых случаях даже неуместным.
+          </span>
+          <span>Лучшие туры</span>
+          <span>
+            для «пляжных» туристов, конечно, с системой питания Все включено или трехразовым питанием (пансион FB). Только завтраки (BB) и завтрак с ужином или обедом (полупансион HB) подойдут людям, которые проводят отпуск практически вне отеля.</span><br></span>
+                <h2 dir="ltr">
+                    <span>Стоит ли «ловить» горящие туры?</span>
+                </h2>
+                <span>
+          <span>Периодически</span>
+          <span>
+            лучшие путевки Все включено</span>
+          <span>
+            можно встретить среди горящих предложений. Такой вариант экономит бюджет отдыха в сравнении с обычным туром и позволяет отправиться на отдых почти сразу же после покупки предложения. Из недостатков стоит выделить отсутствие выбора места проживания и даты вылета, ведь тур уже укомплектован и привязан к определенному дню. Сюда относится и фактор сезонности – такие
+            <a href="https://www.turne.com.ua/hottours" target="_blank">туры</a>&nbsp;чаще выпадают на период с «нетуристической» погодой для основного вида отдыха в конкретной стране. &nbsp;</span>
+        </span>
+                <h2 dir="ltr">
+          <span>Путешествуйте вместе с Турне
+          </span>
+                </h2>
+                <span id="docs-internal-guid-37e6ffa3-7fff-a654-7f26-f5ad14227a24">
+          <span>Наш портал предоставляет подробную информацию об отелях, странах, курортах и делится свежими новостями в сфере туризма. Компания «Турне» предлагает большое разнообразие направлений на самые популярные мировые курорты. С нами вы можете подобрать лучшие
+          </span>
+          <span>туристические путевки</span>
+          <span>
+            по приемлемым ценам и отправиться в путешествие, продуманное до мелочей.
+          </span><br><br></span>
+                <article></article>
+            </div>
+        </div>
+    </section>
+{% endblock %}

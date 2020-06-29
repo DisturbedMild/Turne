@@ -1,0 +1,67 @@
+{% extends "layouts/default-mobile.twig" %}
+{% set mobile = 'mobile' %}
+{% if mobile %}
+    {% set toggleMobileText = "Полная версия" %}
+    {% set toggleMobileLink = "resorts-country.html" %}
+    {%  set hotDetailLink = "hot-details-mobile.html" %}
+    {%  set excursionDetailLink = "excursion-details-mobile.html" %}
+{% else %}
+    {% set toggleMobileText = "Мобильная версия" %}
+    {% set toggleMobileLink = "resorts-country-mobile.html" %}
+    {%  set hotDetailLink = "hot-details.html" %}
+    {%  set excursionDetailLink = "excursion-details.html" %}
+{% endif %}
+
+{% block searchStyle %}
+    <link href="css/bundle/searchStyle.css?v=113" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slider.css">
+{% endblock %}
+{% block head %}
+    <link href="css/tour-country.css?v=113" rel="stylesheet">
+    <link rel="stylesheet" href="css/tour-country_mobile.css">
+{% endblock %}
+
+{% block scripts %}
+    <script src="js/slick/slick.min.js" type="text/javascript"></script>
+    <script src="js/home-page_mobile.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container layout-mg">
+    <nav class="nav-breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Главная ТУРНЕ</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="#">Страны, курорты</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="#">Египет</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Курорты Египта</li>
+        </ol>
+    </nav>
+    <h1 class="heading">Курорты Египта</h1>
+    <div class="row layout-box layout-box--reverse">
+        <div class="col-12 col-xl-9">
+            {% include "resorts-country-modules/resorts-cards.twig" %}
+        </div>
+        <div class="col-12 col-xl-3 layout-box__sidebar">
+            {% include "resorts-country-modules/resorts-sidebar.twig" %}
+        </div>
+    </div>
+</div>
+    <section class="section-hotels">
+        <div class="container">
+            <h2 class="heading">Рекомендованные отели Египта</h2>
+            {% include "resorts-country-modules/hotels-card.twig" %}
+        </div>
+    </section>
+    <section class="section-news container">
+        <h2 class="heading">Последние статьи о Египте</h2>
+        {% include "./components/news-card/news-card.twig" %}
+    </section>
+    {% include "resorts-country-modules/resorts-seo-text.twig" %}
+{% endblock %}

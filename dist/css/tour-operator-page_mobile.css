@@ -1,0 +1,75 @@
+.operators-box__name {
+  text-align: center;
+}
+
+.slick-carousel-item {
+  max-width: none;
+}
+
+.table-scroll {
+  padding-bottom: 2px;
+}
+
+.table-scroll th:first-child {
+  -webkit-box-shadow: 4px 0 5px -1px #dddddd;
+          box-shadow: 4px 0 5px -1px #dddddd;
+  width: 380px;
+}
+
+.table-scroll thead th {
+  background-color: #f6f6f6;
+}
+
+.table-scroll thead th,
+.table-scroll td {
+  padding-left: 0.9375rem;
+}
+
+.table-scroll thead th:first-child {
+  padding-left: 5px;
+}
+
+@media (max-width: 992px) {
+  .table-scroll th img {
+    max-width: 80px;
+  }
+  .table-scroll th .anex-tour-circle {
+    margin: 0;
+  }
+  .table-scroll .first {
+    width: 330px;
+  }
+}
+
+@media (max-width: 767px) {
+  .table-scroll .operators-table-col {
+    width: 202px;
+  }
+  .table-scroll .first {
+    width: 120px !important;
+  }
+  .table-scroll th:first-child {
+    font-size: 12px;
+  }
+  .table-scroll .operators-table__logo {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .table-scroll {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+}
+
+@media (max-width: 330px) {
+  .table-scroll .first {
+    width: 120px;
+  }
+  .table-scroll th:first-child {
+    font-size: 11px;
+  }
+}
+
+/*# sourceMappingURL=map/tour-operator-page_mobile.css.map */

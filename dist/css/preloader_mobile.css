@@ -1,0 +1,21 @@
+@media (max-width: 770px) {
+  .preloader-section__logos {
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+  }
+  .preloader-section__item {
+    max-width: 30%;
+  }
+}
+
+@media (max-width: 445px) {
+  .preloader-section__logos-title {
+    font-size: 13px;
+  }
+  .preloader-section__logos-block .heading {
+    font-size: 16px;
+  }
+}
+
+/*# sourceMappingURL=map/preloader_mobile.css.map */

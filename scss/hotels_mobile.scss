@@ -1,0 +1,81 @@
+@import "mixin";
+@import "variable";
+
+.full-search__row .col-12.col-xl-2 svg {
+  margin-right: 5px;
+  height: 16px;
+}
+@media (min-width: 1200px) {
+  .filters-btn {
+    display: none;
+  }
+}
+@media (max-width: 1199px) {
+  .filters-container {
+    display: flex;
+    .filters-btn {
+        margin-top: 0;
+    }
+    .sort-dropdown {
+      max-width: 100%;
+      margin-bottom: 15px;
+
+      .custom-dropdown__control {
+        padding-right: 18px;
+      }
+      .custom-dropdown__text {
+        font-weight: 600;
+      }
+      &__title {
+        display: none;
+      }
+      .arrow-icon {
+        display: none;
+      }
+    }
+  }
+  .vertical-filter-page-heading {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .search-card__review-block {
+    padding: 0;
+  }
+  .search-card__price {
+    flex-direction: column;
+  }
+  .search-card__price-content {
+    flex-direction: row;
+    margin-bottom: 8px;
+    align-items: baseline;
+    text-align: left;
+  }
+  .search-card__price-content span {
+    margin-right: 5px;
+  }
+}
+@media (max-width: 970px) {
+  .search-card__facilities span {
+    display: block;
+    font-weight: 600;
+    font-family: $font-mont;
+  }
+  .search-card__facilities span + span { 
+    margin-left: 0px;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 410px) {
+  .search-card__facilities {
+    display: block;
+  }
+}
+@media (max-width: 380px) {
+  .search-card__heading {
+    font-size: 18px;
+  }
+}
+
